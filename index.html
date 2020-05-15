@@ -1,16 +1,86 @@
 <!doctype html>
 <html>
-  <head>
-    <title>Innoetics</title>
-  </head>
-  <body>
-    <p>This page contains samples for our submitted paper 
-      '<strong>High Quality Streaming Speech Synthesis with Low, Sentence-Length-Independent Latency</strong>'
-    </p>
-    <h2>Samples</h2>
-      <audio controls>
-        <source src="audio.wav" type="audio/wav">
-        Your browser does not support the audio element.
-      </audio>
-  </body>
+
+<head>
+  <title>Innoetics</title>
+  <style>
+    .container {
+      padding: 12px 24px;
+    }
+
+    .sample-container {
+      margin: 18px 0;
+    }
+
+    .sample {
+      border: 1px solid gray;
+      border-radius: 10px;
+      padding: 10px;
+      margin: auto;
+      width: 50%;
+      position: relative;
+      display: block;
+      text-align: center;
+
+    }
+
+    .sample-title {
+      font-size: 22px;
+      margin: 8px 0;
+    }
+
+    .sample-description {
+      font-size: 16px;
+      margin: 8px 0;
+      color: #868686e6;
+    }
+
+    .sample-audio {
+      margin: 16px 0;
+    }
+
+    .check-list {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .check-list li {
+      position: relative;
+      list-style-type: none;
+      padding-left: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .check-list li:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: -2px;
+        width: 5px;
+        height: 11px;
+        border-width: 0 2px 2px 0;
+        border-style: solid;
+        border-color: #00a8a8;
+        transform-origin: bottom left;
+        transform: rotate(45deg);
+    }
+  </style>
+</head>
+
+<body class="container">
+  <h1 style="text-align: center;">Innoetics</h1>
+  <ul class="check-list">
+    <li>
+      High Quality Streaming Speech Synthesis with Low, Sentence-Length-Independent Latency (Submitted to INTERSPEECH 2020)
+      <a href="publications/streaming/index.html">(Samples)</a>
+    </li>
+    <li>
+      Sequence-to-Sequence G2P-driven Compilation of Pronunciation Lexicon for Out-of-Vocabulary Words  (Submitted to INTERSPEECH 2020)
+    </li>
+  </ul>
+  
+
+</body>
+
 </html>
