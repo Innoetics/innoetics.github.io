@@ -17,7 +17,7 @@
       border-radius: 10px;
       padding: 10px;
       margin: auto;
-      width: 50%;
+      width: 80%;
       position: relative;
       display: block;
       text-align: center;
@@ -27,6 +27,7 @@
     .sample-title {
       font-size: 22px;
       margin: 8px 0;
+      display: inline-flex;
     }
 
     .sample-description {
@@ -36,52 +37,86 @@
     }
 
     .sample-audio {
-      margin: 16px 0;
+      margin: 14px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .quotation {
+      font-size: xxx-large;
+      color: #999;
+      margin-top: -12px;
+    }
+
+    .transcript {
+      display: inline;
+      font-style: italic;
+    }
+
+    audio {
+      height: 30px;
+      /* vertical-align: middle; */
+      /* margin-top: -9px; */
+    }
+
+    .r-number {
+      width: 24px;
+      text-align: right;
+      /* display: inline-block;   */
+      margin-right: 8px;
     }
   </style>
 </head>
 
 <body class="container">
-  <h1 style="text-align: center;">High Quality Streaming Speech Synthesis with Low, Sentence-Length-Independent Latency</h1>
+  <h1 style="text-align: center;">High Quality Streaming Speech Synthesis with Low, Sentence-Length-Independent Latency
+  </h1>
   <div class="sample-container">
     <div class="sample">
-      <div class="sample-title">In the Republic of Ireland, a structure or site may be deemed to be a "National Monument", and therefore worthy of state protection, if it is of national importance.</div>
+      <div class="sample-title">
+        <span class="quotation">&ldquo;</span>
+        <div class="transcript">
+          In the Republic of Ireland, a structure or site may be deemed to be a "National Monument", and therefore
+          worthy of state protection, if it is of national importance.
+        </div>
+      </div>
       <div class="sample-description"></div>
       <div class="sample-audio">
-        <div>r2</div>
+        <div class="r-number">r2</div>
         <audio controls>
-            <source src="audio/bench1/r2.wav" type="audio/wav">
-            Your browser does not support the audio element.
+          <source src="audio/bench1/r2.wav" type="audio/wav">
+          Your browser does not support the audio element.
         </audio>
-     </div>
-    <div class="sample-audio">
-        <div>r3</div>
+      </div>
+      <div class="sample-audio">
+        <div class="r-number">r3</div>
         <audio controls>
-            <source src="audio/bench1/r3.wav" type="audio/wav">
-            Your browser does not support the audio element.
+          <source src="audio/bench1/r3.wav" type="audio/wav">
+          Your browser does not support the audio element.
         </audio>
-    </div>
-    <div class="sample-audio">
-        <div>r5</div>
+      </div>
+      <div class="sample-audio">
+        <div class="r-number">r5</div>
         <audio controls>
-            <source src="audio/bench1/r5.wav" type="audio/wav">
-            Your browser does not support the audio element.
+          <source src="audio/bench1/r5.wav" type="audio/wav">
+          Your browser does not support the audio element.
         </audio>
-    </div>
-    <div class="sample-audio">
-        <div>r7</div>
+      </div>
+      <div class="sample-audio">
+        <div class="r-number">r7</div>
         <audio controls>
-            <source src="audio/bench1/r7.wav" type="audio/wav">
-            Your browser does not support the audio element.
+          <source src="audio/bench1/r7.wav" type="audio/wav">
+          Your browser does not support the audio element.
         </audio>
-    </div>
-    <div class="sample-audio">
-        <div>r10</div>
+      </div>
+      <div class="sample-audio">
+        <div class="r-number">r10</div>
         <audio controls>
-            <source src="audio/bench1/r10.wav" type="audio/wav">
-            Your browser does not support the audio element.
+          <source src="audio/bench1/r10.wav" type="audio/wav">
+          Your browser does not support the audio element.
         </audio>
-    </div>
+      </div>
     </div>
   </div>
 </body>
