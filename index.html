@@ -8,78 +8,89 @@
       padding: 12px 24px;
     }
 
-    .sample-container {
-      margin: 18px 0;
-    }
-
-    .sample {
-      border: 1px solid gray;
-      border-radius: 10px;
-      padding: 10px;
-      margin: auto;
-      width: 50%;
-      position: relative;
-      display: block;
+    .publication {
+      color: rgb(2, 3, 77);
+      background-color: rgb(231, 239, 253);
+      border-radius: 25px;
+      margin: 20px 200px;
+      padding: 20px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.3s;
       text-align: center;
-
     }
 
-    .sample-title {
+    .publication:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      background-color: rgb(210, 225, 250);
+    }
+
+    .title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .authors {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    .submission {
+      color: rgb(1, 104, 18);
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .samples {
       font-size: 22px;
-      margin: 8px 0;
     }
 
-    .sample-description {
-      font-size: 16px;
-      margin: 8px 0;
-      color: #868686e6;
-    }
-
-    .sample-audio {
-      margin: 16px 0;
-    }
-
-    .check-list {
-      margin: 0;
-      padding-left: 1.2rem;
-    }
-
-    .check-list li {
-      position: relative;
-      list-style-type: none;
-      padding-left: 2.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .check-list li:before {
-        content: '';
-        display: block;
-        position: absolute;
-        left: 0;
-        top: -2px;
-        width: 5px;
-        height: 11px;
-        border-width: 0 2px 2px 0;
-        border-style: solid;
-        border-color: #00a8a8;
-        transform-origin: bottom left;
-        transform: rotate(45deg);
-    }
   </style>
 </head>
 
 <body class="container">
-  <h1 style="text-align: center;">Innoetics</h1>
-  <ul class="check-list">
-    <li>
-      High Quality Streaming Speech Synthesis with Low, Sentence-Length-Independent Latency (Submitted to INTERSPEECH 2020)
-      <a href="publications/streaming/index.html">(Samples)</a>
-    </li>
-    <li>
-      Sequence-to-Sequence G2P-driven Compilation of Pronunciation Lexicon for Out-of-Vocabulary Words  (Submitted to INTERSPEECH 2020)
-    </li>
-  </ul>
-  
+  <h1 style="text-align: center;color: rgb(2, 3, 77);">Our Publications</h1>
+  <div class="publication">
+    <div class="title">
+      High Quality Streaming Speech Synthesis with Low, Sentence-Length-Independent Latency
+    </div>
+    <div class="authors">
+      Nikolaos Ellinas,
+      Georgios Vamvoukakis,
+      Konstantinos Markopoulos,
+      Aimilios Chalamandaris,
+      Georgia Maniati,
+      Panos Kakoulidis,
+      Spyros Raptis,
+      June Sig Sung,
+      Hyoungmin Park and Pirros Tsiakoulis
+    </div>
+    <div class="submission">
+      (Submitted to INTERSPEECH 2020)
+    </div>
+    <a class="samples" href="publications/streaming/index.html">Samples</a>
+  </div>
+  <div class="publication">
+    <div class="title">
+      Sequence-to-Sequence G2P-driven Compilation of Pronunciation Lexicon for Out-of-Vocabulary Words
+    </div>
+    <div class="authors">
+      Georgia Maniati,
+      Aimilios Chalamandaris,
+      Georgios Vamvoukakis,
+      Nikolaos Ellinas,
+      Panos Kakoulidis,
+      Georgios Dimitriou,
+      Konstantinos Markopoulos,
+      Pirros Tsiakoulis,
+      Spyros Raptis,
+      Gunu Jho,
+      June Sig Sung and Hyoungmin Park
+    </div>
+    <div class="submission">
+      (Submitted to INTERSPEECH 2020)
+    </div>
+  </div>
 
 </body>
 

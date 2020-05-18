@@ -8,20 +8,28 @@
       padding: 12px 24px;
     }
 
+    .head-container {
+      /* border: 5px solid gray; */
+      border-radius: 25px;
+      background-color: rgb(231, 239, 253);
+      text-align: center;
+      padding: 10px;
+      margin: 0px 200px;
+    }
+
     .sample-container {
       margin: 18px 0;
     }
 
     .sample {
-      border: 1px solid gray;
-      border-radius: 10px;
+      /* border: 1px solid gray;
+      border-radius: 10px; */
       padding: 10px;
-      margin: auto;
+      margin: 10px;
       width: 80%;
       position: relative;
       display: block;
-      text-align: center;
-
+      text-align: left;
     }
 
     .sample-title {
@@ -40,85 +48,489 @@
       margin: 14px 0;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: left;
+      padding-left: 50px;
     }
 
     .quotation {
       font-size: xxx-large;
-      color: #999;
+      color: rgb(152, 189, 253);
       margin-top: -12px;
     }
 
     .transcript {
       display: inline;
       font-style: italic;
+      background-color: rgb(231, 239, 253);
+      padding: 15px 15px;
+      border-radius: 25px;
     }
 
     audio {
-      height: 30px;
+      height: 35px;
       /* vertical-align: middle; */
       /* margin-top: -9px; */
     }
 
     .r-number {
       width: 24px;
-      text-align: right;
+      text-align: center;
       /* display: inline-block;   */
       margin-right: 8px;
+      background-color: rgb(231, 239, 253);
+      border-radius: 25px;
+      padding: 10px;
     }
   </style>
 </head>
 
 <body class="container">
-  <h1 style="text-align: center;">High Quality Streaming Speech Synthesis with Low, Sentence-Length-Independent Latency
-  </h1>
-  <div class="sample-container">
-    <div class="sample">
-      <div class="sample-title">
-        <span class="quotation">&ldquo;</span>
-        <div class="transcript">
-          In the Republic of Ireland, a structure or site may be deemed to be a "National Monument", and therefore
-          worthy of state protection, if it is of national importance.
-        </div>
-      </div>
-      <div class="sample-description"></div>
-      <div class="sample-audio">
-        <div class="r-number">r2</div>
-        <audio controls>
-          <source src="audio/bench1/r2.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-      <div class="sample-audio">
-        <div class="r-number">r3</div>
-        <audio controls>
-          <source src="audio/bench1/r3.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-      <div class="sample-audio">
-        <div class="r-number">r5</div>
-        <audio controls>
-          <source src="audio/bench1/r5.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-      <div class="sample-audio">
-        <div class="r-number">r7</div>
-        <audio controls>
-          <source src="audio/bench1/r7.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-      <div class="sample-audio">
-        <div class="r-number">r10</div>
-        <audio controls>
-          <source src="audio/bench1/r10.wav" type="audio/wav">
-          Your browser does not support the audio element.
-        </audio>
-      </div>
-    </div>
+  <div class="head-container">
+  <h1 style="text-align: center;">High Quality Streaming Speech Synthesis with Low, Sentence-Length-Independent Latency</h1>
+  <p style="text-align: center;font-size: 20px;">Nikolaos Ellinas,
+    Georgios Vamvoukakis,
+    Konstantinos Markopoulos,
+    Aimilios Chalamandaris,
+    Georgia Maniati,
+    Panos Kakoulidis,
+    Spyros Raptis,
+    June Sig Sung,
+    Hyoungmin Park,
+    Pirros Tsiakoulis</p>
+  <p style="text-align: left;font-size: 18px;"><strong>Abstract:</strong> This paper presents an end-to-end text-to-speech system with low latency on a CPU, suitable for real-time applications.
+    The system is composed of an autoregressive attention-based sequence-to-sequence acoustic model and the LPCNet vocoder for waveform generation.
+    An acoustic model architecture that adopts modules from both the Tacotron 1 and 2 models is proposed, while stability is ensured by using a recently proposed purely location-based attention mechanism, suitable for arbitrary sentence length generation.
+    During inference, the decoder is unrolled and acoustic feature generation is performed in a streaming manner, allowing for a nearly constant latency which is independent from the sentence length.
+    Experimental results show that the acoustic model can produce feature sequences with minimal latency about 31 times faster than real-time on a computer CPU and 6.5 times on a mobile CPU, enabling it to meet the conditions required for real-time applications on both devices.
+    The full end-to-end system can generate almost natural quality speech, which is verified by listening tests.</p>
   </div>
+    <h2 style="text-align: left;">Ground truth Samples</h2>
+<div class="sample-container">
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">His hair, though gray, was thick, and lay smooth over his forehead.</div>
+</div>
+<div class="sample-audio">
+<audio controls>
+<source src="audio/gt/LJ011-0015.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div></div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">and he was in possession, the first time to her knowledge, of a watch.</div>
+</div>
+<div class="sample-audio">
+<audio controls>
+<source src="audio/gt/LJ014-0028.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div></div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">On stopping at a door in this low street, Ikey jumped out, ran into the house, slamming the door behind him.</div>
+</div>
+<div class="sample-audio">
+<audio controls>
+<source src="audio/gt/LJ012-0061.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div></div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">The poor soul then joined the doctor in prayer, and never did I witness more contrition at any condemned sermon than he then evinced.</div>
+</div>
+<div class="sample-audio">
+<audio controls>
+<source src="audio/gt/LJ008-0124.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div></div>
+</div>
+<h2 style="text-align: left;">Generated Samples</h2>
+<div class="sample-container">
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">Given a four-month suspended sentence.</div>
+</div>
+<div class="sample-audio">
+<div class="r-number">r2</div>
+<audio controls>
+<source src="audio/bench1/bench800_r2_0452_len5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r3</div>
+<audio controls>
+<source src="audio/bench1/bench800_r3_0452_len5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r5</div>
+<audio controls>
+<source src="audio/bench1/bench800_r5_0452_len5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r7</div>
+<audio controls>
+<source src="audio/bench1/bench800_r7_0452_len5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r10</div>
+<audio controls>
+<source src="audio/bench1/bench800_r10_0452_len5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div></div>
+</div>
+<div class="sample-container">
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">This is a list of notable Irish film directors.</div>
+</div>
+<div class="sample-audio">
+<div class="r-number">r2</div>
+<audio controls>
+<source src="audio/bench2/bench800_r2_0753_len9.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r3</div>
+<audio controls>
+<source src="audio/bench2/bench800_r3_0753_len9.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r5</div>
+<audio controls>
+<source src="audio/bench2/bench800_r5_0753_len9.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r7</div>
+<audio controls>
+<source src="audio/bench2/bench800_r7_0753_len9.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r10</div>
+<audio controls>
+<source src="audio/bench2/bench800_r10_0753_len9.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div></div>
+</div>
+<div class="sample-container">
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">In general the Full Form of INTERNET is International Network.</div>
+</div>
+<div class="sample-audio">
+<div class="r-number">r2</div>
+<audio controls>
+<source src="audio/bench3/bench800_r2_0313_len10.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r3</div>
+<audio controls>
+<source src="audio/bench3/bench800_r3_0313_len10.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r5</div>
+<audio controls>
+<source src="audio/bench3/bench800_r5_0313_len10.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r7</div>
+<audio controls>
+<source src="audio/bench3/bench800_r7_0313_len10.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r10</div>
+<audio controls>
+<source src="audio/bench3/bench800_r10_0313_len10.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div></div>
+</div>
+<div class="sample-container">
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">The resulting fiscal crisis has prompted the government to print more money, which has led to hyperinflation and a collapse of the currency.</div>
+</div>
+<div class="sample-audio">
+<div class="r-number">r2</div>
+<audio controls>
+<source src="audio/bench4/bench800_r2_0558_len23.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r3</div>
+<audio controls>
+<source src="audio/bench4/bench800_r3_0558_len23.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r5</div>
+<audio controls>
+<source src="audio/bench4/bench800_r5_0558_len23.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r7</div>
+<audio controls>
+<source src="audio/bench4/bench800_r7_0558_len23.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r10</div>
+<audio controls>
+<source src="audio/bench4/bench800_r10_0558_len23.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div></div>
+</div>
+<div class="sample-container">
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">In the Republic of Ireland, a structure or site may be deemed to be a "National Monument", and therefore worthy of state protection, if it is of national importance.</div>
+</div>
+<div class="sample-audio">
+<div class="r-number">r2</div>
+<audio controls>
+<source src="audio/bench5/bench800_r2_0776_len29.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r3</div>
+<audio controls>
+<source src="audio/bench5/bench800_r3_0776_len29.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r5</div>
+<audio controls>
+<source src="audio/bench5/bench800_r5_0776_len29.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r7</div>
+<audio controls>
+<source src="audio/bench5/bench800_r7_0776_len29.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r10</div>
+<audio controls>
+<source src="audio/bench5/bench800_r10_0776_len29.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div></div>
+</div>
+<div class="sample-container">
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">City nicknames can help in establishing a civic identity, helping outsiders recognize a community or attracting people to a community because of its nickname; promote civic pride; and build community unity.</div>
+</div>
+<div class="sample-audio">
+<div class="r-number">r2</div>
+<audio controls>
+<source src="audio/bench6/bench800_r2_0783_len31.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r3</div>
+<audio controls>
+<source src="audio/bench6/bench800_r3_0783_len31.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r5</div>
+<audio controls>
+<source src="audio/bench6/bench800_r5_0783_len31.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r7</div>
+<audio controls>
+<source src="audio/bench6/bench800_r7_0783_len31.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r10</div>
+<audio controls>
+<source src="audio/bench6/bench800_r10_0783_len31.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div></div>
+</div>
+<div class="sample-container">
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">Then Prime Minister David Cameron was the leading voice in the Remain campaign, after reaching an agreement with other European Union leaders that would have changed the terms of Britain's membership had the country voted to stay in.</div>
+</div>
+<div class="sample-audio">
+<div class="r-number">r2</div>
+<audio controls>
+<source src="audio/bench7/bench800_r2_0009_len38.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r3</div>
+<audio controls>
+<source src="audio/bench7/bench800_r3_0009_len38.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r5</div>
+<audio controls>
+<source src="audio/bench7/bench800_r5_0009_len38.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r7</div>
+<audio controls>
+<source src="audio/bench7/bench800_r7_0009_len38.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r10</div>
+<audio controls>
+<source src="audio/bench7/bench800_r10_0009_len38.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div></div>
+</div>
+<div class="sample-container">
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">The Rawlings Gold Glove Award, usually referred to as the Gold Glove, is the award given annually to the Major League Baseball players judged to have exhibited superior individual fielding performances at each fielding position in both the National League and the American League, as voted by the managers and coaches in each league.</div>
+</div>
+<div class="sample-audio">
+<div class="r-number">r2</div>
+<audio controls>
+<source src="audio/bench8/bench800_r2_0367_len54.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r3</div>
+<audio controls>
+<source src="audio/bench8/bench800_r3_0367_len54.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r5</div>
+<audio controls>
+<source src="audio/bench8/bench800_r5_0367_len54.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r7</div>
+<audio controls>
+<source src="audio/bench8/bench800_r7_0367_len54.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r10</div>
+<audio controls>
+<source src="audio/bench8/bench800_r10_0367_len54.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div></div>
+</div>
+<div class="sample-container">
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">Elisa is a mute, isolated woman who works as a cleaning lady in a hidden, high-security government laboratory in 1962 Baltimore. Her life changes forever when she discovers the lab's classified secret -- a mysterious, scaled creature from South America that lives in a water tank. As Elisa develops a unique bond with her new friend, she soon learns that its fate and very survival lies in the hands of a hostile government agent and a marine biologist.</div>
+</div>
+<div class="sample-audio">
+<div class="r-number">r2</div>
+<audio controls>
+<source src="audio/bench9/bench800_r2_0232_len78.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r3</div>
+<audio controls>
+<source src="audio/bench9/bench800_r3_0232_len78.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r5</div>
+<audio controls>
+<source src="audio/bench9/bench800_r5_0232_len78.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r7</div>
+<audio controls>
+<source src="audio/bench9/bench800_r7_0232_len78.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r10</div>
+<audio controls>
+<source src="audio/bench9/bench800_r10_0232_len78.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div></div>
+</div>
+<div class="sample-container">
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">Poor Douglas, before his death -- when it was in sight -- committed to me the manuscript that reached him on the third of these days and that, on the same spot, with immense effect, he began to read to our hushed little circle on the night of the fourth. The departing ladies who had said they would stay didn't, of course, thank heaven, stay: they departed, in consequence of arrangements made, in a rage of curiosity, as they professed, produced by the touches with which he had already worked us up. But that only made his little final auditory more compact and select, kept it, round the hearth, subject to a common thrill.</div>
+</div>
+<div class="sample-audio">
+<div class="r-number">r2</div>
+<audio controls>
+<source src="audio/bench10/bench800_r2_0199_len114.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r3</div>
+<audio controls>
+<source src="audio/bench10/bench800_r3_0199_len114.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r5</div>
+<audio controls>
+<source src="audio/bench10/bench800_r5_0199_len114.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r7</div>
+<audio controls>
+<source src="audio/bench10/bench800_r7_0199_len114.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div><div class="sample-audio">
+<div class="r-number">r10</div>
+<audio controls>
+<source src="audio/bench10/bench800_r10_0199_len114.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div></div>
+</div>
 </body>
-
 </html>
