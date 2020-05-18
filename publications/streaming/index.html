@@ -72,23 +72,30 @@
       background-color: rgb(231, 239, 253);
       padding: 15px 15px;
       border-radius: 25px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.1s;
     }
 
     audio {
       height: 35px;
-      /* vertical-align: middle; */
-      /* margin-top: -9px; */
     }
 
     .r-number {
       width: 24px;
       text-align: center;
-      /* display: inline-block;   */
       margin-right: 8px;
       background-color: rgb(231, 239, 253);
       border-radius: 25px;
       padding: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     }
+
+    .r-number:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      background-color: rgb(222, 230, 253);
+      cursor: pointer;
+    }
+
   </style>
 </head>
 
@@ -113,6 +120,7 @@
     The full end-to-end system can generate almost natural quality speech, which is verified by listening tests.</p>
   </div>
     <h2 style="text-align: left;">Ground truth Samples</h2>
+    <div style="margin-left: 10px;">(GT: Ground truth, Voc: GT resynthesis)</div>
 <div class="sample-container">
 <div class="sample">
 <div class="sample-title">
@@ -120,8 +128,15 @@
 <div class="transcript">His hair, though gray, was thick, and lay smooth over his forehead.</div>
 </div>
 <div class="sample-audio">
-<audio controls>
+<div class="r-number" onclick="document.getElementById('LJ011-0015_gt').play()">GT</div>
+<audio id="LJ011-0015_gt" controls>
 <source src="audio/gt/LJ011-0015.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+<span style="width:50px;"></span>
+<div class="r-number" onclick="document.getElementById('LJ011-0015_gtvoc').play()">Voc</div>
+<audio id="LJ011-0015_gtvoc" controls>
+<source src="audio/gtvoc/LJ011-0015.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div></div>
@@ -131,8 +146,15 @@ Your browser does not support the audio element.
 <div class="transcript">and he was in possession, the first time to her knowledge, of a watch.</div>
 </div>
 <div class="sample-audio">
-<audio controls>
+<div class="r-number" onclick="document.getElementById('LJ014-0028_gt').play()">GT</div>
+<audio id="LJ014-0028_gt" controls>
 <source src="audio/gt/LJ014-0028.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+<span style="width:50px;"></span>
+<div class="r-number" onclick="document.getElementById('LJ014-0028_gtvoc').play()">Voc</div>
+<audio id="LJ014-0028_gtvoc" controls>
+<source src="audio/gtvoc/LJ014-0028.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div></div>
@@ -142,8 +164,15 @@ Your browser does not support the audio element.
 <div class="transcript">On stopping at a door in this low street, Ikey jumped out, ran into the house, slamming the door behind him.</div>
 </div>
 <div class="sample-audio">
-<audio controls>
+<div class="r-number" onclick="document.getElementById('LJ012-0061_gt').play()">GT</div>
+<audio id="LJ012-0061_gt" controls>
 <source src="audio/gt/LJ012-0061.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+<span style="width:50px;"></span>
+<div class="r-number" onclick="document.getElementById('LJ012-0061_gtvoc').play()">Voc</div>
+<audio id="LJ012-0061_gtvoc" controls>
+<source src="audio/gtvoc/LJ012-0061.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div></div>
@@ -153,8 +182,15 @@ Your browser does not support the audio element.
 <div class="transcript">The poor soul then joined the doctor in prayer, and never did I witness more contrition at any condemned sermon than he then evinced.</div>
 </div>
 <div class="sample-audio">
-<audio controls>
+<div class="r-number" onclick="document.getElementById('LJ008-0124_gt').play()">GT</div>
+<audio id="LJ008-0124_gt" controls>
 <source src="audio/gt/LJ008-0124.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+<span style="width:50px;"></span>
+<div class="r-number" onclick="document.getElementById('LJ008-0124_gtvoc').play()">Voc</div>
+<audio id="LJ008-0124_gtvoc" controls>
+<source src="audio/gtvoc/LJ008-0124.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div></div>
@@ -167,32 +203,32 @@ Your browser does not support the audio element.
 <div class="transcript">Given a four-month suspended sentence.</div>
 </div>
 <div class="sample-audio">
-<div class="r-number">r2</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('1_2').play()">r2</div>
+<audio id="1_2" controls>
 <source src="audio/bench1/bench800_r2_0452_len5.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r3</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('1_3').play()">r3</div>
+<audio id="1_3" controls>
 <source src="audio/bench1/bench800_r3_0452_len5.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r5</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('1_5').play()">r5</div>
+<audio id="1_5" controls>
 <source src="audio/bench1/bench800_r5_0452_len5.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r7</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('1_7').play()">r7</div>
+<audio id="1_7" controls>
 <source src="audio/bench1/bench800_r7_0452_len5.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r10</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('1_10').play()">r10</div>
+<audio id="1_10" controls>
 <source src="audio/bench1/bench800_r10_0452_len5.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
@@ -205,32 +241,32 @@ Your browser does not support the audio element.
 <div class="transcript">This is a list of notable Irish film directors.</div>
 </div>
 <div class="sample-audio">
-<div class="r-number">r2</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('2_2').play()">r2</div>
+<audio id="2_2" controls>
 <source src="audio/bench2/bench800_r2_0753_len9.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r3</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('2_3').play()">r3</div>
+<audio id="2_3" controls>
 <source src="audio/bench2/bench800_r3_0753_len9.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r5</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('2_5').play()">r5</div>
+<audio id="2_5" controls>
 <source src="audio/bench2/bench800_r5_0753_len9.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r7</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('2_7').play()">r7</div>
+<audio id="2_7" controls>
 <source src="audio/bench2/bench800_r7_0753_len9.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r10</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('2_10').play()">r10</div>
+<audio id="2_10" controls>
 <source src="audio/bench2/bench800_r10_0753_len9.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
@@ -243,32 +279,32 @@ Your browser does not support the audio element.
 <div class="transcript">In general the Full Form of INTERNET is International Network.</div>
 </div>
 <div class="sample-audio">
-<div class="r-number">r2</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('3_2').play()">r2</div>
+<audio id="3_2" controls>
 <source src="audio/bench3/bench800_r2_0313_len10.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r3</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('3_3').play()">r3</div>
+<audio id="3_3" controls>
 <source src="audio/bench3/bench800_r3_0313_len10.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r5</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('3_5').play()">r5</div>
+<audio id="3_5" controls>
 <source src="audio/bench3/bench800_r5_0313_len10.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r7</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('3_7').play()">r7</div>
+<audio id="3_7" controls>
 <source src="audio/bench3/bench800_r7_0313_len10.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r10</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('3_10').play()">r10</div>
+<audio id="3_10" controls>
 <source src="audio/bench3/bench800_r10_0313_len10.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
@@ -281,32 +317,32 @@ Your browser does not support the audio element.
 <div class="transcript">The resulting fiscal crisis has prompted the government to print more money, which has led to hyperinflation and a collapse of the currency.</div>
 </div>
 <div class="sample-audio">
-<div class="r-number">r2</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('4_2').play()">r2</div>
+<audio id="4_2" controls>
 <source src="audio/bench4/bench800_r2_0558_len23.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r3</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('4_3').play()">r3</div>
+<audio id="4_3" controls>
 <source src="audio/bench4/bench800_r3_0558_len23.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r5</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('4_5').play()">r5</div>
+<audio id="4_5" controls>
 <source src="audio/bench4/bench800_r5_0558_len23.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r7</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('4_7').play()">r7</div>
+<audio id="4_7" controls>
 <source src="audio/bench4/bench800_r7_0558_len23.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r10</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('4_10').play()">r10</div>
+<audio id="4_10" controls>
 <source src="audio/bench4/bench800_r10_0558_len23.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
@@ -319,32 +355,32 @@ Your browser does not support the audio element.
 <div class="transcript">In the Republic of Ireland, a structure or site may be deemed to be a "National Monument", and therefore worthy of state protection, if it is of national importance.</div>
 </div>
 <div class="sample-audio">
-<div class="r-number">r2</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('5_2').play()">r2</div>
+<audio id="5_2" controls>
 <source src="audio/bench5/bench800_r2_0776_len29.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r3</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('5_3').play()">r3</div>
+<audio id="5_3" controls>
 <source src="audio/bench5/bench800_r3_0776_len29.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r5</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('5_5').play()">r5</div>
+<audio id="5_5" controls>
 <source src="audio/bench5/bench800_r5_0776_len29.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r7</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('5_7').play()">r7</div>
+<audio id="5_7" controls>
 <source src="audio/bench5/bench800_r7_0776_len29.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r10</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('5_10').play()">r10</div>
+<audio id="5_10" controls>
 <source src="audio/bench5/bench800_r10_0776_len29.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
@@ -357,32 +393,32 @@ Your browser does not support the audio element.
 <div class="transcript">City nicknames can help in establishing a civic identity, helping outsiders recognize a community or attracting people to a community because of its nickname; promote civic pride; and build community unity.</div>
 </div>
 <div class="sample-audio">
-<div class="r-number">r2</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('6_2').play()">r2</div>
+<audio id="6_2" controls>
 <source src="audio/bench6/bench800_r2_0783_len31.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r3</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('6_3').play()">r3</div>
+<audio id="6_3" controls>
 <source src="audio/bench6/bench800_r3_0783_len31.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r5</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('6_5').play()">r5</div>
+<audio id="6_5" controls>
 <source src="audio/bench6/bench800_r5_0783_len31.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r7</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('6_7').play()">r7</div>
+<audio id="6_7" controls>
 <source src="audio/bench6/bench800_r7_0783_len31.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r10</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('6_10').play()">r10</div>
+<audio id="6_10" controls>
 <source src="audio/bench6/bench800_r10_0783_len31.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
@@ -395,32 +431,32 @@ Your browser does not support the audio element.
 <div class="transcript">Then Prime Minister David Cameron was the leading voice in the Remain campaign, after reaching an agreement with other European Union leaders that would have changed the terms of Britain's membership had the country voted to stay in.</div>
 </div>
 <div class="sample-audio">
-<div class="r-number">r2</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('7_2').play()">r2</div>
+<audio id="7_2" controls>
 <source src="audio/bench7/bench800_r2_0009_len38.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r3</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('7_3').play()">r3</div>
+<audio id="7_3" controls>
 <source src="audio/bench7/bench800_r3_0009_len38.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r5</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('7_5').play()">r5</div>
+<audio id="7_5" controls>
 <source src="audio/bench7/bench800_r5_0009_len38.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r7</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('7_7').play()">r7</div>
+<audio id="7_7" controls>
 <source src="audio/bench7/bench800_r7_0009_len38.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r10</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('7_10').play()">r10</div>
+<audio id="7_10" controls>
 <source src="audio/bench7/bench800_r10_0009_len38.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
@@ -433,32 +469,32 @@ Your browser does not support the audio element.
 <div class="transcript">The Rawlings Gold Glove Award, usually referred to as the Gold Glove, is the award given annually to the Major League Baseball players judged to have exhibited superior individual fielding performances at each fielding position in both the National League and the American League, as voted by the managers and coaches in each league.</div>
 </div>
 <div class="sample-audio">
-<div class="r-number">r2</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('8_2').play()">r2</div>
+<audio id="8_2" controls>
 <source src="audio/bench8/bench800_r2_0367_len54.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r3</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('8_3').play()">r3</div>
+<audio id="8_3" controls>
 <source src="audio/bench8/bench800_r3_0367_len54.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r5</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('8_5').play()">r5</div>
+<audio id="8_5" controls>
 <source src="audio/bench8/bench800_r5_0367_len54.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r7</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('8_7').play()">r7</div>
+<audio id="8_7" controls>
 <source src="audio/bench8/bench800_r7_0367_len54.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r10</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('8_10').play()">r10</div>
+<audio id="8_10" controls>
 <source src="audio/bench8/bench800_r10_0367_len54.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
@@ -471,32 +507,32 @@ Your browser does not support the audio element.
 <div class="transcript">Elisa is a mute, isolated woman who works as a cleaning lady in a hidden, high-security government laboratory in 1962 Baltimore. Her life changes forever when she discovers the lab's classified secret -- a mysterious, scaled creature from South America that lives in a water tank. As Elisa develops a unique bond with her new friend, she soon learns that its fate and very survival lies in the hands of a hostile government agent and a marine biologist.</div>
 </div>
 <div class="sample-audio">
-<div class="r-number">r2</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('9_2').play()">r2</div>
+<audio id="9_2" controls>
 <source src="audio/bench9/bench800_r2_0232_len78.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r3</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('9_3').play()">r3</div>
+<audio id="9_3" controls>
 <source src="audio/bench9/bench800_r3_0232_len78.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r5</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('9_5').play()">r5</div>
+<audio id="9_5" controls>
 <source src="audio/bench9/bench800_r5_0232_len78.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r7</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('9_7').play()">r7</div>
+<audio id="9_7" controls>
 <source src="audio/bench9/bench800_r7_0232_len78.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r10</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('9_10').play()">r10</div>
+<audio id="9_10" controls>
 <source src="audio/bench9/bench800_r10_0232_len78.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
@@ -509,32 +545,32 @@ Your browser does not support the audio element.
 <div class="transcript">Poor Douglas, before his death -- when it was in sight -- committed to me the manuscript that reached him on the third of these days and that, on the same spot, with immense effect, he began to read to our hushed little circle on the night of the fourth. The departing ladies who had said they would stay didn't, of course, thank heaven, stay: they departed, in consequence of arrangements made, in a rage of curiosity, as they professed, produced by the touches with which he had already worked us up. But that only made his little final auditory more compact and select, kept it, round the hearth, subject to a common thrill.</div>
 </div>
 <div class="sample-audio">
-<div class="r-number">r2</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('10_2').play()">r2</div>
+<audio id="10_2" controls>
 <source src="audio/bench10/bench800_r2_0199_len114.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r3</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('10_3').play()">r3</div>
+<audio id="10_3" controls>
 <source src="audio/bench10/bench800_r3_0199_len114.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r5</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('10_5').play()">r5</div>
+<audio id="10_5" controls>
 <source src="audio/bench10/bench800_r5_0199_len114.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r7</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('10_7').play()">r7</div>
+<audio id="10_7" controls>
 <source src="audio/bench10/bench800_r7_0199_len114.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div><div class="sample-audio">
-<div class="r-number">r10</div>
-<audio controls>
+<div class="r-number" onclick="document.getElementById('10_10').play()">r10</div>
+<audio id="10_10" controls>
 <source src="audio/bench10/bench800_r10_0199_len114.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>

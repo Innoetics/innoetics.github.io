@@ -72,23 +72,30 @@
       background-color: rgb(231, 239, 253);
       padding: 15px 15px;
       border-radius: 25px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.1s;
     }
 
     audio {
       height: 35px;
-      /* vertical-align: middle; */
-      /* margin-top: -9px; */
     }
 
     .r-number {
       width: 24px;
       text-align: center;
-      /* display: inline-block;   */
       margin-right: 8px;
       background-color: rgb(231, 239, 253);
       border-radius: 25px;
       padding: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     }
+
+    .r-number:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      background-color: rgb(222, 230, 253);
+      cursor: pointer;
+    }
+
   </style>
 </head>
 
@@ -113,3 +120,4 @@
     The full end-to-end system can generate almost natural quality speech, which is verified by listening tests.</p>
   </div>
     <h2 style="text-align: left;">Ground truth Samples</h2>
+    <div style="margin-left: 10px;">(GT: Ground truth, Voc: GT resynthesis)</div>
