@@ -100,6 +100,16 @@
 </head>
 
 <body class="container">
+  <script>
+    function togglePlay(el) {
+      if (!el.paused) {
+        el.pause()
+      }
+      else {
+        el.play();
+      }
+    };
+  </script>
   <div class="head-container">
   <h1 style="text-align: center;">High Quality Streaming Speech Synthesis with Low, Sentence-Length-Independent Latency</h1>
   <p style="text-align: center;font-size: 20px;">Nikolaos Ellinas,
