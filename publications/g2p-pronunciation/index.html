@@ -94,7 +94,7 @@
 
 <body class="container">
   <div class="head-container">
-  <h1 style="text-align: center;">Sequence-to-Sequence G2P-driven Compilation of Pronunciation Lexicon for Out-of-Vocabulary Words</h1>
+  <h1 style="text-align: center;">An Iterative Seq2Seq-Supported Method for Crowd-Sourcing and Evaluating Phonetic Lexical Resources of Out-Of-Vocabulary Words</h1>
   <p style="text-align: center;font-size: 20px;">Georgia Maniati,
     Aimilios Chalamandaris,
     Georgios Vamvoukakis,
@@ -108,7 +108,7 @@
     June Sig Sung,
     Jihyeok Yoon,
     Hyoungmin Park</p>
-  <p style="text-align: left;font-size: 18px;"><strong>Abstract:</strong> In this paper, we propose a method for compiling large and accurate pronunciation lexica for out-of-vocabulary words for text-to-speech synthesis. The method combines a neural sequence-to-sequence grapheme-to-phoneme (G2P) model, a state-of-the-art text-to-speech system and crowdsourced evaluation. For each out-of-vocabulary word, we generate multiple alternative transcriptions using the G2P model and then convert them into speech. The synthesized transcriptions are then validated using a Preference Test by multiple non-linguistic-expert users via Amazon Mechanical Turk. The alternatives that exceed a threshold majority of preference among the listeners are considered correct and added to the pronunciation lexicon. The entire process is iterated by first retraining the neural G2P model to boost its performance, and then evaluating additional out-of-vocabulary words. Through this process we can quickly create large crowdsourced lexica that improve our resources' quality and the neural G2P robustness.</p>
+  <p style="text-align: left;font-size: 18px;"><strong>Abstract:</strong> In this paper, we describe a method for compiling large and accurate pronunciation lexica for out-of-vocabulary words for text-to-speech synthesis. The method combines a neural sequence-to-sequence grapheme-to-phoneme (G2P) model, a state-of-the-art text-to-speech system and crowdsourced evaluation. For each out-of-vocabulary word, we generate multiple alternative pronunciations using the G2P model and convert them into speech. The synthesized pronunciations are then validated using a custom preference test by multiple non-linguistic-expert users via the Amazon Mechanical Turk. The alternatives that exceed a threshold majority of preference among the listeners are considered correct and added to the pronunciation lexicon used to train the neural G2P model. The entire process is iterated by first retraining the neural G2P model and then evaluating additional out-of-vocabulary words. We analyze the quality of the resulting pronunciation resources and demonstrate that, through this process, we can quickly scale up pronunciation lexica and increase the robustness of the neural G2P model.</p>
   </div>
 </body>
 </html>
