@@ -52,9 +52,13 @@
       color: #868686e6;
     }
 
+    .mod-container {
+      display: flex;
+    }
+
     .sample-audio {
       margin: 14px 0;
-      display: flex;
+      display: inline-block;
       align-items: center;
       justify-content: left;
       padding-left: 50px;
@@ -78,10 +82,21 @@
 
     audio {
       height: 35px;
+      display: none;
     }
 
     .r-number {
       width: 24px;
+      text-align: center;
+      margin-right: 8px;
+      background-color: rgb(231, 239, 253);
+      border-radius: 25px;
+      padding: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    .gt {
+      width: 124px;
       text-align: center;
       margin-right: 8px;
       background-color: rgb(231, 239, 253);
@@ -96,38 +111,48 @@
       cursor: pointer;
     }
 
+    .gt:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      background-color: rgb(222, 230, 253);
+      cursor: pointer;
+    }
+
   </style>
 </head>
 
 <body class="container">
-  <script>
+  <script >
     function togglePlay(el) {
       if (!el.paused) {
         el.pause()
       }
       else {
+        var allAudioEls = document.getElementsByTagName("audio");
+        for (let item of allAudioEls) {
+            item.pause()
+        }
+        el.currentTime = 0;
         el.play();
       }
     };
   </script>
   <div class="head-container">
-  <h1 style="text-align: center;">High Quality Streaming Speech Synthesis with Low, Sentence-Length-Independent Latency</h1>
-  <p style="text-align: center;font-size: 20px;">Nikolaos Ellinas,
-    Georgios Vamvoukakis,
-    Konstantinos Markopoulos,
-    Aimilios Chalamandaris,
-    Georgia Maniati,
-    Panos Kakoulidis,
-    Spyros Raptis,
-    June Sig Sung,
-    Hyoungmin Park,
-    Pirros Tsiakoulis</p>
-  <p style="text-align: left;font-size: 18px;"><strong>Abstract:</strong> This paper presents an end-to-end text-to-speech system with low latency on a CPU, suitable for real-time applications.
-    The system is composed of an autoregressive attention-based sequence-to-sequence acoustic model and the LPCNet vocoder for waveform generation.
-    An acoustic model architecture that adopts modules from both the Tacotron 1 and 2 models is proposed, while stability is ensured by using a recently proposed purely location-based attention mechanism, suitable for arbitrary sentence length generation.
-    During inference, the decoder is unrolled and acoustic feature generation is performed in a streaming manner, allowing for a nearly constant latency which is independent from the sentence length.
-    Experimental results show that the acoustic model can produce feature sequences with minimal latency about 31 times faster than real-time on a computer CPU and 6.5 times on a mobile CPU, enabling it to meet the conditions required for real-time applications on both devices.
-    The full end-to-end system can generate almost natural quality speech, which is verified by listening tests.</p>
+  <h1 style="text-align: center;">Prosodic Clustering for Phoneme-level Prosody Control in End-to-end Speech Synthesis</h1>
+  <p style="text-align: center;font-size: 20px;">Alexandra Vioni,
+      Myrsini Christidou,
+      Nikolaos Ellinas,
+      Georgios Vamvoukakis,
+      Panos Kakoulidis,
+      Taehoon Kim,
+      June Sig Sung,
+      Hyoungmin Park,
+      Aimilios Chalamandaris and Pirros Tsiakoulis</p>
+  <p style="text-align: left;font-size: 18px;"><strong>Abstract:</strong> This paper presents a method for controlling the prosody at the phoneme level in an autoregressive attention-based text-to-speech system.
+    Instead of learning latent prosodic features with a variational framework as is commonly done,
+    we directly extract phoneme-level F0 and duration features from the speech data in the training set.
+    Each prosodic feature is discretized using unsupervised clustering
+    in order to produce a sequence of prosodic labels for each utterance.
+    This sequence is used in parallel to the phoneme sequence in order to condition the decoder with the utilization of a prosodic encoder and a corresponding attention module.
+    Experimental results show that the proposed method retains the high quality of generated speech, while allowing phoneme-level control of F0 and duration.
+    By replacing the F0 cluster centroids with musical notes, the model can also provide control over the note and octave within the range of the speaker.</p>
   </div>
-    <h2 style="text-align: left;">Ground truth Samples</h2>
-    <div style="margin-left: 10px;">(GT: Ground truth, Voc: GT resynthesis)</div>
