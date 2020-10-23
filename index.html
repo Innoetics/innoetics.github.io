@@ -60,6 +60,31 @@
       color: rgb(22, 22, 218);
     }
 
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      padding: 5px 0;
+      border-radius: 6px;
+      position: absolute;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      cursor: pointer;
+    }
+
   </style>
 </head>
 
@@ -90,8 +115,8 @@
       Prosodic Clustering for Phoneme-level Prosody Control in End-to-end Speech Synthesis
     </div>
     <div class="authors">
-      Alexandra Vioni,
-      Myrsini Christidou,
+      Alexandra Vioni<span class="tooltip">*<span class="tooltiptext">Equal Contribution</span></span>,
+      Myrsini Christidou<span class="tooltip">*<span class="tooltiptext">Equal Contribution</span></span>,
       Nikolaos Ellinas,
       Georgios Vamvoukakis,
       Panos Kakoulidis,
