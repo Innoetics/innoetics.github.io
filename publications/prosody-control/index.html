@@ -57,11 +57,11 @@
     }
 
     .sample-audio {
-      margin: 14px 0;
+      margin: 10px 0;
       display: inline-block;
       align-items: center;
       justify-content: left;
-      padding-left: 50px;
+      padding-left: 25px;
     }
 
     .quotation {
@@ -118,9 +118,9 @@
     }
 
     .gt {
-      width: 124px;
+      width: 109px;
       text-align: center;
-      margin-right: 8px;
+      margin-right: 0px;
       background-color: rgb(231, 239, 253);
       border-radius: 25px;
       padding: 10px;
@@ -192,7 +192,7 @@
     Experimental results show that the proposed method retains the high quality of generated speech, while allowing phoneme-level control of F0 and duration.
     By replacing the F0 cluster centroids with musical notes, the model can also provide control over the note and octave within the range of the speaker.</p>
   </div>
-<h2 style="text-align: left;">F0 modification based on offset from ground truth labels</h2>
+<h2 style="text-align: left;">1) F0 modification based on offset from ground truth labels</h2>
 <div class="sample-container">
 <div class="sample">
 <div class="sample-title">
@@ -609,7 +609,7 @@ Your browser does not support the audio element.
 </div>
 </div>
 </div>
-<h2 style="text-align: left;">Duration modification based on offset from ground truth labels</h2>
+<h2 style="text-align: left;">2) Duration modification based on offset from ground truth labels</h2>
 <div class="sample-container">
 <div class="sample">
 <div class="sample-title">
@@ -1026,7 +1026,7 @@ Your browser does not support the audio element.
 </div>
 </div>
 </div>
-<h2 style="text-align: left;">Joint model modification based on offset from ground truth labels</h2>
+<h2 style="text-align: left;">3) Joint model modification based on offset from ground truth labels</h2>
 <div class="sample-container">
 <div class="sample">
 <div class="sample-title">
@@ -3000,6 +3000,1498 @@ Your browser does not support the audio element.
 <div class="r-number-aug" onclick="togglePlay(document.getElementById('joint_mod_10-ECO_+4_+4'))">+4_+4</div>
 <audio id="joint_mod_10-ECO_+4_+4" controls>
 <source src="audio/joint-offset-mod/10-ECO_+4_+4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+</div>
+<h2 style="text-align: left;">4) F0 single cluster for all phonemes</h2>
+<div class="sample-container">
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">mister Pontellier, unable to read his newspaper with any degree of comfort, arose with an expression and an exclamation of disgust.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('f0_asc_10-AWK_gt'))">Ground Truth</div>
+<audio id="f0_asc_10-AWK_gt" controls>
+<source src="audio/f0-ascending/10-AWK.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10-AWK_0'))">0</div>
+<audio id="f0_asc_10-AWK_0" controls>
+<source src="audio/f0-ascending/10-AWK_0.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10-AWK_1'))">1</div>
+<audio id="f0_asc_10-AWK_1" controls>
+<source src="audio/f0-ascending/10-AWK_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10-AWK_2'))">2</div>
+<audio id="f0_asc_10-AWK_2" controls>
+<source src="audio/f0-ascending/10-AWK_2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10-AWK_3'))">3</div>
+<audio id="f0_asc_10-AWK_3" controls>
+<source src="audio/f0-ascending/10-AWK_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10-AWK_4'))">4</div>
+<audio id="f0_asc_10-AWK_4" controls>
+<source src="audio/f0-ascending/10-AWK_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10-AWK_5'))">5</div>
+<audio id="f0_asc_10-AWK_5" controls>
+<source src="audio/f0-ascending/10-AWK_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10-AWK_6'))">6</div>
+<audio id="f0_asc_10-AWK_6" controls>
+<source src="audio/f0-ascending/10-AWK_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10-AWK_7'))">7</div>
+<audio id="f0_asc_10-AWK_7" controls>
+<source src="audio/f0-ascending/10-AWK_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10-AWK_8'))">8</div>
+<audio id="f0_asc_10-AWK_8" controls>
+<source src="audio/f0-ascending/10-AWK_8.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10-AWK_9'))">9</div>
+<audio id="f0_asc_10-AWK_9" controls>
+<source src="audio/f0-ascending/10-AWK_9.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10-AWK_10'))">10</div>
+<audio id="f0_asc_10-AWK_10" controls>
+<source src="audio/f0-ascending/10-AWK_10.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10-AWK_11'))">11</div>
+<audio id="f0_asc_10-AWK_11" controls>
+<source src="audio/f0-ascending/10-AWK_11.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">But this winter Ill stick to my little Pentecost flame, and have some peace.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('f0_asc_10027-LCL_gt'))">Ground Truth</div>
+<audio id="f0_asc_10027-LCL_gt" controls>
+<source src="audio/f0-ascending/10027-LCL.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10027-LCL_0'))">0</div>
+<audio id="f0_asc_10027-LCL_0" controls>
+<source src="audio/f0-ascending/10027-LCL_0.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10027-LCL_1'))">1</div>
+<audio id="f0_asc_10027-LCL_1" controls>
+<source src="audio/f0-ascending/10027-LCL_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10027-LCL_2'))">2</div>
+<audio id="f0_asc_10027-LCL_2" controls>
+<source src="audio/f0-ascending/10027-LCL_2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10027-LCL_3'))">3</div>
+<audio id="f0_asc_10027-LCL_3" controls>
+<source src="audio/f0-ascending/10027-LCL_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10027-LCL_4'))">4</div>
+<audio id="f0_asc_10027-LCL_4" controls>
+<source src="audio/f0-ascending/10027-LCL_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10027-LCL_5'))">5</div>
+<audio id="f0_asc_10027-LCL_5" controls>
+<source src="audio/f0-ascending/10027-LCL_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10027-LCL_6'))">6</div>
+<audio id="f0_asc_10027-LCL_6" controls>
+<source src="audio/f0-ascending/10027-LCL_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10027-LCL_7'))">7</div>
+<audio id="f0_asc_10027-LCL_7" controls>
+<source src="audio/f0-ascending/10027-LCL_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10027-LCL_8'))">8</div>
+<audio id="f0_asc_10027-LCL_8" controls>
+<source src="audio/f0-ascending/10027-LCL_8.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10027-LCL_9'))">9</div>
+<audio id="f0_asc_10027-LCL_9" controls>
+<source src="audio/f0-ascending/10027-LCL_9.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10027-LCL_10'))">10</div>
+<audio id="f0_asc_10027-LCL_10" controls>
+<source src="audio/f0-ascending/10027-LCL_10.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10027-LCL_11'))">11</div>
+<audio id="f0_asc_10027-LCL_11" controls>
+<source src="audio/f0-ascending/10027-LCL_11.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">You cant insure against the future, except by really believing in the best bit of you, and in the power beyond it.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('f0_asc_10008-LCL_gt'))">Ground Truth</div>
+<audio id="f0_asc_10008-LCL_gt" controls>
+<source src="audio/f0-ascending/10008-LCL.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10008-LCL_0'))">0</div>
+<audio id="f0_asc_10008-LCL_0" controls>
+<source src="audio/f0-ascending/10008-LCL_0.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10008-LCL_1'))">1</div>
+<audio id="f0_asc_10008-LCL_1" controls>
+<source src="audio/f0-ascending/10008-LCL_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10008-LCL_2'))">2</div>
+<audio id="f0_asc_10008-LCL_2" controls>
+<source src="audio/f0-ascending/10008-LCL_2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10008-LCL_3'))">3</div>
+<audio id="f0_asc_10008-LCL_3" controls>
+<source src="audio/f0-ascending/10008-LCL_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10008-LCL_4'))">4</div>
+<audio id="f0_asc_10008-LCL_4" controls>
+<source src="audio/f0-ascending/10008-LCL_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10008-LCL_5'))">5</div>
+<audio id="f0_asc_10008-LCL_5" controls>
+<source src="audio/f0-ascending/10008-LCL_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10008-LCL_6'))">6</div>
+<audio id="f0_asc_10008-LCL_6" controls>
+<source src="audio/f0-ascending/10008-LCL_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10008-LCL_7'))">7</div>
+<audio id="f0_asc_10008-LCL_7" controls>
+<source src="audio/f0-ascending/10008-LCL_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10008-LCL_8'))">8</div>
+<audio id="f0_asc_10008-LCL_8" controls>
+<source src="audio/f0-ascending/10008-LCL_8.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10008-LCL_9'))">9</div>
+<audio id="f0_asc_10008-LCL_9" controls>
+<source src="audio/f0-ascending/10008-LCL_9.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10008-LCL_10'))">10</div>
+<audio id="f0_asc_10008-LCL_10" controls>
+<source src="audio/f0-ascending/10008-LCL_10.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('f0_asc_10008-LCL_11'))">11</div>
+<audio id="f0_asc_10008-LCL_11" controls>
+<source src="audio/f0-ascending/10008-LCL_11.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+</div>
+<h2 style="text-align: left;">5) Duration single cluster for all phonemes (excluding extreme clusters because of instabilities)</h2>
+<div class="sample-container">
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">mister Pontellier, unable to read his newspaper with any degree of comfort, arose with an expression and an exclamation of disgust.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('dur_asc_10-AWK_gt'))">Ground Truth</div>
+<audio id="dur_asc_10-AWK_gt" controls>
+<source src="audio/dur-ascending/10-AWK.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10-AWK_1'))">1</div>
+<audio id="dur_asc_10-AWK_1" controls>
+<source src="audio/dur-ascending/10-AWK_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10-AWK_2'))">2</div>
+<audio id="dur_asc_10-AWK_2" controls>
+<source src="audio/dur-ascending/10-AWK_2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10-AWK_3'))">3</div>
+<audio id="dur_asc_10-AWK_3" controls>
+<source src="audio/dur-ascending/10-AWK_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10-AWK_4'))">4</div>
+<audio id="dur_asc_10-AWK_4" controls>
+<source src="audio/dur-ascending/10-AWK_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10-AWK_5'))">5</div>
+<audio id="dur_asc_10-AWK_5" controls>
+<source src="audio/dur-ascending/10-AWK_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10-AWK_6'))">6</div>
+<audio id="dur_asc_10-AWK_6" controls>
+<source src="audio/dur-ascending/10-AWK_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10-AWK_7'))">7</div>
+<audio id="dur_asc_10-AWK_7" controls>
+<source src="audio/dur-ascending/10-AWK_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10-AWK_8'))">8</div>
+<audio id="dur_asc_10-AWK_8" controls>
+<source src="audio/dur-ascending/10-AWK_8.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10-AWK_9'))">9</div>
+<audio id="dur_asc_10-AWK_9" controls>
+<source src="audio/dur-ascending/10-AWK_9.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10-AWK_10'))">10</div>
+<audio id="dur_asc_10-AWK_10" controls>
+<source src="audio/dur-ascending/10-AWK_10.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10-AWK_11'))">11</div>
+<audio id="dur_asc_10-AWK_11" controls>
+<source src="audio/dur-ascending/10-AWK_11.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10-AWK_12'))">12</div>
+<audio id="dur_asc_10-AWK_12" controls>
+<source src="audio/dur-ascending/10-AWK_12.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10-AWK_13'))">13</div>
+<audio id="dur_asc_10-AWK_13" controls>
+<source src="audio/dur-ascending/10-AWK_13.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">You cant insure against the future, except by really believing in the best bit of you, and in the power beyond it.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('dur_asc_10008-LCL_gt'))">Ground Truth</div>
+<audio id="dur_asc_10008-LCL_gt" controls>
+<source src="audio/dur-ascending/10008-LCL.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10008-LCL_1'))">1</div>
+<audio id="dur_asc_10008-LCL_1" controls>
+<source src="audio/dur-ascending/10008-LCL_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10008-LCL_2'))">2</div>
+<audio id="dur_asc_10008-LCL_2" controls>
+<source src="audio/dur-ascending/10008-LCL_2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10008-LCL_3'))">3</div>
+<audio id="dur_asc_10008-LCL_3" controls>
+<source src="audio/dur-ascending/10008-LCL_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10008-LCL_4'))">4</div>
+<audio id="dur_asc_10008-LCL_4" controls>
+<source src="audio/dur-ascending/10008-LCL_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10008-LCL_5'))">5</div>
+<audio id="dur_asc_10008-LCL_5" controls>
+<source src="audio/dur-ascending/10008-LCL_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10008-LCL_6'))">6</div>
+<audio id="dur_asc_10008-LCL_6" controls>
+<source src="audio/dur-ascending/10008-LCL_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10008-LCL_7'))">7</div>
+<audio id="dur_asc_10008-LCL_7" controls>
+<source src="audio/dur-ascending/10008-LCL_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10008-LCL_8'))">8</div>
+<audio id="dur_asc_10008-LCL_8" controls>
+<source src="audio/dur-ascending/10008-LCL_8.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10008-LCL_9'))">9</div>
+<audio id="dur_asc_10008-LCL_9" controls>
+<source src="audio/dur-ascending/10008-LCL_9.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10008-LCL_10'))">10</div>
+<audio id="dur_asc_10008-LCL_10" controls>
+<source src="audio/dur-ascending/10008-LCL_10.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10008-LCL_11'))">11</div>
+<audio id="dur_asc_10008-LCL_11" controls>
+<source src="audio/dur-ascending/10008-LCL_11.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10008-LCL_12'))">12</div>
+<audio id="dur_asc_10008-LCL_12" controls>
+<source src="audio/dur-ascending/10008-LCL_12.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10008-LCL_13'))">13</div>
+<audio id="dur_asc_10008-LCL_13" controls>
+<source src="audio/dur-ascending/10008-LCL_13.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">All the bad times that ever have been, havent been able to blow the crocus out, not even the love of women.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('dur_asc_10003-LCL_gt'))">Ground Truth</div>
+<audio id="dur_asc_10003-LCL_gt" controls>
+<source src="audio/dur-ascending/10003-LCL.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10003-LCL_1'))">1</div>
+<audio id="dur_asc_10003-LCL_1" controls>
+<source src="audio/dur-ascending/10003-LCL_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10003-LCL_2'))">2</div>
+<audio id="dur_asc_10003-LCL_2" controls>
+<source src="audio/dur-ascending/10003-LCL_2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10003-LCL_3'))">3</div>
+<audio id="dur_asc_10003-LCL_3" controls>
+<source src="audio/dur-ascending/10003-LCL_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10003-LCL_4'))">4</div>
+<audio id="dur_asc_10003-LCL_4" controls>
+<source src="audio/dur-ascending/10003-LCL_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10003-LCL_5'))">5</div>
+<audio id="dur_asc_10003-LCL_5" controls>
+<source src="audio/dur-ascending/10003-LCL_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10003-LCL_6'))">6</div>
+<audio id="dur_asc_10003-LCL_6" controls>
+<source src="audio/dur-ascending/10003-LCL_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10003-LCL_7'))">7</div>
+<audio id="dur_asc_10003-LCL_7" controls>
+<source src="audio/dur-ascending/10003-LCL_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10003-LCL_8'))">8</div>
+<audio id="dur_asc_10003-LCL_8" controls>
+<source src="audio/dur-ascending/10003-LCL_8.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10003-LCL_9'))">9</div>
+<audio id="dur_asc_10003-LCL_9" controls>
+<source src="audio/dur-ascending/10003-LCL_9.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10003-LCL_10'))">10</div>
+<audio id="dur_asc_10003-LCL_10" controls>
+<source src="audio/dur-ascending/10003-LCL_10.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10003-LCL_11'))">11</div>
+<audio id="dur_asc_10003-LCL_11" controls>
+<source src="audio/dur-ascending/10003-LCL_11.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10003-LCL_12'))">12</div>
+<audio id="dur_asc_10003-LCL_12" controls>
+<source src="audio/dur-ascending/10003-LCL_12.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('dur_asc_10003-LCL_13'))">13</div>
+<audio id="dur_asc_10003-LCL_13" controls>
+<source src="audio/dur-ascending/10003-LCL_13.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+</div>
+<h2 style="text-align: left;">6) Single word augmentation</h2>
+<div class="sample-container">
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript"><span style="color:red">mister</span> Pontellier, unable to read his newspaper with any degree of comfort, arose with an expression and an exclamation of disgust.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('word_augm_10-AWK_gt'))">Ground Truth</div>
+<audio id="word_augm_10-AWK_gt" controls>
+<source src="audio/f0-word-augm/10-AWK.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">F0</div>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_0'))">0</div>
+<audio id="word_augm_10-AWK_0_0" controls>
+<source src="audio/f0-word-augm/10-AWK_0_0.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_1'))">1</div>
+<audio id="word_augm_10-AWK_0_1" controls>
+<source src="audio/f0-word-augm/10-AWK_0_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_2'))">2</div>
+<audio id="word_augm_10-AWK_0_2" controls>
+<source src="audio/f0-word-augm/10-AWK_0_2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_3'))">3</div>
+<audio id="word_augm_10-AWK_0_3" controls>
+<source src="audio/f0-word-augm/10-AWK_0_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_4'))">4</div>
+<audio id="word_augm_10-AWK_0_4" controls>
+<source src="audio/f0-word-augm/10-AWK_0_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_5'))">5</div>
+<audio id="word_augm_10-AWK_0_5" controls>
+<source src="audio/f0-word-augm/10-AWK_0_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_6'))">6</div>
+<audio id="word_augm_10-AWK_0_6" controls>
+<source src="audio/f0-word-augm/10-AWK_0_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_7'))">7</div>
+<audio id="word_augm_10-AWK_0_7" controls>
+<source src="audio/f0-word-augm/10-AWK_0_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_8'))">8</div>
+<audio id="word_augm_10-AWK_0_8" controls>
+<source src="audio/f0-word-augm/10-AWK_0_8.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_9'))">9</div>
+<audio id="word_augm_10-AWK_0_9" controls>
+<source src="audio/f0-word-augm/10-AWK_0_9.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_10'))">10</div>
+<audio id="word_augm_10-AWK_0_10" controls>
+<source src="audio/f0-word-augm/10-AWK_0_10.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_11'))">11</div>
+<audio id="word_augm_10-AWK_0_11" controls>
+<source src="audio/f0-word-augm/10-AWK_0_11.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">Dur</div>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_0_dur'))">0</div>
+<audio id="word_augm_10-AWK_0_0_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_0_0.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_1_dur'))">1</div>
+<audio id="word_augm_10-AWK_0_1_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_0_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_2_dur'))">2</div>
+<audio id="word_augm_10-AWK_0_2_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_0_2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_3_dur'))">3</div>
+<audio id="word_augm_10-AWK_0_3_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_0_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_4_dur'))">4</div>
+<audio id="word_augm_10-AWK_0_4_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_0_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_5_dur'))">5</div>
+<audio id="word_augm_10-AWK_0_5_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_0_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_6_dur'))">6</div>
+<audio id="word_augm_10-AWK_0_6_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_0_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_7_dur'))">7</div>
+<audio id="word_augm_10-AWK_0_7_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_0_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_8_dur'))">8</div>
+<audio id="word_augm_10-AWK_0_8_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_0_8.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_9_dur'))">9</div>
+<audio id="word_augm_10-AWK_0_9_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_0_9.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_10_dur'))">10</div>
+<audio id="word_augm_10-AWK_0_10_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_0_10.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_11_dur'))">11</div>
+<audio id="word_augm_10-AWK_0_11_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_0_11.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_12_dur'))">12</div>
+<audio id="word_augm_10-AWK_0_12_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_0_12.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_13_dur'))">13</div>
+<audio id="word_augm_10-AWK_0_13_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_0_13.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_0_14_dur'))">14</div>
+<audio id="word_augm_10-AWK_0_14_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_0_14.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">mister <span style="color:red">Pontellier</span>, unable to read his newspaper with any degree of comfort, arose with an expression and an exclamation of disgust.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('word_augm_10-AWK_gt'))">Ground Truth</div>
+<audio id="word_augm_10-AWK_gt" controls>
+<source src="audio/f0-word-augm/10-AWK.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">F0</div>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_0'))">0</div>
+<audio id="word_augm_10-AWK_1_0" controls>
+<source src="audio/f0-word-augm/10-AWK_1_0.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_1'))">1</div>
+<audio id="word_augm_10-AWK_1_1" controls>
+<source src="audio/f0-word-augm/10-AWK_1_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_2'))">2</div>
+<audio id="word_augm_10-AWK_1_2" controls>
+<source src="audio/f0-word-augm/10-AWK_1_2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_3'))">3</div>
+<audio id="word_augm_10-AWK_1_3" controls>
+<source src="audio/f0-word-augm/10-AWK_1_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_4'))">4</div>
+<audio id="word_augm_10-AWK_1_4" controls>
+<source src="audio/f0-word-augm/10-AWK_1_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_5'))">5</div>
+<audio id="word_augm_10-AWK_1_5" controls>
+<source src="audio/f0-word-augm/10-AWK_1_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_6'))">6</div>
+<audio id="word_augm_10-AWK_1_6" controls>
+<source src="audio/f0-word-augm/10-AWK_1_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_7'))">7</div>
+<audio id="word_augm_10-AWK_1_7" controls>
+<source src="audio/f0-word-augm/10-AWK_1_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_8'))">8</div>
+<audio id="word_augm_10-AWK_1_8" controls>
+<source src="audio/f0-word-augm/10-AWK_1_8.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_9'))">9</div>
+<audio id="word_augm_10-AWK_1_9" controls>
+<source src="audio/f0-word-augm/10-AWK_1_9.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_10'))">10</div>
+<audio id="word_augm_10-AWK_1_10" controls>
+<source src="audio/f0-word-augm/10-AWK_1_10.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_11'))">11</div>
+<audio id="word_augm_10-AWK_1_11" controls>
+<source src="audio/f0-word-augm/10-AWK_1_11.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">Dur</div>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_0_dur'))">0</div>
+<audio id="word_augm_10-AWK_1_0_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_1_0.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_1_dur'))">1</div>
+<audio id="word_augm_10-AWK_1_1_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_1_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_2_dur'))">2</div>
+<audio id="word_augm_10-AWK_1_2_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_1_2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_3_dur'))">3</div>
+<audio id="word_augm_10-AWK_1_3_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_1_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_4_dur'))">4</div>
+<audio id="word_augm_10-AWK_1_4_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_1_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_5_dur'))">5</div>
+<audio id="word_augm_10-AWK_1_5_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_1_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_6_dur'))">6</div>
+<audio id="word_augm_10-AWK_1_6_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_1_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_7_dur'))">7</div>
+<audio id="word_augm_10-AWK_1_7_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_1_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_8_dur'))">8</div>
+<audio id="word_augm_10-AWK_1_8_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_1_8.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_9_dur'))">9</div>
+<audio id="word_augm_10-AWK_1_9_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_1_9.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_10_dur'))">10</div>
+<audio id="word_augm_10-AWK_1_10_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_1_10.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_11_dur'))">11</div>
+<audio id="word_augm_10-AWK_1_11_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_1_11.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_12_dur'))">12</div>
+<audio id="word_augm_10-AWK_1_12_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_1_12.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_13_dur'))">13</div>
+<audio id="word_augm_10-AWK_1_13_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_1_13.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_1_14_dur'))">14</div>
+<audio id="word_augm_10-AWK_1_14_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_1_14.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">mister Pontellier, <span style="color:red">unable</span> to read his newspaper with any degree of comfort, arose with an expression and an exclamation of disgust.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('word_augm_10-AWK_gt'))">Ground Truth</div>
+<audio id="word_augm_10-AWK_gt" controls>
+<source src="audio/f0-word-augm/10-AWK.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">F0</div>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_0'))">0</div>
+<audio id="word_augm_10-AWK_2_0" controls>
+<source src="audio/f0-word-augm/10-AWK_2_0.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_1'))">1</div>
+<audio id="word_augm_10-AWK_2_1" controls>
+<source src="audio/f0-word-augm/10-AWK_2_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_2'))">2</div>
+<audio id="word_augm_10-AWK_2_2" controls>
+<source src="audio/f0-word-augm/10-AWK_2_2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_3'))">3</div>
+<audio id="word_augm_10-AWK_2_3" controls>
+<source src="audio/f0-word-augm/10-AWK_2_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_4'))">4</div>
+<audio id="word_augm_10-AWK_2_4" controls>
+<source src="audio/f0-word-augm/10-AWK_2_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_5'))">5</div>
+<audio id="word_augm_10-AWK_2_5" controls>
+<source src="audio/f0-word-augm/10-AWK_2_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_6'))">6</div>
+<audio id="word_augm_10-AWK_2_6" controls>
+<source src="audio/f0-word-augm/10-AWK_2_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_7'))">7</div>
+<audio id="word_augm_10-AWK_2_7" controls>
+<source src="audio/f0-word-augm/10-AWK_2_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_8'))">8</div>
+<audio id="word_augm_10-AWK_2_8" controls>
+<source src="audio/f0-word-augm/10-AWK_2_8.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_9'))">9</div>
+<audio id="word_augm_10-AWK_2_9" controls>
+<source src="audio/f0-word-augm/10-AWK_2_9.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_10'))">10</div>
+<audio id="word_augm_10-AWK_2_10" controls>
+<source src="audio/f0-word-augm/10-AWK_2_10.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_11'))">11</div>
+<audio id="word_augm_10-AWK_2_11" controls>
+<source src="audio/f0-word-augm/10-AWK_2_11.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">Dur</div>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_0_dur'))">0</div>
+<audio id="word_augm_10-AWK_2_0_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_2_0.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_1_dur'))">1</div>
+<audio id="word_augm_10-AWK_2_1_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_2_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_2_dur'))">2</div>
+<audio id="word_augm_10-AWK_2_2_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_2_2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_3_dur'))">3</div>
+<audio id="word_augm_10-AWK_2_3_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_2_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_4_dur'))">4</div>
+<audio id="word_augm_10-AWK_2_4_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_2_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_5_dur'))">5</div>
+<audio id="word_augm_10-AWK_2_5_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_2_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_6_dur'))">6</div>
+<audio id="word_augm_10-AWK_2_6_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_2_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_7_dur'))">7</div>
+<audio id="word_augm_10-AWK_2_7_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_2_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_8_dur'))">8</div>
+<audio id="word_augm_10-AWK_2_8_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_2_8.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_9_dur'))">9</div>
+<audio id="word_augm_10-AWK_2_9_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_2_9.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_10_dur'))">10</div>
+<audio id="word_augm_10-AWK_2_10_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_2_10.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_11_dur'))">11</div>
+<audio id="word_augm_10-AWK_2_11_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_2_11.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_12_dur'))">12</div>
+<audio id="word_augm_10-AWK_2_12_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_2_12.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_13_dur'))">13</div>
+<audio id="word_augm_10-AWK_2_13_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_2_13.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_2_14_dur'))">14</div>
+<audio id="word_augm_10-AWK_2_14_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_2_14.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">mister Pontellier, unable to read his <span style="color:red">newspaper</span> with any degree of comfort, arose with an expression and an exclamation of disgust.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('word_augm_10-AWK_gt'))">Ground Truth</div>
+<audio id="word_augm_10-AWK_gt" controls>
+<source src="audio/f0-word-augm/10-AWK.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">F0</div>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_0'))">0</div>
+<audio id="word_augm_10-AWK_6_0" controls>
+<source src="audio/f0-word-augm/10-AWK_6_0.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_1'))">1</div>
+<audio id="word_augm_10-AWK_6_1" controls>
+<source src="audio/f0-word-augm/10-AWK_6_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_2'))">2</div>
+<audio id="word_augm_10-AWK_6_2" controls>
+<source src="audio/f0-word-augm/10-AWK_6_2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_3'))">3</div>
+<audio id="word_augm_10-AWK_6_3" controls>
+<source src="audio/f0-word-augm/10-AWK_6_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_4'))">4</div>
+<audio id="word_augm_10-AWK_6_4" controls>
+<source src="audio/f0-word-augm/10-AWK_6_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_5'))">5</div>
+<audio id="word_augm_10-AWK_6_5" controls>
+<source src="audio/f0-word-augm/10-AWK_6_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_6'))">6</div>
+<audio id="word_augm_10-AWK_6_6" controls>
+<source src="audio/f0-word-augm/10-AWK_6_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_7'))">7</div>
+<audio id="word_augm_10-AWK_6_7" controls>
+<source src="audio/f0-word-augm/10-AWK_6_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_8'))">8</div>
+<audio id="word_augm_10-AWK_6_8" controls>
+<source src="audio/f0-word-augm/10-AWK_6_8.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_9'))">9</div>
+<audio id="word_augm_10-AWK_6_9" controls>
+<source src="audio/f0-word-augm/10-AWK_6_9.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_10'))">10</div>
+<audio id="word_augm_10-AWK_6_10" controls>
+<source src="audio/f0-word-augm/10-AWK_6_10.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_11'))">11</div>
+<audio id="word_augm_10-AWK_6_11" controls>
+<source src="audio/f0-word-augm/10-AWK_6_11.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">Dur</div>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_0_dur'))">0</div>
+<audio id="word_augm_10-AWK_6_0_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_6_0.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_1_dur'))">1</div>
+<audio id="word_augm_10-AWK_6_1_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_6_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_2_dur'))">2</div>
+<audio id="word_augm_10-AWK_6_2_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_6_2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_3_dur'))">3</div>
+<audio id="word_augm_10-AWK_6_3_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_6_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_4_dur'))">4</div>
+<audio id="word_augm_10-AWK_6_4_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_6_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_5_dur'))">5</div>
+<audio id="word_augm_10-AWK_6_5_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_6_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_6_dur'))">6</div>
+<audio id="word_augm_10-AWK_6_6_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_6_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_7_dur'))">7</div>
+<audio id="word_augm_10-AWK_6_7_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_6_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_8_dur'))">8</div>
+<audio id="word_augm_10-AWK_6_8_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_6_8.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_9_dur'))">9</div>
+<audio id="word_augm_10-AWK_6_9_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_6_9.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_10_dur'))">10</div>
+<audio id="word_augm_10-AWK_6_10_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_6_10.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_11_dur'))">11</div>
+<audio id="word_augm_10-AWK_6_11_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_6_11.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_12_dur'))">12</div>
+<audio id="word_augm_10-AWK_6_12_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_6_12.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_13_dur'))">13</div>
+<audio id="word_augm_10-AWK_6_13_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_6_13.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('word_augm_10-AWK_6_14_dur'))">14</div>
+<audio id="word_augm_10-AWK_6_14_dur" controls>
+<source src="audio/dur-word-augm/10-AWK_6_14.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div>
