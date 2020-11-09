@@ -310,6 +310,73 @@ for wordd in [0, 1, 2, 6]:
     out.write('</div>\n')
 out.write('</div>\n')
 
+# Phoneme augmentation
+out.write('<h2 style="text-align: left;">7) Single phoneme augmentation (SAMPA representation)</h2>\n')
+mypath = f'audio/f0-phoneme'
+mypath_dur = f'audio/dur-phoneme'
+files = sorted([f for f in listdir(mypath) if isfile(join(mypath, f))])
+out.write('<div class="sample-container">\n')
+fname = '10003-LCL'
+for idx, phonee in enumerate([0, 5, 19, 22]):
+    phone = str(phonee)
+    out.write('<div class="sample">\n')
+    out.write('<div class="sample-title">\n')
+    out.write('<span class="quotation">&ldquo;</span>\n')
+    out.write('<div class="transcript">')
+    title = transcript[fname]
+    title = title.split(' ')
+    if idx == 0:  # 0, 2, 6, 7
+        title[0] = 'All (<span style="color:red">"Q</span> l)'
+    elif idx == 1:
+        title[2] = 'bad (b <span style="color:red">"{</span> d)'
+    elif idx == 2:
+        title[6] = 'have (h <span style="color:red">{</span> v)'
+    else:
+        title[7] = 'been (b <span style="color:red">"I</span> n)'
+    out.write(' '.join(title))
+    out.write('</div>\n')
+    out.write('</div>\n')
+    # GT-+0
+    out.write('<div class="mod-container">\n')
+    out.write('<div class="sample-audio">\n')
+    out.write(f'<div class="gt" onclick="togglePlay(document.getElementById(\'phone_augm_{fname}_gt\'))">Ground Truth</div>\n')
+    out.write(f'<audio id="phone_augm_{fname}_gt" controls>\n')
+    out.write(f'<source src="{mypath}/{fname}.wav" type="audio/wav">\n')
+    out.write('Your browser does not support the audio element.\n')
+    out.write('</audio>\n')
+    out.write('</div>\n')
+    out.write('</div>\n')
+    # Asc - F0
+    out.write('<div class="mod-container">\n')
+    for moda in ['dum'] + [f'{i}' for i in list(range(0, 12))]:
+        out.write('<div class="sample-audio">\n')
+        if moda == 'dum':
+            out.write(f'<div class="invisible axis">F0</div>\n')
+        else:
+            out.write(f'<div class="r-number" onclick="togglePlay(document.getElementById(\'phone_augm_{fname}_{phone}_{moda}\'))">{moda}</div>\n')
+            out.write(f'<audio id="phone_augm_{fname}_{phone}_{moda}" controls>\n')
+            out.write(f'<source src="{mypath}/{fname}_ph_{phone}_{moda}.wav" type="audio/wav">\n')
+            out.write('Your browser does not support the audio element.\n')
+            out.write('</audio>\n')
+        out.write('</div>\n')
+    out.write('</div>\n')
+    # Asc - Dur
+    out.write('<div class="mod-container">\n')
+    for moda in ['dum'] + [f'{i}' for i in list(range(0, 15))]:
+        out.write('<div class="sample-audio">\n')
+        if moda == 'dum':
+            out.write(f'<div class="invisible axis">Dur</div>\n')
+        else:
+            out.write(f'<div class="r-number" onclick="togglePlay(document.getElementById(\'word_augm_{fname}_{phone}_{moda}_dur\'))">{moda}</div>\n')
+            out.write(f'<audio id="word_augm_{fname}_{phone}_{moda}_dur" controls>\n')
+            out.write(f'<source src="{mypath_dur}/{fname}_ph_{phone}_{moda}.wav" type="audio/wav">\n')
+            out.write('Your browser does not support the audio element.\n')
+            out.write('</audio>\n')
+        out.write('</div>\n')
+    out.write('</div>\n')
+    out.write('</div>\n')
+out.write('</div>\n')
+
 out.write('</body>\n')
 out.write('</html>\n')
 out.close()
