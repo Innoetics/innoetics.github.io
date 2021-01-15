@@ -52,6 +52,7 @@
 
     .sample-container {
       margin: 18px 0;
+      display: none;
     }
 
     .sample {
@@ -191,6 +192,18 @@
       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     }
 
+    h2:hover {
+      cursor: pointer;
+      background: silver;
+    }
+
+    h2 {
+      border: azure;
+      background: bisque;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
   </style>
 </head>
 
@@ -208,6 +221,11 @@
         el.currentTime = 0;
         el.play();
       }
+    };
+    function showSample(event) {
+      var target = event.target || event.srcElement;
+      var currentDisplayAttrValue = target.nextElementSibling.style.display;
+      target.nextElementSibling.style.display =  currentDisplayAttrValue == 'none' ? 'block' : 'none'; 
     };
   </script>
   <div class="head-container">
