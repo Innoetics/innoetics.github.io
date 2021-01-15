@@ -6,6 +6,7 @@
   <style>
     .container {
       padding: 12px 24px;
+      overflow: scroll;
     }
 
     .head-container {
@@ -203,6 +204,15 @@
       padding: 10px;
     }
 
+    a.custom-a-href {
+      color: black;
+      text-decoration: none;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
   </style>
 </head>
 
@@ -223,8 +233,8 @@
     };
     function showSample(event) {
       var target = event.target || event.srcElement;
-      var currentDisplayAttrValue = target.nextElementSibling.style.display;
-      target.nextElementSibling.style.display =  currentDisplayAttrValue == 'none' ? 'block' : 'none'; 
+      var currentDisplayAttrValue = target.parentElement.nextElementSibling.style.display;
+      target.parentElement.nextElementSibling.style.display =  currentDisplayAttrValue == 'none' ? 'block' : 'none';
     };
   </script>
   <div class="head-container">

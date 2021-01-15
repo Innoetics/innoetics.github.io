@@ -12,7 +12,7 @@ with open('audio/transcript.txt') as f:
     transcript = {line[0].replace('.wav', ''): line[1] for line in temp}
 
 # F0 offsets from ground truth
-out.write('<h2 style="text-align: left;" onclick="showSample(event)">1) F0 modification based on offset from ground truth labels</h2>\n')
+out.write('<a href="#title1" class="custom-a-href"><h2 style="text-align: left;" onclick="showSample(event)" id="title1">1) F0 modification based on offset from ground truth labels</h2></a>\n')
 mypath = f'audio/f0-offset-mod'
 files = sorted([f for f in listdir(mypath) if isfile(join(mypath, f))])
 out.write('<div class="sample-container" style="display:none">\n')
@@ -68,7 +68,7 @@ for fname in ['10-AWK', '10-CHS', '10-ECO']:
 out.write('</div>\n')
 
 # Duration offsets from ground truth
-out.write('<h2 style="text-align: left;" onclick="showSample(event)">2) Duration modification based on offset from ground truth labels</h2>\n')
+out.write('<a href="#title2" class="custom-a-href"><h2 style="text-align: left;" onclick="showSample(event)" id="title2">2) Duration modification based on offset from ground truth labels</h2></a>\n')
 mypath = f'audio/dur-offset-mod'
 files = sorted([f for f in listdir(mypath) if isfile(join(mypath, f))])
 out.write('<div class="sample-container" style="display:none">\n')
@@ -124,7 +124,7 @@ for fname in ['10-AWK', '10-CHS', '10-ECO']:
 out.write('</div>\n')
 
 # Joint model
-out.write('<h2 style="text-align: left;" onclick="showSample(event)">3) Joint model modification based on offset from ground truth labels</h2>\n')
+out.write('<a href="#title3" class="custom-a-href"><h2 style="text-align: left;" onclick="showSample(event)" id="title3">3) Joint model modification based on offset from ground truth labels</h2></a>\n')
 mypath = f'audio/joint-offset-mod'
 files = sorted([f for f in listdir(mypath) if isfile(join(mypath, f))])
 out.write('<div class="sample-container" style="display:none">\n')
@@ -177,7 +177,7 @@ for fname in ['10-AWK', '10-CHS', '10-ECO']:
 out.write('</div>\n')
 
 # F0 single cluster
-out.write('<h2 style="text-align: left;" onclick="showSample(event)">4) F0 single cluster for all phonemes</h2>\n')
+out.write('<a href="#title4" class="custom-a-href"><h2 style="text-align: left;" onclick="showSample(event)" id="title4">4) F0 single cluster for all phonemes</h2></a>\n')
 mypath = f'audio/f0-ascending'
 files = sorted([f for f in listdir(mypath) if isfile(join(mypath, f))])
 out.write('<div class="sample-container" style="display:none">\n')
@@ -214,7 +214,7 @@ for fname in ['10-AWK', '10027-LCL', '10008-LCL']:
 out.write('</div>\n')
 
 # Duration single cluster
-out.write('<h2 style="text-align: left;" onclick="showSample(event)">5) Duration single cluster for all phonemes (excluding extreme clusters because of instabilities)</h2>\n')
+out.write('<a href="#title5" class="custom-a-href"><h2 style="text-align: left;" onclick="showSample(event)" id="title5">5) Duration single cluster for all phonemes (excluding extreme clusters because of instabilities)</h2></a>\n')
 mypath = f'audio/dur-ascending'
 files = sorted([f for f in listdir(mypath) if isfile(join(mypath, f))])
 out.write('<div class="sample-container" style="display:none">\n')
@@ -251,7 +251,7 @@ for fname in ['10-AWK', '10008-LCL', '10003-LCL']:
 out.write('</div>\n')
 
 # Word augmentation
-out.write('<h2 style="text-align: left;" onclick="showSample(event)">6) Single word augmentation</h2>\n')
+out.write('<a href="#title6" class="custom-a-href"><h2 style="text-align: left;" onclick="showSample(event)" id="title6">6) Single word augmentation</h2></a>\n')
 mypath = f'audio/f0-word-augm'
 mypath_dur = f'audio/dur-word-augm'
 files = sorted([f for f in listdir(mypath) if isfile(join(mypath, f))])
@@ -311,7 +311,7 @@ for wordd in [0, 1, 2, 6]:
 out.write('</div>\n')
 
 # Phoneme augmentation
-out.write('<h2 style="text-align: left;" onclick="showSample(event)">7) Single phoneme augmentation (SAMPA representation)</h2>\n')
+out.write('<a href="#title7" class="custom-a-href"><h2 style="text-align: left;" onclick="showSample(event)" id="title7">7) Single phoneme augmentation (SAMPA representation)</h2></a>\n')
 mypath = f'audio/f0-phoneme'
 mypath_dur = f'audio/dur-phoneme'
 files = sorted([f for f in listdir(mypath) if isfile(join(mypath, f))])
@@ -429,7 +429,7 @@ for idx, phonee in enumerate([8, 14]):
 out.write('</div>\n')
 
 # Asc-desc
-out.write('<h2 style="text-align: left;" onclick="showSample(event)">8) Ascending-Descending samples</h2>\n')
+out.write('<a href="#title8" class="custom-a-href"><h2 style="text-align: left;" onclick="showSample(event)" id="title8">8) Ascending-Descending samples</h2></a>\n')
 mypath = f'audio/f0-ascdesc'
 out.write('<div class="sample-container" style="display:none">\n')
 fname = '1002-UTS'
@@ -488,7 +488,7 @@ out.write('</div>\n')
 out.write('</div>\n')
 
 # Musical notes
-out.write('<h2 style="text-align: left;" onclick="showSample(event)">9) Musical notes control</h2>\n')
+out.write('<a href="#title9" class="custom-a-href"><h2 style="text-align: left;" onclick="showSample(event)" id="title9">9) Musical notes control</h2></a>\n')
 mypath = f'audio/notes'
 out.write('<div class="sample-container" style="display:none">\n')
 

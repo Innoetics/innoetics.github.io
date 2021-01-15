@@ -6,6 +6,7 @@
   <style>
     .container {
       padding: 12px 24px;
+      overflow: scroll;
     }
 
     .head-container {
@@ -203,6 +204,15 @@
       padding: 10px;
     }
 
+    a.custom-a-href {
+      color: black;
+      text-decoration: none;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
   </style>
 </head>
 
@@ -223,8 +233,8 @@
     };
     function showSample(event) {
       var target = event.target || event.srcElement;
-      var currentDisplayAttrValue = target.nextElementSibling.style.display;
-      target.nextElementSibling.style.display =  currentDisplayAttrValue == 'none' ? 'block' : 'none'; 
+      var currentDisplayAttrValue = target.parentElement.nextElementSibling.style.display;
+      target.parentElement.nextElementSibling.style.display =  currentDisplayAttrValue == 'none' ? 'block' : 'none';
     };
   </script>
   <div class="head-container">
@@ -247,7 +257,7 @@
     Experimental results show that the proposed method retains the high quality of generated speech, while allowing phoneme-level control of F0 and duration.
     By replacing the F0 cluster centroids with musical notes, the model can also provide control over the note and octave within the range of the speaker.</p>
   </div>
-<h2 style="text-align: left;" onclick="showSample(event)">1) F0 modification based on offset from ground truth labels</h2>
+<a href="#title1" class="custom-a-href"><h2 style="text-align: left;" onclick="showSample(event)" id="title1">1) F0 modification based on offset from ground truth labels</h2></a>
 <div class="sample-container" style="display:none">
 <div class="sample">
 <div class="sample-title">
@@ -664,7 +674,7 @@ Your browser does not support the audio element.
 </div>
 </div>
 </div>
-<h2 style="text-align: left;" onclick="showSample(event)">2) Duration modification based on offset from ground truth labels</h2>
+<a href="#title2" class="custom-a-href"><h2 style="text-align: left;" onclick="showSample(event)" id="title2">2) Duration modification based on offset from ground truth labels</h2></a>
 <div class="sample-container" style="display:none">
 <div class="sample">
 <div class="sample-title">
@@ -1081,7 +1091,7 @@ Your browser does not support the audio element.
 </div>
 </div>
 </div>
-<h2 style="text-align: left;" onclick="showSample(event)">3) Joint model modification based on offset from ground truth labels</h2>
+<a href="#title3" class="custom-a-href"><h2 style="text-align: left;" onclick="showSample(event)" id="title3">3) Joint model modification based on offset from ground truth labels</h2></a>
 <div class="sample-container" style="display:none">
 <div class="sample">
 <div class="sample-title">
@@ -3061,7 +3071,7 @@ Your browser does not support the audio element.
 </div>
 </div>
 </div>
-<h2 style="text-align: left;" onclick="showSample(event)">4) F0 single cluster for all phonemes</h2>
+<a href="#title4" class="custom-a-href"><h2 style="text-align: left;" onclick="showSample(event)" id="title4">4) F0 single cluster for all phonemes</h2></a>
 <div class="sample-container" style="display:none">
 <div class="sample">
 <div class="sample-title">
@@ -3367,7 +3377,7 @@ Your browser does not support the audio element.
 </div>
 </div>
 </div>
-<h2 style="text-align: left;" onclick="showSample(event)">5) Duration single cluster for all phonemes (excluding extreme clusters because of instabilities)</h2>
+<a href="#title5" class="custom-a-href"><h2 style="text-align: left;" onclick="showSample(event)" id="title5">5) Duration single cluster for all phonemes (excluding extreme clusters because of instabilities)</h2></a>
 <div class="sample-container" style="display:none">
 <div class="sample">
 <div class="sample-title">
@@ -3694,7 +3704,7 @@ Your browser does not support the audio element.
 </div>
 </div>
 </div>
-<h2 style="text-align: left;" onclick="showSample(event)">6) Single word augmentation</h2>
+<a href="#title6" class="custom-a-href"><h2 style="text-align: left;" onclick="showSample(event)" id="title6">6) Single word augmentation</h2></a>
 <div class="sample-container" style="display:none">
 <div class="sample">
 <div class="sample-title">
@@ -4553,7 +4563,7 @@ Your browser does not support the audio element.
 </div>
 </div>
 </div>
-<h2 style="text-align: left;" onclick="showSample(event)">7) Single phoneme augmentation (SAMPA representation)</h2>
+<a href="#title7" class="custom-a-href"><h2 style="text-align: left;" onclick="showSample(event)" id="title7">7) Single phoneme augmentation (SAMPA representation)</h2></a>
 <div class="sample-container" style="display:none">
 <div class="sample">
 <div class="sample-title">
@@ -5412,7 +5422,7 @@ Your browser does not support the audio element.
 </div>
 </div>
 </div>
-<h2 style="text-align: left;" onclick="showSample(event)">8) Ascending-Descending samples</h2>
+<a href="#title8" class="custom-a-href"><h2 style="text-align: left;" onclick="showSample(event)" id="title8">8) Ascending-Descending samples</h2></a>
 <div class="sample-container" style="display:none">
 <div class="sample">
 <div class="sample-title">
@@ -5476,7 +5486,7 @@ Your browser does not support the audio element.
 </div>
 </div>
 </div>
-<h2 style="text-align: left;" onclick="showSample(event)">9) Musical notes control</h2>
+<a href="#title9" class="custom-a-href"><h2 style="text-align: left;" onclick="showSample(event)" id="title9">9) Musical notes control</h2></a>
 <div class="sample-container" style="display:none">
 <div class="sample">
 <div class="sample-title">
