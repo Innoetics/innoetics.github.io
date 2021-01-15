@@ -52,7 +52,6 @@
 
     .sample-container {
       margin: 18px 0;
-      display: none;
     }
 
     .sample {
@@ -249,7 +248,7 @@
     By replacing the F0 cluster centroids with musical notes, the model can also provide control over the note and octave within the range of the speaker.</p>
   </div>
 <h2 style="text-align: left;" onclick="showSample(event)">1) F0 modification based on offset from ground truth labels</h2>
-<div class="sample-container">
+<div class="sample-container" style="display:none">
 <div class="sample">
 <div class="sample-title">
 <span class="quotation">&ldquo;</span>
@@ -666,7 +665,7 @@ Your browser does not support the audio element.
 </div>
 </div>
 <h2 style="text-align: left;" onclick="showSample(event)">2) Duration modification based on offset from ground truth labels</h2>
-<div class="sample-container">
+<div class="sample-container" style="display:none">
 <div class="sample">
 <div class="sample-title">
 <span class="quotation">&ldquo;</span>
@@ -1083,7 +1082,7 @@ Your browser does not support the audio element.
 </div>
 </div>
 <h2 style="text-align: left;" onclick="showSample(event)">3) Joint model modification based on offset from ground truth labels</h2>
-<div class="sample-container">
+<div class="sample-container" style="display:none">
 <div class="sample">
 <div class="sample-title">
 <span class="quotation">&ldquo;</span>
@@ -3063,7 +3062,7 @@ Your browser does not support the audio element.
 </div>
 </div>
 <h2 style="text-align: left;" onclick="showSample(event)">4) F0 single cluster for all phonemes</h2>
-<div class="sample-container">
+<div class="sample-container" style="display:none">
 <div class="sample">
 <div class="sample-title">
 <span class="quotation">&ldquo;</span>
@@ -3369,7 +3368,7 @@ Your browser does not support the audio element.
 </div>
 </div>
 <h2 style="text-align: left;" onclick="showSample(event)">5) Duration single cluster for all phonemes (excluding extreme clusters because of instabilities)</h2>
-<div class="sample-container">
+<div class="sample-container" style="display:none">
 <div class="sample">
 <div class="sample-title">
 <span class="quotation">&ldquo;</span>
@@ -3696,7 +3695,7 @@ Your browser does not support the audio element.
 </div>
 </div>
 <h2 style="text-align: left;" onclick="showSample(event)">6) Single word augmentation</h2>
-<div class="sample-container">
+<div class="sample-container" style="display:none">
 <div class="sample">
 <div class="sample-title">
 <span class="quotation">&ldquo;</span>
@@ -4555,7 +4554,7 @@ Your browser does not support the audio element.
 </div>
 </div>
 <h2 style="text-align: left;" onclick="showSample(event)">7) Single phoneme augmentation (SAMPA representation)</h2>
-<div class="sample-container">
+<div class="sample-container" style="display:none">
 <div class="sample">
 <div class="sample-title">
 <span class="quotation">&ldquo;</span>
@@ -5414,7 +5413,7 @@ Your browser does not support the audio element.
 </div>
 </div>
 <h2 style="text-align: left;" onclick="showSample(event)">8) Ascending-Descending samples</h2>
-<div class="sample-container">
+<div class="sample-container" style="display:none">
 <div class="sample">
 <div class="sample-title">
 <span class="quotation">&ldquo;</span>
@@ -5478,7 +5477,7 @@ Your browser does not support the audio element.
 </div>
 </div>
 <h2 style="text-align: left;" onclick="showSample(event)">9) Musical notes control</h2>
-<div class="sample-container">
+<div class="sample-container" style="display:none">
 <div class="sample">
 <div class="sample-title">
 <span class="quotation">&ldquo;</span>
@@ -5486,7 +5485,7 @@ Your browser does not support the audio element.
 </div>
 <div class="mod-container">
 <span class="quotation">&sung;</span>
-<div class="sample-audio">
+<div class="sample-audio" style="padding-left:0px">
 <div class="note" onclick="togglePlay(document.getElementById('utt1'))">Do La Sol Fa Do - Do La Sol Fa Re - Re Sib La Sol Fa</div>
 <audio id="utt1" controls preload="none">
 <source src="audio/notes/utt1.wav" type="audio/wav">
@@ -5502,7 +5501,7 @@ Your browser does not support the audio element.
 </div>
 <div class="mod-container">
 <span class="quotation">&sung;</span>
-<div class="sample-audio">
+<div class="sample-audio" style="padding-left:0px">
 <div class="note" onclick="togglePlay(document.getElementById('utt2'))">Do Mi Sol Do</div>
 <audio id="utt2" controls preload="none">
 <source src="audio/notes/utt2.wav" type="audio/wav">
@@ -5518,7 +5517,7 @@ Your browser does not support the audio element.
 </div>
 <div class="mod-container">
 <span class="quotation">&sung;</span>
-<div class="sample-audio">
+<div class="sample-audio" style="padding-left:0px">
 <div class="note" onclick="togglePlay(document.getElementById('utt3'))">Do Re Mi Fa Sol La Si Do Si La Sol Fa Mi Re Do</div>
 <audio id="utt3" controls preload="none">
 <source src="audio/notes/utt3.wav" type="audio/wav">
@@ -5534,7 +5533,7 @@ Your browser does not support the audio element.
 </div>
 <div class="mod-container">
 <span class="quotation">&sung;</span>
-<div class="sample-audio">
+<div class="sample-audio" style="padding-left:0px">
 <div class="note" onclick="togglePlay(document.getElementById('lala1'))">Fa Fa Fa Do - La La La Do</div>
 <audio id="lala1" controls preload="none">
 <source src="audio/notes/lala1.wav" type="audio/wav">
@@ -5550,7 +5549,7 @@ Your browser does not support the audio element.
 </div>
 <div class="mod-container">
 <span class="quotation">&sung;</span>
-<div class="sample-audio">
+<div class="sample-audio" style="padding-left:0px">
 <div class="note" onclick="togglePlay(document.getElementById('lala2'))">Fa Fa Fa Do - La La La Fa</div>
 <audio id="lala2" controls preload="none">
 <source src="audio/notes/lala2.wav" type="audio/wav">
@@ -5566,7 +5565,7 @@ Your browser does not support the audio element.
 </div>
 <div class="mod-container">
 <span class="quotation">&sung;</span>
-<div class="sample-audio">
+<div class="sample-audio" style="padding-left:0px">
 <div class="note" onclick="togglePlay(document.getElementById('cmajor'))">Do Mi Sol Do</div>
 <audio id="cmajor" controls preload="none">
 <source src="audio/notes/cmajor.wav" type="audio/wav">
@@ -5582,7 +5581,7 @@ Your browser does not support the audio element.
 </div>
 <div class="mod-container">
 <span class="quotation">&sung;</span>
-<div class="sample-audio">
+<div class="sample-audio" style="padding-left:0px">
 <div class="note" onclick="togglePlay(document.getElementById('fmajor'))">Fa La Do</div>
 <audio id="fmajor" controls preload="none">
 <source src="audio/notes/fmajor.wav" type="audio/wav">

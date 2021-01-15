@@ -15,7 +15,7 @@ with open('audio/transcript.txt') as f:
 out.write('<h2 style="text-align: left;" onclick="showSample(event)">1) F0 modification based on offset from ground truth labels</h2>\n')
 mypath = f'audio/f0-offset-mod'
 files = sorted([f for f in listdir(mypath) if isfile(join(mypath, f))])
-out.write('<div class="sample-container">\n')
+out.write('<div class="sample-container" style="display:none">\n')
 for fname in ['10-AWK', '10-CHS', '10-ECO']:
     out.write('<div class="sample">\n')
     out.write('<div class="sample-title">\n')
@@ -71,7 +71,7 @@ out.write('</div>\n')
 out.write('<h2 style="text-align: left;" onclick="showSample(event)">2) Duration modification based on offset from ground truth labels</h2>\n')
 mypath = f'audio/dur-offset-mod'
 files = sorted([f for f in listdir(mypath) if isfile(join(mypath, f))])
-out.write('<div class="sample-container">\n')
+out.write('<div class="sample-container" style="display:none">\n')
 for fname in ['10-AWK', '10-CHS', '10-ECO']:
     out.write('<div class="sample">\n')
     out.write('<div class="sample-title">\n')
@@ -127,7 +127,7 @@ out.write('</div>\n')
 out.write('<h2 style="text-align: left;" onclick="showSample(event)">3) Joint model modification based on offset from ground truth labels</h2>\n')
 mypath = f'audio/joint-offset-mod'
 files = sorted([f for f in listdir(mypath) if isfile(join(mypath, f))])
-out.write('<div class="sample-container">\n')
+out.write('<div class="sample-container" style="display:none">\n')
 for fname in ['10-AWK', '10-CHS', '10-ECO']:
     out.write('<div class="sample">\n')
     out.write('<div class="sample-title">\n')
@@ -180,7 +180,7 @@ out.write('</div>\n')
 out.write('<h2 style="text-align: left;" onclick="showSample(event)">4) F0 single cluster for all phonemes</h2>\n')
 mypath = f'audio/f0-ascending'
 files = sorted([f for f in listdir(mypath) if isfile(join(mypath, f))])
-out.write('<div class="sample-container">\n')
+out.write('<div class="sample-container" style="display:none">\n')
 for fname in ['10-AWK', '10027-LCL', '10008-LCL']:
     out.write('<div class="sample">\n')
     out.write('<div class="sample-title">\n')
@@ -217,7 +217,7 @@ out.write('</div>\n')
 out.write('<h2 style="text-align: left;" onclick="showSample(event)">5) Duration single cluster for all phonemes (excluding extreme clusters because of instabilities)</h2>\n')
 mypath = f'audio/dur-ascending'
 files = sorted([f for f in listdir(mypath) if isfile(join(mypath, f))])
-out.write('<div class="sample-container">\n')
+out.write('<div class="sample-container" style="display:none">\n')
 for fname in ['10-AWK', '10008-LCL', '10003-LCL']:
     out.write('<div class="sample">\n')
     out.write('<div class="sample-title">\n')
@@ -255,7 +255,7 @@ out.write('<h2 style="text-align: left;" onclick="showSample(event)">6) Single w
 mypath = f'audio/f0-word-augm'
 mypath_dur = f'audio/dur-word-augm'
 files = sorted([f for f in listdir(mypath) if isfile(join(mypath, f))])
-out.write('<div class="sample-container">\n')
+out.write('<div class="sample-container" style="display:none">\n')
 fname = '10-AWK'
 for wordd in [0, 1, 2, 6]:
     word = str(wordd)
@@ -315,7 +315,7 @@ out.write('<h2 style="text-align: left;" onclick="showSample(event)">7) Single p
 mypath = f'audio/f0-phoneme'
 mypath_dur = f'audio/dur-phoneme'
 files = sorted([f for f in listdir(mypath) if isfile(join(mypath, f))])
-out.write('<div class="sample-container">\n')
+out.write('<div class="sample-container" style="display:none">\n')
 fname = '10003-LCL'
 for idx, phonee in enumerate([0, 5]):
     phone = str(phonee)
@@ -431,7 +431,7 @@ out.write('</div>\n')
 # Asc-desc
 out.write('<h2 style="text-align: left;" onclick="showSample(event)">8) Ascending-Descending samples</h2>\n')
 mypath = f'audio/f0-ascdesc'
-out.write('<div class="sample-container">\n')
+out.write('<div class="sample-container" style="display:none">\n')
 fname = '1002-UTS'
 out.write('<div class="sample">\n')
 out.write('<div class="sample-title">\n')
@@ -490,7 +490,7 @@ out.write('</div>\n')
 # Musical notes
 out.write('<h2 style="text-align: left;" onclick="showSample(event)">9) Musical notes control</h2>\n')
 mypath = f'audio/notes'
-out.write('<div class="sample-container">\n')
+out.write('<div class="sample-container" style="display:none">\n')
 
 # Utt 1
 utt = 'utt1'
@@ -503,7 +503,7 @@ out.write('</div>\n')
 out.write('</div>\n')
 out.write('<div class="mod-container">\n')
 out.write('<span class="quotation">&sung;</span>\n')
-out.write('<div class="sample-audio">\n')
+out.write('<div class="sample-audio" style="padding-left:0px">\n')
 out.write(f'<div class="note" onclick="togglePlay(document.getElementById(\'{utt}\'))">Do La Sol Fa Do - Do La Sol Fa Re - Re Sib La Sol Fa</div>\n')
 out.write(f'<audio id="{utt}" controls preload="none">\n')
 out.write(f'<source src="{mypath}/{utt}.wav" type="audio/wav">\n')
@@ -523,7 +523,7 @@ out.write('</div>\n')
 out.write('</div>\n')
 out.write('<div class="mod-container">\n')
 out.write('<span class="quotation">&sung;</span>\n')
-out.write('<div class="sample-audio">\n')
+out.write('<div class="sample-audio" style="padding-left:0px">\n')
 out.write(f'<div class="note" onclick="togglePlay(document.getElementById(\'{utt}\'))">Do Mi Sol Do</div>\n')
 out.write(f'<audio id="{utt}" controls preload="none">\n')
 out.write(f'<source src="{mypath}/{utt}.wav" type="audio/wav">\n')
@@ -543,7 +543,7 @@ out.write('</div>\n')
 out.write('</div>\n')
 out.write('<div class="mod-container">\n')
 out.write('<span class="quotation">&sung;</span>\n')
-out.write('<div class="sample-audio">\n')
+out.write('<div class="sample-audio" style="padding-left:0px">\n')
 out.write(f'<div class="note" onclick="togglePlay(document.getElementById(\'{utt}\'))">Do Re Mi Fa Sol La Si Do Si La Sol Fa Mi Re Do</div>\n')
 out.write(f'<audio id="{utt}" controls preload="none">\n')
 out.write(f'<source src="{mypath}/{utt}.wav" type="audio/wav">\n')
@@ -563,7 +563,7 @@ out.write('</div>\n')
 out.write('</div>\n')
 out.write('<div class="mod-container">\n')
 out.write('<span class="quotation">&sung;</span>\n')
-out.write('<div class="sample-audio">\n')
+out.write('<div class="sample-audio" style="padding-left:0px">\n')
 out.write(f'<div class="note" onclick="togglePlay(document.getElementById(\'{utt}\'))">Fa Fa Fa Do - La La La Do</div>\n')
 out.write(f'<audio id="{utt}" controls preload="none">\n')
 out.write(f'<source src="{mypath}/{utt}.wav" type="audio/wav">\n')
@@ -583,7 +583,7 @@ out.write('</div>\n')
 out.write('</div>\n')
 out.write('<div class="mod-container">\n')
 out.write('<span class="quotation">&sung;</span>\n')
-out.write('<div class="sample-audio">\n')
+out.write('<div class="sample-audio" style="padding-left:0px">\n')
 out.write(f'<div class="note" onclick="togglePlay(document.getElementById(\'{utt}\'))">Fa Fa Fa Do - La La La Fa</div>\n')
 out.write(f'<audio id="{utt}" controls preload="none">\n')
 out.write(f'<source src="{mypath}/{utt}.wav" type="audio/wav">\n')
@@ -603,7 +603,7 @@ out.write('</div>\n')
 out.write('</div>\n')
 out.write('<div class="mod-container">\n')
 out.write('<span class="quotation">&sung;</span>\n')
-out.write('<div class="sample-audio">\n')
+out.write('<div class="sample-audio" style="padding-left:0px">\n')
 out.write(f'<div class="note" onclick="togglePlay(document.getElementById(\'{utt}\'))">Do Mi Sol Do</div>\n')
 out.write(f'<audio id="{utt}" controls preload="none">\n')
 out.write(f'<source src="{mypath}/{utt}.wav" type="audio/wav">\n')
@@ -623,7 +623,7 @@ out.write('</div>\n')
 out.write('</div>\n')
 out.write('<div class="mod-container">\n')
 out.write('<span class="quotation">&sung;</span>\n')
-out.write('<div class="sample-audio">\n')
+out.write('<div class="sample-audio" style="padding-left:0px">\n')
 out.write(f'<div class="note" onclick="togglePlay(document.getElementById(\'{utt}\'))">Fa La Do</div>\n')
 out.write(f'<audio id="{utt}" controls preload="none">\n')
 out.write(f'<source src="{mypath}/{utt}.wav" type="audio/wav">\n')
