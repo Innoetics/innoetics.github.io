@@ -147,7 +147,7 @@ $(document).ready(() => {
 
 	$("#main").append(`
 		<!--
-		
+
 		<div class='experiment'>
 			<h1>
 				<span class="experiment-num"></span>
@@ -258,6 +258,7 @@ $(document).ready(() => {
 			</div>
 		</div>
 
+		<!--
 		<div class='experiment'>
 			<h1>
 				<span class="experiment-num"></span>
@@ -266,6 +267,7 @@ $(document).ready(() => {
 			</h1>
 			<p><span class='notes'><span class='who'>Konstantinos</span> Pick some examples of relatively successful transfers.</span></p>
 		</div>
+		-->
 
 	`);
 
@@ -299,6 +301,9 @@ $(document).ready(() => {
 	$(`[data-experiment-name='experiment-isolated-word'] .menu-utt-ids .utt_id:first`).trigger("click");
 
 	$(`[data-experiment-name='experiment-all-words'] .menu-utt-ids .utt_id:first`).trigger("click");
+
+
+	$(window).scrollTop( 0 )
 
 	// Load data for all-word experiment
 });
