@@ -238,7 +238,7 @@
     };
   </script>
   <div class="head-container">
-  <h1 style="text-align: center;">Phonological Features for Cross-lingual Text-to-Speech and Speaker Adaptation with Limited Data</h1>
+  <h1 style="text-align: center;">Cross-lingual Low Resource Speaker Adaptation Using Phonological Features</h1>
   <p style="text-align: center;font-size: 20px;">
     Georgia Maniati<span class="tooltip">*<span class="tooltiptext">Equal Contribution</span></span>,
     Nikolaos Ellinas<span class="tooltip">*<span class="tooltiptext">Equal Contribution</span></span>,
@@ -247,27 +247,9 @@
     June Sig Sung,
     Hyoungmin Park,
     Aimilios Chalamandaris and Pirros Tsiakoulis</p>
-  <p style="text-align: left;font-size: 18px;"><strong>Abstract:</strong> The idea of using phonological features instead of phonemes as
-    input to sequence-to-sequence TTS has been recently proposed
-    for zero-shot multilingual speech synthesis. This approach is
-    especially useful for code-switched speech as it facilitates the
-    seamless uttering of foreign text embedded in a stream of na-
-    tive text. In our work, we train a multispeaker Tacotron-based
-    model conditioned on a set of phonologically derived features
-    which is common across different languages without the addi-
-    tion of language embeddings, aiming at language-agnostic TTS.
-    This method enables us to generate intelligible synthetic speech
-    with the voice of every training speaker in any seen or unseen
-    language. We present experiments on the effect of phonetic
-    coverage on different train-test language combinations. Fine-
-    tuning with very limited data of a new speaker’s voice in ei-
-    ther a seen or an unseen language, enables the model to gen-
-    erate synthetic speech of equal quality, while preserving the
-    target speaker’s identity. We experiment on the amount of tar-
-    get speaker data and achieve acceptable naturalness and speaker
-    similarity scores with 32 and 8 utterances. We also show that in
-    the extreme case of only 2 available utterances, both in the case
-    of seen and unseen languages the performance is similar.</p>
+  <p style="text-align: left;font-size: 18px;"><strong>Abstract:</strong>
+  The idea of using phonological features instead of phonemes as input to sequence-to-sequence TTS has been recently proposed for zero-shot multilingual speech synthesis. This approach is useful for code-switching, as it facilitates the seamless uttering of foreign text embedded in a stream of native text. In our work, we train a language-agnostic multispeaker model conditioned on a set of phonologically derived features common across different languages, with the goal of achieving cross-lingual speaker adaptation. We first experiment with the effect of language phonological similarity on cross-lingual TTS of several source-target language combinations. Subsequently, we fine-tune the model with very limited data of a new speaker's voice in either a seen or an unseen language, and achieve synthetic speech of equal quality, while preserving the target speaker's identity. With as few as 32 and 8 utterances of target speaker data, we obtain high speaker similarity scores and naturalness comparable to the corresponding literature. In the extreme case of only 2 available adaptation utterances, we find that our model behaves as a few-shot learner, as the performance is similar in both the seen and unseen adaptation language scenarios.
+  </p>
   </div>
 </body>
 </html>
