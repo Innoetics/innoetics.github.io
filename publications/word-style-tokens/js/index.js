@@ -23,6 +23,11 @@ $(document).on("click", "#play-audio", (ev) => {
 	play_audio(experiment_specific_data[exp_name].current_audio);
 });
 
+$(document).on('click', '.audio', (ev) => {
+	let el = $(ev.target)
+	play_audio( el.attr('src') )
+})
+
 $(document).on("click", ".experiment-link", (ev) => {
 	let el = $(ev.target);
 	let exp_id = el.attr("data-experiment");
@@ -225,10 +230,11 @@ $(document).ready(() => {
 				<span class="subtitle">Style Control</span><br>
 				Direct manipulation of isolated word style token weights
 			</h1>
-			<p>In this experiment, the style token weights calculated by the Prior Encoder are used as baseline for all the words in a sentence. The weights of the second word's tokens are then progressively changed, one by one. Each image shows the effects of changing the <i>i</i>-th token's weight by adding to it a value in the interval [-0.075, 0.075].</p>
-			<p>The image on the left shows how the MEL spectrum and pitch are affected as different values are added to the respective token for the second word. The image on the right shows the corresponding pitch contours. The pitch contours are not time-aligned, so that any changes in duration can be clearly observed. The colorbar shows which contour corresponds to which value added to the style token weight.
-			<p>As shown, some style tokens (e.g. Token #10) are more tailored to altering the pitch (mean value, range and pattern) of the affected word, while others (e.g. Token #1) are more clearly affecting the word's duration. It should be noted that, in some cases, the models may also rearrange the pitch of the neighboring words which are not directly manipulated.
-			Finally, some of the tokens (e.g. Token #4) seem to cause more composite changes, such as changing the spectral tilt or distribution of energy between higher/lower frequency bands. For instance, for Token #4, notice in the spectrogram the energy in high frequencies for the affected word.</p>
+			<p>In this experiment, the style embeddings calculated by the Prior Encoder are used as baseline for all the words in a sentence. For a chosen word, we add each token to this embedding with a weight that is then progressively changed. The weights used for each token are multiples of the standard deviation of the distribution of its weight in the training corpus. Each image shows the effects of biasing the prior embeding towards the i-th token's by adding a weight that corresponds to a number of standard deviations ranging from -4 to 4.</p>
+			<p>The image on the left shows how the MEL spectrum and pitch are affected as different values are added to the respective token for the chosen word. The image on the right shows the corresponding pitch contours. The pitch contours are not time-aligned, so that any changes in duration can be clearly observed. The colorbar shows which contour corresponds to which number of standard deviations added to the style token weight.</p>
+			<p>As shown, some style tokens directly control intuitive speech characteristics. Token #0 is more tailored to altering the pitch (mean value, range and pattern) of the affected word, while Tokens #4 and 14 are more clearly affecting the word's duration and Token #1 affects the energy of the spectrogram. It should be noted that, in some cases, the models may also rearrange the pitch of the neighboring words which are not directly manipulated.</p>
+			<p>Some of the tokens (e.g. Token #6) seem to cause more composite changes, such as changing the spectral tilt or distribution of energy between higher/lower frequency bands. For instance, for Token #6, notice in the spectrogram the energy in high frequencies for the affected word.
+			Finally, some tokens correspond to more high-level changes of prosody that were present in the dataset. An example is Token #13, which makes speech more like a whisper and Token #5 which results to more staccato speech.</p>
 			<div style="border: 1px solid #eee;">
 				<div class='menubar'>
 					<div class='menu-utt-ids'></div>
@@ -257,6 +263,17 @@ $(document).ready(() => {
 				</div>
 			</div>
 		</div>
+
+		<div class='experiment' data-experiment-name='experiment-style-transfer'>
+			<h1>
+				<span class="experiment-num"></span>
+				<span class="subtitle">Style transfer</span><br>
+				Transferring word style token weights across sentences
+			</h1>
+			<p>Examples of style transfer.</p>
+			<div class='content'></div>
+		</div>
+
 
 		<!--
 		<div class='experiment'>
@@ -301,6 +318,53 @@ $(document).ready(() => {
 	$(`[data-experiment-name='experiment-isolated-word'] .menu-utt-ids .utt_id:first`).trigger("click");
 
 	$(`[data-experiment-name='experiment-all-words'] .menu-utt-ids .utt_id:first`).trigger("click");
+
+
+	// Initialize data for the Transfer experiment
+	let content = $(`[data-experiment-name='experiment-style-transfer'] .content`)
+	let transfer_data = [
+		'1040-RWV-444-SNS',
+		'3003-MDC-3542-SNS',
+		'7649-EMM-4236-LCL',
+		'7804-JNE-9184-LCL',
+
+		'1239-LP-9017-LCL',
+		'1537-LP-3041-MDW',
+		'1780-MNP-4991-SNS',
+		'3114-JNE-2835-PER',
+		// '864-POZ-320-JBK',
+		'88-SNS-130-SNS'
+	]
+
+	let html = []
+
+	html.push(`<table class='samples' style='table-layout: fixed;'>`)
+	html.push(`<tr><th colspan=3>Synthesized using tokens from...</th><th rowspan=2>Natural<br>target</th><th></th></tr>`)
+	html.push(`<tr><td>Prior<br>only</td><td>Prior &<br>target</td><td>Target<br>only</td><td></td></tr>`)
+	transfer_data.forEach(pair => {
+		html.push(`<tr>`)
+
+		let parts = pair.split('-'),
+			uttid1 = parts.slice(0,2).join('-'),
+			uttid2 = parts.slice(2).join('-')
+
+		let base_url = `data/transfers/${pair}`
+		let urls = [
+			`${base_url}/${uttid1}_just_prior.wav`,
+			`${base_url}/from_${uttid1}_to_${uttid2}_via_prior.wav`,
+			`${base_url}/from_${uttid1}_to_${uttid2}.wav`,
+			`${base_url}/${uttid1}_original.wav`,
+		]
+
+		// html.push( `<span>${uttid1}</span>` )
+		html.push( urls.map(url => `<td><span class='audio' src='${url}'>&#9654;</span></td>`).join('') )
+		html.push(`<td style='text-align: left; font-weight: bold;'><span>${uttid1}</span></td>`)
+
+		html.push(`</tr>`)
+	})
+	html.push(`</table>`)
+
+	content.append(html.join(''))
 
 
 	$(window).scrollTop( 0 )
