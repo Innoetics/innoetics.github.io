@@ -270,7 +270,8 @@ $(document).ready(() => {
 				<span class="subtitle">Style transfer</span><br>
 				Transferring word style token weights across sentences
 			</h1>
-			<p>Examples of style transfer.</p>
+			<p>Examples of style transfer. For each word of the source sentence, the embedding of the corresponding word of the target sentence is extracted and used as a style embedding, thereby copying the prosody of the target sentence. We compare it with the sentece synthesized from the prior embeddings.</p>
+			<p>In some cases, the transfer results in speech that has remnants of the phonetic content of the target word, not only its style (e.g. utterances 7804-JNE, 1239-LP and 3114-JNE). This is presumably because the disentaglement of the phonetic and stylistic information is not perfect. The quality of the speech can be somewhat improved by using a weighted combination of both the target and the prior embeddings, but with a deterioration in transfering performance.</p>
 			<div class='content'></div>
 		</div>
 
@@ -329,7 +330,7 @@ $(document).ready(() => {
 		'7804-JNE-9184-LCL',
 
 		'1239-LP-9017-LCL',
-		'1537-LP-3041-MDW',
+		// '1537-LP-3041-MDW',
 		'1780-MNP-4991-SNS',
 		'3114-JNE-2835-PER',
 		// '864-POZ-320-JBK',
