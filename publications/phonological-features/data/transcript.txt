@@ -1,0 +1,17 @@
+de_00243|Wo die Liebe hinfällt, kann niemand wirklich beeinflussen.
+de_00041|Die Welt steht niemals still. Hier siehst du, was gerade wichtig ist.
+de_00127|Das ist etwas, womit ich nichts anfangen kann ehrlich gesagt. Ich bin eher ein Fan von Wissen und der gepflegten Unterhaltung.
+en_0304|Elvis Presley died on August 16, 1977.
+en_0272|A cloudless sky in the daytime, appears blue to the human eye.
+en_0773|A solar eclipse occurs when the Moon passes between Earth and the Sun, thereby totally or partly obscuring the image of the Sun for a viewer on Earth.
+fr_00348|Voici quelques résultats dans la zone de recherche.
+fr_00284|Il paraît que les gens les plus beaux sont ceux qui savent apprécier la beauté.
+fr_00104|Peut-être que tu devrais en parler à un médecin. Tu peux contacter le 112 pour obtenir de l’aide.
+it_00311|no, le previsioni non danno pioggia oggi.
+it_00013|Detto fatto, ho salvato questo promemoria! Non me ne dimenticherò.
+it_00137|Quando c'è da chiacchierare sono sempre disponibile! Potresti iniziare chiedendomi di consigliarti un regalo, oppure di aiutarti ad addormentarti.
+es_00108|Estupendo, lo dejo apuntado para recordártelo.
+es_00298|Pues normal, estaba poniéndome al día con los últimos cotilleos que hay en la nube.
+es_00020|La vida nos pone retos a veces. Para superarlos, siempre puedes contar con la ayuda de un profesional.
+aimilios_gt|Στην ατλάντα καταγράφηκε το επίπεδο ανάπτυξης του ελληνικού αθλητισμού, δίνοντάς μας τη δυνατότητα να βλέπουμε το μέλλον με ελπίδα και αισιοδοξία.
+karajohn_gt|And the ninety three percent of those machines will be equipped with CD-ROM and USB drives.
