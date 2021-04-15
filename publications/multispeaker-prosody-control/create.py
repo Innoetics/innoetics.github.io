@@ -14,6 +14,7 @@ with open('audio/transcript.txt') as f:
 gt = {
     'cathy_1529-PER': 'cathy_1529-PER_gt_gt.wav',
     'cathy_302-SUM': 'cathy_302-SUM_gt_gt.wav',
+    'cathy_1113-UTS': 'cathy_1113-UTS_gt_gt.wav',
     'jsj': 'jsj_2501-2600-60_gt_gt.wav',
     'lj': 'lj_LJ002-0017_gt_gt.wav',
     'martha': 'martha_neutral-2080-2099-9_gt_gt.wav',
@@ -66,7 +67,8 @@ for fname in ['1529-PER', '302-SUM']:
     out.write('</div>\n')
 
 out.write('<h3>Speaker adaptation</h3>')
-for fname in ['302-SUM']:
+gtshow = 1
+for fname in ['302-SUM', '25-SLM']:
     out.write('<div class="sample">\n')
     out.write('<div class="sample-title">\n')
     out.write('<span class="quotation">&ldquo;</span>\n')
@@ -75,22 +77,24 @@ for fname in ['302-SUM']:
     out.write('</div>\n')
     out.write('</div>\n')
     # GT
-    out.write('<div class="mod-container">\n')
-    for spk_name in ['dum'] + ['gt'] + ['obama', 'jsj', 'lj', 'martha']:
-        out.write('<div class="sample-audio">\n')
-        if spk_name == 'dum':
-            out.write(f'<div class="invisible"></div>\n')
-        elif spk_name == 'gt':
-            out.write(f'<div class="invisible axis">Ground Truth</div>\n')
-        else:
-            orig_speaker = spk_name.split('-')[0]
-            out.write(f'<div class="gt speaker" onclick="togglePlay(document.getElementById(\'f0_mod_{fname}_gt_{spk_name}\'))">{spk_name}</div>\n')
-            out.write(f'<audio id="f0_mod_{fname}_gt_{spk_name}" controls preload="none">\n')
-            out.write(f'<source src="audio/gt/{gt[spk_name]}" type="audio/wav">\n')
-            out.write('Your browser does not support the audio element.\n')
-            out.write('</audio>\n')
+    if gtshow == 1:
+        out.write('<div class="mod-container">\n')
+        for spk_name in ['dum'] + ['gt'] + ['obama', 'jsj', 'lj', 'martha']:
+            out.write('<div class="sample-audio">\n')
+            if spk_name == 'dum':
+                out.write(f'<div class="invisible"></div>\n')
+            elif spk_name == 'gt':
+                out.write(f'<div class="invisible axis">Ground Truth</div>\n')
+            else:
+                orig_speaker = spk_name.split('-')[0]
+                out.write(f'<div class="gt speaker" onclick="togglePlay(document.getElementById(\'f0_mod_{fname}_gt_{spk_name}\'))">{spk_name}</div>\n')
+                out.write(f'<audio id="f0_mod_{fname}_gt_{spk_name}" controls preload="none">\n')
+                out.write(f'<source src="audio/gt/{gt[spk_name]}" type="audio/wav">\n')
+                out.write('Your browser does not support the audio element.\n')
+                out.write('</audio>\n')
+            out.write('</div>\n')
         out.write('</div>\n')
-    out.write('</div>\n')
+        gtshow = 0
     for spk_name in ['obama-adapt', 'jsj-adapt', 'lj-adapt', 'martha-adapt']:
         orig_speaker = spk_name.split('-')[0]
         # Mods per speaker
@@ -157,7 +161,8 @@ for fname in ['471-SUM', '863-LP']:
     out.write('</div>\n')
 
 out.write('<h3>Speaker adaptation</h3>')
-for fname in ['863-LP']:
+gtshow = 1
+for fname in ['863-LP', '25-SLM']:
     out.write('<div class="sample">\n')
     out.write('<div class="sample-title">\n')
     out.write('<span class="quotation">&ldquo;</span>\n')
@@ -166,22 +171,24 @@ for fname in ['863-LP']:
     out.write('</div>\n')
     out.write('</div>\n')
     # GT
-    out.write('<div class="mod-container">\n')
-    for spk_name in ['dum'] + ['gt'] + ['obama', 'jsj', 'lj', 'martha']:
-        out.write('<div class="sample-audio">\n')
-        if spk_name == 'dum':
-            out.write(f'<div class="invisible"></div>\n')
-        elif spk_name == 'gt':
-            out.write(f'<div class="invisible axis">Ground Truth</div>\n')
-        else:
-            orig_speaker = spk_name.split('-')[0]
-            out.write(f'<div class="gt speaker" onclick="togglePlay(document.getElementById(\'dur_mod_{fname}_gt_{spk_name}\'))">{spk_name}</div>\n')
-            out.write(f'<audio id="dur_mod_{fname}_gt_{spk_name}" controls preload="none">\n')
-            out.write(f'<source src="audio/gt/{gt[spk_name]}" type="audio/wav">\n')
-            out.write('Your browser does not support the audio element.\n')
-            out.write('</audio>\n')
+    if gtshow == 1:
+        out.write('<div class="mod-container">\n')
+        for spk_name in ['dum'] + ['gt'] + ['obama', 'jsj', 'lj', 'martha']:
+            out.write('<div class="sample-audio">\n')
+            if spk_name == 'dum':
+                out.write(f'<div class="invisible"></div>\n')
+            elif spk_name == 'gt':
+                out.write(f'<div class="invisible axis">Ground Truth</div>\n')
+            else:
+                orig_speaker = spk_name.split('-')[0]
+                out.write(f'<div class="gt speaker" onclick="togglePlay(document.getElementById(\'dur_mod_{fname}_gt_{spk_name}\'))">{spk_name}</div>\n')
+                out.write(f'<audio id="dur_mod_{fname}_gt_{spk_name}" controls preload="none">\n')
+                out.write(f'<source src="audio/gt/{gt[spk_name]}" type="audio/wav">\n')
+                out.write('Your browser does not support the audio element.\n')
+                out.write('</audio>\n')
+            out.write('</div>\n')
         out.write('</div>\n')
-    out.write('</div>\n')
+        gtshow = 0
     for spk_name in ['obama-adapt', 'jsj-adapt', 'lj-adapt', 'martha-adapt']:
         orig_speaker = spk_name.split('-')[0]
         # Mods per speaker
@@ -248,7 +255,8 @@ for fname in ['978-SUM', '996-SUM']:
     out.write('</div>\n')
 
 out.write('<h3>Speaker adaptation</h3>')
-for fname in ['996-SUM']:
+gtshow = 1
+for fname in ['996-SUM', '179-SNS']:
     out.write('<div class="sample">\n')
     out.write('<div class="sample-title">\n')
     out.write('<span class="quotation">&ldquo;</span>\n')
@@ -257,22 +265,24 @@ for fname in ['996-SUM']:
     out.write('</div>\n')
     out.write('</div>\n')
     # GT
-    out.write('<div class="mod-container">\n')
-    for spk_name in ['dum'] + ['gt'] + ['obama', 'jsj', 'lj', 'martha']:
-        out.write('<div class="sample-audio">\n')
-        if spk_name == 'dum':
-            out.write(f'<div class="invisible"></div>\n')
-        elif spk_name == 'gt':
-            out.write(f'<div class="invisible axis">Ground Truth</div>\n')
-        else:
-            orig_speaker = spk_name.split('-')[0]
-            out.write(f'<div class="gt speaker" onclick="togglePlay(document.getElementById(\'f0_asc_{fname}_gt_{spk_name}\'))">{spk_name}</div>\n')
-            out.write(f'<audio id="f0_asc_{fname}_gt_{spk_name}" controls preload="none">\n')
-            out.write(f'<source src="audio/gt/{gt[spk_name]}" type="audio/wav">\n')
-            out.write('Your browser does not support the audio element.\n')
-            out.write('</audio>\n')
+    if gtshow == 1:
+        out.write('<div class="mod-container">\n')
+        for spk_name in ['dum'] + ['gt'] + ['obama', 'jsj', 'lj', 'martha']:
+            out.write('<div class="sample-audio">\n')
+            if spk_name == 'dum':
+                out.write(f'<div class="invisible"></div>\n')
+            elif spk_name == 'gt':
+                out.write(f'<div class="invisible axis">Ground Truth</div>\n')
+            else:
+                orig_speaker = spk_name.split('-')[0]
+                out.write(f'<div class="gt speaker" onclick="togglePlay(document.getElementById(\'f0_asc_{fname}_gt_{spk_name}\'))">{spk_name}</div>\n')
+                out.write(f'<audio id="f0_asc_{fname}_gt_{spk_name}" controls preload="none">\n')
+                out.write(f'<source src="audio/gt/{gt[spk_name]}" type="audio/wav">\n')
+                out.write('Your browser does not support the audio element.\n')
+                out.write('</audio>\n')
+            out.write('</div>\n')
         out.write('</div>\n')
-    out.write('</div>\n')
+        gtshow = 0
     for spk_name in ['obama-adapt', 'jsj-adapt', 'lj-adapt', 'martha-adapt']:
         orig_speaker = spk_name.split('-')[0]
         # Mods per speaker
@@ -339,7 +349,8 @@ for fname in ['1864-SLM', '567-RWV']:
     out.write('</div>\n')
 
 out.write('<h3>Speaker adaptation</h3>')
-for fname in ['567-RWV']:
+gtshow = 1
+for fname in ['567-RWV', '373-SUM']:
     out.write('<div class="sample">\n')
     out.write('<div class="sample-title">\n')
     out.write('<span class="quotation">&ldquo;</span>\n')
@@ -348,22 +359,24 @@ for fname in ['567-RWV']:
     out.write('</div>\n')
     out.write('</div>\n')
     # GT
-    out.write('<div class="mod-container">\n')
-    for spk_name in ['dum'] + ['gt'] + ['obama', 'jsj', 'lj', 'martha']:
-        out.write('<div class="sample-audio">\n')
-        if spk_name == 'dum':
-            out.write(f'<div class="invisible"></div>\n')
-        elif spk_name == 'gt':
-            out.write(f'<div class="invisible axis">Ground Truth</div>\n')
-        else:
-            orig_speaker = spk_name.split('-')[0]
-            out.write(f'<div class="gt speaker" onclick="togglePlay(document.getElementById(\'dur_asc_{fname}_gt_{spk_name}\'))">{spk_name}</div>\n')
-            out.write(f'<audio id="dur_asc_{fname}_gt_{spk_name}" controls preload="none">\n')
-            out.write(f'<source src="audio/gt/{gt[spk_name]}" type="audio/wav">\n')
-            out.write('Your browser does not support the audio element.\n')
-            out.write('</audio>\n')
+    if gtshow == 1:
+        out.write('<div class="mod-container">\n')
+        for spk_name in ['dum'] + ['gt'] + ['obama', 'jsj', 'lj', 'martha']:
+            out.write('<div class="sample-audio">\n')
+            if spk_name == 'dum':
+                out.write(f'<div class="invisible"></div>\n')
+            elif spk_name == 'gt':
+                out.write(f'<div class="invisible axis">Ground Truth</div>\n')
+            else:
+                orig_speaker = spk_name.split('-')[0]
+                out.write(f'<div class="gt speaker" onclick="togglePlay(document.getElementById(\'dur_asc_{fname}_gt_{spk_name}\'))">{spk_name}</div>\n')
+                out.write(f'<audio id="dur_asc_{fname}_gt_{spk_name}" controls preload="none">\n')
+                out.write(f'<source src="audio/gt/{gt[spk_name]}" type="audio/wav">\n')
+                out.write('Your browser does not support the audio element.\n')
+                out.write('</audio>\n')
+            out.write('</div>\n')
         out.write('</div>\n')
-    out.write('</div>\n')
+        gtshow = 0
     for spk_name in ['obama-adapt', 'jsj-adapt', 'lj-adapt', 'martha-adapt']:
         orig_speaker = spk_name.split('-')[0]
         # Mods per speaker
