@@ -15,6 +15,28 @@ const voice_names = {
 	'FR-FR-female-2014-v1.0': 'FR Female'
 }
 
+const audio_file_names = {
+	"00041": "A",
+	"00127": "B",
+	"00243": "C",
+
+	"00020": "A",
+	"00108": "B",
+	"00298": "C",
+
+	"00104": "A",
+	"00284": "B",
+	"00348": "C",
+
+	"00013": "A",
+	"00137": "B",
+	"00311": "C",
+
+	"0272": "A",
+	"0304": "B",
+	"0773": "C",
+}
+
 
 $(document).on('click', '#toc-icon', () => {
 	$('#toc').toggle()
@@ -58,11 +80,11 @@ $(document).ready(() => {
 
 			html.push(`<h3>Target Language: ${lang_names[lang]}</h3>`)
 
-			let utterances = vars[2].map(uttid => `<b>${uttid}</b>: ${transcript[lang+'_'+uttid]}`).join('<br>')
+			let utterances = vars[2].map(uttid => `<b>${audio_file_names[uttid]}</b>: ${transcript[lang+'_'+uttid]}`).join('<br>')
 			html.push(`<p>${utterances}</p>`)
 
 			html.push(
-				render_matches_array(matches, [{match_index: 1}, {match_index: 2}])
+				render_matches_array(matches, [{match_index: 1, fn_sort: (values) => sort_values(values, false)}, {match_index: 2, dict: audio_file_names}])
 			)				
 			html.push(`</div>`)
 		}
@@ -80,12 +102,12 @@ $(document).ready(() => {
 
 		let uttids = get_variables(files, new RegExp(`.*/[^/]+_${targetlang}_([^_/]+)\.wav`)).vars[1]
 
-		let utterances = uttids.map(uttid => `<b>${uttid}</b>: ${transcript[targetlang+'_'+uttid]}`).join('<br>')
+		let utterances = uttids.map(uttid => `<b>${audio_file_names[uttid]}</b>: ${transcript[targetlang+'_'+uttid]}`).join('<br>')
 
 		html.push(`<h3><b>Target Language</b>: ${lang_names[targetlang]}</h3>`)
 		html.push(`<p>${utterances}</p>`)
 
-		html.push(`<table><tr><th>Training<br>language(s)</th><th>Test<br>voice</th>${uttids.map(uttid => `<th>${uttid}</th>`).join('')}</tr>`)
+		html.push(`<table><tr><th>Training<br>language(s)</th><th>Test<br>voice</th>${uttids.map(uttid => `<th>${audio_file_names[uttid]}</th>`).join('')}</tr>`)
 
 		let training_langs = get_variables(files, new RegExp(`\.*\/([^_\\d]+)_[^_]+_${targetlang}_[^_\/]+.wav`)).vars[1]
 		for (let idx_training_lang in training_langs) {

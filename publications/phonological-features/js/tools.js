@@ -21,9 +21,9 @@ function isNumeric(str) {
 }
 
 
-function sort_values(values) {
+function sort_values(values, ascending = true) {
 	// If all values are numeric, sort them as numbers, else use default sorting
-	values.sort(values.every(v => isNumeric(v)) ? (a,b) => parseFloat(a)-parseFloat(b) : undefined)
+	values.sort(values.every(v => isNumeric(v)) ? (a,b) => (ascending ? 1 : -1)*(parseFloat(a)-parseFloat(b)) : undefined)
 	return values
 }
 
@@ -78,15 +78,24 @@ function render_matches_array(matches, specs) {
 	let values = {}
 	specs.forEach(spec => values[spec.match_index]=[])
 
-	let var1, var2
+	let var1, var2,
+		fn_sort = [null, null],
+		dicts = [null, null]
+
 	if (nspecs==1) {
 		var1 = '_'
 		values['_'] = ['']
 		var2 = specs[0].match_index
+		fn_sort[var2] = specs[0].fn_sort || null
+		dicts[var2] = specs[0].dict || null
 	}
 	else {
 		var1 = specs[0].match_index,
 		var2 = specs[1].match_index
+		fn_sort[var1] = specs[0].fn_sort || null
+		fn_sort[var2] = specs[1].fn_sort || null
+		dicts[var1] = specs[0].dict || null
+		dicts[var2] = specs[1].dict || null
 	}
 
 	matches.forEach(m => {
@@ -97,7 +106,7 @@ function render_matches_array(matches, specs) {
 	})
 
 	for (key in values) 
-		values[key] = sort_values(values[key])
+		values[key] = fn_sort[key] ? fn_sort[key](values[key]) : sort_values(values[key])
 
 	let nrows = values[var1].length
 	let ncols = values[var2].length
@@ -119,7 +128,7 @@ function render_matches_array(matches, specs) {
 	html.push('<tr>')
 	html.push('<th></th>')
 	for (let j of values[var2]) 
-		html.push(`<th>${j}</th>`)
+		html.push(`<th>${dicts[var2] && j in dicts[var2] ? dicts[var2][j] : j}</th>`)
 	html.push('</tr>')
 
 	for (let i in values[var1]) {

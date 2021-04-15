@@ -25,6 +25,11 @@ body {
 	padding: 1em;
 }
 
+#page-head .abstract {
+	text-align: left;
+	/* padding: 1em 3em; */
+}
+
 #menubar {
     position: fixed;
     right: 0;
