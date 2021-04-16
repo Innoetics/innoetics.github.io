@@ -402,6 +402,71 @@ out.write('<a href="#title4" class="custom-a-href"><h2 style="text-align: left;"
 mypath = f'audio/phoneme'
 out.write('<div class="sample-container" style="display:none">\n')
 
+out.write('<h3>Multispeaker/speaker adaptation same voice comparison</h3>')
+ph_dict = {
+    '567-RWV': '03',
+    '863-LP': '01'
+}
+for fname in ['567-RWV', '863-LP']:
+    out.write('<div class="sample">\n')
+    out.write('<div class="sample-title">\n')
+    out.write('<span class="quotation">&ldquo;</span>\n')
+    out.write('<div class="transcript">')
+    trans = transcript[fname].split()
+    if fname == '567-RWV':
+        trans[1] = 'father (f <span style="color:red">A:</span> D @)'
+    else:
+        trans[0] = 'Very (v <span style="color:red">e</span> r I)'
+    out.write(' '.join(trans))
+    out.write('</div>\n')
+    out.write('</div>\n')
+    # GT
+    spk_name = 'cathy-multi'
+    orig_speaker = spk_name.split('-')[0]
+    out.write('<div class="mod-container">\n')
+    out.write('<div class="sample-audio">\n')
+    out.write(f'<div class="gt" onclick="togglePlay(document.getElementById(\'phoneme_{fname}_gt_{spk_name}\'))">Ground Truth</div>\n')
+    out.write(f'<audio id="phoneme_{fname}_gt_{spk_name}" controls preload="none">\n')
+    out.write(f'<source src="audio/gt/{orig_speaker}_{fname}_gt_gt.wav" type="audio/wav">\n')
+    out.write('Your browser does not support the audio element.\n')
+    out.write('</audio>\n')
+    out.write('</div>\n')
+    out.write('</div>\n')
+    for spk_name in ['cathy-multi', 'cathy-adapt']:
+        orig_speaker = spk_name.split('-')[0]
+        # Mods per speaker
+        out.write('<div class="mod-container">\n')
+        for moda in [spk_name] + ['F0'] + [f'{i}' for i in range(0, 15)]:
+            out.write('<div class="sample-audio">\n')
+            if moda == spk_name:
+                out.write(f'<div class="invisible axis">{spk_name}</div>\n')
+            elif moda == 'F0':
+                out.write(f'<div class="invisible axis" style="width:48px;background-color:rgb(160,160,253)">F0</div>\n')
+            else:
+                out.write(f'<div class="r-number" onclick="togglePlay(document.getElementById(\'phoneme_f0_{fname}_{ph_dict[fname]}_{moda}_{spk_name}\'))">{moda}</div>\n')
+                out.write(f'<audio id="phoneme_f0_{fname}_{ph_dict[fname]}_{moda}_{spk_name}" controls preload="none">\n')
+                out.write(f'<source src="{mypath}/{spk_name}_{fname}_gt_f0_ph_{ph_dict[fname]}_t_{int(moda):02d}.wav" type="audio/wav">\n')
+                out.write('Your browser does not support the audio element.\n')
+                out.write('</audio>\n')
+            out.write('</div>\n')
+        out.write('</div>\n')
+        out.write('<div class="mod-container">\n')
+        for moda in [spk_name] + ['Dur'] + [f'{i}' for i in range(0, 15)]:
+            out.write('<div class="sample-audio">\n')
+            if moda == spk_name:
+                out.write(f'<div class="invisible"></div>\n')
+            elif moda == 'Dur':
+                out.write(f'<div class="invisible axis" style="width:48px;background-color:rgb(160,160,253)">Dur</div>\n')
+            else:
+                out.write(f'<div class="r-number" onclick="togglePlay(document.getElementById(\'phoneme_dur_{fname}_{ph_dict[fname]}_{moda}_{spk_name}\'))">{moda}</div>\n')
+                out.write(f'<audio id="phoneme_dur_{fname}_{ph_dict[fname]}_{moda}_{spk_name}" controls preload="none">\n')
+                out.write(f'<source src="{mypath}/{spk_name}_{fname}_gt_duration_ph_{ph_dict[fname]}_t_{int(moda):02d}.wav" type="audio/wav">\n')
+                out.write('Your browser does not support the audio element.\n')
+                out.write('</audio>\n')
+            out.write('</div>\n')
+        out.write('</div>\n')
+    out.write('</div>\n')
+
 out.write('<h3>Speaker adaptation</h3>')
 gtshow = 1
 ph_dict = {
