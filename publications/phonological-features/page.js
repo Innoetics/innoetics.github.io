@@ -58,7 +58,13 @@ $(document).on('click', (ev) => {
 $(document).ready(() => {
 
 	$('#content').append('<h1>1. Cross-Lingual Speaker Adaptation</h1>')
-	
+
+	$('#content').append(`<div style='margin:10px 20px'>In this experiment, our models are trained on our entire multispeaker dataset containing American English (en), German (de), French (fr), Italian (it), Spanish (es) and Korean (ko).
+	Without any modifications, the models are then adapted to very limited data of two male target speakers: a native American English speaker and a Greek native speaker. 
+	In the first adaptation scenario, the language of the adaptation data is seen during training, while in the second, the adaptation language is completely unseen. 
+	We present samples while experimenting with reducing the adaptation data from 32 to 8 and eventually as few as 2 target speaker utterances.
+	The models are tested in European languages that differ from the target speakers' languages.</div>`)
+
 	let sections = [
 		{speaker: 'karajohn', lang: 'en', heading: '<h2>Seen Adaptation Language</h2>'},
 		{speaker: 'aimilios', lang: 'el', heading: '<h2>Unseen Adaptation Language</h2>'},
@@ -95,6 +101,12 @@ $(document).ready(() => {
 
 
 	$('#content').append('<h1>2. Cross-Lingual Text-to-Speech</h1>')
+
+	$('#content').append(`<div style='margin:10px 20px'>In this set of experiments, we attempt cross-lingual text-to-speech; that is, synthesis in target languages that are unseen in our models' training data, using various training language subsets of our multilingual dataset.
+	We investigate if cross-lingual TTS based on phonological features can be improved by using additional training data from typologically related and unrelated languages, and explore the relation of the ratio of unseen phonemes and the quality of cross-lingual speech.
+	One female speaker from each training language's multispeaker dataset is used as target speaker.
+	The models are tested in utterances that display high unseen phoneme rates, and the samples coming from various models are presented per target language.</div>`)
+
 	for (targetlang of ['en', 'fr', 'it', 'de', 'es']) {
 		let html = []
 
