@@ -175,7 +175,7 @@
     }
 
     .invisible {
-      width: 48px;
+      width: 114px;
       text-align: center;
       margin-right: 8px;
       border-radius: 25px;
@@ -285,7 +285,7 @@
     Results show that the proposed approach can produce high quality rapping/singing voice with increased naturalness.</p>
   </div>
 <div class="sample-container">
-<h3>Speaker ground truth samples</h3><div class="sample">
+<h2>Speaker ground truth samples</h2><div class="sample">
 <div class="mod-container">
 <div class="sample-audio">
 <div class="r-number" onclick="togglePlay(document.getElementById('spkgt_US_TR_M1_gt'))">US_TR_M1</div>
@@ -336,11 +336,18 @@ Your browser does not support the audio element.
 Your browser does not support the audio element.
 </audio>
 </div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('spkgt_Mellotron_gt'))">Mellotron</div>
+<audio id="spkgt_Mellotron_gt" controls preload="none">
+<source src="audio/gt/Mellotron.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
 </div>
 </div>
 </div>
 <div class="sample-container">
-<h3>Rapping/Singing speech synthesis</h3><div class="sample">
+<h2>Rapping/Singing speech synthesis</h2><div class="sample">
 <div class="mod-container">
 <div class="sample-audio">
 <div class="invisible axis">Song 01</div>
@@ -840,6 +847,492 @@ Your browser does not support the audio element.
 <div class="r-number" onclick="togglePlay(document.getElementById('song_rap_song02_Mellotron'))">Mellotron</div>
 <audio id="song_rap_song02_Mellotron" controls preload="none">
 <source src="audio/rap_song02/Mellotron.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+</div>
+<div class="sample-container">
+<h2>Comparison of 15 vs 30 duration labels</h2>
+<h3>Singing</h3>
+<div class="sample">
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('30vs15_song_Singing_gt'))">Reference</div>
+<audio id="30vs15_song_Singing_gt" controls preload="none">
+<source src="audio/30vs15/Singing/Reference Track.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">15</div>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Singing_US_TR_M1_15'))">US_TR_M1</div>
+<audio id="30vs15_song_Singing_US_TR_M1_15" controls preload="none">
+<source src="audio/30vs15/Singing/US_TR_M1_15.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Singing_US_TR_F1_15'))">US_TR_F1</div>
+<audio id="30vs15_song_Singing_US_TR_F1_15" controls preload="none">
+<source src="audio/30vs15/Singing/US_TR_F1_15.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Singing_US_TR_F2_15'))">US_TR_F2</div>
+<audio id="30vs15_song_Singing_US_TR_F2_15" controls preload="none">
+<source src="audio/30vs15/Singing/US_TR_F2_15.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Singing_KO_TR_F1_15'))">KO_TR_F1</div>
+<audio id="30vs15_song_Singing_KO_TR_F1_15" controls preload="none">
+<source src="audio/30vs15/Singing/KO_TR_F1_15.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Singing_KO_TR_F2_15'))">KO_TR_F2</div>
+<audio id="30vs15_song_Singing_KO_TR_F2_15" controls preload="none">
+<source src="audio/30vs15/Singing/KO_TR_F2_15.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Singing_US_AD_M1_15'))">US_AD_M1</div>
+<audio id="30vs15_song_Singing_US_AD_M1_15" controls preload="none">
+<source src="audio/30vs15/Singing/US_AD_M1_15.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Singing_KO_AD_M1_15'))">KO_AD_M1</div>
+<audio id="30vs15_song_Singing_KO_AD_M1_15" controls preload="none">
+<source src="audio/30vs15/Singing/KO_AD_M1_15.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">30</div>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Singing_US_TR_M1_30'))">US_TR_M1</div>
+<audio id="30vs15_song_Singing_US_TR_M1_30" controls preload="none">
+<source src="audio/30vs15/Singing/US_TR_M1_30.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Singing_US_TR_F1_30'))">US_TR_F1</div>
+<audio id="30vs15_song_Singing_US_TR_F1_30" controls preload="none">
+<source src="audio/30vs15/Singing/US_TR_F1_30.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Singing_US_TR_F2_30'))">US_TR_F2</div>
+<audio id="30vs15_song_Singing_US_TR_F2_30" controls preload="none">
+<source src="audio/30vs15/Singing/US_TR_F2_30.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Singing_KO_TR_F1_30'))">KO_TR_F1</div>
+<audio id="30vs15_song_Singing_KO_TR_F1_30" controls preload="none">
+<source src="audio/30vs15/Singing/KO_TR_F1_30.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Singing_KO_TR_F2_30'))">KO_TR_F2</div>
+<audio id="30vs15_song_Singing_KO_TR_F2_30" controls preload="none">
+<source src="audio/30vs15/Singing/KO_TR_F2_30.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Singing_US_AD_M1_30'))">US_AD_M1</div>
+<audio id="30vs15_song_Singing_US_AD_M1_30" controls preload="none">
+<source src="audio/30vs15/Singing/US_AD_M1_30.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Singing_KO_AD_M1_30'))">KO_AD_M1</div>
+<audio id="30vs15_song_Singing_KO_AD_M1_30" controls preload="none">
+<source src="audio/30vs15/Singing/KO_AD_M1_30.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<h3>Rapping</h3>
+<div class="sample">
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('30vs15_song_Rapping_gt'))">Reference</div>
+<audio id="30vs15_song_Rapping_gt" controls preload="none">
+<source src="audio/30vs15/Rapping/Reference Track.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">15</div>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Rapping_US_TR_M1_15'))">US_TR_M1</div>
+<audio id="30vs15_song_Rapping_US_TR_M1_15" controls preload="none">
+<source src="audio/30vs15/Rapping/US_TR_M1_15.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Rapping_US_TR_F1_15'))">US_TR_F1</div>
+<audio id="30vs15_song_Rapping_US_TR_F1_15" controls preload="none">
+<source src="audio/30vs15/Rapping/US_TR_F1_15.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Rapping_US_TR_F2_15'))">US_TR_F2</div>
+<audio id="30vs15_song_Rapping_US_TR_F2_15" controls preload="none">
+<source src="audio/30vs15/Rapping/US_TR_F2_15.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Rapping_KO_TR_F1_15'))">KO_TR_F1</div>
+<audio id="30vs15_song_Rapping_KO_TR_F1_15" controls preload="none">
+<source src="audio/30vs15/Rapping/KO_TR_F1_15.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Rapping_KO_TR_F2_15'))">KO_TR_F2</div>
+<audio id="30vs15_song_Rapping_KO_TR_F2_15" controls preload="none">
+<source src="audio/30vs15/Rapping/KO_TR_F2_15.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Rapping_US_AD_M1_15'))">US_AD_M1</div>
+<audio id="30vs15_song_Rapping_US_AD_M1_15" controls preload="none">
+<source src="audio/30vs15/Rapping/US_AD_M1_15.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Rapping_KO_AD_M1_15'))">KO_AD_M1</div>
+<audio id="30vs15_song_Rapping_KO_AD_M1_15" controls preload="none">
+<source src="audio/30vs15/Rapping/KO_AD_M1_15.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">30</div>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Rapping_US_TR_M1_30'))">US_TR_M1</div>
+<audio id="30vs15_song_Rapping_US_TR_M1_30" controls preload="none">
+<source src="audio/30vs15/Rapping/US_TR_M1_30.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Rapping_US_TR_F1_30'))">US_TR_F1</div>
+<audio id="30vs15_song_Rapping_US_TR_F1_30" controls preload="none">
+<source src="audio/30vs15/Rapping/US_TR_F1_30.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Rapping_US_TR_F2_30'))">US_TR_F2</div>
+<audio id="30vs15_song_Rapping_US_TR_F2_30" controls preload="none">
+<source src="audio/30vs15/Rapping/US_TR_F2_30.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Rapping_KO_TR_F1_30'))">KO_TR_F1</div>
+<audio id="30vs15_song_Rapping_KO_TR_F1_30" controls preload="none">
+<source src="audio/30vs15/Rapping/KO_TR_F1_30.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Rapping_KO_TR_F2_30'))">KO_TR_F2</div>
+<audio id="30vs15_song_Rapping_KO_TR_F2_30" controls preload="none">
+<source src="audio/30vs15/Rapping/KO_TR_F2_30.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Rapping_US_AD_M1_30'))">US_AD_M1</div>
+<audio id="30vs15_song_Rapping_US_AD_M1_30" controls preload="none">
+<source src="audio/30vs15/Rapping/US_AD_M1_30.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('30vs15_song_Rapping_KO_AD_M1_30'))">KO_AD_M1</div>
+<audio id="30vs15_song_Rapping_KO_AD_M1_30" controls preload="none">
+<source src="audio/30vs15/Rapping/KO_AD_M1_30.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+</div>
+<div class="sample-container">
+<h2>Assessment of Post-processing (WSOLA)</h2>
+<h3>Singing</h3>
+<div class="sample">
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('sox_song_Singing_gt'))">Reference</div>
+<audio id="sox_song_Singing_gt" controls preload="none">
+<source src="audio/sox_vs_nonsox/Singing/Reference Track.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">plain</div>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Singing_US_TR_M1_withoutPP'))">US_TR_M1</div>
+<audio id="sox_song_Singing_US_TR_M1_withoutPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Singing/US_TR_M1_withoutPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Singing_US_TR_F1_withoutPP'))">US_TR_F1</div>
+<audio id="sox_song_Singing_US_TR_F1_withoutPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Singing/US_TR_F1_withoutPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Singing_US_TR_F2_withoutPP'))">US_TR_F2</div>
+<audio id="sox_song_Singing_US_TR_F2_withoutPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Singing/US_TR_F2_withoutPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Singing_KO_TR_F1_withoutPP'))">KO_TR_F1</div>
+<audio id="sox_song_Singing_KO_TR_F1_withoutPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Singing/KO_TR_F1_withoutPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Singing_KO_TR_F2_withoutPP'))">KO_TR_F2</div>
+<audio id="sox_song_Singing_KO_TR_F2_withoutPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Singing/KO_TR_F2_withoutPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Singing_US_AD_M1_withoutPP'))">US_AD_M1</div>
+<audio id="sox_song_Singing_US_AD_M1_withoutPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Singing/US_AD_M1_withoutPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Singing_KO_AD_M1_withoutPP'))">KO_AD_M1</div>
+<audio id="sox_song_Singing_KO_AD_M1_withoutPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Singing/KO_AD_M1_withoutPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">w/ post-proc</div>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Singing_US_TR_M1_withPP'))">US_TR_M1</div>
+<audio id="sox_song_Singing_US_TR_M1_withPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Singing/US_TR_M1_withPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Singing_US_TR_F1_withPP'))">US_TR_F1</div>
+<audio id="sox_song_Singing_US_TR_F1_withPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Singing/US_TR_F1_withPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Singing_US_TR_F2_withPP'))">US_TR_F2</div>
+<audio id="sox_song_Singing_US_TR_F2_withPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Singing/US_TR_F2_withPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Singing_KO_TR_F1_withPP'))">KO_TR_F1</div>
+<audio id="sox_song_Singing_KO_TR_F1_withPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Singing/KO_TR_F1_withPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Singing_KO_TR_F2_withPP'))">KO_TR_F2</div>
+<audio id="sox_song_Singing_KO_TR_F2_withPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Singing/KO_TR_F2_withPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Singing_US_AD_M1_withPP'))">US_AD_M1</div>
+<audio id="sox_song_Singing_US_AD_M1_withPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Singing/US_AD_M1_withPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Singing_KO_AD_M1_withPP'))">KO_AD_M1</div>
+<audio id="sox_song_Singing_KO_AD_M1_withPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Singing/KO_AD_M1_withPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<h3>Rapping</h3>
+<div class="sample">
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('sox_song_Rapping_gt'))">Reference</div>
+<audio id="sox_song_Rapping_gt" controls preload="none">
+<source src="audio/sox_vs_nonsox/Rapping/Reference Track.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">plain</div>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Rapping_US_TR_M1_withoutPP'))">US_TR_M1</div>
+<audio id="sox_song_Rapping_US_TR_M1_withoutPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Rapping/US_TR_M1_withoutPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Rapping_US_TR_F1_withoutPP'))">US_TR_F1</div>
+<audio id="sox_song_Rapping_US_TR_F1_withoutPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Rapping/US_TR_F1_withoutPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Rapping_US_TR_F2_withoutPP'))">US_TR_F2</div>
+<audio id="sox_song_Rapping_US_TR_F2_withoutPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Rapping/US_TR_F2_withoutPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Rapping_KO_TR_F1_withoutPP'))">KO_TR_F1</div>
+<audio id="sox_song_Rapping_KO_TR_F1_withoutPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Rapping/KO_TR_F1_withoutPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Rapping_KO_TR_F2_withoutPP'))">KO_TR_F2</div>
+<audio id="sox_song_Rapping_KO_TR_F2_withoutPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Rapping/KO_TR_F2_withoutPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Rapping_US_AD_M1_withoutPP'))">US_AD_M1</div>
+<audio id="sox_song_Rapping_US_AD_M1_withoutPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Rapping/US_AD_M1_withoutPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Rapping_KO_AD_M1_withoutPP'))">KO_AD_M1</div>
+<audio id="sox_song_Rapping_KO_AD_M1_withoutPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Rapping/KO_AD_M1_withoutPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">w/ post-proc</div>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Rapping_US_TR_M1_withPP'))">US_TR_M1</div>
+<audio id="sox_song_Rapping_US_TR_M1_withPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Rapping/US_TR_M1_withPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Rapping_US_TR_F1_withPP'))">US_TR_F1</div>
+<audio id="sox_song_Rapping_US_TR_F1_withPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Rapping/US_TR_F1_withPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Rapping_US_TR_F2_withPP'))">US_TR_F2</div>
+<audio id="sox_song_Rapping_US_TR_F2_withPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Rapping/US_TR_F2_withPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Rapping_KO_TR_F1_withPP'))">KO_TR_F1</div>
+<audio id="sox_song_Rapping_KO_TR_F1_withPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Rapping/KO_TR_F1_withPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Rapping_KO_TR_F2_withPP'))">KO_TR_F2</div>
+<audio id="sox_song_Rapping_KO_TR_F2_withPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Rapping/KO_TR_F2_withPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Rapping_US_AD_M1_withPP'))">US_AD_M1</div>
+<audio id="sox_song_Rapping_US_AD_M1_withPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Rapping/US_AD_M1_withPP.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sox_song_Rapping_KO_AD_M1_withPP'))">KO_AD_M1</div>
+<audio id="sox_song_Rapping_KO_AD_M1_withPP" controls preload="none">
+<source src="audio/sox_vs_nonsox/Rapping/KO_AD_M1_withPP.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div>
