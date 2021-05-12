@@ -213,6 +213,31 @@
       scroll-behavior: smooth;
     }
 
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      padding: 5px 0;
+      border-radius: 6px;
+      position: absolute;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      cursor: pointer;
+    }
+
   </style>
 </head>
 
@@ -308,13 +333,6 @@ Your browser does not support the audio element.
 <div class="r-number" onclick="togglePlay(document.getElementById('spkgt_KO_AD_M1_gt'))">KO_AD_M1</div>
 <audio id="spkgt_KO_AD_M1_gt" controls preload="none">
 <source src="audio/gt/KO_AD_M1.wav" type="audio/wav">
-Your browser does not support the audio element.
-</audio>
-</div>
-<div class="sample-audio">
-<div class="r-number" onclick="togglePlay(document.getElementById('spkgt_Mellotron_gt'))">Mellotron</div>
-<audio id="spkgt_Mellotron_gt" controls preload="none">
-<source src="audio/gt/Mellotron.wav" type="audio/wav">
 Your browser does not support the audio element.
 </audio>
 </div>
@@ -673,6 +691,7 @@ Your browser does not support the audio element.
 Your browser does not support the audio element.
 </audio>
 </div>
+<span class="tooltip">
 <div class="sample-audio">
 <div class="r-number" onclick="togglePlay(document.getElementById('song_song_05_Mellotron'))">Mellotron</div>
 <audio id="song_song_05_Mellotron" controls preload="none">
@@ -680,7 +699,7 @@ Your browser does not support the audio element.
 Your browser does not support the audio element.
 </audio>
 </div>
-</div>
+<span class="tooltiptext">Synthesis Failed</span></span></div>
 </div>
 <div class="sample">
 <div class="mod-container">
