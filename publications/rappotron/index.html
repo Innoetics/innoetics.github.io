@@ -112,7 +112,7 @@
     }
 
     .r-number {
-      width: 24px;
+      width: 114px;
       text-align: center;
       margin-right: 8px;
       background-color: rgb(231, 239, 253);
@@ -144,7 +144,7 @@
     }
 
     .gt {
-      width: 109px;
+      width: 114px;
       text-align: center;
       margin-right: 0px;
       background-color: rgb(231, 239, 253);
@@ -183,7 +183,7 @@
     }
 
     .invisible.axis {
-      width: 48px;
+      width: 114px;
       text-align: center;
       margin-right: 8px;
       background-color: rgb(200, 200, 253);
@@ -259,5 +259,573 @@
     The proposed system is evaluated via subjective listening tests as well as in comparison to an available alternate system which also aims to produce synthetic singing voice from read-only training data.
     Results show that the proposed approach can produce high quality rapping/singing voice with increased naturalness.</p>
   </div>
+<div class="sample-container">
+<h3>Speaker ground truth samples</h3><div class="sample">
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('spkgt_US_TR_M1_gt'))">US_TR_M1</div>
+<audio id="spkgt_US_TR_M1_gt" controls preload="none">
+<source src="audio/gt/US_TR_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('spkgt_US_TR_F1_gt'))">US_TR_F1</div>
+<audio id="spkgt_US_TR_F1_gt" controls preload="none">
+<source src="audio/gt/US_TR_F1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('spkgt_US_TR_F2_gt'))">US_TR_F2</div>
+<audio id="spkgt_US_TR_F2_gt" controls preload="none">
+<source src="audio/gt/US_TR_F2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('spkgt_KO_TR_F1_gt'))">KO_TR_F1</div>
+<audio id="spkgt_KO_TR_F1_gt" controls preload="none">
+<source src="audio/gt/KO_TR_F1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('spkgt_KO_TR_F2_gt'))">KO_TR_F2</div>
+<audio id="spkgt_KO_TR_F2_gt" controls preload="none">
+<source src="audio/gt/KO_TR_F2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('spkgt_US_AD_M1_gt'))">US_AD_M1</div>
+<audio id="spkgt_US_AD_M1_gt" controls preload="none">
+<source src="audio/gt/US_AD_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('spkgt_KO_AD_M1_gt'))">KO_AD_M1</div>
+<audio id="spkgt_KO_AD_M1_gt" controls preload="none">
+<source src="audio/gt/KO_AD_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('spkgt_Mellotron_gt'))">Mellotron</div>
+<audio id="spkgt_Mellotron_gt" controls preload="none">
+<source src="audio/gt/Mellotron.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+</div>
+<div class="sample-container">
+<h3>Rapping/Singing speech synthesis</h3><div class="sample">
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">Song 01</div>
+</div>
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('song_song_01_gt'))">Reference</div>
+<audio id="song_song_01_gt" controls preload="none">
+<source src="audio/song_01/Reference Track.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_01_US_TR_M1'))">US_TR_M1</div>
+<audio id="song_song_01_US_TR_M1" controls preload="none">
+<source src="audio/song_01/US_TR_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_01_US_TR_F1'))">US_TR_F1</div>
+<audio id="song_song_01_US_TR_F1" controls preload="none">
+<source src="audio/song_01/US_TR_F1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_01_US_TR_F2'))">US_TR_F2</div>
+<audio id="song_song_01_US_TR_F2" controls preload="none">
+<source src="audio/song_01/US_TR_F2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_01_KO_TR_F1'))">KO_TR_F1</div>
+<audio id="song_song_01_KO_TR_F1" controls preload="none">
+<source src="audio/song_01/KO_TR_F1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_01_KO_TR_F2'))">KO_TR_F2</div>
+<audio id="song_song_01_KO_TR_F2" controls preload="none">
+<source src="audio/song_01/KO_TR_F2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_01_US_AD_M1'))">US_AD_M1</div>
+<audio id="song_song_01_US_AD_M1" controls preload="none">
+<source src="audio/song_01/US_AD_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_01_KO_AD_M1'))">KO_AD_M1</div>
+<audio id="song_song_01_KO_AD_M1" controls preload="none">
+<source src="audio/song_01/KO_AD_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_01_Mellotron'))">Mellotron</div>
+<audio id="song_song_01_Mellotron" controls preload="none">
+<source src="audio/song_01/Mellotron.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">Song 02</div>
+</div>
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('song_song_02_gt'))">Reference</div>
+<audio id="song_song_02_gt" controls preload="none">
+<source src="audio/song_02/Reference Track.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_02_US_TR_M1'))">US_TR_M1</div>
+<audio id="song_song_02_US_TR_M1" controls preload="none">
+<source src="audio/song_02/US_TR_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_02_US_TR_F1'))">US_TR_F1</div>
+<audio id="song_song_02_US_TR_F1" controls preload="none">
+<source src="audio/song_02/US_TR_F1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_02_US_TR_F2'))">US_TR_F2</div>
+<audio id="song_song_02_US_TR_F2" controls preload="none">
+<source src="audio/song_02/US_TR_F2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_02_KO_TR_F1'))">KO_TR_F1</div>
+<audio id="song_song_02_KO_TR_F1" controls preload="none">
+<source src="audio/song_02/KO_TR_F1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_02_KO_TR_F2'))">KO_TR_F2</div>
+<audio id="song_song_02_KO_TR_F2" controls preload="none">
+<source src="audio/song_02/KO_TR_F2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_02_US_AD_M1'))">US_AD_M1</div>
+<audio id="song_song_02_US_AD_M1" controls preload="none">
+<source src="audio/song_02/US_AD_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_02_KO_AD_M1'))">KO_AD_M1</div>
+<audio id="song_song_02_KO_AD_M1" controls preload="none">
+<source src="audio/song_02/KO_AD_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_02_Mellotron'))">Mellotron</div>
+<audio id="song_song_02_Mellotron" controls preload="none">
+<source src="audio/song_02/Mellotron.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">Song 03</div>
+</div>
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('song_song_03_gt'))">Reference</div>
+<audio id="song_song_03_gt" controls preload="none">
+<source src="audio/song_03/Reference Track.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_03_US_TR_M1'))">US_TR_M1</div>
+<audio id="song_song_03_US_TR_M1" controls preload="none">
+<source src="audio/song_03/US_TR_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_03_US_TR_F1'))">US_TR_F1</div>
+<audio id="song_song_03_US_TR_F1" controls preload="none">
+<source src="audio/song_03/US_TR_F1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_03_US_TR_F2'))">US_TR_F2</div>
+<audio id="song_song_03_US_TR_F2" controls preload="none">
+<source src="audio/song_03/US_TR_F2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_03_KO_TR_F1'))">KO_TR_F1</div>
+<audio id="song_song_03_KO_TR_F1" controls preload="none">
+<source src="audio/song_03/KO_TR_F1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_03_KO_TR_F2'))">KO_TR_F2</div>
+<audio id="song_song_03_KO_TR_F2" controls preload="none">
+<source src="audio/song_03/KO_TR_F2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_03_US_AD_M1'))">US_AD_M1</div>
+<audio id="song_song_03_US_AD_M1" controls preload="none">
+<source src="audio/song_03/US_AD_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_03_KO_AD_M1'))">KO_AD_M1</div>
+<audio id="song_song_03_KO_AD_M1" controls preload="none">
+<source src="audio/song_03/KO_AD_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_03_Mellotron'))">Mellotron</div>
+<audio id="song_song_03_Mellotron" controls preload="none">
+<source src="audio/song_03/Mellotron.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">Song 04</div>
+</div>
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('song_song_04_gt'))">Reference</div>
+<audio id="song_song_04_gt" controls preload="none">
+<source src="audio/song_04/Reference Track.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_04_US_TR_M1'))">US_TR_M1</div>
+<audio id="song_song_04_US_TR_M1" controls preload="none">
+<source src="audio/song_04/US_TR_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_04_US_TR_F1'))">US_TR_F1</div>
+<audio id="song_song_04_US_TR_F1" controls preload="none">
+<source src="audio/song_04/US_TR_F1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_04_US_TR_F2'))">US_TR_F2</div>
+<audio id="song_song_04_US_TR_F2" controls preload="none">
+<source src="audio/song_04/US_TR_F2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_04_KO_TR_F1'))">KO_TR_F1</div>
+<audio id="song_song_04_KO_TR_F1" controls preload="none">
+<source src="audio/song_04/KO_TR_F1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_04_KO_TR_F2'))">KO_TR_F2</div>
+<audio id="song_song_04_KO_TR_F2" controls preload="none">
+<source src="audio/song_04/KO_TR_F2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_04_US_AD_M1'))">US_AD_M1</div>
+<audio id="song_song_04_US_AD_M1" controls preload="none">
+<source src="audio/song_04/US_AD_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_04_KO_AD_M1'))">KO_AD_M1</div>
+<audio id="song_song_04_KO_AD_M1" controls preload="none">
+<source src="audio/song_04/KO_AD_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_04_Mellotron'))">Mellotron</div>
+<audio id="song_song_04_Mellotron" controls preload="none">
+<source src="audio/song_04/Mellotron.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">Song 05</div>
+</div>
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('song_song_05_gt'))">Reference</div>
+<audio id="song_song_05_gt" controls preload="none">
+<source src="audio/song_05/Reference Track.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_05_US_TR_M1'))">US_TR_M1</div>
+<audio id="song_song_05_US_TR_M1" controls preload="none">
+<source src="audio/song_05/US_TR_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_05_US_TR_F1'))">US_TR_F1</div>
+<audio id="song_song_05_US_TR_F1" controls preload="none">
+<source src="audio/song_05/US_TR_F1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_05_US_TR_F2'))">US_TR_F2</div>
+<audio id="song_song_05_US_TR_F2" controls preload="none">
+<source src="audio/song_05/US_TR_F2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_05_KO_TR_F1'))">KO_TR_F1</div>
+<audio id="song_song_05_KO_TR_F1" controls preload="none">
+<source src="audio/song_05/KO_TR_F1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_05_KO_TR_F2'))">KO_TR_F2</div>
+<audio id="song_song_05_KO_TR_F2" controls preload="none">
+<source src="audio/song_05/KO_TR_F2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_05_US_AD_M1'))">US_AD_M1</div>
+<audio id="song_song_05_US_AD_M1" controls preload="none">
+<source src="audio/song_05/US_AD_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_05_KO_AD_M1'))">KO_AD_M1</div>
+<audio id="song_song_05_KO_AD_M1" controls preload="none">
+<source src="audio/song_05/KO_AD_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_song_05_Mellotron'))">Mellotron</div>
+<audio id="song_song_05_Mellotron" controls preload="none">
+<source src="audio/song_05/Mellotron.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">Rap song 01</div>
+</div>
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('song_rap_song01_gt'))">Reference</div>
+<audio id="song_rap_song01_gt" controls preload="none">
+<source src="audio/rap_song01/Reference Track.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_rap_song01_US_TR_M1'))">US_TR_M1</div>
+<audio id="song_rap_song01_US_TR_M1" controls preload="none">
+<source src="audio/rap_song01/US_TR_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_rap_song01_US_TR_F1'))">US_TR_F1</div>
+<audio id="song_rap_song01_US_TR_F1" controls preload="none">
+<source src="audio/rap_song01/US_TR_F1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_rap_song01_US_TR_F2'))">US_TR_F2</div>
+<audio id="song_rap_song01_US_TR_F2" controls preload="none">
+<source src="audio/rap_song01/US_TR_F2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_rap_song01_KO_TR_F1'))">KO_TR_F1</div>
+<audio id="song_rap_song01_KO_TR_F1" controls preload="none">
+<source src="audio/rap_song01/KO_TR_F1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_rap_song01_KO_TR_F2'))">KO_TR_F2</div>
+<audio id="song_rap_song01_KO_TR_F2" controls preload="none">
+<source src="audio/rap_song01/KO_TR_F2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_rap_song01_US_AD_M1'))">US_AD_M1</div>
+<audio id="song_rap_song01_US_AD_M1" controls preload="none">
+<source src="audio/rap_song01/US_AD_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_rap_song01_KO_AD_M1'))">KO_AD_M1</div>
+<audio id="song_rap_song01_KO_AD_M1" controls preload="none">
+<source src="audio/rap_song01/KO_AD_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_rap_song01_Mellotron'))">Mellotron</div>
+<audio id="song_rap_song01_Mellotron" controls preload="none">
+<source src="audio/rap_song01/Mellotron.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">Rap song 02</div>
+</div>
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('song_rap_song02_gt'))">Reference</div>
+<audio id="song_rap_song02_gt" controls preload="none">
+<source src="audio/rap_song02/Reference Track.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_rap_song02_US_TR_M1'))">US_TR_M1</div>
+<audio id="song_rap_song02_US_TR_M1" controls preload="none">
+<source src="audio/rap_song02/US_TR_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_rap_song02_US_TR_F1'))">US_TR_F1</div>
+<audio id="song_rap_song02_US_TR_F1" controls preload="none">
+<source src="audio/rap_song02/US_TR_F1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_rap_song02_US_TR_F2'))">US_TR_F2</div>
+<audio id="song_rap_song02_US_TR_F2" controls preload="none">
+<source src="audio/rap_song02/US_TR_F2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_rap_song02_KO_TR_F1'))">KO_TR_F1</div>
+<audio id="song_rap_song02_KO_TR_F1" controls preload="none">
+<source src="audio/rap_song02/KO_TR_F1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_rap_song02_KO_TR_F2'))">KO_TR_F2</div>
+<audio id="song_rap_song02_KO_TR_F2" controls preload="none">
+<source src="audio/rap_song02/KO_TR_F2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_rap_song02_US_AD_M1'))">US_AD_M1</div>
+<audio id="song_rap_song02_US_AD_M1" controls preload="none">
+<source src="audio/rap_song02/US_AD_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_rap_song02_KO_AD_M1'))">KO_AD_M1</div>
+<audio id="song_rap_song02_KO_AD_M1" controls preload="none">
+<source src="audio/rap_song02/KO_AD_M1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('song_rap_song02_Mellotron'))">Mellotron</div>
+<audio id="song_rap_song02_Mellotron" controls preload="none">
+<source src="audio/rap_song02/Mellotron.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+</div>
 </body>
 </html>
