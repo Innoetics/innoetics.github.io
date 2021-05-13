@@ -154,6 +154,24 @@ for fname in songs:
 
 out.write('</div>\n')
 
+# Multispeaker
+out.write('<div class="sample-container">\n')
+out.write('<h2>Multispeaker musical mix</h2>\n')
+
+out.write('<div class="sample">\n')
+# GT
+out.write('<div class="mod-container">\n')
+out.write('<div class="sample-audio">\n')
+out.write(f'<div class="gt" onclick="togglePlay(document.getElementById(\'multi_track\'))">Multitrack</div>\n')
+out.write(f'<audio id="multi_track" controls preload="none">\n')
+out.write(f'<source src="audio/Multi-Speaker_Track_Mix.wav" type="audio/wav">\n')
+out.write('Your browser does not support the audio element.\n')
+out.write('</audio>\n')
+out.write('</div>\n')
+out.write('</div>\n')
+out.write('</div>\n')
+out.write('</div>\n')
+
 # End
 out.write('</body>\n')
 out.write('</html>\n')
