@@ -52,8 +52,6 @@ for fname in songs:
     # Speakers
     out.write('<div class="mod-container">\n')
     for spk_name in speakers:
-        if spk_name == 'Mellotron' and fname == 'song_05':
-            out.write('<span class="tooltip">\n')
         out.write('<div class="sample-audio">\n')
         out.write(f'<div class="r-number" onclick="togglePlay(document.getElementById(\'song_{fname}_{spk_name}\'))">{spk_name}</div>\n')
         out.write(f'<audio id="song_{fname}_{spk_name}" controls preload="none">\n')
@@ -61,8 +59,6 @@ for fname in songs:
         out.write('Your browser does not support the audio element.\n')
         out.write('</audio>\n')
         out.write('</div>\n')
-        if spk_name == 'Mellotron' and fname == 'song_05':
-            out.write('<span class="tooltiptext">Synthesis Failed</span></span>')
     out.write('</div>\n')
     out.write('</div>\n')
 
