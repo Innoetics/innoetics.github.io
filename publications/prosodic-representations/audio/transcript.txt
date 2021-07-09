@@ -98,6 +98,7 @@
 1987-SNS|How much could it not tempt her to forgive!
 2892-SNS|But to what does all this lead?
 7555-MDC|Oh my darling, my darling, why do you keep me in suspense like this?
+1525-SLM|He was in the cottage, but he did not see the child.
 1812-LCL.wav|The end of all things!
 600-SNS.wav|Of their personal charms he had not required a second interview to be convinced.
 1733-SLM.wav|See there, said Dolly, with a womans tender tact, shes fondest o you.
@@ -198,3 +199,4 @@
 1987-SNS.wav|How much could it not tempt her to forgive!
 2892-SNS.wav|But to what does all this lead?
 7555-MDC.wav|Oh my darling, my darling, why do you keep me in suspense like this?
+1525-SLM.wav|He was in the cottage, but he did not see the child.
