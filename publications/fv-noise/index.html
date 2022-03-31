@@ -1,145 +1,1279 @@
-<!doctype html>
 <html>
+    <head>
+        <title>Denoising paper samples</title>
 
-<head>
-  <title>Innoetics</title>
-  <style>
-    .container {
-      padding: 12px 24px;
-    }
+        <style>
+            .container {
+              padding: 12px 24px;
+              overflow: scroll;
+            }
+        
+            .head-container {
+              /* border: 5px solid gray; */
+              border-radius: 25px;
+              /* border: 1px solid; */
+              border-color: rgba(0,0,0,0.2);
+              text-align: center;
+              padding: 16px;
+              margin: 0px 200px;
+              box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+              transition: 0.3s;
+            }
+        
+            .head-container:hover {
+              box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+              background-color: rgb(250, 250, 255);
+            }
+        
+            .tooltip {
+              position: relative;
+              display: inline-block;
+              cursor: pointer;
+            }
+        
+        
+            .tooltip .tooltiptext {
+              visibility: hidden;
+              width: 120px;
+              background-color: black;
+              color: #fff;
+              text-align: center;
+              padding: 5px 0;
+              border-radius: 6px;
+              position: absolute;
+              z-index: 1;
+              cursor: pointer;
+            }
+        
+            .tooltip:hover .tooltiptext {
+              visibility: visible;
+              cursor: pointer;
+            }
+        
+            .sample-container {
+              margin: 18px 0;
+            }
+        
+            .sample {
+              /* border: 1px solid gray;
+              border-radius: 10px; */
+              padding: 10px;
+              margin: 10px;
+              width: 80%;
+              position: relative;
+              display: block;
+              text-align: left;
+            }
+        
+            .sample-title {
+              font-size: 22px;
+              margin: 8px 0;
+              display: inline-flex;
+            }
+        
+            .sample-description {
+              font-size: 16px;
+              margin: 8px 0;
+              color: #868686e6;
+            }
+        
+            .mod-container {
+              display: flex;
+            }
+        
+            .sample-audio {
+              margin: 10px 0;
+              display: inline-block;
+              align-items: center;
+              justify-content: left;
+              padding-left: 10px;
+            }
+        
+            .quotation {
+              font-size: xxx-large;
+              color: rgb(152, 189, 253);
+              margin-top: -12px;
+            }
+        
+            .transcript {
+              display: inline;
+              font-style: italic;
+              background-color: rgb(231, 239, 253);
+              padding: 15px 15px;
+              border-radius: 25px;
+              box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+              transition: 0.1s;
+            }
+        
+            audio {
+              height: 35px;
+              display: none;
+            }
+        
+            .r-number {
+              width: 24px;
+              text-align: center;
+              margin-right: 8px;
+              background-color: rgb(231, 239, 253);
+              border-radius: 25px;
+              padding: 10px;
+              box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            }
+        
+            .r-number:hover {
+              box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+              background-color: rgb(222, 230, 253);
+              cursor: pointer;
+            }
+        
+            .r-number-aug {
+              width: 48px;
+              text-align: center;
+              margin-right: 8px;
+              background-color: rgb(231, 239, 253);
+              border-radius: 25px;
+              padding: 10px;
+              box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            }
+        
+            .r-number-aug:hover {
+              box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+              background-color: rgb(222, 230, 253);
+              cursor: pointer;
+            }
+        
+            .gt {
+              width: 109px;
+              text-align: center;
+              margin-right: 0px;
+              background-color: rgb(231, 239, 253);
+              border-radius: 25px;
+              padding: 10px;
+              box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            }
+        
+            .gt:hover {
+              box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+              background-color: rgb(222, 230, 253);
+              cursor: pointer;
+            }
+        
+            .gt.speaker {
+              width: 100px;
+            }
+        
+            .gt.pred {
+              width: 109px;
+            }
+        
+            .note {
+              text-align: center;
+              background-color: rgb(231, 239, 253);
+              padding: 10px;
+              border-radius: 25px;
+              box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+              transition: 0.1s;
+            }
+        
+            .note:hover {
+              box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+              background-color: rgb(222, 230, 253);
+              cursor: pointer;
+            }
+        
+            .invisible {
+              width: 100px;
+              text-align: center;
+              margin-right: 8px;
+              border-radius: 25px;
+              padding: 10px;
+            }
+        
+            .invisible.axis {
+              width: 100px;
+              text-align: center;
+              margin-right: 8px;
+              background-color: rgb(200, 200, 253);
+              border-radius: 25px;
+              padding: 10px;
+              box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+            }
+        
+            h2:hover {
+              cursor: pointer;
+              background: silver;
+            }
+        
+            h2 {
+              border: azure;
+              background: bisque;
+              border-radius: 10px;
+              padding: 10px;
+            }
+        
+            a.custom-a-href {
+              color: black;
+              text-decoration: none;
+            }
+        
+            html {
+              scroll-behavior: smooth;
+            }
+        
+          </style>
+    </head>
 
-    .head-container {
-      /* border: 5px solid gray; */
-      border-radius: 25px;
-      /* border: 1px solid; */
-      border-color: rgba(0,0,0,0.2);
-      text-align: center;
-      padding: 16px;
-      margin: 0px 200px;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-      transition: 0.3s;
-    }
+    <body class="container">
+        <script>
+            function togglePlay(el) {
+            if (!el.paused) {
+                el.pause()
+            }
+            else {
+                var allAudioEls = document.getElementsByTagName("audio");
+                for (let item of allAudioEls) {
+                    item.pause()
+                }
+                el.currentTime = 0;
+                el.play();
+            }
+            };
+            function showSample(event) {
+            var target = event.target || event.srcElement;
+            var currentDisplayAttrValue = target.parentElement.nextElementSibling.style.display;
+            target.parentElement.nextElementSibling.style.display =  currentDisplayAttrValue == 'none' ? 'block' : 'none';
+            };
+        </script>
 
-    .head-container:hover {
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-      background-color: rgb(250, 250, 255);
-    }
+        <div class="head-container">
+            <h1 style="text-align: center;">Fine-grained Noise Control for Multispeaker Speech Synthesis</h1>
+            <p style="text-align: center;font-size: 20px;">
+                Karolos Nikitaras, Georgios Vamvoukakis, Nikolaos Ellinas, Konstantinos Klapsas,
+                Konstantinos Markopoulos, Spyros Raptis, June Sig Sung, Gunu Jho, Aimilios Chalamandaris and Pirros Tsiakoulis
+            </p>
+            <p style="text-align: left;font-size: 18px;"><strong>Abstract:</strong> This paper presents a method for phoneme-level prosody control of F0 and duration on a text-to-speech setup, which is based on prosodic clustering. An autoregressive attention-based model is used, incorporating a prosody encoder module which is fed discrete prosodic labels.
+                A text-to-speech (TTS) model typically factorizes speech attributes such as content, speaker and prosody into disentangled representations.
+                Recent works aim to additionally model the acoustic conditions explicitly, in order to disentangle the primary speech factors, i.e.
+                linguistic content, prosody and timbre from any residual factors, such as recording conditions and background noise.
+                This paper proposes unsupervised, interpretable and fine-grained noise and prosody modeling.
+                We incorporate adversarial training, representation bottleneck and utterance-to-frame modeling in order to learn frame-level noise representations.
+                To the same end, we perform fine-grained prosody modeling via a Fully Hierarchical Variational AutoEncoder (FVAE) which additionally results in more expressive speech synthesis.
+                Experimental results support our claims and ablation studies verify the importance of each proposed component.
+                Audio samples are available in our demo page.
+            </p>
+        </div>
 
-    .sample-container {
-      margin: 18px 0;
-    }
+        <!-- 1) Traversing the Residual Latent Space | start -->
+        <div>
+            <a href="#title1" class="custom-a-href">
+                <h2 style="text-align: left;" onclick="showSample(event)" id="title1">
+                    1) Frame-level Noise Control
+                </h2>
+            </a>
 
-    .sample {
-      /* border: 1px solid gray;
-      border-radius: 10px; */
-      padding: 10px;
-      margin: 10px;
-      width: 80%;
-      position: relative;
-      display: block;
-      text-align: left;
-    }
+            <div class="sample-container" style="display: none;">
+                <h3>
+                    Traversing the 1-dimensional Residual Latent Space in the range [-12,12]. Each value is broadcasted across all synthesizing frames.
+                </h3>
+                
+                <!-- sample #1 start -->
+                <div class="sample">
+                    <div class="sample-title">
+                        <span class="quotation">“</span>
+                        <div class="transcript">I have done my best to make all three readable and interesting, as well as instructive.</div>
+                    </div>
 
-    .sample-title {
-      font-size: 22px;
-      margin: 8px 0;
-      display: inline-flex;
-    }
+                    <div class="mod-container">
+                        <div class="sample-audio">
+                            <div class="gt" onclick="togglePlay(document.getElementById('8014_112586_000018_000000'))">Ground Truth</div>
+                            <audio id="8014_112586_000018_000000" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/original.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="mod-container">
+                        <div class="sample-audio">
+                            <div class="invisible axis">Residual Latent Dim</div>
+                        </div>
+                    
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000-12'))">-12</div>
+                            <audio id="8014_112586_000018_000000-12" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/-12.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000-11'))">-11</div>
+                            <audio id="8014_112586_000018_000000-11" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/-11.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000-10'))">-10</div>
+                            <audio id="8014_112586_000018_000000-10" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/-10.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000-9'))">-9</div>
+                            <audio id="8014_112586_000018_000000-9" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/-9.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000-8'))">-8</div>
+                            <audio id="8014_112586_000018_000000-8" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/-8.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000-7'))">-7</div>
+                            <audio id="8014_112586_000018_000000-7" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/-7.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000-6'))">-6</div>
+                            <audio id="8014_112586_000018_000000-6" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/-6.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000-5'))">-5</div>
+                            <audio id="8014_112586_000018_000000-5" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/-5.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000-4'))">-4</div>
+                            <audio id="8014_112586_000018_000000-4" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/-4.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000-3'))">-3</div>
+                            <audio id="8014_112586_000018_000000-3" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/-3.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000-2'))">-2</div>
+                            <audio id="8014_112586_000018_000000-2" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/-2.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000-1'))">-1</div>
+                            <audio id="8014_112586_000018_000000-1" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/-1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000+0'))">0</div>
+                            <audio id="8014_112586_000018_000000+0" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/0.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000+1'))">+1</div>
+                            <audio id="8014_112586_000018_000000+1" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000+2'))">+2</div>
+                            <audio id="8014_112586_000018_000000+2" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/2.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000+3'))">+3</div>
+                            <audio id="8014_112586_000018_000000+3" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/3.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000+4'))">+4</div>
+                            <audio id="8014_112586_000018_000000+4" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/4.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000+5'))">+5</div>
+                            <audio id="8014_112586_000018_000000+5" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/5.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000+6'))">+6</div>
+                            <audio id="8014_112586_000018_000000+6" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/6.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000+7'))">+7</div>
+                            <audio id="8014_112586_000018_000000+7" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/7.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000+8'))">+8</div>
+                            <audio id="8014_112586_000018_000000+8" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/8.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000+9'))">+9</div>
+                            <audio id="8014_112586_000018_000000+9" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/9.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000+10'))">+10</div>
+                            <audio id="8014_112586_000018_000000+10" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/10.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000+11'))">+11</div>
+                            <audio id="8014_112586_000018_000000+11" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/11.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('8014_112586_000018_000000+12'))">+12</div>
+                            <audio id="8014_112586_000018_000000+12" controls="" preload="none">
+                            <source src="wavs/8014_112586_000018_000000/12.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    
+                    </div>
 
-    .sample-description {
-      font-size: 16px;
-      margin: 8px 0;
-      color: #868686e6;
-    }
 
-    .sample-audio {
-      margin: 14px 0;
-      display: flex;
-      align-items: center;
-      justify-content: left;
-      padding-left: 50px;
-    }
+                </div>
+                <!-- sample #1 end -->
+                
+                <!-- sample #2 start -->
+                <div class="sample">
+                    <div class="sample-title">
+                        <span class="quotation">“</span>
+                        <div class="transcript">But it is just as certain as it can be that this is the crisis.</div>
+                    </div>
 
-    .quotation {
-      font-size: xxx-large;
-      color: rgb(152, 189, 253);
-      margin-top: -12px;
-    }
+                    <div class="mod-container">
+                        <div class="sample-audio">
+                            <div class="gt" onclick="togglePlay(document.getElementById('5678_43302_000070_000001'))">Ground Truth</div>
+                            <audio id="5678_43302_000070_000001" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/original.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="mod-container">
+                        <div class="sample-audio">
+                            <div class="invisible axis">Residual Latent Dim</div>
+                        </div>
+                    
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001-12'))">-12</div>
+                            <audio id="5678_43302_000070_000001-12" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/-12.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001-11'))">-11</div>
+                            <audio id="5678_43302_000070_000001-11" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/-11.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001-10'))">-10</div>
+                            <audio id="5678_43302_000070_000001-10" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/-10.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001-9'))">-9</div>
+                            <audio id="5678_43302_000070_000001-9" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/-9.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001-8'))">-8</div>
+                            <audio id="5678_43302_000070_000001-8" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/-8.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001-7'))">-7</div>
+                            <audio id="5678_43302_000070_000001-7" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/-7.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001-6'))">-6</div>
+                            <audio id="5678_43302_000070_000001-6" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/-6.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001-5'))">-5</div>
+                            <audio id="5678_43302_000070_000001-5" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/-5.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001-4'))">-4</div>
+                            <audio id="5678_43302_000070_000001-4" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/-4.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001-3'))">-3</div>
+                            <audio id="5678_43302_000070_000001-3" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/-3.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001-2'))">-2</div>
+                            <audio id="5678_43302_000070_000001-2" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/-2.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001-1'))">-1</div>
+                            <audio id="5678_43302_000070_000001-1" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/-1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001+0'))">0</div>
+                            <audio id="5678_43302_000070_000001+0" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/0.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001+1'))">+1</div>
+                            <audio id="5678_43302_000070_000001+1" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001+2'))">+2</div>
+                            <audio id="5678_43302_000070_000001+2" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/2.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001+3'))">+3</div>
+                            <audio id="5678_43302_000070_000001+3" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/3.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001+4'))">+4</div>
+                            <audio id="5678_43302_000070_000001+4" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/4.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001+5'))">+5</div>
+                            <audio id="5678_43302_000070_000001+5" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/5.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001+6'))">+6</div>
+                            <audio id="5678_43302_000070_000001+6" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/6.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001+7'))">+7</div>
+                            <audio id="5678_43302_000070_000001+7" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/7.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001+8'))">+8</div>
+                            <audio id="5678_43302_000070_000001+8" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/8.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001+9'))">+9</div>
+                            <audio id="5678_43302_000070_000001+9" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/9.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001+10'))">+10</div>
+                            <audio id="5678_43302_000070_000001+10" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/10.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001+11'))">+11</div>
+                            <audio id="5678_43302_000070_000001+11" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/11.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('5678_43302_000070_000001+12'))">+12</div>
+                            <audio id="5678_43302_000070_000001/+12.wav" controls="" preload="none">
+                            <source src="wavs/5678_43302_000070_000001/12.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    
+                    </div>
 
-    .transcript {
-      display: inline;
-      font-style: italic;
-      background-color: rgb(231, 239, 253);
-      padding: 15px 15px;
-      border-radius: 25px;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-      transition: 0.1s;
-    }
 
-    audio {
-      height: 35px;
-    }
+                </div>
+                <!-- sample #2 end -->
+                
+                <!-- sample #3 start -->
+                <div class="sample">
+                    <div class="sample-title">
+                        <span class="quotation">“</span>
+                        <div class="transcript">I find that I have another note upon a specific hurricane.</div>
+                    </div>
 
-    .r-number {
-      width: 24px;
-      text-align: center;
-      margin-right: 8px;
-      background-color: rgb(231, 239, 253);
-      border-radius: 25px;
-      padding: 10px;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    }
+                    <div class="mod-container">
+                        <div class="sample-audio">
+                            <div class="gt" onclick="togglePlay(document.getElementById('3240_131231_000025_000000'))">Ground Truth</div>
+                            <audio id="3240_131231_000025_000000" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/original.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+                    <div class="mod-container">
+                        <div class="sample-audio">
+                            <div class="invisible axis">Residual Latent Dim</div>
+                        </div>
+                    
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000-12'))">-12</div>
+                            <audio id="3240_131231_000025_000000-12" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/-12.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000-11'))">-11</div>
+                            <audio id="3240_131231_000025_000000-11" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/-11.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000-10'))">-10</div>
+                            <audio id="3240_131231_000025_000000-10" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/-10.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000-9'))">-9</div>
+                            <audio id="3240_131231_000025_000000-9" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/-9.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000-8'))">-8</div>
+                            <audio id="3240_131231_000025_000000-8" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/-8.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000-7'))">-7</div>
+                            <audio id="3240_131231_000025_000000-7" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/-7.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000-6'))">-6</div>
+                            <audio id="3240_131231_000025_000000-6" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/-6.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000-5'))">-5</div>
+                            <audio id="3240_131231_000025_000000-5" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/-5.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000-4'))">-4</div>
+                            <audio id="3240_131231_000025_000000-4" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/-4.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000-3'))">-3</div>
+                            <audio id="3240_131231_000025_000000-3" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/-3.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000-2'))">-2</div>
+                            <audio id="3240_131231_000025_000000-2" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/-2.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000-1'))">-1</div>
+                            <audio id="3240_131231_000025_000000-1" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/-1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000+0'))">0</div>
+                            <audio id="3240_131231_000025_000000+0" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/0.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000+1'))">+1</div>
+                            <audio id="3240_131231_000025_000000+1" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000+2'))">+2</div>
+                            <audio id="3240_131231_000025_000000+2" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/2.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000+3'))">+3</div>
+                            <audio id="3240_131231_000025_000000+3" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/3.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000+4'))">+4</div>
+                            <audio id="3240_131231_000025_000000+4" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/4.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000+5'))">+5</div>
+                            <audio id="3240_131231_000025_000000+5" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/5.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000+6'))">+6</div>
+                            <audio id="3240_131231_000025_000000+6" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/6.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000+7'))">+7</div>
+                            <audio id="3240_131231_000025_000000+7" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/7.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000+8'))">+8</div>
+                            <audio id="3240_131231_000025_000000+8" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/8.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000+9'))">+9</div>
+                            <audio id="3240_131231_000025_000000+9" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/9.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000+10'))">+10</div>
+                            <audio id="3240_131231_000025_000000+10" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/10.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000+11'))">+11</div>
+                            <audio id="3240_131231_000025_000000+11" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/11.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('3240_131231_000025_000000+12'))">+12</div>
+                            <audio id="3240_131231_000025_000000+12" controls="" preload="none">
+                            <source src="wavs/3240_131231_000025_000000/12.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    
+                    </div>
 
-    .r-number:hover {
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-      background-color: rgb(222, 230, 253);
-      cursor: pointer;
-    }
 
-  </style>
-</head>
+                </div>                
+                <!-- sample #3 end -->
 
-<body class="container">
-  <script>
-    function togglePlay(el) {
-      if (!el.paused) {
-        el.pause()
-      }
-      else {
-        el.play();
-      }
-    };
-  </script>
-  <div class="head-container">
-  <h1 style="text-align: center;">Fine-grained Noise Control for Multispeaker Speech Synthesis</h1>
-  <p style="text-align: center;font-size: 20px;">
-    Karolos Nikitaras,
-      Georgios Vamvoukakis,
-      Nikolaos Ellinas,
-      Konstantinos Klapsas,
-      Konstantinos Markopoulos,
-      Spyros Raptis,
-      June Sig Sung,
-      Gunu Jho,
-      Aimilios Chalamandaris and Pirros Tsiakoulis</p>
-  <p style="text-align: left;font-size: 18px;"><strong>Abstract:</strong>
-    A text-to-speech (TTS) model typically factorizes speech
-attributes such as content, speaker and prosody into disentan-
-gled representations. Recent works aim to additionally model
-the acoustic conditions explicitly, in order to disentangle the
-primary speech factors, i.e. linguistic content, prosody and
-timbre from any residual factors, such as recording conditions
-and background noise. This paper proposes unsupervised, in-
-terpretable and fine-grained noise and prosody modeling. We
-incorporate adversarial training, representation bottleneck and
-utterance-to-frame modeling in order to learn frame-level noise
-representations. To the same end, we perform fine-grained
-prosody modeling via a Fully Hierarchical Variational AutoEn-
-coder (FVAE) which additionally results in more expressive
-speech synthesis. Experimental results support our claims and
-ablation studies verify the importance of each proposed compo-
-nent. Audio samples are available in our demo page.
-  </p>
-  </div>
-</body>
+            </div>
+        
+        </div>
+        <!-- 1) Traversing the Residual Latent Space | end -->
+
+
+        <!-- 2) Fine-grained Prosody Modeling | start -->
+        <div>
+            <a href="#title2" class="custom-a-href">
+                <h2 style="text-align: left;" onclick="showSample(event)" id="title2">
+                    2) Phoneme-level Prosody Control
+                </h2>
+            </a>
+
+            <div class="sample-container" style="display: none;">
+                <h3>
+                    We use posterior sampling across all the 3 prosody latent dims associated with each phoneme. The highlighted phonemes are being additionally control.
+                </h3>
+                
+                <!-- sample #1 start -->
+                <div class="sample">
+                    <div class="sample-title">
+                        <span class="quotation">“</span>
+                        <div class="transcript">
+                            <p>
+                                <span>At first, P</span><span style='background-color: blue; color: white;'>e</span><span>ter had eyes only for the wonderful beauty of Redcoat.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="mod-container">
+                        <div class="sample-audio">
+                            <div class="gt" onclick="togglePlay(document.getElementById('1624_142933_000023_000007_original'))">Ground Truth</div>
+                            <audio id="1624_142933_000023_000007_original" controls="" preload="none">
+                            <source src="wavs/1624_142933_000023_000007/original.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+
+                    
+
+                    <!-- dim #1 start -->
+                    <div class="mod-container">
+                        <div class="sample-audio">
+                            <div class="invisible axis">F0 Latent Dim</div>
+                        </div>
+                    
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('1624_142933_000023_000007_phone10_dim0_pros_1'))">-1</div>
+                            <audio id="1624_142933_000023_000007_phone10_dim0_pros_1" controls="" preload="none">
+                            <source src="wavs/1624_142933_000023_000007/phone10/dim0_pros/1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('1624_142933_000023_000007_phone10_dim0_pros_0'))">0</div>
+                            <audio id="1624_142933_000023_000007_phone10_dim0_pros_0" controls="" preload="none">
+                            <source src="wavs/1624_142933_000023_000007/phone10/dim0_pros/0.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('1624_142933_000023_000007_phone10_dim0_pros_-0.5'))">1</div>
+                            <audio id="1624_142933_000023_000007_phone10_dim0_pros_-0.5" controls="" preload="none">
+                            <source src="wavs/1624_142933_000023_000007/phone10/dim0_pros/-1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    
+                    </div>
+                    <!-- dim #1 end -->
+
+                    <!-- dim #2 start -->
+                    <div class="mod-container">
+                        <div class="sample-audio">
+                            <div class="invisible axis">Energy Latent Dim</div>
+                        </div>
+                    
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('1624_142933_000023_000007_phone10_dim1_pros_6'))">-1</div>
+                            <audio id="1624_142933_000023_000007_phone10_dim1_pros_6" controls="" preload="none">
+                            <source src="wavs/1624_142933_000023_000007/phone10/dim1_pros/1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('1624_142933_000023_000007_phone10_dim1_pros_0'))">0</div>
+                            <audio id="1624_142933_000023_000007_phone10_dim1_pros_0" controls="" preload="none">
+                            <source src="wavs/1624_142933_000023_000007/phone10/dim1_pros/0.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('1624_142933_000023_000007_phone10_dim1_pros_-3'))">1</div>
+                            <audio id="1624_142933_000023_000007_phone10_dim1_pros_-3" controls="" preload="none">
+                            <source src="wavs/1624_142933_000023_000007/phone10/dim1_pros/-1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    
+                    </div>
+                    <!-- dim #2 end -->
+
+                    <!-- dim #3 start -->
+                    <div class="mod-container">
+                        <div class="sample-audio">
+                            <div class="invisible axis">Duration Latent Dim</div>
+                        </div>
+                    
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('1624_142933_000023_000007_phone10_dim0_dur_7'))">-1</div>
+                            <audio id="1624_142933_000023_000007_phone10_dim0_dur_7" controls="" preload="none">
+                            <source src="wavs/1624_142933_000023_000007/phone10/dim0_dur/1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('1624_142933_000023_000007_phone10_dim0_dur_2'))">0</div>
+                            <audio id="1624_142933_000023_000007_phone10_dim0_dur_2" controls="" preload="none">
+                            <source src="wavs/1624_142933_000023_000007/phone10/dim0_dur/0.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('1624_142933_000023_000007_phone10_dim0_dur_-3'))">1</div>
+                            <audio id="1624_142933_000023_000007_phone10_dim0_dur_-3" controls="" preload="none">
+                            <source src="wavs/1624_142933_000023_000007/phone10/dim0_dur/-1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    
+                    </div>
+                    <!-- dim #3 end -->
+
+                </div>
+                <!-- sample #1 end -->
+                
+                <!-- ------------------------------------------------------------------------ -->
+
+                <!-- sample #2 start -->
+                <div class="sample">
+                    <div class="sample-title">
+                        <span class="quotation">“</span>
+                        <div class="transcript">
+                            <p>
+                                <span>This was n</span><span style='background-color: blue; color: white;'>o</span><span>t, as it may seem, merely a theory tinged with sarcasm.</span>
+                            </p>
+                            
+                        </div>
+                    </div>
+
+                    <div class="mod-container">
+                        <div class="sample-audio">
+                            <div class="gt" onclick="togglePlay(document.getElementById('1069_133709_000043_000029_original'))">Ground Truth</div>
+                            <audio id="1069_133709_000043_000029_original" controls="" preload="none">
+                            <source src="wavs/1069_133709_000043_000029/original.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+
+                    
+
+                    <!-- dim #1 start -->
+                    <div class="mod-container">
+                        <div class="sample-audio">
+                            <div class="invisible axis">F0 Latent Dim</div>
+                        </div>
+                    
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('1069_133709_000043_000029_phone9_dim0_pros_0.5'))">-1</div>
+                            <audio id="1069_133709_000043_000029_phone9_dim0_pros_0.5" controls="" preload="none">
+                            <source src="wavs/1069_133709_000043_000029/phone9/dim0_pros/1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('1069_133709_000043_000029_phone9_dim0_pros_0'))">0</div>
+                            <audio id="1069_133709_000043_000029_phone9_dim0_pros_0" controls="" preload="none">
+                            <source src="wavs/1069_133709_000043_000029/phone9/dim0_pros/0.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('1069_133709_000043_000029_phone9_dim0_pros_-0.5'))">1</div>
+                            <audio id="1069_133709_000043_000029_phone9_dim0_pros_-0.5" controls="" preload="none">
+                            <source src="wavs/1069_133709_000043_000029/phone9/dim0_pros/-1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    
+                    </div>
+                    <!-- dim #1 end -->
+
+                    <!-- dim #2 start -->
+                    <div class="mod-container">
+                        <div class="sample-audio">
+                            <div class="invisible axis">Energy Latent Dim</div>
+                        </div>
+                    
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('1069_133709_000043_000029_phone9_dim1_pros_5'))">-1</div>
+                            <audio id="1069_133709_000043_000029_phone9_dim1_pros_5" controls="" preload="none">
+                            <source src="wavs/1069_133709_000043_000029/phone9/dim1_pros/1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('1069_133709_000043_000029_phone9_dim1_pros_0'))">0</div>
+                            <audio id="1069_133709_000043_000029_phone9_dim1_pros_0" controls="" preload="none">
+                            <source src="wavs/1069_133709_000043_000029/phone9/dim1_pros/0.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('1069_133709_000043_000029_phone9_dim1_pros_-5'))">1</div>
+                            <audio id="1069_133709_000043_000029_phone9_dim1_pros_-5" controls="" preload="none">
+                            <source src="wavs/1069_133709_000043_000029/phone9/dim1_pros/-1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    
+                    </div>
+                    <!-- dim #2 end -->
+
+                    <!-- dim #3 start -->
+                    <div class="mod-container">
+                        <div class="sample-audio">
+                            <div class="invisible axis">Duration Latent Dim</div>
+                        </div>
+                    
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('1069_133709_000043_000029_phone9_dim0_dur_10'))">-1</div>
+                            <audio id="1069_133709_000043_000029_phone9_dim0_dur_10" controls="" preload="none">
+                            <source src="wavs/1069_133709_000043_000029/phone9/dim0_dur/1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('1069_133709_000043_000029_phone9_dim0_dur_3'))">0</div>
+                            <audio id="1069_133709_000043_000029_phone9_dim0_dur_3" controls="" preload="none">
+                            <source src="wavs/1069_133709_000043_000029/phone9/dim0_dur/0.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('1069_133709_000043_000029_phone9_dim0_dur_-0.5'))">1</div>
+                            <audio id="1069_133709_000043_000029_phone9_dim0_dur_-0.5" controls="" preload="none">
+                            <source src="wavs/1069_133709_000043_000029/phone9/dim0_dur/-1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    
+                    </div>
+                    <!-- dim #3 end -->
+
+                </div>
+                <!-- sample #2 end -->
+                
+                <!-- ------------------------------------------------------------------------ -->
+
+                <!-- sample #3 start -->
+                <div class="sample">
+                    <div class="sample-title">
+                        <span class="quotation">“</span>
+                        <div class="transcript">
+                            <p>
+                                <span>At the s</span><span style='background-color: blue; color: white;'>a</span><span>me time he motioned his followers to advance.</span>
+                            </p>
+                            
+                        </div>
+                    </div>
+
+                    <div class="mod-container">
+                        <div class="sample-audio">
+                            <div class="gt" onclick="togglePlay(document.getElementById('446_123501_000036_000002_original'))">Ground Truth</div>
+                            <audio id="446_123501_000036_000002_original" controls="" preload="none">
+                            <source src="wavs/446_123501_000036_000002/original.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    </div>
+
+                    
+
+                    <!-- dim #1 start -->
+                    <div class="mod-container">
+                        <div class="sample-audio">
+                            <div class="invisible axis">F0 Latent Dim</div>
+                        </div>
+                    
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('446_123501_000036_000002_phone7_dim0_pros_1'))">-1</div>
+                            <audio id="446_123501_000036_000002_phone7_dim0_pros_1" controls="" preload="none">
+                            <source src="wavs/446_123501_000036_000002/phone7/dim0_pros/1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('446_123501_000036_000002_phone7_dim0_pros_0.5'))">0</div>
+                            <audio id="446_123501_000036_000002_phone7_dim0_pros_0.5" controls="" preload="none">
+                            <source src="wavs/446_123501_000036_000002/phone7/dim0_pros/0.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('446_123501_000036_000002_phone7_dim0_pros_-0.5'))">1</div>
+                            <audio id="446_123501_000036_000002_phone7_dim0_pros_-0.5" controls="" preload="none">
+                            <source src="wavs/446_123501_000036_000002/phone7/dim0_pros/-1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    
+                    </div>
+                    <!-- dim #1 end -->
+
+                    <!-- dim #2 start -->
+                    <div class="mod-container">
+                        <div class="sample-audio">
+                            <div class="invisible axis">Energy Latent Dim</div>
+                        </div>
+                    
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('446_123501_000036_000002_phone7_dim1_pros_6'))">-1</div>
+                            <audio id="446_123501_000036_000002_phone7_dim1_pros_6" controls="" preload="none">
+                            <source src="wavs/446_123501_000036_000002/phone7/dim1_pros/1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('446_123501_000036_000002_phone7_dim1_pros_0'))">0</div>
+                            <audio id="446_123501_000036_000002_phone7_dim1_pros_0" controls="" preload="none">
+                            <source src="wavs/446_123501_000036_000002/phone7/dim1_pros/0.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('446_123501_000036_000002_phone7_dim1_pros_-5'))">1</div>
+                            <audio id="446_123501_000036_000002_phone7_dim1_pros_-5" controls="" preload="none">
+                            <source src="wavs/446_123501_000036_000002/phone7/dim1_pros/-1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    
+                    </div>
+                    <!-- dim #2 end -->
+
+                    <!-- dim #3 start -->
+                    <div class="mod-container">
+                        <div class="sample-audio">
+                            <div class="invisible axis">Duration Latent Dim</div>
+                        </div>
+                    
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('446_123501_000036_000002_phone7_dim0_dur_8'))">-1</div>
+                            <audio id="446_123501_000036_000002_phone7_dim0_dur_8" controls="" preload="none">
+                            <source src="wavs/446_123501_000036_000002/phone7/dim0_dur/1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('446_123501_000036_000002_phone7_dim0_dur_3'))">0</div>
+                            <audio id="446_123501_000036_000002_phone7_dim0_dur_3" controls="" preload="none">
+                            <source src="wavs/446_123501_000036_000002/phone7/dim0_dur/0.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                        <div class="sample-audio">
+                            <div class="r-number" onclick="togglePlay(document.getElementById('446_123501_000036_000002_phone7_dim0_dur_-1'))">1</div>
+                            <audio id="446_123501_000036_000002_phone7_dim0_dur_-1" controls="" preload="none">
+                            <source src="wavs/446_123501_000036_000002/phone7/dim0_dur/-1.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                            </audio>
+                        </div>
+                    
+                    </div>
+                    <!-- dim #3 end -->
+
+                </div>
+                <!-- sample #3 end -->
+
+            </div>
+
+        </div>
+        <!-- 2) Fine-grained Prosody Modeling | end -->
+
+
+
+    </body>
+
 </html>
