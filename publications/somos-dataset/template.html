@@ -6,6 +6,7 @@
   <style>
     .container {
       padding: 12px 24px;
+      overflow: scroll;
     }
 
     .head-container {
@@ -23,6 +24,31 @@
     .head-container:hover {
       box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
       background-color: rgb(250, 250, 255);
+    }
+
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      padding: 5px 0;
+      border-radius: 6px;
+      position: absolute;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      cursor: pointer;
     }
 
     .sample-container {
@@ -52,12 +78,16 @@
       color: #868686e6;
     }
 
-    .sample-audio {
-      margin: 14px 0;
+    .mod-container {
       display: flex;
+    }
+
+    .sample-audio {
+      margin: 10px 0;
+      display: inline-block;
       align-items: center;
       justify-content: left;
-      padding-left: 50px;
+      padding-left: 10px;
     }
 
     .quotation {
@@ -78,10 +108,11 @@
 
     audio {
       height: 35px;
+      display: none;
     }
 
     .r-number {
-      width: 24px;
+      width: 32px;
       text-align: center;
       margin-right: 8px;
       background-color: rgb(231, 239, 253);
@@ -96,18 +127,122 @@
       cursor: pointer;
     }
 
+    .r-number-aug {
+      width: 48px;
+      text-align: center;
+      margin-right: 8px;
+      background-color: rgb(231, 239, 253);
+      border-radius: 25px;
+      padding: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    .r-number-aug:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      background-color: rgb(222, 230, 253);
+      cursor: pointer;
+    }
+
+    .gt {
+      width: 109px;
+      text-align: center;
+      margin-right: 0px;
+      background-color: rgb(231, 239, 253);
+      border-radius: 25px;
+      padding: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    .gt:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      background-color: rgb(222, 230, 253);
+      cursor: pointer;
+    }
+
+    .gt.speaker {
+      width: 100px;
+    }
+
+    .gt.pred {
+      width: 109px;
+    }
+
+    .note {
+      text-align: center;
+      background-color: rgb(231, 239, 253);
+      padding: 10px;
+      border-radius: 25px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.1s;
+    }
+
+    .note:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      background-color: rgb(222, 230, 253);
+      cursor: pointer;
+    }
+
+    .invisible {
+      width: 10px;
+      text-align: center;
+      margin-right: 8px;
+      border-radius: 25px;
+      padding: 10px;
+    }
+
+    .invisible.axis {
+      width: 10px;
+      text-align: center;
+      margin-right: 8px;
+      background-color: rgb(200, 200, 253);
+      border-radius: 25px;
+      padding: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    h2:hover {
+      cursor: pointer;
+      background: silver;
+    }
+
+    h2 {
+      border: azure;
+      background: bisque;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    a.custom-a-href {
+      color: black;
+      text-decoration: none;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
   </style>
 </head>
 
 <body class="container">
-  <script>
+  <script >
     function togglePlay(el) {
       if (!el.paused) {
         el.pause()
       }
       else {
+        var allAudioEls = document.getElementsByTagName("audio");
+        for (let item of allAudioEls) {
+            item.pause()
+        }
+        el.currentTime = 0;
         el.play();
       }
+    };
+    function showSample(event) {
+      var target = event.target || event.srcElement;
+      var currentDisplayAttrValue = target.parentElement.nextElementSibling.style.display;
+      target.parentElement.nextElementSibling.style.display =  currentDisplayAttrValue == 'none' ? 'block' : 'none';
     };
   </script>
   <div class="head-container">
@@ -122,6 +257,13 @@
       Gunu Jho,
       Aimilios Chalamandaris and Pirros Tsiakoulis</p>
   <p style="text-align: left;font-size: 18px;"><strong>Abstract:</strong>
-    We release the SOMOS dataset, the first large-scale mean opinion scores (MOS) dataset consisting of solely neural text-to-speech (TTS) samples. It can be widely used to train neural MOS prediction systems which will be focused on the evaluation of modern synthesizers and will encourage further advancements in fine-grained MOS prediction. It consists of 20K synthetic utterances of the LJ Speech voice, a public domain speech dataset traditionally used in the community. Utterances are generated from 200 different TTS systems including a variety of vanilla neural acoustic models and models with prosodic variations. The vocoder remains the same, while the acoustic parameters vary. The synthesized sentences provide domain, length and phoneme coverage. Subjective evaluation scores are collected via crowdsourcing on Amazon Mechanical Turk. In this work, we present the design, value and statistical analysis of the SOMOS dataset, as well as train and evaluate 3 state-of-the-art MOS prediction models on it, namely MOSNet, LDNet and SSL.
+    In this work, we present the SOMOS dataset, the first large-scale mean opinion scores (MOS) dataset consisting of solely neural text-to-speech (TTS) samples.
+    It can be employed to train automatic MOS prediction systems focused on the assessment of modern synthesizers, and can stimulate advancements in acoustic model evaluation.
+    It consists of 20K synthetic utterances of the LJ Speech voice, a public domain speech dataset which is a common benchmark for building neural acoustic models and vocoders.
+    Utterances are generated from 200 different TTS systems including a variety of vanilla neural acoustic models as well as models which allow prosodic variations.
+    An LPCNet vocoder is used for all systems, so that the variations in the final samples depend only on the acoustic models.
+    The synthesized utterances provide a balanced and adequate domain, length and phoneme coverage.
+    MOS naturalness evaluations are collected via crowdsourcing on Amazon Mechanical Turk.
+    We present in detail the design of the SOMOS dataset, as well as provide baseline results by training and evaluating state-of-the-art MOS prediction models, while we show the problems that these models face when assigned to evaluate TTS samples.
   </p>
   </div>

@@ -6,6 +6,7 @@
   <style>
     .container {
       padding: 12px 24px;
+      overflow: scroll;
     }
 
     .head-container {
@@ -23,6 +24,31 @@
     .head-container:hover {
       box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
       background-color: rgb(250, 250, 255);
+    }
+
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      padding: 5px 0;
+      border-radius: 6px;
+      position: absolute;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      cursor: pointer;
     }
 
     .sample-container {
@@ -52,12 +78,16 @@
       color: #868686e6;
     }
 
-    .sample-audio {
-      margin: 14px 0;
+    .mod-container {
       display: flex;
+    }
+
+    .sample-audio {
+      margin: 10px 0;
+      display: inline-block;
       align-items: center;
       justify-content: left;
-      padding-left: 50px;
+      padding-left: 10px;
     }
 
     .quotation {
@@ -78,10 +108,11 @@
 
     audio {
       height: 35px;
+      display: none;
     }
 
     .r-number {
-      width: 24px;
+      width: 32px;
       text-align: center;
       margin-right: 8px;
       background-color: rgb(231, 239, 253);
@@ -96,18 +127,122 @@
       cursor: pointer;
     }
 
+    .r-number-aug {
+      width: 48px;
+      text-align: center;
+      margin-right: 8px;
+      background-color: rgb(231, 239, 253);
+      border-radius: 25px;
+      padding: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    .r-number-aug:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      background-color: rgb(222, 230, 253);
+      cursor: pointer;
+    }
+
+    .gt {
+      width: 109px;
+      text-align: center;
+      margin-right: 0px;
+      background-color: rgb(231, 239, 253);
+      border-radius: 25px;
+      padding: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    .gt:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      background-color: rgb(222, 230, 253);
+      cursor: pointer;
+    }
+
+    .gt.speaker {
+      width: 100px;
+    }
+
+    .gt.pred {
+      width: 109px;
+    }
+
+    .note {
+      text-align: center;
+      background-color: rgb(231, 239, 253);
+      padding: 10px;
+      border-radius: 25px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      transition: 0.1s;
+    }
+
+    .note:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      background-color: rgb(222, 230, 253);
+      cursor: pointer;
+    }
+
+    .invisible {
+      width: 10px;
+      text-align: center;
+      margin-right: 8px;
+      border-radius: 25px;
+      padding: 10px;
+    }
+
+    .invisible.axis {
+      width: 10px;
+      text-align: center;
+      margin-right: 8px;
+      background-color: rgb(200, 200, 253);
+      border-radius: 25px;
+      padding: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    h2:hover {
+      cursor: pointer;
+      background: silver;
+    }
+
+    h2 {
+      border: azure;
+      background: bisque;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    a.custom-a-href {
+      color: black;
+      text-decoration: none;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
   </style>
 </head>
 
 <body class="container">
-  <script>
+  <script >
     function togglePlay(el) {
       if (!el.paused) {
         el.pause()
       }
       else {
+        var allAudioEls = document.getElementsByTagName("audio");
+        for (let item of allAudioEls) {
+            item.pause()
+        }
+        el.currentTime = 0;
         el.play();
       }
+    };
+    function showSample(event) {
+      var target = event.target || event.srcElement;
+      var currentDisplayAttrValue = target.parentElement.nextElementSibling.style.display;
+      target.parentElement.nextElementSibling.style.display =  currentDisplayAttrValue == 'none' ? 'block' : 'none';
     };
   </script>
   <div class="head-container">
@@ -122,8 +257,1708 @@
       Gunu Jho,
       Aimilios Chalamandaris and Pirros Tsiakoulis</p>
   <p style="text-align: left;font-size: 18px;"><strong>Abstract:</strong>
-    We release the SOMOS dataset, the first large-scale mean opinion scores (MOS) dataset consisting of solely neural text-to-speech (TTS) samples. It can be widely used to train neural MOS prediction systems which will be focused on the evaluation of modern synthesizers and will encourage further advancements in fine-grained MOS prediction. It consists of 20K synthetic utterances of the LJ Speech voice, a public domain speech dataset traditionally used in the community. Utterances are generated from 200 different TTS systems including a variety of vanilla neural acoustic models and models with prosodic variations. The vocoder remains the same, while the acoustic parameters vary. The synthesized sentences provide domain, length and phoneme coverage. Subjective evaluation scores are collected via crowdsourcing on Amazon Mechanical Turk. In this work, we present the design, value and statistical analysis of the SOMOS dataset, as well as train and evaluate 3 state-of-the-art MOS prediction models on it, namely MOSNet, LDNet and SSL.
+    In this work, we present the SOMOS dataset, the first large-scale mean opinion scores (MOS) dataset consisting of solely neural text-to-speech (TTS) samples.
+    It can be employed to train automatic MOS prediction systems focused on the assessment of modern synthesizers, and can stimulate advancements in acoustic model evaluation.
+    It consists of 20K synthetic utterances of the LJ Speech voice, a public domain speech dataset which is a common benchmark for building neural acoustic models and vocoders.
+    Utterances are generated from 200 different TTS systems including a variety of vanilla neural acoustic models as well as models which allow prosodic variations.
+    An LPCNet vocoder is used for all systems, so that the variations in the final samples depend only on the acoustic models.
+    The synthesized utterances provide a balanced and adequate domain, length and phoneme coverage.
+    MOS naturalness evaluations are collected via crowdsourcing on Amazon Mechanical Turk.
+    We present in detail the design of the SOMOS dataset, as well as provide baseline results by training and evaluating state-of-the-art MOS prediction models, while we show the problems that these models face when assigned to evaluate TTS samples.
   </p>
-  </div>
+  </div><div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">That torturing jingle departed out of my brain, and a grateful sense of rest and peace descended upon me.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('booksent_2012_0037_006'))">006</div>
+<audio id="booksent_2012_0037_006" controls preload="none">
+<source src="audio/booksent_2012_0037_006.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('booksent_2012_0037_010'))">010</div>
+<audio id="booksent_2012_0037_010" controls preload="none">
+<source src="audio/booksent_2012_0037_010.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('booksent_2012_0037_039'))">039</div>
+<audio id="booksent_2012_0037_039" controls preload="none">
+<source src="audio/booksent_2012_0037_039.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('booksent_2012_0037_051'))">051</div>
+<audio id="booksent_2012_0037_051" controls preload="none">
+<source src="audio/booksent_2012_0037_051.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('booksent_2012_0037_055'))">055</div>
+<audio id="booksent_2012_0037_055" controls preload="none">
+<source src="audio/booksent_2012_0037_055.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('booksent_2012_0037_067'))">067</div>
+<audio id="booksent_2012_0037_067" controls preload="none">
+<source src="audio/booksent_2012_0037_067.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('booksent_2012_0037_104'))">104</div>
+<audio id="booksent_2012_0037_104" controls preload="none">
+<source src="audio/booksent_2012_0037_104.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('booksent_2012_0037_155'))">155</div>
+<audio id="booksent_2012_0037_155" controls preload="none">
+<source src="audio/booksent_2012_0037_155.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('booksent_2012_0037_166'))">166</div>
+<audio id="booksent_2012_0037_166" controls preload="none">
+<source src="audio/booksent_2012_0037_166.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('booksent_2012_0037_189'))">189</div>
+<audio id="booksent_2012_0037_189" controls preload="none">
+<source src="audio/booksent_2012_0037_189.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="invisible"></div>
+<img src="plots/booksent_2012_0037.png" alt="booksent_2012_0037" width="1633" height="300">
+</div>
+<br>
+<br>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">He could not be accountable for his children's want of spirits, or for her want of enjoyment in his company.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('booksent_2013_0013_002'))">002</div>
+<audio id="booksent_2013_0013_002" controls preload="none">
+<source src="audio/booksent_2013_0013_002.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('booksent_2013_0013_009'))">009</div>
+<audio id="booksent_2013_0013_009" controls preload="none">
+<source src="audio/booksent_2013_0013_009.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('booksent_2013_0013_038'))">038</div>
+<audio id="booksent_2013_0013_038" controls preload="none">
+<source src="audio/booksent_2013_0013_038.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('booksent_2013_0013_068'))">068</div>
+<audio id="booksent_2013_0013_068" controls preload="none">
+<source src="audio/booksent_2013_0013_068.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('booksent_2013_0013_079'))">079</div>
+<audio id="booksent_2013_0013_079" controls preload="none">
+<source src="audio/booksent_2013_0013_079.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('booksent_2013_0013_094'))">094</div>
+<audio id="booksent_2013_0013_094" controls preload="none">
+<source src="audio/booksent_2013_0013_094.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('booksent_2013_0013_106'))">106</div>
+<audio id="booksent_2013_0013_106" controls preload="none">
+<source src="audio/booksent_2013_0013_106.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('booksent_2013_0013_150'))">150</div>
+<audio id="booksent_2013_0013_150" controls preload="none">
+<source src="audio/booksent_2013_0013_150.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('booksent_2013_0013_192'))">192</div>
+<audio id="booksent_2013_0013_192" controls preload="none">
+<source src="audio/booksent_2013_0013_192.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('booksent_2013_0013_193'))">193</div>
+<audio id="booksent_2013_0013_193" controls preload="none">
+<source src="audio/booksent_2013_0013_193.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="invisible"></div>
+<img src="plots/booksent_2013_0013.png" alt="booksent_2013_0013" width="1633" height="300">
+</div>
+<br>
+<br>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">He still has a choice.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('broadcast_2010_0046_029'))">029</div>
+<audio id="broadcast_2010_0046_029" controls preload="none">
+<source src="audio/broadcast_2010_0046_029.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('broadcast_2010_0046_100'))">100</div>
+<audio id="broadcast_2010_0046_100" controls preload="none">
+<source src="audio/broadcast_2010_0046_100.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('broadcast_2010_0046_110'))">110</div>
+<audio id="broadcast_2010_0046_110" controls preload="none">
+<source src="audio/broadcast_2010_0046_110.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('broadcast_2010_0046_120'))">120</div>
+<audio id="broadcast_2010_0046_120" controls preload="none">
+<source src="audio/broadcast_2010_0046_120.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('broadcast_2010_0046_149'))">149</div>
+<audio id="broadcast_2010_0046_149" controls preload="none">
+<source src="audio/broadcast_2010_0046_149.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('broadcast_2010_0046_155'))">155</div>
+<audio id="broadcast_2010_0046_155" controls preload="none">
+<source src="audio/broadcast_2010_0046_155.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('broadcast_2010_0046_156'))">156</div>
+<audio id="broadcast_2010_0046_156" controls preload="none">
+<source src="audio/broadcast_2010_0046_156.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('broadcast_2010_0046_160'))">160</div>
+<audio id="broadcast_2010_0046_160" controls preload="none">
+<source src="audio/broadcast_2010_0046_160.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('broadcast_2010_0046_171'))">171</div>
+<audio id="broadcast_2010_0046_171" controls preload="none">
+<source src="audio/broadcast_2010_0046_171.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('broadcast_2010_0046_198'))">198</div>
+<audio id="broadcast_2010_0046_198" controls preload="none">
+<source src="audio/broadcast_2010_0046_198.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="invisible"></div>
+<img src="plots/broadcast_2010_0046.png" alt="broadcast_2010_0046" width="1633" height="300">
+</div>
+<br>
+<br>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">What's the name of the bar?</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('conv_2008_0073_013'))">013</div>
+<audio id="conv_2008_0073_013" controls preload="none">
+<source src="audio/conv_2008_0073_013.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('conv_2008_0073_017'))">017</div>
+<audio id="conv_2008_0073_017" controls preload="none">
+<source src="audio/conv_2008_0073_017.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('conv_2008_0073_040'))">040</div>
+<audio id="conv_2008_0073_040" controls preload="none">
+<source src="audio/conv_2008_0073_040.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('conv_2008_0073_077'))">077</div>
+<audio id="conv_2008_0073_077" controls preload="none">
+<source src="audio/conv_2008_0073_077.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('conv_2008_0073_082'))">082</div>
+<audio id="conv_2008_0073_082" controls preload="none">
+<source src="audio/conv_2008_0073_082.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('conv_2008_0073_088'))">088</div>
+<audio id="conv_2008_0073_088" controls preload="none">
+<source src="audio/conv_2008_0073_088.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('conv_2008_0073_089'))">089</div>
+<audio id="conv_2008_0073_089" controls preload="none">
+<source src="audio/conv_2008_0073_089.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('conv_2008_0073_096'))">096</div>
+<audio id="conv_2008_0073_096" controls preload="none">
+<source src="audio/conv_2008_0073_096.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('conv_2008_0073_158'))">158</div>
+<audio id="conv_2008_0073_158" controls preload="none">
+<source src="audio/conv_2008_0073_158.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('conv_2008_0073_192'))">192</div>
+<audio id="conv_2008_0073_192" controls preload="none">
+<source src="audio/conv_2008_0073_192.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="invisible"></div>
+<img src="plots/conv_2008_0073.png" alt="conv_2008_0073" width="1633" height="300">
+</div>
+<br>
+<br>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">The restaurant called The Deep Sea Takeaway has good food quality with excellent service, and is located in Leith.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('conv_2009_0033-2_032'))">032</div>
+<audio id="conv_2009_0033-2_032" controls preload="none">
+<source src="audio/conv_2009_0033-2_032.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('conv_2009_0033-2_072'))">072</div>
+<audio id="conv_2009_0033-2_072" controls preload="none">
+<source src="audio/conv_2009_0033-2_072.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('conv_2009_0033-2_077'))">077</div>
+<audio id="conv_2009_0033-2_077" controls preload="none">
+<source src="audio/conv_2009_0033-2_077.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('conv_2009_0033-2_112'))">112</div>
+<audio id="conv_2009_0033-2_112" controls preload="none">
+<source src="audio/conv_2009_0033-2_112.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('conv_2009_0033-2_131'))">131</div>
+<audio id="conv_2009_0033-2_131" controls preload="none">
+<source src="audio/conv_2009_0033-2_131.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('conv_2009_0033-2_144'))">144</div>
+<audio id="conv_2009_0033-2_144" controls preload="none">
+<source src="audio/conv_2009_0033-2_144.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('conv_2009_0033-2_172'))">172</div>
+<audio id="conv_2009_0033-2_172" controls preload="none">
+<source src="audio/conv_2009_0033-2_172.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('conv_2009_0033-2_179'))">179</div>
+<audio id="conv_2009_0033-2_179" controls preload="none">
+<source src="audio/conv_2009_0033-2_179.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('conv_2009_0033-2_180'))">180</div>
+<audio id="conv_2009_0033-2_180" controls preload="none">
+<source src="audio/conv_2009_0033-2_180.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('conv_2009_0033-2_196'))">196</div>
+<audio id="conv_2009_0033-2_196" controls preload="none">
+<source src="audio/conv_2009_0033-2_196.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="invisible"></div>
+<img src="plots/conv_2009_0033-2.png" alt="conv_2009_0033-2" width="1633" height="300">
+</div>
+<br>
+<br>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">Do you ever feel angry about housework but say nothing?</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('general_0009_021'))">021</div>
+<audio id="general_0009_021" controls preload="none">
+<source src="audio/general_0009_021.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('general_0009_028'))">028</div>
+<audio id="general_0009_028" controls preload="none">
+<source src="audio/general_0009_028.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('general_0009_069'))">069</div>
+<audio id="general_0009_069" controls preload="none">
+<source src="audio/general_0009_069.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('general_0009_121'))">121</div>
+<audio id="general_0009_121" controls preload="none">
+<source src="audio/general_0009_121.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('general_0009_123'))">123</div>
+<audio id="general_0009_123" controls preload="none">
+<source src="audio/general_0009_123.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('general_0009_144'))">144</div>
+<audio id="general_0009_144" controls preload="none">
+<source src="audio/general_0009_144.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('general_0009_145'))">145</div>
+<audio id="general_0009_145" controls preload="none">
+<source src="audio/general_0009_145.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('general_0009_147'))">147</div>
+<audio id="general_0009_147" controls preload="none">
+<source src="audio/general_0009_147.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('general_0009_168'))">168</div>
+<audio id="general_0009_168" controls preload="none">
+<source src="audio/general_0009_168.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('general_0009_178'))">178</div>
+<audio id="general_0009_178" controls preload="none">
+<source src="audio/general_0009_178.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="invisible"></div>
+<img src="plots/general_0009.png" alt="general_0009" width="1633" height="300">
+</div>
+<br>
+<br>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">Mr President, you have given me a keynote to use.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('general_0064_020'))">020</div>
+<audio id="general_0064_020" controls preload="none">
+<source src="audio/general_0064_020.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('general_0064_031'))">031</div>
+<audio id="general_0064_031" controls preload="none">
+<source src="audio/general_0064_031.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('general_0064_053'))">053</div>
+<audio id="general_0064_053" controls preload="none">
+<source src="audio/general_0064_053.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('general_0064_055'))">055</div>
+<audio id="general_0064_055" controls preload="none">
+<source src="audio/general_0064_055.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('general_0064_070'))">070</div>
+<audio id="general_0064_070" controls preload="none">
+<source src="audio/general_0064_070.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('general_0064_085'))">085</div>
+<audio id="general_0064_085" controls preload="none">
+<source src="audio/general_0064_085.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('general_0064_129'))">129</div>
+<audio id="general_0064_129" controls preload="none">
+<source src="audio/general_0064_129.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('general_0064_130'))">130</div>
+<audio id="general_0064_130" controls preload="none">
+<source src="audio/general_0064_130.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('general_0064_161'))">161</div>
+<audio id="general_0064_161" controls preload="none">
+<source src="audio/general_0064_161.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('general_0064_179'))">179</div>
+<audio id="general_0064_179" controls preload="none">
+<source src="audio/general_0064_179.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="invisible"></div>
+<img src="plots/general_0064.png" alt="general_0064" width="1633" height="300">
+</div>
+<br>
+<br>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">Neville, the government official who instigated the policy.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('news_2013_0050_009'))">009</div>
+<audio id="news_2013_0050_009" controls preload="none">
+<source src="audio/news_2013_0050_009.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('news_2013_0050_033'))">033</div>
+<audio id="news_2013_0050_033" controls preload="none">
+<source src="audio/news_2013_0050_033.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('news_2013_0050_036'))">036</div>
+<audio id="news_2013_0050_036" controls preload="none">
+<source src="audio/news_2013_0050_036.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('news_2013_0050_037'))">037</div>
+<audio id="news_2013_0050_037" controls preload="none">
+<source src="audio/news_2013_0050_037.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('news_2013_0050_073'))">073</div>
+<audio id="news_2013_0050_073" controls preload="none">
+<source src="audio/news_2013_0050_073.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('news_2013_0050_086'))">086</div>
+<audio id="news_2013_0050_086" controls preload="none">
+<source src="audio/news_2013_0050_086.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('news_2013_0050_108'))">108</div>
+<audio id="news_2013_0050_108" controls preload="none">
+<source src="audio/news_2013_0050_108.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('news_2013_0050_115'))">115</div>
+<audio id="news_2013_0050_115" controls preload="none">
+<source src="audio/news_2013_0050_115.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('news_2013_0050_118'))">118</div>
+<audio id="news_2013_0050_118" controls preload="none">
+<source src="audio/news_2013_0050_118.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('news_2013_0050_133'))">133</div>
+<audio id="news_2013_0050_133" controls preload="none">
+<source src="audio/news_2013_0050_133.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="invisible"></div>
+<img src="plots/news_2013_0050.png" alt="news_2013_0050" width="1633" height="300">
+</div>
+<br>
+<br>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">I've always loved modern art and I adore surrealism.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('news_2009_0131_001'))">001</div>
+<audio id="news_2009_0131_001" controls preload="none">
+<source src="audio/news_2009_0131_001.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('news_2009_0131_016'))">016</div>
+<audio id="news_2009_0131_016" controls preload="none">
+<source src="audio/news_2009_0131_016.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('news_2009_0131_021'))">021</div>
+<audio id="news_2009_0131_021" controls preload="none">
+<source src="audio/news_2009_0131_021.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('news_2009_0131_028'))">028</div>
+<audio id="news_2009_0131_028" controls preload="none">
+<source src="audio/news_2009_0131_028.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('news_2009_0131_038'))">038</div>
+<audio id="news_2009_0131_038" controls preload="none">
+<source src="audio/news_2009_0131_038.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('news_2009_0131_111'))">111</div>
+<audio id="news_2009_0131_111" controls preload="none">
+<source src="audio/news_2009_0131_111.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('news_2009_0131_128'))">128</div>
+<audio id="news_2009_0131_128" controls preload="none">
+<source src="audio/news_2009_0131_128.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('news_2009_0131_133'))">133</div>
+<audio id="news_2009_0131_133" controls preload="none">
+<source src="audio/news_2009_0131_133.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('news_2009_0131_141'))">141</div>
+<audio id="news_2009_0131_141" controls preload="none">
+<source src="audio/news_2009_0131_141.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('news_2009_0131_179'))">179</div>
+<audio id="news_2009_0131_179" controls preload="none">
+<source src="audio/news_2009_0131_179.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="invisible"></div>
+<img src="plots/news_2009_0131.png" alt="news_2009_0131" width="1633" height="300">
+</div>
+<br>
+<br>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">But that depends on the point of view.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('novel_2011_0095_004'))">004</div>
+<audio id="novel_2011_0095_004" controls preload="none">
+<source src="audio/novel_2011_0095_004.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('novel_2011_0095_030'))">030</div>
+<audio id="novel_2011_0095_030" controls preload="none">
+<source src="audio/novel_2011_0095_030.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('novel_2011_0095_051'))">051</div>
+<audio id="novel_2011_0095_051" controls preload="none">
+<source src="audio/novel_2011_0095_051.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('novel_2011_0095_077'))">077</div>
+<audio id="novel_2011_0095_077" controls preload="none">
+<source src="audio/novel_2011_0095_077.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('novel_2011_0095_094'))">094</div>
+<audio id="novel_2011_0095_094" controls preload="none">
+<source src="audio/novel_2011_0095_094.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('novel_2011_0095_106'))">106</div>
+<audio id="novel_2011_0095_106" controls preload="none">
+<source src="audio/novel_2011_0095_106.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('novel_2011_0095_108'))">108</div>
+<audio id="novel_2011_0095_108" controls preload="none">
+<source src="audio/novel_2011_0095_108.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('novel_2011_0095_135'))">135</div>
+<audio id="novel_2011_0095_135" controls preload="none">
+<source src="audio/novel_2011_0095_135.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('novel_2011_0095_155'))">155</div>
+<audio id="novel_2011_0095_155" controls preload="none">
+<source src="audio/novel_2011_0095_155.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('novel_2011_0095_186'))">186</div>
+<audio id="novel_2011_0095_186" controls preload="none">
+<source src="audio/novel_2011_0095_186.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="invisible"></div>
+<img src="plots/novel_2011_0095.png" alt="novel_2011_0095" width="1633" height="300">
+</div>
+<br>
+<br>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">This time there was no doubt.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('novel_2010_0052_021'))">021</div>
+<audio id="novel_2010_0052_021" controls preload="none">
+<source src="audio/novel_2010_0052_021.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('novel_2010_0052_037'))">037</div>
+<audio id="novel_2010_0052_037" controls preload="none">
+<source src="audio/novel_2010_0052_037.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('novel_2010_0052_041'))">041</div>
+<audio id="novel_2010_0052_041" controls preload="none">
+<source src="audio/novel_2010_0052_041.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('novel_2010_0052_084'))">084</div>
+<audio id="novel_2010_0052_084" controls preload="none">
+<source src="audio/novel_2010_0052_084.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('novel_2010_0052_086'))">086</div>
+<audio id="novel_2010_0052_086" controls preload="none">
+<source src="audio/novel_2010_0052_086.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('novel_2010_0052_087'))">087</div>
+<audio id="novel_2010_0052_087" controls preload="none">
+<source src="audio/novel_2010_0052_087.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('novel_2010_0052_101'))">101</div>
+<audio id="novel_2010_0052_101" controls preload="none">
+<source src="audio/novel_2010_0052_101.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('novel_2010_0052_112'))">112</div>
+<audio id="novel_2010_0052_112" controls preload="none">
+<source src="audio/novel_2010_0052_112.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('novel_2010_0052_118'))">118</div>
+<audio id="novel_2010_0052_118" controls preload="none">
+<source src="audio/novel_2010_0052_118.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('novel_2010_0052_148'))">148</div>
+<audio id="novel_2010_0052_148" controls preload="none">
+<source src="audio/novel_2010_0052_148.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="invisible"></div>
+<img src="plots/novel_2010_0052.png" alt="novel_2010_0052" width="1633" height="300">
+</div>
+<br>
+<br>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">Most of the other Secret Service agents in the motorcade had drawn their sidearms.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('LJ030-0231_000'))">000</div>
+<audio id="LJ030-0231_000" controls preload="none">
+<source src="audio/LJ030-0231_000.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('LJ030-0231_024'))">024</div>
+<audio id="LJ030-0231_024" controls preload="none">
+<source src="audio/LJ030-0231_024.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('LJ030-0231_044'))">044</div>
+<audio id="LJ030-0231_044" controls preload="none">
+<source src="audio/LJ030-0231_044.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('LJ030-0231_055'))">055</div>
+<audio id="LJ030-0231_055" controls preload="none">
+<source src="audio/LJ030-0231_055.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('LJ030-0231_059'))">059</div>
+<audio id="LJ030-0231_059" controls preload="none">
+<source src="audio/LJ030-0231_059.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('LJ030-0231_110'))">110</div>
+<audio id="LJ030-0231_110" controls preload="none">
+<source src="audio/LJ030-0231_110.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('LJ030-0231_126'))">126</div>
+<audio id="LJ030-0231_126" controls preload="none">
+<source src="audio/LJ030-0231_126.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('LJ030-0231_141'))">141</div>
+<audio id="LJ030-0231_141" controls preload="none">
+<source src="audio/LJ030-0231_141.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('LJ030-0231_172'))">172</div>
+<audio id="LJ030-0231_172" controls preload="none">
+<source src="audio/LJ030-0231_172.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('LJ030-0231_177'))">177</div>
+<audio id="LJ030-0231_177" controls preload="none">
+<source src="audio/LJ030-0231_177.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('LJ030-0231_181'))">181</div>
+<audio id="LJ030-0231_181" controls preload="none">
+<source src="audio/LJ030-0231_181.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="invisible"></div>
+<img src="plots/LJ030-0231.png" alt="LJ030-0231" width="1633" height="300">
+</div>
+<br>
+<br>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">Having determined that missus Paine was a responsible and reliable citizen, Hosty interviewed her on november first.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('LJ047-0153_000'))">000</div>
+<audio id="LJ047-0153_000" controls preload="none">
+<source src="audio/LJ047-0153_000.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('LJ047-0153_048'))">048</div>
+<audio id="LJ047-0153_048" controls preload="none">
+<source src="audio/LJ047-0153_048.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('LJ047-0153_075'))">075</div>
+<audio id="LJ047-0153_075" controls preload="none">
+<source src="audio/LJ047-0153_075.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('LJ047-0153_091'))">091</div>
+<audio id="LJ047-0153_091" controls preload="none">
+<source src="audio/LJ047-0153_091.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('LJ047-0153_093'))">093</div>
+<audio id="LJ047-0153_093" controls preload="none">
+<source src="audio/LJ047-0153_093.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('LJ047-0153_107'))">107</div>
+<audio id="LJ047-0153_107" controls preload="none">
+<source src="audio/LJ047-0153_107.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('LJ047-0153_120'))">120</div>
+<audio id="LJ047-0153_120" controls preload="none">
+<source src="audio/LJ047-0153_120.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('LJ047-0153_126'))">126</div>
+<audio id="LJ047-0153_126" controls preload="none">
+<source src="audio/LJ047-0153_126.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('LJ047-0153_129'))">129</div>
+<audio id="LJ047-0153_129" controls preload="none">
+<source src="audio/LJ047-0153_129.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('LJ047-0153_161'))">161</div>
+<audio id="LJ047-0153_161" controls preload="none">
+<source src="audio/LJ047-0153_161.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('LJ047-0153_166'))">166</div>
+<audio id="LJ047-0153_166" controls preload="none">
+<source src="audio/LJ047-0153_166.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="invisible"></div>
+<img src="plots/LJ047-0153.png" alt="LJ047-0153" width="1633" height="300">
+</div>
+<br>
+<br>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">The discounting , say fast-food operators , occurs on a scale and with a frequency they haven't seen before .</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('reportorial_2011_0156_003'))">003</div>
+<audio id="reportorial_2011_0156_003" controls preload="none">
+<source src="audio/reportorial_2011_0156_003.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('reportorial_2011_0156_005'))">005</div>
+<audio id="reportorial_2011_0156_005" controls preload="none">
+<source src="audio/reportorial_2011_0156_005.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('reportorial_2011_0156_016'))">016</div>
+<audio id="reportorial_2011_0156_016" controls preload="none">
+<source src="audio/reportorial_2011_0156_016.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('reportorial_2011_0156_068'))">068</div>
+<audio id="reportorial_2011_0156_068" controls preload="none">
+<source src="audio/reportorial_2011_0156_068.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('reportorial_2011_0156_090'))">090</div>
+<audio id="reportorial_2011_0156_090" controls preload="none">
+<source src="audio/reportorial_2011_0156_090.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('reportorial_2011_0156_125'))">125</div>
+<audio id="reportorial_2011_0156_125" controls preload="none">
+<source src="audio/reportorial_2011_0156_125.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('reportorial_2011_0156_148'))">148</div>
+<audio id="reportorial_2011_0156_148" controls preload="none">
+<source src="audio/reportorial_2011_0156_148.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('reportorial_2011_0156_160'))">160</div>
+<audio id="reportorial_2011_0156_160" controls preload="none">
+<source src="audio/reportorial_2011_0156_160.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('reportorial_2011_0156_174'))">174</div>
+<audio id="reportorial_2011_0156_174" controls preload="none">
+<source src="audio/reportorial_2011_0156_174.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('reportorial_2011_0156_177'))">177</div>
+<audio id="reportorial_2011_0156_177" controls preload="none">
+<source src="audio/reportorial_2011_0156_177.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="invisible"></div>
+<img src="plots/reportorial_2011_0156.png" alt="reportorial_2011_0156" width="1633" height="300">
+</div>
+<br>
+<br>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">Because these freshmen placed far more emphasis on their partisan role -- spreading the Reagan revolution -- in national policy making , they were more vulnerable to defeat .</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('reportorial_2011_0497_024'))">024</div>
+<audio id="reportorial_2011_0497_024" controls preload="none">
+<source src="audio/reportorial_2011_0497_024.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('reportorial_2011_0497_038'))">038</div>
+<audio id="reportorial_2011_0497_038" controls preload="none">
+<source src="audio/reportorial_2011_0497_038.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('reportorial_2011_0497_056'))">056</div>
+<audio id="reportorial_2011_0497_056" controls preload="none">
+<source src="audio/reportorial_2011_0497_056.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('reportorial_2011_0497_068'))">068</div>
+<audio id="reportorial_2011_0497_068" controls preload="none">
+<source src="audio/reportorial_2011_0497_068.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('reportorial_2011_0497_075'))">075</div>
+<audio id="reportorial_2011_0497_075" controls preload="none">
+<source src="audio/reportorial_2011_0497_075.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('reportorial_2011_0497_078'))">078</div>
+<audio id="reportorial_2011_0497_078" controls preload="none">
+<source src="audio/reportorial_2011_0497_078.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('reportorial_2011_0497_131'))">131</div>
+<audio id="reportorial_2011_0497_131" controls preload="none">
+<source src="audio/reportorial_2011_0497_131.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('reportorial_2011_0497_133'))">133</div>
+<audio id="reportorial_2011_0497_133" controls preload="none">
+<source src="audio/reportorial_2011_0497_133.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('reportorial_2011_0497_171'))">171</div>
+<audio id="reportorial_2011_0497_171" controls preload="none">
+<source src="audio/reportorial_2011_0497_171.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('reportorial_2011_0497_195'))">195</div>
+<audio id="reportorial_2011_0497_195" controls preload="none">
+<source src="audio/reportorial_2011_0497_195.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="invisible"></div>
+<img src="plots/reportorial_2011_0497.png" alt="reportorial_2011_0497" width="1633" height="300">
+</div>
+<br>
+<br>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">A gale is a strong wind, typically used as a descriptor in nautical contexts.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('wiki_0004_048'))">048</div>
+<audio id="wiki_0004_048" controls preload="none">
+<source src="audio/wiki_0004_048.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('wiki_0004_052'))">052</div>
+<audio id="wiki_0004_052" controls preload="none">
+<source src="audio/wiki_0004_052.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('wiki_0004_082'))">082</div>
+<audio id="wiki_0004_082" controls preload="none">
+<source src="audio/wiki_0004_082.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('wiki_0004_111'))">111</div>
+<audio id="wiki_0004_111" controls preload="none">
+<source src="audio/wiki_0004_111.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('wiki_0004_121'))">121</div>
+<audio id="wiki_0004_121" controls preload="none">
+<source src="audio/wiki_0004_121.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('wiki_0004_135'))">135</div>
+<audio id="wiki_0004_135" controls preload="none">
+<source src="audio/wiki_0004_135.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('wiki_0004_141'))">141</div>
+<audio id="wiki_0004_141" controls preload="none">
+<source src="audio/wiki_0004_141.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('wiki_0004_147'))">147</div>
+<audio id="wiki_0004_147" controls preload="none">
+<source src="audio/wiki_0004_147.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('wiki_0004_160'))">160</div>
+<audio id="wiki_0004_160" controls preload="none">
+<source src="audio/wiki_0004_160.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('wiki_0004_174'))">174</div>
+<audio id="wiki_0004_174" controls preload="none">
+<source src="audio/wiki_0004_174.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="invisible"></div>
+<img src="plots/wiki_0004.png" alt="wiki_0004" width="1633" height="300">
+</div>
+<br>
+<br>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">The blogosphere is made up of all blogs and their interconnections.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('wiki_0089_020'))">020</div>
+<audio id="wiki_0089_020" controls preload="none">
+<source src="audio/wiki_0089_020.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('wiki_0089_053'))">053</div>
+<audio id="wiki_0089_053" controls preload="none">
+<source src="audio/wiki_0089_053.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('wiki_0089_056'))">056</div>
+<audio id="wiki_0089_056" controls preload="none">
+<source src="audio/wiki_0089_056.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('wiki_0089_077'))">077</div>
+<audio id="wiki_0089_077" controls preload="none">
+<source src="audio/wiki_0089_077.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('wiki_0089_084'))">084</div>
+<audio id="wiki_0089_084" controls preload="none">
+<source src="audio/wiki_0089_084.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('wiki_0089_144'))">144</div>
+<audio id="wiki_0089_144" controls preload="none">
+<source src="audio/wiki_0089_144.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('wiki_0089_162'))">162</div>
+<audio id="wiki_0089_162" controls preload="none">
+<source src="audio/wiki_0089_162.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('wiki_0089_181'))">181</div>
+<audio id="wiki_0089_181" controls preload="none">
+<source src="audio/wiki_0089_181.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('wiki_0089_187'))">187</div>
+<audio id="wiki_0089_187" controls preload="none">
+<source src="audio/wiki_0089_187.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('wiki_0089_189'))">189</div>
+<audio id="wiki_0089_189" controls preload="none">
+<source src="audio/wiki_0089_189.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="invisible"></div>
+<img src="plots/wiki_0089.png" alt="wiki_0089" width="1633" height="300">
+</div>
+<br>
+<br>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">The odious serials mistook the interactive easel.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2008_0200_013'))">013</div>
+<audio id="sus_2008_0200_013" controls preload="none">
+<source src="audio/sus_2008_0200_013.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2008_0200_031'))">031</div>
+<audio id="sus_2008_0200_031" controls preload="none">
+<source src="audio/sus_2008_0200_031.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2008_0200_039'))">039</div>
+<audio id="sus_2008_0200_039" controls preload="none">
+<source src="audio/sus_2008_0200_039.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2008_0200_070'))">070</div>
+<audio id="sus_2008_0200_070" controls preload="none">
+<source src="audio/sus_2008_0200_070.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2008_0200_073'))">073</div>
+<audio id="sus_2008_0200_073" controls preload="none">
+<source src="audio/sus_2008_0200_073.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2008_0200_082'))">082</div>
+<audio id="sus_2008_0200_082" controls preload="none">
+<source src="audio/sus_2008_0200_082.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2008_0200_096'))">096</div>
+<audio id="sus_2008_0200_096" controls preload="none">
+<source src="audio/sus_2008_0200_096.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2008_0200_131'))">131</div>
+<audio id="sus_2008_0200_131" controls preload="none">
+<source src="audio/sus_2008_0200_131.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2008_0200_191'))">191</div>
+<audio id="sus_2008_0200_191" controls preload="none">
+<source src="audio/sus_2008_0200_191.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2008_0200_199'))">199</div>
+<audio id="sus_2008_0200_199" controls preload="none">
+<source src="audio/sus_2008_0200_199.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="invisible"></div>
+<img src="plots/sus_2008_0200.png" alt="sus_2008_0200" width="1633" height="300">
+</div>
+<br>
+<br>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">The area traveled above the true trip.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2011_0456_030'))">030</div>
+<audio id="sus_2011_0456_030" controls preload="none">
+<source src="audio/sus_2011_0456_030.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2011_0456_033'))">033</div>
+<audio id="sus_2011_0456_033" controls preload="none">
+<source src="audio/sus_2011_0456_033.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2011_0456_058'))">058</div>
+<audio id="sus_2011_0456_058" controls preload="none">
+<source src="audio/sus_2011_0456_058.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2011_0456_062'))">062</div>
+<audio id="sus_2011_0456_062" controls preload="none">
+<source src="audio/sus_2011_0456_062.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2011_0456_067'))">067</div>
+<audio id="sus_2011_0456_067" controls preload="none">
+<source src="audio/sus_2011_0456_067.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2011_0456_101'))">101</div>
+<audio id="sus_2011_0456_101" controls preload="none">
+<source src="audio/sus_2011_0456_101.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2011_0456_107'))">107</div>
+<audio id="sus_2011_0456_107" controls preload="none">
+<source src="audio/sus_2011_0456_107.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2011_0456_122'))">122</div>
+<audio id="sus_2011_0456_122" controls preload="none">
+<source src="audio/sus_2011_0456_122.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2011_0456_191'))">191</div>
+<audio id="sus_2011_0456_191" controls preload="none">
+<source src="audio/sus_2011_0456_191.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2011_0456_192'))">192</div>
+<audio id="sus_2011_0456_192" controls preload="none">
+<source src="audio/sus_2011_0456_192.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="invisible"></div>
+<img src="plots/sus_2011_0456.png" alt="sus_2011_0456" width="1633" height="300">
+</div>
+<br>
+<br>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">The air that traveled questions the wines.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2013_0107_007'))">007</div>
+<audio id="sus_2013_0107_007" controls preload="none">
+<source src="audio/sus_2013_0107_007.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2013_0107_048'))">048</div>
+<audio id="sus_2013_0107_048" controls preload="none">
+<source src="audio/sus_2013_0107_048.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2013_0107_049'))">049</div>
+<audio id="sus_2013_0107_049" controls preload="none">
+<source src="audio/sus_2013_0107_049.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2013_0107_063'))">063</div>
+<audio id="sus_2013_0107_063" controls preload="none">
+<source src="audio/sus_2013_0107_063.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2013_0107_077'))">077</div>
+<audio id="sus_2013_0107_077" controls preload="none">
+<source src="audio/sus_2013_0107_077.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2013_0107_118'))">118</div>
+<audio id="sus_2013_0107_118" controls preload="none">
+<source src="audio/sus_2013_0107_118.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2013_0107_146'))">146</div>
+<audio id="sus_2013_0107_146" controls preload="none">
+<source src="audio/sus_2013_0107_146.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2013_0107_159'))">159</div>
+<audio id="sus_2013_0107_159" controls preload="none">
+<source src="audio/sus_2013_0107_159.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2013_0107_169'))">169</div>
+<audio id="sus_2013_0107_169" controls preload="none">
+<source src="audio/sus_2013_0107_169.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('sus_2013_0107_190'))">190</div>
+<audio id="sus_2013_0107_190" controls preload="none">
+<source src="audio/sus_2013_0107_190.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="invisible"></div>
+<img src="plots/sus_2013_0107.png" alt="sus_2013_0107" width="1633" height="300">
+</div>
+<br>
+<br>
 </body>
 </html>
