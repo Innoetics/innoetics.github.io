@@ -1,0 +1,7 @@
+test_sentence_1		#	Black rhinos were once considered vermin and exterminated at will.
+test_sentence_2		#	Salt Lake City is the capital of Utah.
+test_sentence_3		#	Absolutely, glad to help!
+test_sentence_4 	#       Personally, I'd describe myself as a friend who's highly skilled in conversational arts. 
+test_sentence_5		#       I have a strong bond with WiFi. We just have this connection.
+test_sentence_6		#	You don't have anything scheduled for today.
+test_sentence_7		#	I say all humans should be treated fairly.

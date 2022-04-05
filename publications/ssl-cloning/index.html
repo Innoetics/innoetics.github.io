@@ -7,7 +7,9 @@
     .container {
       padding: 12px 24px;
     }
-
+    .mod-container {
+      display: flex;
+    }
     .head-container {
       /* border: 5px solid gray; */
       border-radius: 25px;
@@ -78,10 +80,11 @@
 
     audio {
       height: 35px;
+      display: none;
     }
 
     .r-number {
-      width: 24px;
+      width: 100px;
       text-align: center;
       margin-right: 8px;
       background-color: rgb(231, 239, 253);
@@ -94,6 +97,26 @@
       box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
       background-color: rgb(222, 230, 253);
       cursor: pointer;
+    }
+
+    .gt {
+      width: 109px;
+      text-align: center;
+      margin-right: 0px;
+      background-color: rgb(200, 200, 253);
+      border-radius: 25px;
+      padding: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    .gt:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      background-color: rgb(210, 210, 253);
+      cursor: pointer;
+    }
+
+    .gt.speaker {
+      width: 100px;
     }
 
   </style>
@@ -133,5 +156,1315 @@ This method enables us to train our model in an unlabeled multispeaker dataset a
 Subjective and objective evaluations are used to validate the proposed model, as well as the robustness to the acoustic conditions of the target utterance.
   </p>
   </div>
+<h2>Voice Cloning from unseen clean utterances. </h2>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">Absolutely, glad to help!</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0143_3673_adj.wav'))">Reference Speaker</div>
+<audio id="aws_0143_3673_adj.wav" controls preload="none">
+<source src="audios/aws_0143_3673_adj.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-reg-aws_0143_3673_adj-test_sentence_3.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-reg-aws_0143_3673_adj-test_sentence_3.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-reg-aws_0143_3673_adj-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-reg-aws_0143_3673_adj-test_sentence_3.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-reg-aws_0143_3673_adj-test_sentence_3.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-reg-aws_0143_3673_adj-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-reg-aws_0143_3673_adj-test_sentence_3.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-reg-aws_0143_3673_adj-test_sentence_3.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-reg-aws_0143_3673_adj-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0143_3673_adj-test_sentence_3.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0143_3673_adj-test_sentence_3.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0143_3673_adj-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-reg-aws_0143_3673_adj-test_sentence_3.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-reg-aws_0143_3673_adj-test_sentence_3.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-reg-aws_0143_3673_adj-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-reg-aws_0143_3673_adj-test_sentence_3.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-reg-aws_0143_3673_adj-test_sentence_3.wav" controls preload="none">
+<source src="audios/d_vectors_vox-reg-aws_0143_3673_adj-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0141_10590.wav'))">Reference Speaker</div>
+<audio id="aws_0141_10590.wav" controls preload="none">
+<source src="audios/aws_0141_10590.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-reg-aws_0141_10590-test_sentence_3.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-reg-aws_0141_10590-test_sentence_3.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-reg-aws_0141_10590-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-reg-aws_0141_10590-test_sentence_3.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-reg-aws_0141_10590-test_sentence_3.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-reg-aws_0141_10590-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-reg-aws_0141_10590-test_sentence_3.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-reg-aws_0141_10590-test_sentence_3.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-reg-aws_0141_10590-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0141_10590-test_sentence_3.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0141_10590-test_sentence_3.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0141_10590-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-reg-aws_0141_10590-test_sentence_3.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-reg-aws_0141_10590-test_sentence_3.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-reg-aws_0141_10590-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-reg-aws_0141_10590-test_sentence_3.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-reg-aws_0141_10590-test_sentence_3.wav" controls preload="none">
+<source src="audios/d_vectors_vox-reg-aws_0141_10590-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0087_6831_adj.wav'))">Reference Speaker</div>
+<audio id="aws_0087_6831_adj.wav" controls preload="none">
+<source src="audios/aws_0087_6831_adj.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-reg-aws_0087_6831_adj-test_sentence_3.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-reg-aws_0087_6831_adj-test_sentence_3.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-reg-aws_0087_6831_adj-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-reg-aws_0087_6831_adj-test_sentence_3.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-reg-aws_0087_6831_adj-test_sentence_3.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-reg-aws_0087_6831_adj-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-reg-aws_0087_6831_adj-test_sentence_3.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-reg-aws_0087_6831_adj-test_sentence_3.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-reg-aws_0087_6831_adj-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0087_6831_adj-test_sentence_3.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0087_6831_adj-test_sentence_3.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0087_6831_adj-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-reg-aws_0087_6831_adj-test_sentence_3.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-reg-aws_0087_6831_adj-test_sentence_3.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-reg-aws_0087_6831_adj-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-reg-aws_0087_6831_adj-test_sentence_3.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-reg-aws_0087_6831_adj-test_sentence_3.wav" controls preload="none">
+<source src="audios/d_vectors_vox-reg-aws_0087_6831_adj-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0123_10072_adj.wav'))">Reference Speaker</div>
+<audio id="aws_0123_10072_adj.wav" controls preload="none">
+<source src="audios/aws_0123_10072_adj.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-reg-aws_0123_10072_adj-test_sentence_3.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-reg-aws_0123_10072_adj-test_sentence_3.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-reg-aws_0123_10072_adj-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-reg-aws_0123_10072_adj-test_sentence_3.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-reg-aws_0123_10072_adj-test_sentence_3.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-reg-aws_0123_10072_adj-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-reg-aws_0123_10072_adj-test_sentence_3.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-reg-aws_0123_10072_adj-test_sentence_3.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-reg-aws_0123_10072_adj-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0123_10072_adj-test_sentence_3.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0123_10072_adj-test_sentence_3.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0123_10072_adj-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-reg-aws_0123_10072_adj-test_sentence_3.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-reg-aws_0123_10072_adj-test_sentence_3.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-reg-aws_0123_10072_adj-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-reg-aws_0123_10072_adj-test_sentence_3.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-reg-aws_0123_10072_adj-test_sentence_3.wav" controls preload="none">
+<source src="audios/d_vectors_vox-reg-aws_0123_10072_adj-test_sentence_3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">Black rhinos were once considered vermin and exterminated at will.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0143_3673_adj.wav'))">Reference Speaker</div>
+<audio id="aws_0143_3673_adj.wav" controls preload="none">
+<source src="audios/aws_0143_3673_adj.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-reg-aws_0143_3673_adj-test_sentence_1.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-reg-aws_0143_3673_adj-test_sentence_1.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-reg-aws_0143_3673_adj-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-reg-aws_0143_3673_adj-test_sentence_1.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-reg-aws_0143_3673_adj-test_sentence_1.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-reg-aws_0143_3673_adj-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-reg-aws_0143_3673_adj-test_sentence_1.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-reg-aws_0143_3673_adj-test_sentence_1.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-reg-aws_0143_3673_adj-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0143_3673_adj-test_sentence_1.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0143_3673_adj-test_sentence_1.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0143_3673_adj-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-reg-aws_0143_3673_adj-test_sentence_1.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-reg-aws_0143_3673_adj-test_sentence_1.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-reg-aws_0143_3673_adj-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-reg-aws_0143_3673_adj-test_sentence_1.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-reg-aws_0143_3673_adj-test_sentence_1.wav" controls preload="none">
+<source src="audios/d_vectors_vox-reg-aws_0143_3673_adj-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0141_10590.wav'))">Reference Speaker</div>
+<audio id="aws_0141_10590.wav" controls preload="none">
+<source src="audios/aws_0141_10590.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-reg-aws_0141_10590-test_sentence_1.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-reg-aws_0141_10590-test_sentence_1.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-reg-aws_0141_10590-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-reg-aws_0141_10590-test_sentence_1.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-reg-aws_0141_10590-test_sentence_1.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-reg-aws_0141_10590-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-reg-aws_0141_10590-test_sentence_1.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-reg-aws_0141_10590-test_sentence_1.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-reg-aws_0141_10590-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0141_10590-test_sentence_1.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0141_10590-test_sentence_1.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0141_10590-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-reg-aws_0141_10590-test_sentence_1.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-reg-aws_0141_10590-test_sentence_1.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-reg-aws_0141_10590-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-reg-aws_0141_10590-test_sentence_1.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-reg-aws_0141_10590-test_sentence_1.wav" controls preload="none">
+<source src="audios/d_vectors_vox-reg-aws_0141_10590-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0087_6831_adj.wav'))">Reference Speaker</div>
+<audio id="aws_0087_6831_adj.wav" controls preload="none">
+<source src="audios/aws_0087_6831_adj.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-reg-aws_0087_6831_adj-test_sentence_1.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-reg-aws_0087_6831_adj-test_sentence_1.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-reg-aws_0087_6831_adj-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-reg-aws_0087_6831_adj-test_sentence_1.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-reg-aws_0087_6831_adj-test_sentence_1.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-reg-aws_0087_6831_adj-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-reg-aws_0087_6831_adj-test_sentence_1.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-reg-aws_0087_6831_adj-test_sentence_1.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-reg-aws_0087_6831_adj-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0087_6831_adj-test_sentence_1.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0087_6831_adj-test_sentence_1.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0087_6831_adj-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-reg-aws_0087_6831_adj-test_sentence_1.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-reg-aws_0087_6831_adj-test_sentence_1.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-reg-aws_0087_6831_adj-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-reg-aws_0087_6831_adj-test_sentence_1.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-reg-aws_0087_6831_adj-test_sentence_1.wav" controls preload="none">
+<source src="audios/d_vectors_vox-reg-aws_0087_6831_adj-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0123_10072_adj.wav'))">Reference Speaker</div>
+<audio id="aws_0123_10072_adj.wav" controls preload="none">
+<source src="audios/aws_0123_10072_adj.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-reg-aws_0123_10072_adj-test_sentence_1.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-reg-aws_0123_10072_adj-test_sentence_1.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-reg-aws_0123_10072_adj-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-reg-aws_0123_10072_adj-test_sentence_1.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-reg-aws_0123_10072_adj-test_sentence_1.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-reg-aws_0123_10072_adj-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-reg-aws_0123_10072_adj-test_sentence_1.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-reg-aws_0123_10072_adj-test_sentence_1.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-reg-aws_0123_10072_adj-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0123_10072_adj-test_sentence_1.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0123_10072_adj-test_sentence_1.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0123_10072_adj-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-reg-aws_0123_10072_adj-test_sentence_1.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-reg-aws_0123_10072_adj-test_sentence_1.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-reg-aws_0123_10072_adj-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-reg-aws_0123_10072_adj-test_sentence_1.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-reg-aws_0123_10072_adj-test_sentence_1.wav" controls preload="none">
+<source src="audios/d_vectors_vox-reg-aws_0123_10072_adj-test_sentence_1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">Personally, I'd describe myself as a friend who's highly skilled in conversational arts.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0123_10072_adj.wav'))">Reference Speaker</div>
+<audio id="aws_0123_10072_adj.wav" controls preload="none">
+<source src="audios/aws_0123_10072_adj.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-reg-aws_0123_10072_adj-test_sentence_4.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-reg-aws_0123_10072_adj-test_sentence_4.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-reg-aws_0123_10072_adj-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-reg-aws_0123_10072_adj-test_sentence_4.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-reg-aws_0123_10072_adj-test_sentence_4.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-reg-aws_0123_10072_adj-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-reg-aws_0123_10072_adj-test_sentence_4.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-reg-aws_0123_10072_adj-test_sentence_4.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-reg-aws_0123_10072_adj-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0123_10072_adj-test_sentence_4.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0123_10072_adj-test_sentence_4.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0123_10072_adj-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-reg-aws_0123_10072_adj-test_sentence_4.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-reg-aws_0123_10072_adj-test_sentence_4.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-reg-aws_0123_10072_adj-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-reg-aws_0123_10072_adj-test_sentence_4.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-reg-aws_0123_10072_adj-test_sentence_4.wav" controls preload="none">
+<source src="audios/d_vectors_vox-reg-aws_0123_10072_adj-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0141_10590.wav'))">Reference Speaker</div>
+<audio id="aws_0141_10590.wav" controls preload="none">
+<source src="audios/aws_0141_10590.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-reg-aws_0141_10590-test_sentence_4.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-reg-aws_0141_10590-test_sentence_4.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-reg-aws_0141_10590-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-reg-aws_0141_10590-test_sentence_4.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-reg-aws_0141_10590-test_sentence_4.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-reg-aws_0141_10590-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-reg-aws_0141_10590-test_sentence_4.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-reg-aws_0141_10590-test_sentence_4.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-reg-aws_0141_10590-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0141_10590-test_sentence_4.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0141_10590-test_sentence_4.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0141_10590-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-reg-aws_0141_10590-test_sentence_4.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-reg-aws_0141_10590-test_sentence_4.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-reg-aws_0141_10590-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-reg-aws_0141_10590-test_sentence_4.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-reg-aws_0141_10590-test_sentence_4.wav" controls preload="none">
+<source src="audios/d_vectors_vox-reg-aws_0141_10590-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0087_6831_adj.wav'))">Reference Speaker</div>
+<audio id="aws_0087_6831_adj.wav" controls preload="none">
+<source src="audios/aws_0087_6831_adj.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-reg-aws_0087_6831_adj-test_sentence_4.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-reg-aws_0087_6831_adj-test_sentence_4.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-reg-aws_0087_6831_adj-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-reg-aws_0087_6831_adj-test_sentence_4.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-reg-aws_0087_6831_adj-test_sentence_4.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-reg-aws_0087_6831_adj-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-reg-aws_0087_6831_adj-test_sentence_4.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-reg-aws_0087_6831_adj-test_sentence_4.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-reg-aws_0087_6831_adj-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0087_6831_adj-test_sentence_4.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0087_6831_adj-test_sentence_4.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0087_6831_adj-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-reg-aws_0087_6831_adj-test_sentence_4.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-reg-aws_0087_6831_adj-test_sentence_4.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-reg-aws_0087_6831_adj-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-reg-aws_0087_6831_adj-test_sentence_4.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-reg-aws_0087_6831_adj-test_sentence_4.wav" controls preload="none">
+<source src="audios/d_vectors_vox-reg-aws_0087_6831_adj-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0143_3673_adj.wav'))">Reference Speaker</div>
+<audio id="aws_0143_3673_adj.wav" controls preload="none">
+<source src="audios/aws_0143_3673_adj.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-reg-aws_0143_3673_adj-test_sentence_4.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-reg-aws_0143_3673_adj-test_sentence_4.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-reg-aws_0143_3673_adj-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-reg-aws_0143_3673_adj-test_sentence_4.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-reg-aws_0143_3673_adj-test_sentence_4.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-reg-aws_0143_3673_adj-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-reg-aws_0143_3673_adj-test_sentence_4.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-reg-aws_0143_3673_adj-test_sentence_4.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-reg-aws_0143_3673_adj-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0143_3673_adj-test_sentence_4.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0143_3673_adj-test_sentence_4.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-reg-aws_0143_3673_adj-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-reg-aws_0143_3673_adj-test_sentence_4.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-reg-aws_0143_3673_adj-test_sentence_4.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-reg-aws_0143_3673_adj-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-reg-aws_0143_3673_adj-test_sentence_4.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-reg-aws_0143_3673_adj-test_sentence_4.wav" controls preload="none">
+<source src="audios/d_vectors_vox-reg-aws_0143_3673_adj-test_sentence_4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+</div>
+<h2>Voice Cloning from unseen noisy utterances with SNR 5. </h2>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">I say all humans should be treated fairly.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0116_573_adj_extra_snr_5.wav'))">Reference Speaker</div>
+<audio id="aws_0116_573_adj_extra_snr_5.wav" controls preload="none">
+<source src="audios/aws_0116_573_adj_extra_snr_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-extra-aws_0116_573_adj_extra_snr_5-test_sentence_7.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-extra-aws_0116_573_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-extra-aws_0116_573_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-extra-aws_0116_573_adj_extra_snr_5-test_sentence_7.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-extra-aws_0116_573_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-extra-aws_0116_573_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-extra-aws_0116_573_adj_extra_snr_5-test_sentence_7.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-extra-aws_0116_573_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-extra-aws_0116_573_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0116_573_adj_extra_snr_5-test_sentence_7.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0116_573_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0116_573_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-extra-aws_0116_573_adj_extra_snr_5-test_sentence_7.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-extra-aws_0116_573_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-extra-aws_0116_573_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-extra-aws_0116_573_adj_extra_snr_5-test_sentence_7.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-extra-aws_0116_573_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/d_vectors_vox-extra-aws_0116_573_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0148_87_adj_extra_snr_5.wav'))">Reference Speaker</div>
+<audio id="aws_0148_87_adj_extra_snr_5.wav" controls preload="none">
+<source src="audios/aws_0148_87_adj_extra_snr_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-extra-aws_0148_87_adj_extra_snr_5-test_sentence_7.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-extra-aws_0148_87_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-extra-aws_0148_87_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-extra-aws_0148_87_adj_extra_snr_5-test_sentence_7.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-extra-aws_0148_87_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-extra-aws_0148_87_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-extra-aws_0148_87_adj_extra_snr_5-test_sentence_7.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-extra-aws_0148_87_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-extra-aws_0148_87_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0148_87_adj_extra_snr_5-test_sentence_7.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0148_87_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0148_87_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-extra-aws_0148_87_adj_extra_snr_5-test_sentence_7.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-extra-aws_0148_87_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-extra-aws_0148_87_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-extra-aws_0148_87_adj_extra_snr_5-test_sentence_7.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-extra-aws_0148_87_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/d_vectors_vox-extra-aws_0148_87_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0192_3758_adj_extra_snr_5.wav'))">Reference Speaker</div>
+<audio id="aws_0192_3758_adj_extra_snr_5.wav" controls preload="none">
+<source src="audios/aws_0192_3758_adj_extra_snr_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_7.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_7.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_7.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_7.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_7.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_7.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/d_vectors_vox-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0071_543_adj_extra_snr_5.wav'))">Reference Speaker</div>
+<audio id="aws_0071_543_adj_extra_snr_5.wav" controls preload="none">
+<source src="audios/aws_0071_543_adj_extra_snr_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-extra-aws_0071_543_adj_extra_snr_5-test_sentence_7.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-extra-aws_0071_543_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-extra-aws_0071_543_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-extra-aws_0071_543_adj_extra_snr_5-test_sentence_7.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-extra-aws_0071_543_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-extra-aws_0071_543_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-extra-aws_0071_543_adj_extra_snr_5-test_sentence_7.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-extra-aws_0071_543_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-extra-aws_0071_543_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0071_543_adj_extra_snr_5-test_sentence_7.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0071_543_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0071_543_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-extra-aws_0071_543_adj_extra_snr_5-test_sentence_7.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-extra-aws_0071_543_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-extra-aws_0071_543_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-extra-aws_0071_543_adj_extra_snr_5-test_sentence_7.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-extra-aws_0071_543_adj_extra_snr_5-test_sentence_7.wav" controls preload="none">
+<source src="audios/d_vectors_vox-extra-aws_0071_543_adj_extra_snr_5-test_sentence_7.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">I have a strong bond with WiFi. We just have this connection.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0116_573_adj_extra_snr_5.wav'))">Reference Speaker</div>
+<audio id="aws_0116_573_adj_extra_snr_5.wav" controls preload="none">
+<source src="audios/aws_0116_573_adj_extra_snr_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-extra-aws_0116_573_adj_extra_snr_5-test_sentence_5.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-extra-aws_0116_573_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-extra-aws_0116_573_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-extra-aws_0116_573_adj_extra_snr_5-test_sentence_5.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-extra-aws_0116_573_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-extra-aws_0116_573_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-extra-aws_0116_573_adj_extra_snr_5-test_sentence_5.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-extra-aws_0116_573_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-extra-aws_0116_573_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0116_573_adj_extra_snr_5-test_sentence_5.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0116_573_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0116_573_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-extra-aws_0116_573_adj_extra_snr_5-test_sentence_5.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-extra-aws_0116_573_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-extra-aws_0116_573_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-extra-aws_0116_573_adj_extra_snr_5-test_sentence_5.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-extra-aws_0116_573_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/d_vectors_vox-extra-aws_0116_573_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0148_87_adj_extra_snr_5.wav'))">Reference Speaker</div>
+<audio id="aws_0148_87_adj_extra_snr_5.wav" controls preload="none">
+<source src="audios/aws_0148_87_adj_extra_snr_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-extra-aws_0148_87_adj_extra_snr_5-test_sentence_5.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-extra-aws_0148_87_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-extra-aws_0148_87_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-extra-aws_0148_87_adj_extra_snr_5-test_sentence_5.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-extra-aws_0148_87_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-extra-aws_0148_87_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-extra-aws_0148_87_adj_extra_snr_5-test_sentence_5.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-extra-aws_0148_87_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-extra-aws_0148_87_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0148_87_adj_extra_snr_5-test_sentence_5.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0148_87_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0148_87_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-extra-aws_0148_87_adj_extra_snr_5-test_sentence_5.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-extra-aws_0148_87_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-extra-aws_0148_87_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-extra-aws_0148_87_adj_extra_snr_5-test_sentence_5.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-extra-aws_0148_87_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/d_vectors_vox-extra-aws_0148_87_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0192_3758_adj_extra_snr_5.wav'))">Reference Speaker</div>
+<audio id="aws_0192_3758_adj_extra_snr_5.wav" controls preload="none">
+<source src="audios/aws_0192_3758_adj_extra_snr_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_5.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_5.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_5.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_5.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_5.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_5.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/d_vectors_vox-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0071_543_adj_extra_snr_5.wav'))">Reference Speaker</div>
+<audio id="aws_0071_543_adj_extra_snr_5.wav" controls preload="none">
+<source src="audios/aws_0071_543_adj_extra_snr_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-extra-aws_0071_543_adj_extra_snr_5-test_sentence_5.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-extra-aws_0071_543_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-extra-aws_0071_543_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-extra-aws_0071_543_adj_extra_snr_5-test_sentence_5.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-extra-aws_0071_543_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-extra-aws_0071_543_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-extra-aws_0071_543_adj_extra_snr_5-test_sentence_5.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-extra-aws_0071_543_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-extra-aws_0071_543_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0071_543_adj_extra_snr_5-test_sentence_5.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0071_543_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0071_543_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-extra-aws_0071_543_adj_extra_snr_5-test_sentence_5.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-extra-aws_0071_543_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-extra-aws_0071_543_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-extra-aws_0071_543_adj_extra_snr_5-test_sentence_5.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-extra-aws_0071_543_adj_extra_snr_5-test_sentence_5.wav" controls preload="none">
+<source src="audios/d_vectors_vox-extra-aws_0071_543_adj_extra_snr_5-test_sentence_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">You don't have anything scheduled for today.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0116_573_adj_extra_snr_5.wav'))">Reference Speaker</div>
+<audio id="aws_0116_573_adj_extra_snr_5.wav" controls preload="none">
+<source src="audios/aws_0116_573_adj_extra_snr_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-extra-aws_0116_573_adj_extra_snr_5-test_sentence_6.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-extra-aws_0116_573_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-extra-aws_0116_573_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-extra-aws_0116_573_adj_extra_snr_5-test_sentence_6.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-extra-aws_0116_573_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-extra-aws_0116_573_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-extra-aws_0116_573_adj_extra_snr_5-test_sentence_6.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-extra-aws_0116_573_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-extra-aws_0116_573_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0116_573_adj_extra_snr_5-test_sentence_6.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0116_573_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0116_573_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-extra-aws_0116_573_adj_extra_snr_5-test_sentence_6.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-extra-aws_0116_573_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-extra-aws_0116_573_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-extra-aws_0116_573_adj_extra_snr_5-test_sentence_6.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-extra-aws_0116_573_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/d_vectors_vox-extra-aws_0116_573_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0148_87_adj_extra_snr_5.wav'))">Reference Speaker</div>
+<audio id="aws_0148_87_adj_extra_snr_5.wav" controls preload="none">
+<source src="audios/aws_0148_87_adj_extra_snr_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-extra-aws_0148_87_adj_extra_snr_5-test_sentence_6.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-extra-aws_0148_87_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-extra-aws_0148_87_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-extra-aws_0148_87_adj_extra_snr_5-test_sentence_6.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-extra-aws_0148_87_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-extra-aws_0148_87_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-extra-aws_0148_87_adj_extra_snr_5-test_sentence_6.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-extra-aws_0148_87_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-extra-aws_0148_87_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0148_87_adj_extra_snr_5-test_sentence_6.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0148_87_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0148_87_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-extra-aws_0148_87_adj_extra_snr_5-test_sentence_6.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-extra-aws_0148_87_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-extra-aws_0148_87_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-extra-aws_0148_87_adj_extra_snr_5-test_sentence_6.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-extra-aws_0148_87_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/d_vectors_vox-extra-aws_0148_87_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0192_3758_adj_extra_snr_5.wav'))">Reference Speaker</div>
+<audio id="aws_0192_3758_adj_extra_snr_5.wav" controls preload="none">
+<source src="audios/aws_0192_3758_adj_extra_snr_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_6.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_6.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_6.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_6.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_6.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_6.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/d_vectors_vox-extra-aws_0192_3758_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="gt" onclick="togglePlay(document.getElementById('aws_0071_543_adj_extra_snr_5.wav'))">Reference Speaker</div>
+<audio id="aws_0071_543_adj_extra_snr_5.wav" controls preload="none">
+<source src="audios/aws_0071_543_adj_extra_snr_5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_plain-extra-aws_0071_543_adj_extra_snr_5-test_sentence_6.wav'))">BYOL-A</div>
+<audio id="vctk_non_attentive_plain-extra-aws_0071_543_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_plain-extra-aws_0071_543_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_augms_half_less_sems-extra-aws_0071_543_adj_extra_snr_5-test_sentence_6.wav'))">BYOL-A + Pros</div>
+<audio id="vctk_non_attentive_augms_half_less_sems-extra-aws_0071_543_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_augms_half_less_sems-extra-aws_0071_543_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_all_noises-extra-aws_0071_543_adj_extra_snr_5-test_sentence_6.wav'))">BYOL-A + Noise</div>
+<audio id="vctk_non_attentive_all_noises-extra-aws_0071_543_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_all_noises-extra-aws_0071_543_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0071_543_adj_extra_snr_5-test_sentence_6.wav'))">BYOL-A + Pros + Noise</div>
+<audio id="vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0071_543_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/vctk_non_attentive_one_with_everything_half_less_sems-extra-aws_0071_543_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vctk-extra-aws_0071_543_adj_extra_snr_5-test_sentence_6.wav'))">d-vectors VCTK</div>
+<audio id="d_vectors_vctk-extra-aws_0071_543_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/d_vectors_vctk-extra-aws_0071_543_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="r-number" onclick="togglePlay(document.getElementById('d_vectors_vox-extra-aws_0071_543_adj_extra_snr_5-test_sentence_6.wav'))">d-vectors Vox</div>
+<audio id="d_vectors_vox-extra-aws_0071_543_adj_extra_snr_5-test_sentence_6.wav" controls preload="none">
+<source src="audios/d_vectors_vox-extra-aws_0071_543_adj_extra_snr_5-test_sentence_6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+</div>
 </body>
 </html>

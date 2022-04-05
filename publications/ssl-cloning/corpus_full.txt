@@ -1,0 +1,10 @@
+bench_1400_0001_len10	b l ae1 k - r ai1 n ou z - w ax r - w ux1 n s - k ox n s i1 tr ox r d - v ax1 r m i n - ox n d - i k s t ax1 r m ox n ei2 tr ox d - ae1 t - w i1 l .
+bench_1400_0002_len8	s a2 l t - l ei1 k - s i1 tr ii - i z - dd ox - k ae1 p ox tr lx - ux v - j uu1 t a .
+bench_1400_0003_len4	ae1 b s ox l uu2 t l ii , g l ae1 d - t uu - h e1 l p !
+bench_1400_0004_len13	p ax1 r s ox n lx ii , ai d - d i s k r ai1 b - m ai s e1 l f - ae1 z - ox - f r e1 n d - h uu1 z - h ai1 l ii - s k i1 l d - i n - k a2 n v ox r s ei1 sh nx lx - a1 r t s .
+bench_1400_0009_len9	h iox1 r z - dd ox - l ei1 tr i s t - e1 p i s ou d - ux v - m o1 r n i ng - ox d i1 sh nx - a n - e1 n p ii1 a1 r .
+bench_1400_0013_len7	j uu - d ou1 n t - h ae v - e1 n ii td i ng - s k e1 dz ox l d - f o r - t ox d ei1 .
+bench_1400_0014_len9	ai - d ou1 n t - td i1 ng k - s ou1 ! ai - l ai1 k - t uu - s t ei1 - l e1 v lx - h e1 tr ox d .
+bench_1400_0015_len8	ai - s ei1 - o1 l - h j uu1 m ox n z - sh u d - b ii1 - t r ii1 tr ox d - f eox1 r l ii .
+bench_1400_0019_len12	dd ox - m ei1 l - s ii1 h o r s - i z - dd ox - w ux1 n - dd ae t - g i1 v z - b ax1 r td , n a1 t - dd ox - f ii1 m ei l .
+bench_1400_0026_len12	ai - h ae v - ox - s t r a1 ng - b a1 n d - w i td - w ai1 f ai1 . w ii1 - dz ux1 s t - h ae v - dd i s - k ox n e1 k sh nx .

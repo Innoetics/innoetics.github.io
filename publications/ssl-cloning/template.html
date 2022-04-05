@@ -7,7 +7,9 @@
     .container {
       padding: 12px 24px;
     }
-
+    .mod-container {
+      display: flex;
+    }
     .head-container {
       /* border: 5px solid gray; */
       border-radius: 25px;
@@ -78,10 +80,11 @@
 
     audio {
       height: 35px;
+      display: none;
     }
 
     .r-number {
-      width: 24px;
+      width: 100px;
       text-align: center;
       margin-right: 8px;
       background-color: rgb(231, 239, 253);
@@ -94,6 +97,26 @@
       box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
       background-color: rgb(222, 230, 253);
       cursor: pointer;
+    }
+
+    .gt {
+      width: 109px;
+      text-align: center;
+      margin-right: 0px;
+      background-color: rgb(200, 200, 253);
+      border-radius: 25px;
+      padding: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    }
+
+    .gt:hover {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+      background-color: rgb(210, 210, 253);
+      cursor: pointer;
+    }
+
+    .gt.speaker {
+      width: 100px;
     }
 
   </style>
