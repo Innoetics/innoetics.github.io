@@ -1,263 +1,220 @@
-<!doctype html>
 <html>
 
 <head>
-  <title>Innoetics</title>
-  <style>
-    .container {
-      padding: 12px 24px;
-      overflow: scroll;
-    }
+	<!-- <meta http-equiv="Access-Control-Allow-Origin" content="*" /> -->
 
-    .head-container {
-      /* border: 5px solid gray; */
-      border-radius: 25px;
-      /* border: 1px solid; */
-      border-color: rgba(0,0,0,0.2);
-      text-align: center;
-      padding: 16px;
-      margin: 0px 200px;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-      transition: 0.3s;
-    }
+	<!-- <base href="/pages/listening-tests/"> -->
 
-    .head-container:hover {
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-      background-color: rgb(250, 250, 255);
-    }
+	<link rel="stylesheet" type="text/css" href="stylesheets/tippy.css">
 
-    .tooltip {
-      position: relative;
-      display: inline-block;
-      cursor: pointer;
-    }
+	<script type="text/javascript" src="javascripts/dependencies/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="javascripts/dependencies/json5.js"></script>
+	<script type="text/javascript" src="javascripts/dependencies/mustache.js"></script>
 
+	<script type="text/javascript" src="javascripts/dependencies/tippy.min.js"></script>
 
-    .tooltip .tooltiptext {
-      visibility: hidden;
-      width: 120px;
-      background-color: black;
-      color: #fff;
-      text-align: center;
-      padding: 5px 0;
-      border-radius: 6px;
-      position: absolute;
-      z-index: 1;
-      cursor: pointer;
-    }
+	<script type="text/javascript">
+		let experiment_config_all = {}
+		const lang_to_uttids = {
+			"en-US": ["0042", "0304", "0417", "0425", "0580", "0598", "0617", "0688", "0738", "0773", "0877", "1169", "1173", "1306", "1321", "1336", "1358", "1363", "1366", "1560"],
+			ko: ["0010", "0044", "0049", "0050", "0075", "0076", "0078", "0080", "0083", "0084", "0085", "0087", "0088", "0090", "0091", "0092", "0093", "0094", "0095", "0096"],
+		};
 
-    .tooltip:hover .tooltiptext {
-      visibility: visible;
-      cursor: pointer;
-    }
+		const lang_to_subfolder = {
+			"en-US": "samples_page_us",
+			ko: "samples_page_ko",
+		};
 
-    .sample-container {
-      margin: 18px 0;
-    }
+		const lang_to_speakers = {
+			"en-US": ["baseline", "emb_2", "emb_7", "emb_8", "emb_11", "emb_16",],
+			"ko": ["baseline", "emb_1", "emb_6", "emb_7", "emb_15",],
+		}
 
-    .sample {
-      /* border: 1px solid gray;
-      border-radius: 10px; */
-      padding: 10px;
-      margin: 10px;
-      width: 80%;
-      position: relative;
-      display: block;
-      text-align: left;
-    }
+		const speaker_to_subfolder = {
+			"baseline": "emb_0"
+		}
 
-    .sample-title {
-      font-size: 22px;
-      margin: 8px 0;
-      display: inline-flex;
-    }
+		// const wav_path_mapper_all = (lang) => { return (p) => `data/${lang_to_subfolder[lang]}/${p.speaker}/${p.utterance}.wav` }
 
-    .sample-description {
-      font-size: 16px;
-      margin: 8px 0;
-      color: #868686e6;
-    }
+		$(document).ready(() => {
 
-    .mod-container {
-      display: flex;
-    }
+			const text_2_corpus = (txt) => txt.split("\n").map(line => line.trim()).filter((line) => line.length > 0).reduce((acc, cur) => {
+				acc[cur.split('#')[0].trim()] = cur.split('#').slice(-1)[0].trim()
+				return acc
+			}, {})
+			const array_diff = (a, b) => a.filter((v) => !b.includes(v));
 
-    .sample-audio {
-      margin: 10px 0;
-      display: inline-block;
-      align-items: center;
-      justify-content: left;
-      padding-left: 10px;
-    }
+			const lang_to_corpus = {
+				"en-US": text_2_corpus(`
+				0042	#	I love reading all the food blogs online.
+				0304	#	Elvis Presley died on August 16, 1977.
+				0417	#	Support for your device should be available soon. 
+				0425	#	Unable to connect to mobile. Please check bluetooth status of your mobile.
+				0580	#	We're so good as regular friends, let's not mess with perfection.
+				0598	#	In New York City, New York, U.S.A, it's 4 AM.!
+				0617	#	Today, there is a 0% chance of thunderstorms.
+				0688	#	Thousands of Facebook ads bought by Russians to fool US voters.
+				0738	#	I could never pick a favorite color.
+				0773	#	A solar eclipse occurs when the Moon passes between Earth and the Sun, thereby totally or partly obscuring the image of the Sun for a viewer on Earth.
+				0877	#	The Sun is the star at the center of the Solar System.
+				1169	#	Your safety is my top priority. 
+				1173	#	25 days to go till November 4, 2019.
+				1306	#	Another way to track road traffic would be GPS navigation systems.
+				1321	#	Emergency supplies of bottled water were delivered to hospitals.
+				1336	#	If people are stuck with it then that is not very optimistic.
+				1358	#	She then used this to get the food, we were somewhat surprised.
+				1363	#	The couple met through mutual friends more than a year ago.
+				1366	#	The legislation would revamp the way health insurance works.
+				1560	#	According to Wikipedia: Google Search, commonly referred to as Google Web Search or simply Google, is a web search engine developed by Google.
+			`),
+				"ko": text_2_corpus(`
+				0010	#	이미 색상조정 기능이 켜져 있어요.
+				0044	#	생애 최초 내 집 장만 나이 평균 43.3세
+				0049	#	윤석열 청문회 열리면 황교안 의혹 쏟아질 것
+				0050	#	한국당은 국회가 뷔페식당이냐 골라 먹게
+				0075	#	2015년 현재 6기의 상업용 원자로가 가동중이다.
+				0076	#	비무장 지대는 전쟁, 분쟁 상태 혹은 정전 상태에 있는 둘 이상의 국가 또는 군사 세력, 동맹 사이에 평화 조약, 휴전 협정 등에 의해서 설치된 군사 활동이 허용되지 않는 지역이다.
+				0078	#	런던 스탠스테드 공항은 영국의 수도인 런던에서 히스로 공항, 개트윅 공항 다음으로 세 번째로 큰 공항이다.
+				0080	#	5세대 이동 통신은 2018년 부터 채용되는 무선 네트워크 기술이다.
+				0083	#	대한민국에서 유일하게 내국인이 출입 가능한 카지노를 운영하고 있다.
+				0084	#	아랍에미리트 연합국은 서남아시아의 아라비아 반도 남동부에 페르시아만을 끼고 있는 나라로, 7개 토후국으로 이루어진 연방 국가이다.
+				0085	#	사우디아라비아, 오만과 국경을 접한다.
+				0087	#	하루는 강에 나갔다가, 어부에게 잡힌 잉어를 봤습니다.
+				0088	#	마음 착한 할머니는 돈을 털어 잉어를 산 뒤 강에 놓아 주었습니다.
+				0090	#	살려주신 은혜로 이 용궁구슬을 드릴께요.
+				0091	#	옛날 어느 산골에 사이좋은 오누이가 어머니와 함께 살고 있었어요.
+				0092	#	하루는 어머니가 고개넘어 부잣집 잔치를 도와주러 가게 되었지요.
+				0093	#	어머니는 오누이에게 몇번씩 당부를 하고 집을 나섰어요.
+				0094	#	일을 마친 엄마는 남은 떡을 들고 집으로 돌아가려 했어요.
+				0095	#	첫째 고개를 막 넘으려고 할 때였어요.
+				0096	#	갑자기 엄마 앞에 사나운 호랑이가 떡 하니 나타난 것이 아니겠어요?
+			`),
+			}
 
-    .quotation {
-      font-size: xxx-large;
-      color: rgb(152, 189, 253);
-      margin-top: -12px;
-    }
+			const n_utts = lang_to_uttids[Object.keys(lang_to_uttids)[0]].length;
 
-    .transcript {
-      display: inline;
-      font-style: italic;
-      background-color: rgb(231, 239, 253);
-      padding: 15px 15px;
-      border-radius: 25px;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-      transition: 0.1s;
-    }
+			experiment_config_all = {
+				"en-US": {
+					wav_path_mapper: (p) => `./data/samples_page_us/${p.speaker in speaker_to_subfolder ? speaker_to_subfolder[p.speaker] : p.speaker}/${p.utterance}_${p.speaker in speaker_to_subfolder ? speaker_to_subfolder[p.speaker] : p.speaker}.wav`,
+					params: ["speaker", "utterance"],
+					params_rows: ["utterance"],
+					params_cols: ["speaker"],
+					param_values: {
+						speaker: lang_to_speakers['en-US'],
+						utterance: lang_to_uttids['en-US']
+					}
+				},
+				"ko": {
+					wav_path_mapper: (p) => `./data/samples_page_ko/${p.speaker in speaker_to_subfolder ? speaker_to_subfolder[p.speaker] : p.speaker}/${p.utterance}_${p.speaker in speaker_to_subfolder ? speaker_to_subfolder[p.speaker] : p.speaker}.wav`,
+					params: ["speaker", "utterance"],
+					params_rows: ["utterance"],
+					params_cols: ["speaker"],
+					param_values: {
+						speaker: lang_to_speakers['ko'],
+						utterance: lang_to_uttids['ko']
+					}
+				},
+			}
 
-    audio {
-      height: 35px;
-      display: none;
-    }
+			Object.keys(experiment_config_all).forEach((lang) => {
+				let experiment_config = experiment_config_all[lang]
 
-    .r-number {
-      width: 24px;
-      text-align: center;
-      margin-right: 8px;
-      background-color: rgb(231, 239, 253);
-      border-radius: 25px;
-      padding: 10px;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    }
+				// Sort out which param to use for rows/cols and which will be fixed (i.e. appear in dropboxes)
+				experiment_config.params_fixed = experiment_config.params_fixed || [];
+				experiment_config.params_rows = experiment_config.params_rows || [];
+				experiment_config.params_cols = experiment_config.params_cols || [];
 
-    .r-number:hover {
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-      background-color: rgb(222, 230, 253);
-      cursor: pointer;
-    }
+				if (experiment_config.params_cols.length == 0)
+					experiment_config.params_cols = array_diff(array_diff(experiment_config.params, experiment_config.params_fixed), experiment_config.params_rows).slice(-1);
+				if (experiment_config.params_rows.length == 0)
+					experiment_config.params_rows = array_diff(array_diff(experiment_config.params, experiment_config.params_fixed), experiment_config.params_cols).slice(-1);
+				experiment_config.params_fixed = array_diff(array_diff(experiment_config.params, experiment_config.params_rows), experiment_config.params_cols);
 
-    .r-number-aug {
-      width: 48px;
-      text-align: center;
-      margin-right: 8px;
-      background-color: rgb(231, 239, 253);
-      border-radius: 25px;
-      padding: 10px;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    }
+				experiment_config_all[lang] = experiment_config
+			})
 
-    .r-number-aug:hover {
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-      background-color: rgb(222, 230, 253);
-      cursor: pointer;
-    }
+			$(".samples-container").each((idx, el) => {
+				let $el = $(el);
+				let expid = $el.attr("experiment-id");
+				// console.log(expid);
+				render_page_dropdown_2d(expid, experiment_config_all[expid], $el);
+			});
 
-    .gt {
-      width: 109px;
-      text-align: center;
-      margin-right: 0px;
-      background-color: rgb(231, 239, 253);
-      border-radius: 25px;
-      padding: 10px;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    }
+		})
+	</script>
 
-    .gt:hover {
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-      background-color: rgb(222, 230, 253);
-      cursor: pointer;
-    }
+	<script type="text/javascript" src="javascripts/utils.js"></script>
+	<script type="text/javascript" src="javascripts/tools.js"></script>
 
-    .gt.speaker {
-      width: 100px;
-    }
-
-    .note {
-      text-align: center;
-      background-color: rgb(231, 239, 253);
-      padding: 10px;
-      border-radius: 25px;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-      transition: 0.1s;
-    }
-
-    .note:hover {
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-      background-color: rgb(222, 230, 253);
-      cursor: pointer;
-    }
-
-    .invisible {
-      width: 100px;
-      text-align: center;
-      margin-right: 8px;
-      border-radius: 25px;
-      padding: 10px;
-    }
-
-    .invisible.axis {
-      width: 100px;
-      text-align: center;
-      margin-right: 8px;
-      background-color: rgb(200, 200, 253);
-      border-radius: 25px;
-      padding: 10px;
-      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    }
-
-    h2:hover {
-      cursor: pointer;
-      background: silver;
-    }
-
-    h2 {
-      border: azure;
-      background: bisque;
-      border-radius: 10px;
-      padding: 10px;
-    }
-
-    a.custom-a-href {
-      color: black;
-      text-decoration: none;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-  </style>
+	<link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
 </head>
 
-<body class="container">
-  <script >
-    function togglePlay(el) {
-      if (!el.paused) {
-        el.pause()
-      }
-      else {
-        var allAudioEls = document.getElementsByTagName("audio");
-        for (let item of allAudioEls) {
-            item.pause()
-        }
-        el.currentTime = 0;
-        el.play();
-      }
-    };
-    function showSample(event) {
-      var target = event.target || event.srcElement;
-      var currentDisplayAttrValue = target.parentElement.nextElementSibling.style.display;
-      target.parentElement.nextElementSibling.style.display =  currentDisplayAttrValue == 'none' ? 'block' : 'none';
-    };
-  </script>
-  <div class="head-container">
-    <h1 style="text-align: center;">Generating Gender-Ambiguous TTS Voices</h1>
-    <p style="text-align: center;font-size: 20px;">
-      Konstantinos Markopoulos,
-        Georgia Maniati,
-        Georgios Vamvoukakis,
-        Nikolaos Ellinas,
-        Karolos Nikitaras,
-        Konstantinos Klapsas,
-        Georgios Vardaxoglou,
-        Panos Kakoulidis,
-        June Sig Sung,
-        Inchul Hwang,
-        Aimilios Chalamandaris,
-        Pirros Tsiakoulis and Spyros Raptis
-      </p>
-    <p style="text-align: left;font-size: 18px;"><strong>Abstract:</strong>The gender of a voice assistant or any voice user interface is a central element of its perceived identity. While a female voice is the stereotypical choice, there is an increasing interest in alternative approaches where the gender is ambiguous rather than clearly identifying as female or male. This work addresses the task of generating gender-ambiguous text-to-speech (TTS) voices that do not correspond to any existing person. This is accomplished by sampling from a latent speaker embeddings space that was formed while training a multilingual, multi-speaker TTS system on data from multiple male and female speakers. Various options are investigated regarding the sampling process. The effects of different sampling choices on the gender ambiguity and the naturalness of the resulting voices are evaluated through objective and subjective measures. Audio samples are made available to illustrate these points.</p>
-    </div>
+<body>
+	<div id="page">
+		<div id='page-head'>
+			<div class='title'>GENERATING GENDER-AMBIGUOUS TEXT-TO-SPEECH VOICES</div>
+			<p style="text-align: center"><i>
+					<author>Konstantinos Markopoulos<sup>⋆<b title="Equal contribution" style="cursor: hand">1</b></sup>
+					</author>,
+					<author>Georgia Maniati<sup>⋆<b title="Equal contribution" style="cursor: hand">1</b></sup></author>
+					,
+					<author>Georgios Vamvoukakis<sup>⋆</sup></author>,
+					<author>Karolos Nikitaras<sup>⋆</sup></author>,
+					<author>Konstantinos Klapsas<sup>⋆</sup></author>,
+					<author>Georgios Vardaxoglou<sup>⋆</sup></author>,
+					<author>Panos Kakoulidis<sup>⋆</sup></author>,
+					<author>June Sig Sung<sup>†</sup></author>,
+					<author>Inchul Hwang<sup>†</sup></author>,
+					<author>Aimilios Chalamandaris<sup>⋆</sup></author>,
+					<author>Pirros Tsiakoulis<sup>⋆</sup></author>,
+					<author>Spyros Raptis<sup>⋆</sup></author>
+				</i>
+				<br>
+				<br><sup>⋆</sup> Innoetics, Samsung Electronics, Greece
+				<br><sup>†</sup> Mobile eXperience Business, Samsung Electronics, Republic of Korea
+			</p>
+		</div>
+
+		<div class='paragraph'>
+			<div class="paragraph-title">ABSTRACT</div>
+			<p>The gender of a voice assistant or any voice user interface is a central element of its
+				perceived identity. While a female voice is a common choice, there is an increasing interest in
+				alternative approaches where the gender is ambiguous rather than clearly identifying as female or male.
+				This work
+				addresses the task of generating gender-ambiguous text-to-speech (TTS) voices that do not correspond to
+				any
+				existing person. This is accomplished by sampling from a latent speaker embeddings’ space that was
+				formed
+				while training a multilingual, multispeaker TTS system on data from multiple male and female speakers.
+				Various options are investigated regarding the sampling process.
+				<br>In our experiments, the effects of different sampling choices on the gender ambiguity and the
+				naturalness of the resulting voices are evaluated. The proposed method is shown able to efficiently
+				generate
+				novel speakers that are superior to a baseline averaged speaker embedding. To our knowledge, this is the
+				first systematic approach that can reliably generate a range of gender-ambiguous voices to meet diverse
+				user
+				requirements.
+			</p>
+		</div>
+
+		<div class="paragraph">
+			<div class="paragraph-title">Sampling</div>
+			<img class="resizeable-image" src="images/fig1.png" style="width: 20%" />
+		</div>
+
+		<div class="paragraph">
+			<div class="paragraph-title">Audio Samples</div>
+			<div class="paragraph-title-2">English</div>
+			<img src="images/table1.png" style="width: 30em; vertical-align: top;" />
+			<div class="samples-container" experiment-id="en-US" style="display: inline-block;"></div>
+			<div class="paragraph-title-2">Korean</div>
+			<img src="images/table2.png" style="width: 30em; vertical-align: top;" />
+			<div class="samples-container" experiment-id="ko" style="display: inline-block;"></div>
+		</div>
+
+	</div>
+
+
 </body>
+
 </html>
