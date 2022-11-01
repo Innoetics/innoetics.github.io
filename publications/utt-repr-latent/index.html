@@ -26,12 +26,12 @@
       background-color: rgb(250, 250, 255);
     }
 
+
     .tooltip {
       position: relative;
       display: inline-block;
       cursor: pointer;
     }
-
 
     .tooltip .tooltiptext {
       visibility: hidden;
@@ -70,6 +70,7 @@
       font-size: 22px;
       margin: 8px 0;
       display: inline-flex;
+      margin-top: 20px;
     }
 
     .sample-description {
@@ -119,6 +120,7 @@
       border-radius: 25px;
       padding: 10px;
       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      margin-top: 10px;
     }
 
     .r-number:hover {
@@ -144,13 +146,15 @@
     }
 
     .gt {
-      width: 109px;
+      min-width: 40px;
       text-align: center;
       margin-right: 0px;
-      background-color: rgb(231, 239, 253);
+      /* background-color: 'C8C8FD'; */
+      background-color: rgb(200, 200, 253);
       border-radius: 25px;
       padding: 10px;
       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      /* margin-bottom: 10px; */
     }
 
     .gt:hover {
@@ -223,6 +227,7 @@
 <body class="container">
   <script >
     function togglePlay(el) {
+        console.log(el)
       if (!el.paused) {
         el.pause()
       }
@@ -241,11 +246,684 @@
       target.parentElement.nextElementSibling.style.display =  currentDisplayAttrValue == 'none' ? 'block' : 'none';
     };
   </script>
-  <div class="head-container">
+  
+<div class="head-container">
     <h1 style="text-align: center;">Learning utterance-level representations through token-level acoustic latents prediction for Expressive Speech Synthesis</h1>
     <p style="text-align: center;font-size: 20px;">
-      Karolos Nikitaras, Konstantinos Klapsas, Nikolaos Ellinas, Georgia Maniati, June Sig Sung, Inchul Hwang, Aimilios Chalamandaris, Pirros Tsiakoulis and Spyros Raptis</p>
+          Karolos Nikitaras, Konstantinos Klapsas, Nikolaos Ellinas, Georgia Maniati, June Sig Sung, Inchul Hwang, Aimilios Chalamandaris, Pirros Tsiakoulis and Spyros Raptis</p>
     <p style="text-align: left;font-size: 18px;"><strong>Abstract:</strong> This paper proposes a multi-scale latent variable, text-to-speech (TTS) model for Expressive Speech Synthesis.Our goal is to capture and control utterance-level attributes within a system that performs token-level prosody modeling. Current works aim to factorize different resolution speech attributes into representations extracted by modules that operate in the corresponding scale. We show that fine-grained latent space itself is able to capture coarse-grained information, such as character acting voice and style. Therefore, it arises a trade-off between the diversity of the different resolution representations and their disentanglement We alleviate such issue by first capturing multi-resolution speech attributes into a token-level latent space and then, separately train a prior network that, given a text, learns utterance-level representations in order to predict the phoneme-level, posterior latents extracted during the previous step. Both qualitative and quantitative evaluations are used to demonstrate the effectiveness of the proposed approach.</p>
-    </div>
+</div>
+
+
+<a href="#title1" class="custom-a-href"><h2 style="text-align: left; margin-top: 30px" onclick="showSample(event)" id="title1">Model Architecture</h2></a>
+
+<div>
+<img src="modelarch.png" style="width:100%" alt="Italian Trulli">
+
+<div style="text-align: center">
+  <p >
+    Audio samples are named in the form: <b>&lt;model_name&gt_&lt;u&gt&lt;number&gt_&lt;f&gt&lt;number&gt;</b> &nbsp where
+  </p>
+
+  <ul style="list-style-position: inside;">
+    <li><b><i>model_name</i></b> is proposed (prop), hierarchical baseline (hbase), global baseline (gbase) or a simple Non-Attentive (nat) </li>
+    <li><b><i>u_</b>(utterance-level dims)</i> is the number of latent dimensions used by Reference Encoder</li>
+    <li><b><i>f_</b>(fine-grained dims)</i> is the number of latent dimensions used by FVAE</li>
+  </ul>
+</div>
+
+</div>
+
+<a href="#title2" class="custom-a-href"><h2 style="text-align: left; margin-top: 30px" onclick="showSample(event)" id="title1">Reconstruction Performance</h2></a>
+<div>
+    
+        
+    <div class="sample">
+        <div class="sample-title">
+        <span class="quotation">&ldquo;</span>
+        <div class="transcript">At any rate, it must be better to have only one to please than two.
+        </div>
+        </div>
+        </br>
+        <div class="gt" style="display: inline-block" onclick="togglePlay(document.getElementById('posterior_gt_101-EMM'))">gt<audio id="posterior_gt_101-EMM"  controls preload="none">
+        <source src='audios/posterior_gt_101-EMM.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f2dims_101-EMM'))">prop_f2<audio id="posterior_prop_f2dims_101-EMM"  controls  preload="none">
+        <source src='audios/posterior_prop_f2dims_101-EMM.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f8dims_101-EMM'))">prop_f8<audio id="posterior_prop_f8dims_101-EMM"  controls  preload="none">
+        <source src='audios/posterior_prop_f8dims_101-EMM.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f16dims_101-EMM'))">prop_f16<audio id="posterior_prop_f16dims_101-EMM"  controls  preload="none">
+        <source src='audios/posterior_prop_f16dims_101-EMM.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f32dims_101-EMM'))">prop_f32<audio id="posterior_prop_f32dims_101-EMM"  controls  preload="none">
+        <source src='audios/posterior_prop_f32dims_101-EMM.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f64dims_101-EMM'))">prop_f64<audio id="posterior_prop_f64dims_101-EMM"  controls  preload="none">
+        <source src='audios/posterior_prop_f64dims_101-EMM.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="gt" style="display: inline-block" onclick="togglePlay(document.getElementById('posterior_gt_101-EMM'))">gt<audio id="posterior_gt_101-EMM"  controls preload="none">
+        <source src='audios/posterior_gt_101-EMM.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </div>
+        <div class="sample">
+        <div class="sample-title">
+        <span class="quotation">&ldquo;</span>
+        <div class="transcript">The moon, oer the combers, looks downward to find us At rest in the hollows that rustle between.
+        </div>
+        </div>
+        </br>
+        <div class="gt" style="display: inline-block" onclick="togglePlay(document.getElementById('posterior_gt_1572-JBK'))">gt<audio id="posterior_gt_1572-JBK"  controls preload="none">
+        <source src='audios/posterior_gt_1572-JBK.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f2dims_1572-JBK'))">prop_f2<audio id="posterior_prop_f2dims_1572-JBK"  controls  preload="none">
+        <source src='audios/posterior_prop_f2dims_1572-JBK.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f8dims_1572-JBK'))">prop_f8<audio id="posterior_prop_f8dims_1572-JBK"  controls  preload="none">
+        <source src='audios/posterior_prop_f8dims_1572-JBK.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f16dims_1572-JBK'))">prop_f16<audio id="posterior_prop_f16dims_1572-JBK"  controls  preload="none">
+        <source src='audios/posterior_prop_f16dims_1572-JBK.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f32dims_1572-JBK'))">prop_f32<audio id="posterior_prop_f32dims_1572-JBK"  controls  preload="none">
+        <source src='audios/posterior_prop_f32dims_1572-JBK.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f64dims_1572-JBK'))">prop_f64<audio id="posterior_prop_f64dims_1572-JBK"  controls  preload="none">
+        <source src='audios/posterior_prop_f64dims_1572-JBK.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="gt" style="display: inline-block" onclick="togglePlay(document.getElementById('posterior_gt_1572-JBK'))">gt<audio id="posterior_gt_1572-JBK"  controls preload="none">
+        <source src='audios/posterior_gt_1572-JBK.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </div>
+        <div class="sample">
+        <div class="sample-title">
+        <span class="quotation">&ldquo;</span>
+        <div class="transcript">Youre a deal better off to ha lost your money, nor to ha kep it by foul means.
+        </div>
+        </div>
+        </br>
+        <div class="gt" style="display: inline-block" onclick="togglePlay(document.getElementById('posterior_gt_1083-SLM'))">gt<audio id="posterior_gt_1083-SLM"  controls preload="none">
+        <source src='audios/posterior_gt_1083-SLM.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f2dims_1083-SLM'))">prop_f2<audio id="posterior_prop_f2dims_1083-SLM"  controls  preload="none">
+        <source src='audios/posterior_prop_f2dims_1083-SLM.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f8dims_1083-SLM'))">prop_f8<audio id="posterior_prop_f8dims_1083-SLM"  controls  preload="none">
+        <source src='audios/posterior_prop_f8dims_1083-SLM.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f16dims_1083-SLM'))">prop_f16<audio id="posterior_prop_f16dims_1083-SLM"  controls  preload="none">
+        <source src='audios/posterior_prop_f16dims_1083-SLM.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f32dims_1083-SLM'))">prop_f32<audio id="posterior_prop_f32dims_1083-SLM"  controls  preload="none">
+        <source src='audios/posterior_prop_f32dims_1083-SLM.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f64dims_1083-SLM'))">prop_f64<audio id="posterior_prop_f64dims_1083-SLM"  controls  preload="none">
+        <source src='audios/posterior_prop_f64dims_1083-SLM.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="gt" style="display: inline-block" onclick="togglePlay(document.getElementById('posterior_gt_1083-SLM'))">gt<audio id="posterior_gt_1083-SLM"  controls preload="none">
+        <source src='audios/posterior_gt_1083-SLM.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </div>
+        <div class="sample">
+        <div class="sample-title">
+        <span class="quotation">&ldquo;</span>
+        <div class="transcript">But missus Smith must be obliged, and her business will not detain you from us long I hope.
+        </div>
+        </div>
+        </br>
+        <div class="gt" style="display: inline-block" onclick="togglePlay(document.getElementById('posterior_gt_1022-SNS'))">gt<audio id="posterior_gt_1022-SNS"  controls preload="none">
+        <source src='audios/posterior_gt_1022-SNS.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f2dims_1022-SNS'))">prop_f2<audio id="posterior_prop_f2dims_1022-SNS"  controls  preload="none">
+        <source src='audios/posterior_prop_f2dims_1022-SNS.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f8dims_1022-SNS'))">prop_f8<audio id="posterior_prop_f8dims_1022-SNS"  controls  preload="none">
+        <source src='audios/posterior_prop_f8dims_1022-SNS.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f16dims_1022-SNS'))">prop_f16<audio id="posterior_prop_f16dims_1022-SNS"  controls  preload="none">
+        <source src='audios/posterior_prop_f16dims_1022-SNS.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f32dims_1022-SNS'))">prop_f32<audio id="posterior_prop_f32dims_1022-SNS"  controls  preload="none">
+        <source src='audios/posterior_prop_f32dims_1022-SNS.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f64dims_1022-SNS'))">prop_f64<audio id="posterior_prop_f64dims_1022-SNS"  controls  preload="none">
+        <source src='audios/posterior_prop_f64dims_1022-SNS.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="gt" style="display: inline-block" onclick="togglePlay(document.getElementById('posterior_gt_1022-SNS'))">gt<audio id="posterior_gt_1022-SNS"  controls preload="none">
+        <source src='audios/posterior_gt_1022-SNS.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </div>
+        <div class="sample">
+        <div class="sample-title">
+        <span class="quotation">&ldquo;</span>
+        <div class="transcript">He doesnt understand how Ive stood it as long as I have.
+        </div>
+        </div>
+        </br>
+        <div class="gt" style="display: inline-block" onclick="togglePlay(document.getElementById('posterior_gt_1011-EFR'))">gt<audio id="posterior_gt_1011-EFR"  controls preload="none">
+        <source src='audios/posterior_gt_1011-EFR.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f2dims_1011-EFR'))">prop_f2<audio id="posterior_prop_f2dims_1011-EFR"  controls  preload="none">
+        <source src='audios/posterior_prop_f2dims_1011-EFR.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f8dims_1011-EFR'))">prop_f8<audio id="posterior_prop_f8dims_1011-EFR"  controls  preload="none">
+        <source src='audios/posterior_prop_f8dims_1011-EFR.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f16dims_1011-EFR'))">prop_f16<audio id="posterior_prop_f16dims_1011-EFR"  controls  preload="none">
+        <source src='audios/posterior_prop_f16dims_1011-EFR.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f32dims_1011-EFR'))">prop_f32<audio id="posterior_prop_f32dims_1011-EFR"  controls  preload="none">
+        <source src='audios/posterior_prop_f32dims_1011-EFR.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f64dims_1011-EFR'))">prop_f64<audio id="posterior_prop_f64dims_1011-EFR"  controls  preload="none">
+        <source src='audios/posterior_prop_f64dims_1011-EFR.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="gt" style="display: inline-block" onclick="togglePlay(document.getElementById('posterior_gt_1011-EFR'))">gt<audio id="posterior_gt_1011-EFR"  controls preload="none">
+        <source src='audios/posterior_gt_1011-EFR.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </div>
+        <div class="sample">
+        <div class="sample-title">
+        <span class="quotation">&ldquo;</span>
+        <div class="transcript">Taint earning now, its saving does it, you may lay to that.
+        </div>
+        </div>
+        </br>
+        <div class="gt" style="display: inline-block" onclick="togglePlay(document.getElementById('posterior_gt_1053-TRI'))">gt<audio id="posterior_gt_1053-TRI"  controls preload="none">
+        <source src='audios/posterior_gt_1053-TRI.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f2dims_1053-TRI'))">prop_f2<audio id="posterior_prop_f2dims_1053-TRI"  controls  preload="none">
+        <source src='audios/posterior_prop_f2dims_1053-TRI.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f8dims_1053-TRI'))">prop_f8<audio id="posterior_prop_f8dims_1053-TRI"  controls  preload="none">
+        <source src='audios/posterior_prop_f8dims_1053-TRI.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f16dims_1053-TRI'))">prop_f16<audio id="posterior_prop_f16dims_1053-TRI"  controls  preload="none">
+        <source src='audios/posterior_prop_f16dims_1053-TRI.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f32dims_1053-TRI'))">prop_f32<audio id="posterior_prop_f32dims_1053-TRI"  controls  preload="none">
+        <source src='audios/posterior_prop_f32dims_1053-TRI.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 60px; display: inline-block" onclick="togglePlay(document.getElementById('posterior_prop_f64dims_1053-TRI'))">prop_f64<audio id="posterior_prop_f64dims_1053-TRI"  controls  preload="none">
+        <source src='audios/posterior_prop_f64dims_1053-TRI.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="gt" style="display: inline-block" onclick="togglePlay(document.getElementById('posterior_gt_1053-TRI'))">gt<audio id="posterior_gt_1053-TRI"  controls preload="none">
+        <source src='audios/posterior_gt_1053-TRI.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </div>
+        
+   
+    
+
+</div>    
+
+
+<a href="#title3" class="custom-a-href"><h2 style="text-align: left; margin-top: 30px" onclick="showSample(event)" id="title1">Style Transfer</h2></a>
+<div>
+    
+
+    
+    <div class="sample">
+        <div class="sample-title">
+        <span class="quotation">&ldquo;</span>
+        <div class="transcript">By thy very carelessness they know that thou art a man.
+        </div>
+        </div>
+        </br>
+        <div class="gt" style="display: inline-block;" onclick="togglePlay(document.getElementById('prior_312-JBK'))">target<audio id="prior_312-JBK"  controls  preload="none">
+        <source  src='audios/prior_312-JBK.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </br>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target312-JBK_text294-JBK_prop_u16_f16'))">prop_u16_f16<audio id="prior_target312-JBK_text294-JBK_prop_u16_f16" controls preload="none">
+        <source src='audios/prior_target312-JBK_text294-JBK_prop_u16_f16.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target312-JBK_text294-JBK_prop_u64_f64'))">prop_u64_f64<audio id="prior_target312-JBK_text294-JBK_prop_u64_f64" controls preload="none">
+        <source src='audios/prior_target312-JBK_text294-JBK_prop_u64_f64.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target312-JBK_text294-JBK_gbase_u16'))">gbase_u16<audio id="prior_target312-JBK_text294-JBK_gbase_u16" controls preload="none">
+        <source src='audios/prior_target312-JBK_text294-JBK_gbase_u16.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target312-JBK_text294-JBK_hbase_u16_f2'))">hbase_u16_f2<audio id="prior_target312-JBK_text294-JBK_hbase_u16_f2" controls preload="none">
+        <source src='audios/prior_target312-JBK_text294-JBK_hbase_u16_f2.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target312-JBK_text294-JBK_hbase_u16_f8'))">hbase_u16_f8<audio id="prior_target312-JBK_text294-JBK_hbase_u16_f8" controls preload="none">
+        <source src='audios/prior_target312-JBK_text294-JBK_hbase_u16_f8.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target312-JBK_text294-JBK_hbase_u16_f64'))">hbase_u16_f64<audio id="prior_target312-JBK_text294-JBK_hbase_u16_f64" controls preload="none">
+        <source src='audios/prior_target312-JBK_text294-JBK_hbase_u16_f64.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('prior_target312-JBK_text294-JBK_nat'))">nat<audio id="prior_target312-JBK_text294-JBK_nat" controls preload="none">
+        <source src='audios/prior_target312-JBK_text294-JBK_nat.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </div>
+        <div class="sample">
+        <div class="sample-title">
+        <span class="quotation">&ldquo;</span>
+        <div class="transcript">Ive laid by now, and gev up to the young uns.
+        </div>
+        </div>
+        </br>
+        <div class="gt" style="display: inline-block;" onclick="togglePlay(document.getElementById('prior_565-SLM'))">target<audio id="prior_565-SLM"  controls  preload="none">
+        <source  src='audios/prior_565-SLM.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </br>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target565-SLM_text566-SLM_prop_u16_f16'))">prop_u16_f16<audio id="prior_target565-SLM_text566-SLM_prop_u16_f16" controls preload="none">
+        <source src='audios/prior_target565-SLM_text566-SLM_prop_u16_f16.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target565-SLM_text566-SLM_prop_u64_f64'))">prop_u64_f64<audio id="prior_target565-SLM_text566-SLM_prop_u64_f64" controls preload="none">
+        <source src='audios/prior_target565-SLM_text566-SLM_prop_u64_f64.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target565-SLM_text566-SLM_gbase_u16'))">gbase_u16<audio id="prior_target565-SLM_text566-SLM_gbase_u16" controls preload="none">
+        <source src='audios/prior_target565-SLM_text566-SLM_gbase_u16.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target565-SLM_text566-SLM_hbase_u16_f2'))">hbase_u16_f2<audio id="prior_target565-SLM_text566-SLM_hbase_u16_f2" controls preload="none">
+        <source src='audios/prior_target565-SLM_text566-SLM_hbase_u16_f2.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target565-SLM_text566-SLM_hbase_u16_f8'))">hbase_u16_f8<audio id="prior_target565-SLM_text566-SLM_hbase_u16_f8" controls preload="none">
+        <source src='audios/prior_target565-SLM_text566-SLM_hbase_u16_f8.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target565-SLM_text566-SLM_hbase_u16_f64'))">hbase_u16_f64<audio id="prior_target565-SLM_text566-SLM_hbase_u16_f64" controls preload="none">
+        <source src='audios/prior_target565-SLM_text566-SLM_hbase_u16_f64.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('prior_target565-SLM_text566-SLM_nat'))">nat<audio id="prior_target565-SLM_text566-SLM_nat" controls preload="none">
+        <source src='audios/prior_target565-SLM_text566-SLM_nat.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </div>
+        <div class="sample">
+        <div class="sample-title">
+        <span class="quotation">&ldquo;</span>
+        <div class="transcript">He was apparently equally unconscious of anything extraordinary in the situation.
+        </div>
+        </div>
+        </br>
+        <div class="gt" style="display: inline-block;" onclick="togglePlay(document.getElementById('prior_1022-BB'))">target<audio id="prior_1022-BB"  controls  preload="none">
+        <source  src='audios/prior_1022-BB.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </br>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1022-BB_text887-AWK_prop_u16_f16'))">prop_u16_f16<audio id="prior_target1022-BB_text887-AWK_prop_u16_f16" controls preload="none">
+        <source src='audios/prior_target1022-BB_text887-AWK_prop_u16_f16.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1022-BB_text887-AWK_prop_u64_f64'))">prop_u64_f64<audio id="prior_target1022-BB_text887-AWK_prop_u64_f64" controls preload="none">
+        <source src='audios/prior_target1022-BB_text887-AWK_prop_u64_f64.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1022-BB_text887-AWK_gbase_u16'))">gbase_u16<audio id="prior_target1022-BB_text887-AWK_gbase_u16" controls preload="none">
+        <source src='audios/prior_target1022-BB_text887-AWK_gbase_u16.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1022-BB_text887-AWK_hbase_u16_f2'))">hbase_u16_f2<audio id="prior_target1022-BB_text887-AWK_hbase_u16_f2" controls preload="none">
+        <source src='audios/prior_target1022-BB_text887-AWK_hbase_u16_f2.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1022-BB_text887-AWK_hbase_u16_f8'))">hbase_u16_f8<audio id="prior_target1022-BB_text887-AWK_hbase_u16_f8" controls preload="none">
+        <source src='audios/prior_target1022-BB_text887-AWK_hbase_u16_f8.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1022-BB_text887-AWK_hbase_u16_f64'))">hbase_u16_f64<audio id="prior_target1022-BB_text887-AWK_hbase_u16_f64" controls preload="none">
+        <source src='audios/prior_target1022-BB_text887-AWK_hbase_u16_f64.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('prior_target1022-BB_text887-AWK_nat'))">nat<audio id="prior_target1022-BB_text887-AWK_nat" controls preload="none">
+        <source src='audios/prior_target1022-BB_text887-AWK_nat.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </div>
+        <div class="sample">
+        <div class="sample-title">
+        <span class="quotation">&ldquo;</span>
+        <div class="transcript">That his understanding has no brilliancy, his feelings no ardour, and his voice no expression.
+        </div>
+        </div>
+        </br>
+        <div class="gt" style="display: inline-block;" onclick="togglePlay(document.getElementById('prior_1022-SNS'))">target<audio id="prior_1022-SNS"  controls  preload="none">
+        <source  src='audios/prior_1022-SNS.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </br>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1022-SNS_text669-SNS_prop_u16_f16'))">prop_u16_f16<audio id="prior_target1022-SNS_text669-SNS_prop_u16_f16" controls preload="none">
+        <source src='audios/prior_target1022-SNS_text669-SNS_prop_u16_f16.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1022-SNS_text669-SNS_prop_u64_f64'))">prop_u64_f64<audio id="prior_target1022-SNS_text669-SNS_prop_u64_f64" controls preload="none">
+        <source src='audios/prior_target1022-SNS_text669-SNS_prop_u64_f64.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1022-SNS_text669-SNS_gbase_u16'))">gbase_u16<audio id="prior_target1022-SNS_text669-SNS_gbase_u16" controls preload="none">
+        <source src='audios/prior_target1022-SNS_text669-SNS_gbase_u16.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1022-SNS_text669-SNS_hbase_u16_f2'))">hbase_u16_f2<audio id="prior_target1022-SNS_text669-SNS_hbase_u16_f2" controls preload="none">
+        <source src='audios/prior_target1022-SNS_text669-SNS_hbase_u16_f2.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1022-SNS_text669-SNS_hbase_u16_f8'))">hbase_u16_f8<audio id="prior_target1022-SNS_text669-SNS_hbase_u16_f8" controls preload="none">
+        <source src='audios/prior_target1022-SNS_text669-SNS_hbase_u16_f8.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1022-SNS_text669-SNS_hbase_u16_f64'))">hbase_u16_f64<audio id="prior_target1022-SNS_text669-SNS_hbase_u16_f64" controls preload="none">
+        <source src='audios/prior_target1022-SNS_text669-SNS_hbase_u16_f64.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('prior_target1022-SNS_text669-SNS_nat'))">nat<audio id="prior_target1022-SNS_text669-SNS_nat" controls preload="none">
+        <source src='audios/prior_target1022-SNS_text669-SNS_nat.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </div>
+        <div class="sample">
+        <div class="sample-title">
+        <span class="quotation">&ldquo;</span>
+        <div class="transcript">Mingled with these were a few scattered pines, some fifty, some nearer seventy, feet high.
+        </div>
+        </div>
+        </br>
+        <div class="gt" style="display: inline-block;" onclick="togglePlay(document.getElementById('prior_1074-UTS'))">target<audio id="prior_1074-UTS"  controls  preload="none">
+        <source  src='audios/prior_1074-UTS.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </br>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1074-UTS_text1468-TRI_prop_u16_f16'))">prop_u16_f16<audio id="prior_target1074-UTS_text1468-TRI_prop_u16_f16" controls preload="none">
+        <source src='audios/prior_target1074-UTS_text1468-TRI_prop_u16_f16.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1074-UTS_text1468-TRI_prop_u64_f64'))">prop_u64_f64<audio id="prior_target1074-UTS_text1468-TRI_prop_u64_f64" controls preload="none">
+        <source src='audios/prior_target1074-UTS_text1468-TRI_prop_u64_f64.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1074-UTS_text1468-TRI_gbase_u16'))">gbase_u16<audio id="prior_target1074-UTS_text1468-TRI_gbase_u16" controls preload="none">
+        <source src='audios/prior_target1074-UTS_text1468-TRI_gbase_u16.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1074-UTS_text1468-TRI_hbase_u16_f2'))">hbase_u16_f2<audio id="prior_target1074-UTS_text1468-TRI_hbase_u16_f2" controls preload="none">
+        <source src='audios/prior_target1074-UTS_text1468-TRI_hbase_u16_f2.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1074-UTS_text1468-TRI_hbase_u16_f8'))">hbase_u16_f8<audio id="prior_target1074-UTS_text1468-TRI_hbase_u16_f8" controls preload="none">
+        <source src='audios/prior_target1074-UTS_text1468-TRI_hbase_u16_f8.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1074-UTS_text1468-TRI_hbase_u16_f64'))">hbase_u16_f64<audio id="prior_target1074-UTS_text1468-TRI_hbase_u16_f64" controls preload="none">
+        <source src='audios/prior_target1074-UTS_text1468-TRI_hbase_u16_f64.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('prior_target1074-UTS_text1468-TRI_nat'))">nat<audio id="prior_target1074-UTS_text1468-TRI_nat" controls preload="none">
+        <source src='audios/prior_target1074-UTS_text1468-TRI_nat.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </div>
+        <div class="sample">
+        <div class="sample-title">
+        <span class="quotation">&ldquo;</span>
+        <div class="transcript">I had thought I recognised in you one of the chosen.
+        </div>
+        </div>
+        </br>
+        <div class="gt" style="display: inline-block;" onclick="togglePlay(document.getElementById('prior_1078-EFR'))">target<audio id="prior_1078-EFR"  controls  preload="none">
+        <source  src='audios/prior_1078-EFR.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </br>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1078-EFR_text8638-JNE_prop_u16_f16'))">prop_u16_f16<audio id="prior_target1078-EFR_text8638-JNE_prop_u16_f16" controls preload="none">
+        <source src='audios/prior_target1078-EFR_text8638-JNE_prop_u16_f16.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1078-EFR_text8638-JNE_prop_u64_f64'))">prop_u64_f64<audio id="prior_target1078-EFR_text8638-JNE_prop_u64_f64" controls preload="none">
+        <source src='audios/prior_target1078-EFR_text8638-JNE_prop_u64_f64.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1078-EFR_text8638-JNE_gbase_u16'))">gbase_u16<audio id="prior_target1078-EFR_text8638-JNE_gbase_u16" controls preload="none">
+        <source src='audios/prior_target1078-EFR_text8638-JNE_gbase_u16.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1078-EFR_text8638-JNE_hbase_u16_f2'))">hbase_u16_f2<audio id="prior_target1078-EFR_text8638-JNE_hbase_u16_f2" controls preload="none">
+        <source src='audios/prior_target1078-EFR_text8638-JNE_hbase_u16_f2.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1078-EFR_text8638-JNE_hbase_u16_f8'))">hbase_u16_f8<audio id="prior_target1078-EFR_text8638-JNE_hbase_u16_f8" controls preload="none">
+        <source src='audios/prior_target1078-EFR_text8638-JNE_hbase_u16_f8.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1078-EFR_text8638-JNE_hbase_u16_f64'))">hbase_u16_f64<audio id="prior_target1078-EFR_text8638-JNE_hbase_u16_f64" controls preload="none">
+        <source src='audios/prior_target1078-EFR_text8638-JNE_hbase_u16_f64.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('prior_target1078-EFR_text8638-JNE_nat'))">nat<audio id="prior_target1078-EFR_text8638-JNE_nat" controls preload="none">
+        <source src='audios/prior_target1078-EFR_text8638-JNE_nat.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </div>
+        <div class="sample">
+        <div class="sample-title">
+        <span class="quotation">&ldquo;</span>
+        <div class="transcript">And what I say, Ill stick to, but Ill quarrel wi no man.
+        </div>
+        </div>
+        </br>
+        <div class="gt" style="display: inline-block;" onclick="togglePlay(document.getElementById('prior_1083-SLM'))">target<audio id="prior_1083-SLM"  controls  preload="none">
+        <source  src='audios/prior_1083-SLM.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </br>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1083-SLM_text556-SLM_prop_u16_f16'))">prop_u16_f16<audio id="prior_target1083-SLM_text556-SLM_prop_u16_f16" controls preload="none">
+        <source src='audios/prior_target1083-SLM_text556-SLM_prop_u16_f16.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1083-SLM_text556-SLM_prop_u64_f64'))">prop_u64_f64<audio id="prior_target1083-SLM_text556-SLM_prop_u64_f64" controls preload="none">
+        <source src='audios/prior_target1083-SLM_text556-SLM_prop_u64_f64.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1083-SLM_text556-SLM_gbase_u16'))">gbase_u16<audio id="prior_target1083-SLM_text556-SLM_gbase_u16" controls preload="none">
+        <source src='audios/prior_target1083-SLM_text556-SLM_gbase_u16.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1083-SLM_text556-SLM_hbase_u16_f2'))">hbase_u16_f2<audio id="prior_target1083-SLM_text556-SLM_hbase_u16_f2" controls preload="none">
+        <source src='audios/prior_target1083-SLM_text556-SLM_hbase_u16_f2.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1083-SLM_text556-SLM_hbase_u16_f8'))">hbase_u16_f8<audio id="prior_target1083-SLM_text556-SLM_hbase_u16_f8" controls preload="none">
+        <source src='audios/prior_target1083-SLM_text556-SLM_hbase_u16_f8.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1083-SLM_text556-SLM_hbase_u16_f64'))">hbase_u16_f64<audio id="prior_target1083-SLM_text556-SLM_hbase_u16_f64" controls preload="none">
+        <source src='audios/prior_target1083-SLM_text556-SLM_hbase_u16_f64.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('prior_target1083-SLM_text556-SLM_nat'))">nat<audio id="prior_target1083-SLM_text556-SLM_nat" controls preload="none">
+        <source src='audios/prior_target1083-SLM_text556-SLM_nat.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </div>
+        <div class="sample">
+        <div class="sample-title">
+        <span class="quotation">&ldquo;</span>
+        <div class="transcript">I cannot deny that I grieved for his grief, whatever that was, and would have given much to assuage it.
+        </div>
+        </div>
+        </br>
+        <div class="gt" style="display: inline-block;" onclick="togglePlay(document.getElementById('prior_1123-RWV'))">target<audio id="prior_1123-RWV"  controls  preload="none">
+        <source  src='audios/prior_1123-RWV.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </br>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1123-RWV_text2552-JNE_prop_u16_f16'))">prop_u16_f16<audio id="prior_target1123-RWV_text2552-JNE_prop_u16_f16" controls preload="none">
+        <source src='audios/prior_target1123-RWV_text2552-JNE_prop_u16_f16.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1123-RWV_text2552-JNE_prop_u64_f64'))">prop_u64_f64<audio id="prior_target1123-RWV_text2552-JNE_prop_u64_f64" controls preload="none">
+        <source src='audios/prior_target1123-RWV_text2552-JNE_prop_u64_f64.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1123-RWV_text2552-JNE_gbase_u16'))">gbase_u16<audio id="prior_target1123-RWV_text2552-JNE_gbase_u16" controls preload="none">
+        <source src='audios/prior_target1123-RWV_text2552-JNE_gbase_u16.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1123-RWV_text2552-JNE_hbase_u16_f2'))">hbase_u16_f2<audio id="prior_target1123-RWV_text2552-JNE_hbase_u16_f2" controls preload="none">
+        <source src='audios/prior_target1123-RWV_text2552-JNE_hbase_u16_f2.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1123-RWV_text2552-JNE_hbase_u16_f8'))">hbase_u16_f8<audio id="prior_target1123-RWV_text2552-JNE_hbase_u16_f8" controls preload="none">
+        <source src='audios/prior_target1123-RWV_text2552-JNE_hbase_u16_f8.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target1123-RWV_text2552-JNE_hbase_u16_f64'))">hbase_u16_f64<audio id="prior_target1123-RWV_text2552-JNE_hbase_u16_f64" controls preload="none">
+        <source src='audios/prior_target1123-RWV_text2552-JNE_hbase_u16_f64.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('prior_target1123-RWV_text2552-JNE_nat'))">nat<audio id="prior_target1123-RWV_text2552-JNE_nat" controls preload="none">
+        <source src='audios/prior_target1123-RWV_text2552-JNE_nat.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </div>
+        <div class="sample">
+        <div class="sample-title">
+        <span class="quotation">&ldquo;</span>
+        <div class="transcript">And forgive us our debts, as we forgive our debtors.
+        </div>
+        </div>
+        </br>
+        <div class="gt" style="display: inline-block;" onclick="togglePlay(document.getElementById('prior_2178-TES'))">target<audio id="prior_2178-TES"  controls  preload="none">
+        <source  src='audios/prior_2178-TES.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </br>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target2178-TES_text118-TES_prop_u16_f16'))">prop_u16_f16<audio id="prior_target2178-TES_text118-TES_prop_u16_f16" controls preload="none">
+        <source src='audios/prior_target2178-TES_text118-TES_prop_u16_f16.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target2178-TES_text118-TES_prop_u64_f64'))">prop_u64_f64<audio id="prior_target2178-TES_text118-TES_prop_u64_f64" controls preload="none">
+        <source src='audios/prior_target2178-TES_text118-TES_prop_u64_f64.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target2178-TES_text118-TES_gbase_u16'))">gbase_u16<audio id="prior_target2178-TES_text118-TES_gbase_u16" controls preload="none">
+        <source src='audios/prior_target2178-TES_text118-TES_gbase_u16.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target2178-TES_text118-TES_hbase_u16_f2'))">hbase_u16_f2<audio id="prior_target2178-TES_text118-TES_hbase_u16_f2" controls preload="none">
+        <source src='audios/prior_target2178-TES_text118-TES_hbase_u16_f2.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target2178-TES_text118-TES_hbase_u16_f8'))">hbase_u16_f8<audio id="prior_target2178-TES_text118-TES_hbase_u16_f8" controls preload="none">
+        <source src='audios/prior_target2178-TES_text118-TES_hbase_u16_f8.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target2178-TES_text118-TES_hbase_u16_f64'))">hbase_u16_f64<audio id="prior_target2178-TES_text118-TES_hbase_u16_f64" controls preload="none">
+        <source src='audios/prior_target2178-TES_text118-TES_hbase_u16_f64.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('prior_target2178-TES_text118-TES_nat'))">nat<audio id="prior_target2178-TES_text118-TES_nat" controls preload="none">
+        <source src='audios/prior_target2178-TES_text118-TES_nat.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </div>
+        <div class="sample">
+        <div class="sample-title">
+        <span class="quotation">&ldquo;</span>
+        <div class="transcript">It convinced her that accident only could discover to mister Bingley, her sisters being in town.
+        </div>
+        </div>
+        </br>
+        <div class="gt" style="display: inline-block;" onclick="togglePlay(document.getElementById('prior_5712-JNE'))">target<audio id="prior_5712-JNE"  controls  preload="none">
+        <source  src='audios/prior_5712-JNE.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </br>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target5712-JNE_text2187-PNP_prop_u16_f16'))">prop_u16_f16<audio id="prior_target5712-JNE_text2187-PNP_prop_u16_f16" controls preload="none">
+        <source src='audios/prior_target5712-JNE_text2187-PNP_prop_u16_f16.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target5712-JNE_text2187-PNP_prop_u64_f64'))">prop_u64_f64<audio id="prior_target5712-JNE_text2187-PNP_prop_u64_f64" controls preload="none">
+        <source src='audios/prior_target5712-JNE_text2187-PNP_prop_u64_f64.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target5712-JNE_text2187-PNP_gbase_u16'))">gbase_u16<audio id="prior_target5712-JNE_text2187-PNP_gbase_u16" controls preload="none">
+        <source src='audios/prior_target5712-JNE_text2187-PNP_gbase_u16.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target5712-JNE_text2187-PNP_hbase_u16_f2'))">hbase_u16_f2<audio id="prior_target5712-JNE_text2187-PNP_hbase_u16_f2" controls preload="none">
+        <source src='audios/prior_target5712-JNE_text2187-PNP_hbase_u16_f2.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target5712-JNE_text2187-PNP_hbase_u16_f8'))">hbase_u16_f8<audio id="prior_target5712-JNE_text2187-PNP_hbase_u16_f8" controls preload="none">
+        <source src='audios/prior_target5712-JNE_text2187-PNP_hbase_u16_f8.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="width: 100px; display: inline-block" onclick="togglePlay(document.getElementById('prior_target5712-JNE_text2187-PNP_hbase_u16_f64'))">hbase_u16_f64<audio id="prior_target5712-JNE_text2187-PNP_hbase_u16_f64" controls preload="none">
+        <source src='audios/prior_target5712-JNE_text2187-PNP_hbase_u16_f64.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('prior_target5712-JNE_text2187-PNP_nat'))">nat<audio id="prior_target5712-JNE_text2187-PNP_nat" controls preload="none">
+        <source src='audios/prior_target5712-JNE_text2187-PNP_nat.wav' type='audio/wav'>Your browser does not support the audio tag.
+        </audio>
+        </div>
+        </div>
+        
+                 
+
+
+
+</div>
+        
+
+
 </body>
 </html>
