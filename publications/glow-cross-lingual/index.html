@@ -242,24 +242,1770 @@
     };
   </script>
   <div class="head-container">
-    <h1 style="text-align: center;">Cross-lingual text-to-speech with flow-based voice conversion for improved pronunciation</h1>
-    <p style="text-align: center;font-size: 20px;">
-      Nikolaos Ellinas,
-      Georgios Vamvoukakis,
-      Konstantinos Markopoulos,
-      Georgia Maniati,
-      Panos Kakoulidis,
-      June Sig Sung,
-      Inchul Hwang,
-      Spyros Raptis,
-      Aimilios Chalamandaris and 
-      Pirros Tsiakoulis</p>
-    <p style="text-align: left;font-size: 18px;"><strong>Abstract:</strong> This paper presents a method for end-to-end multilingual text-to-speech (TTS) which preserves the target language's pronunciation regardless of the original speaker's language.
-      The model used is based on a non-attentive Tacotron architecture, where the decoder has been replaced with a normalizing flow network conditioned on the speaker identity, allowing both TTS and voice conversion (VC) to be performed by the same model.
-      We take advantage of how the flow-based decoder can produce distributions that preserve the linguistic content independent of the speaker identity.
-      When used in a cross-lingual setting, TTS is first performed with a native speaker of the target language and then voice conversion is applied by the same model in order to convert the produced speech to the target speaker’s voice.
-      This method results in more accurate target language pronunciation than the baseline cross-lingual synthesis, as verified by the experimental results.
-      Furthermore, we show that similarly high quality multilingual TTS can be achieved for limited resource speakers.</p>
-    </div>
+  <h1 style="text-align: center;">Cross-lingual text-to-speech with flow-based voice conversion for improved pronunciation</h1>
+  <p style="text-align: center;font-size: 20px;">
+    Nikolaos Ellinas,
+    Georgios Vamvoukakis,
+    Konstantinos Markopoulos,
+    Georgia Maniati,
+    Panos Kakoulidis,
+    June Sig Sung,
+    Inchul Hwang,
+    Spyros Raptis,
+    Aimilios Chalamandaris and 
+    Pirros Tsiakoulis</p>
+  <p style="text-align: left;font-size: 18px;"><strong>Abstract:</strong> This paper presents a method for end-to-end multilingual text-to-speech (TTS) which preserves the target language's pronunciation regardless of the original speaker's language.
+    The model used is based on a non-attentive Tacotron architecture, where the decoder has been replaced with a normalizing flow network conditioned on the speaker identity, allowing both TTS and voice conversion (VC) to be performed by the same model.
+    We take advantage of how the flow-based decoder can produce distributions that preserve the linguistic content independent of the speaker identity.
+    When used in a cross-lingual setting, TTS is first performed with a native speaker of the target language and then voice conversion is applied by the same model in order to convert the produced speech to the target speaker’s voice.
+    This method results in more accurate target language pronunciation than the baseline cross-lingual synthesis, as verified by the experimental results.
+    Furthermore, we show that similarly high quality multilingual TTS can be achieved for limited resource speakers.</p>
+  </div>
+<h3>Target language: en-US</h3><div class="sample">
+<div class="mod-container">
+<div class="sample-audio">
+</div>
+<div class="sample-audio">
+<div class="invisible axis">Ground Truth</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('full_en-US_female_gt'))">Full</br>en-US_female</div>
+<audio id="full_en-US_female_gt" controls preload="none">
+<source src="audio/full_en-US_female_gt_utt1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('full_en-US_male_gt'))">Full</br>en-US_male</div>
+<audio id="full_en-US_male_gt" controls preload="none">
+<source src="audio/full_en-US_male_gt_chatbot_510001.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('full_ko_female_gt'))">Full</br>ko_female</div>
+<audio id="full_ko_female_gt" controls preload="none">
+<source src="audio/full_ko_female_gt_Bigdata_00003.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('full_ko_male_gt'))">Full</br>ko_male</div>
+<audio id="full_ko_male_gt" controls preload="none">
+<source src="audio/full_ko_male_gt_mbwh1_00001.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+</div>
+<div class="sample-audio">
+<div class="invisible axis">Ground Truth</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('lim_en-US_female_gt'))">Limited</br>en-US_female</div>
+<audio id="lim_en-US_female_gt" controls preload="none">
+<source src="audio/lim_en-US_female_gt_lim_en-US_female_6500.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('lim_en-US_male_gt'))">Limited</br>en-US_male</div>
+<audio id="lim_en-US_male_gt" controls preload="none">
+<source src="audio/lim_en-US_male_gt_lim_en-US_male_8006_adj.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('lim_ko_female_gt'))">Limited</br>ko_female</div>
+<audio id="lim_ko_female_gt" controls preload="none">
+<source src="audio/lim_ko_female_gt_lim_ko_female_0003.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('lim_ko_male_gt'))">Limited</br>ko_male</div>
+<audio id="lim_ko_male_gt" controls preload="none">
+<source src="audio/lim_ko_male_gt_lim_ko_male_0002.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">Reports of the death of community have been greatly exaggerated.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_female_testenus1'))">Full</br>en-US_female</div>
+<audio id="TTS_full_en-US_female_testenus1" controls preload="none">
+<source src="audio/full_en-US_female_testenus1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_male_testenus1'))">Full</br>en-US_male</div>
+<audio id="TTS_full_en-US_male_testenus1" controls preload="none">
+<source src="audio/full_en-US_male_testenus1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_female_testenus1'))">Full</br>ko_female</div>
+<audio id="TTS_full_ko_female_testenus1" controls preload="none">
+<source src="audio/full_ko_female_testenus1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_male_testenus1'))">Full</br>ko_male</div>
+<audio id="TTS_full_ko_male_testenus1" controls preload="none">
+<source src="audio/full_ko_male_testenus1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_female_testenus1'))">Limited</br>en-US_female</div>
+<audio id="TTS_lim_en-US_female_testenus1" controls preload="none">
+<source src="audio/lim_en-US_female_testenus1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_male_testenus1'))">Limited</br>en-US_male</div>
+<audio id="TTS_lim_en-US_male_testenus1" controls preload="none">
+<source src="audio/lim_en-US_male_testenus1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_female_testenus1'))">Limited</br>ko_female</div>
+<audio id="TTS_lim_ko_female_testenus1" controls preload="none">
+<source src="audio/lim_ko_female_testenus1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_male_testenus1'))">Limited</br>ko_male</div>
+<audio id="TTS_lim_ko_male_testenus1" controls preload="none">
+<source src="audio/lim_ko_male_testenus1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS-VC</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_female_testenus1'))">Full</br>en-US_female</div>
+<audio id="TTS-VC_full_en-US_female_testenus1" controls preload="none">
+<source src="audio/full_en-US_female_vc_testenus1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_male_testenus1'))">Full</br>en-US_male</div>
+<audio id="TTS-VC_full_en-US_male_testenus1" controls preload="none">
+<source src="audio/full_en-US_male_vc_testenus1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_female_testenus1'))">Full</br>ko_female</div>
+<audio id="TTS-VC_full_ko_female_testenus1" controls preload="none">
+<source src="audio/full_ko_female_vc_testenus1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_male_testenus1'))">Full</br>ko_male</div>
+<audio id="TTS-VC_full_ko_male_testenus1" controls preload="none">
+<source src="audio/full_ko_male_vc_testenus1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_female_testenus1'))">Limited</br>en-US_female</div>
+<audio id="TTS-VC_lim_en-US_female_testenus1" controls preload="none">
+<source src="audio/lim_en-US_female_vc_testenus1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_male_testenus1'))">Limited</br>en-US_male</div>
+<audio id="TTS-VC_lim_en-US_male_testenus1" controls preload="none">
+<source src="audio/lim_en-US_male_vc_testenus1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_female_testenus1'))">Limited</br>ko_female</div>
+<audio id="TTS-VC_lim_ko_female_testenus1" controls preload="none">
+<source src="audio/lim_ko_female_vc_testenus1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_male_testenus1'))">Limited</br>ko_male</div>
+<audio id="TTS-VC_lim_ko_male_testenus1" controls preload="none">
+<source src="audio/lim_ko_male_vc_testenus1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">Certainly; I saved that reminder without any additional information.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_female_testenus2'))">Full</br>en-US_female</div>
+<audio id="TTS_full_en-US_female_testenus2" controls preload="none">
+<source src="audio/full_en-US_female_testenus2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_male_testenus2'))">Full</br>en-US_male</div>
+<audio id="TTS_full_en-US_male_testenus2" controls preload="none">
+<source src="audio/full_en-US_male_testenus2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_female_testenus2'))">Full</br>ko_female</div>
+<audio id="TTS_full_ko_female_testenus2" controls preload="none">
+<source src="audio/full_ko_female_testenus2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_male_testenus2'))">Full</br>ko_male</div>
+<audio id="TTS_full_ko_male_testenus2" controls preload="none">
+<source src="audio/full_ko_male_testenus2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_female_testenus2'))">Limited</br>en-US_female</div>
+<audio id="TTS_lim_en-US_female_testenus2" controls preload="none">
+<source src="audio/lim_en-US_female_testenus2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_male_testenus2'))">Limited</br>en-US_male</div>
+<audio id="TTS_lim_en-US_male_testenus2" controls preload="none">
+<source src="audio/lim_en-US_male_testenus2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_female_testenus2'))">Limited</br>ko_female</div>
+<audio id="TTS_lim_ko_female_testenus2" controls preload="none">
+<source src="audio/lim_ko_female_testenus2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_male_testenus2'))">Limited</br>ko_male</div>
+<audio id="TTS_lim_ko_male_testenus2" controls preload="none">
+<source src="audio/lim_ko_male_testenus2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS-VC</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_female_testenus2'))">Full</br>en-US_female</div>
+<audio id="TTS-VC_full_en-US_female_testenus2" controls preload="none">
+<source src="audio/full_en-US_female_vc_testenus2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_male_testenus2'))">Full</br>en-US_male</div>
+<audio id="TTS-VC_full_en-US_male_testenus2" controls preload="none">
+<source src="audio/full_en-US_male_vc_testenus2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_female_testenus2'))">Full</br>ko_female</div>
+<audio id="TTS-VC_full_ko_female_testenus2" controls preload="none">
+<source src="audio/full_ko_female_vc_testenus2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_male_testenus2'))">Full</br>ko_male</div>
+<audio id="TTS-VC_full_ko_male_testenus2" controls preload="none">
+<source src="audio/full_ko_male_vc_testenus2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_female_testenus2'))">Limited</br>en-US_female</div>
+<audio id="TTS-VC_lim_en-US_female_testenus2" controls preload="none">
+<source src="audio/lim_en-US_female_vc_testenus2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_male_testenus2'))">Limited</br>en-US_male</div>
+<audio id="TTS-VC_lim_en-US_male_testenus2" controls preload="none">
+<source src="audio/lim_en-US_male_vc_testenus2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_female_testenus2'))">Limited</br>ko_female</div>
+<audio id="TTS-VC_lim_ko_female_testenus2" controls preload="none">
+<source src="audio/lim_ko_female_vc_testenus2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_male_testenus2'))">Limited</br>ko_male</div>
+<audio id="TTS-VC_lim_ko_male_testenus2" controls preload="none">
+<source src="audio/lim_ko_male_vc_testenus2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">We're so good as regular friends, let's not mess with perfection.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_female_testenus3'))">Full</br>en-US_female</div>
+<audio id="TTS_full_en-US_female_testenus3" controls preload="none">
+<source src="audio/full_en-US_female_testenus3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_male_testenus3'))">Full</br>en-US_male</div>
+<audio id="TTS_full_en-US_male_testenus3" controls preload="none">
+<source src="audio/full_en-US_male_testenus3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_female_testenus3'))">Full</br>ko_female</div>
+<audio id="TTS_full_ko_female_testenus3" controls preload="none">
+<source src="audio/full_ko_female_testenus3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_male_testenus3'))">Full</br>ko_male</div>
+<audio id="TTS_full_ko_male_testenus3" controls preload="none">
+<source src="audio/full_ko_male_testenus3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_female_testenus3'))">Limited</br>en-US_female</div>
+<audio id="TTS_lim_en-US_female_testenus3" controls preload="none">
+<source src="audio/lim_en-US_female_testenus3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_male_testenus3'))">Limited</br>en-US_male</div>
+<audio id="TTS_lim_en-US_male_testenus3" controls preload="none">
+<source src="audio/lim_en-US_male_testenus3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_female_testenus3'))">Limited</br>ko_female</div>
+<audio id="TTS_lim_ko_female_testenus3" controls preload="none">
+<source src="audio/lim_ko_female_testenus3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_male_testenus3'))">Limited</br>ko_male</div>
+<audio id="TTS_lim_ko_male_testenus3" controls preload="none">
+<source src="audio/lim_ko_male_testenus3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS-VC</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_female_testenus3'))">Full</br>en-US_female</div>
+<audio id="TTS-VC_full_en-US_female_testenus3" controls preload="none">
+<source src="audio/full_en-US_female_vc_testenus3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_male_testenus3'))">Full</br>en-US_male</div>
+<audio id="TTS-VC_full_en-US_male_testenus3" controls preload="none">
+<source src="audio/full_en-US_male_vc_testenus3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_female_testenus3'))">Full</br>ko_female</div>
+<audio id="TTS-VC_full_ko_female_testenus3" controls preload="none">
+<source src="audio/full_ko_female_vc_testenus3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_male_testenus3'))">Full</br>ko_male</div>
+<audio id="TTS-VC_full_ko_male_testenus3" controls preload="none">
+<source src="audio/full_ko_male_vc_testenus3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_female_testenus3'))">Limited</br>en-US_female</div>
+<audio id="TTS-VC_lim_en-US_female_testenus3" controls preload="none">
+<source src="audio/lim_en-US_female_vc_testenus3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_male_testenus3'))">Limited</br>en-US_male</div>
+<audio id="TTS-VC_lim_en-US_male_testenus3" controls preload="none">
+<source src="audio/lim_en-US_male_vc_testenus3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_female_testenus3'))">Limited</br>ko_female</div>
+<audio id="TTS-VC_lim_ko_female_testenus3" controls preload="none">
+<source src="audio/lim_ko_female_vc_testenus3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_male_testenus3'))">Limited</br>ko_male</div>
+<audio id="TTS-VC_lim_ko_male_testenus3" controls preload="none">
+<source src="audio/lim_ko_male_vc_testenus3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">I could never pick a favorite color. They all have their own special energy!</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_female_testenus4'))">Full</br>en-US_female</div>
+<audio id="TTS_full_en-US_female_testenus4" controls preload="none">
+<source src="audio/full_en-US_female_testenus4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_male_testenus4'))">Full</br>en-US_male</div>
+<audio id="TTS_full_en-US_male_testenus4" controls preload="none">
+<source src="audio/full_en-US_male_testenus4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_female_testenus4'))">Full</br>ko_female</div>
+<audio id="TTS_full_ko_female_testenus4" controls preload="none">
+<source src="audio/full_ko_female_testenus4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_male_testenus4'))">Full</br>ko_male</div>
+<audio id="TTS_full_ko_male_testenus4" controls preload="none">
+<source src="audio/full_ko_male_testenus4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_female_testenus4'))">Limited</br>en-US_female</div>
+<audio id="TTS_lim_en-US_female_testenus4" controls preload="none">
+<source src="audio/lim_en-US_female_testenus4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_male_testenus4'))">Limited</br>en-US_male</div>
+<audio id="TTS_lim_en-US_male_testenus4" controls preload="none">
+<source src="audio/lim_en-US_male_testenus4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_female_testenus4'))">Limited</br>ko_female</div>
+<audio id="TTS_lim_ko_female_testenus4" controls preload="none">
+<source src="audio/lim_ko_female_testenus4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_male_testenus4'))">Limited</br>ko_male</div>
+<audio id="TTS_lim_ko_male_testenus4" controls preload="none">
+<source src="audio/lim_ko_male_testenus4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS-VC</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_female_testenus4'))">Full</br>en-US_female</div>
+<audio id="TTS-VC_full_en-US_female_testenus4" controls preload="none">
+<source src="audio/full_en-US_female_vc_testenus4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_male_testenus4'))">Full</br>en-US_male</div>
+<audio id="TTS-VC_full_en-US_male_testenus4" controls preload="none">
+<source src="audio/full_en-US_male_vc_testenus4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_female_testenus4'))">Full</br>ko_female</div>
+<audio id="TTS-VC_full_ko_female_testenus4" controls preload="none">
+<source src="audio/full_ko_female_vc_testenus4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_male_testenus4'))">Full</br>ko_male</div>
+<audio id="TTS-VC_full_ko_male_testenus4" controls preload="none">
+<source src="audio/full_ko_male_vc_testenus4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_female_testenus4'))">Limited</br>en-US_female</div>
+<audio id="TTS-VC_lim_en-US_female_testenus4" controls preload="none">
+<source src="audio/lim_en-US_female_vc_testenus4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_male_testenus4'))">Limited</br>en-US_male</div>
+<audio id="TTS-VC_lim_en-US_male_testenus4" controls preload="none">
+<source src="audio/lim_en-US_male_vc_testenus4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_female_testenus4'))">Limited</br>ko_female</div>
+<audio id="TTS-VC_lim_ko_female_testenus4" controls preload="none">
+<source src="audio/lim_ko_female_vc_testenus4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_male_testenus4'))">Limited</br>ko_male</div>
+<audio id="TTS-VC_lim_ko_male_testenus4" controls preload="none">
+<source src="audio/lim_ko_male_vc_testenus4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<h3>Target language: ko</h3><div class="sample">
+<div class="mod-container">
+<div class="sample-audio">
+</div>
+<div class="sample-audio">
+<div class="invisible axis">Ground Truth</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('full_en-US_female_gt'))">Full</br>en-US_female</div>
+<audio id="full_en-US_female_gt" controls preload="none">
+<source src="audio/full_en-US_female_gt_utt1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('full_en-US_male_gt'))">Full</br>en-US_male</div>
+<audio id="full_en-US_male_gt" controls preload="none">
+<source src="audio/full_en-US_male_gt_chatbot_510001.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('full_ko_female_gt'))">Full</br>ko_female</div>
+<audio id="full_ko_female_gt" controls preload="none">
+<source src="audio/full_ko_female_gt_Bigdata_00003.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('full_ko_male_gt'))">Full</br>ko_male</div>
+<audio id="full_ko_male_gt" controls preload="none">
+<source src="audio/full_ko_male_gt_mbwh1_00001.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+</div>
+<div class="sample-audio">
+<div class="invisible axis">Ground Truth</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('lim_en-US_female_gt'))">Limited</br>en-US_female</div>
+<audio id="lim_en-US_female_gt" controls preload="none">
+<source src="audio/lim_en-US_female_gt_lim_en-US_female_6500.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('lim_en-US_male_gt'))">Limited</br>en-US_male</div>
+<audio id="lim_en-US_male_gt" controls preload="none">
+<source src="audio/lim_en-US_male_gt_lim_en-US_male_8006_adj.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('lim_ko_female_gt'))">Limited</br>ko_female</div>
+<audio id="lim_ko_female_gt" controls preload="none">
+<source src="audio/lim_ko_female_gt_lim_ko_female_0003.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('lim_ko_male_gt'))">Limited</br>ko_male</div>
+<audio id="lim_ko_male_gt" controls preload="none">
+<source src="audio/lim_ko_male_gt_lim_ko_male_0002.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">결제하면 유형별 이용내역을 분석한 결과가 여기에 표시됩니다.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_female_testko1'))">Full</br>en-US_female</div>
+<audio id="TTS_full_en-US_female_testko1" controls preload="none">
+<source src="audio/full_en-US_female_testko1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_male_testko1'))">Full</br>en-US_male</div>
+<audio id="TTS_full_en-US_male_testko1" controls preload="none">
+<source src="audio/full_en-US_male_testko1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_female_testko1'))">Full</br>ko_female</div>
+<audio id="TTS_full_ko_female_testko1" controls preload="none">
+<source src="audio/full_ko_female_testko1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_male_testko1'))">Full</br>ko_male</div>
+<audio id="TTS_full_ko_male_testko1" controls preload="none">
+<source src="audio/full_ko_male_testko1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_female_testko1'))">Limited</br>en-US_female</div>
+<audio id="TTS_lim_en-US_female_testko1" controls preload="none">
+<source src="audio/lim_en-US_female_testko1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_male_testko1'))">Limited</br>en-US_male</div>
+<audio id="TTS_lim_en-US_male_testko1" controls preload="none">
+<source src="audio/lim_en-US_male_testko1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_female_testko1'))">Limited</br>ko_female</div>
+<audio id="TTS_lim_ko_female_testko1" controls preload="none">
+<source src="audio/lim_ko_female_testko1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_male_testko1'))">Limited</br>ko_male</div>
+<audio id="TTS_lim_ko_male_testko1" controls preload="none">
+<source src="audio/lim_ko_male_testko1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS-VC</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_female_testko1'))">Full</br>en-US_female</div>
+<audio id="TTS-VC_full_en-US_female_testko1" controls preload="none">
+<source src="audio/full_en-US_female_vc_testko1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_male_testko1'))">Full</br>en-US_male</div>
+<audio id="TTS-VC_full_en-US_male_testko1" controls preload="none">
+<source src="audio/full_en-US_male_vc_testko1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_female_testko1'))">Full</br>ko_female</div>
+<audio id="TTS-VC_full_ko_female_testko1" controls preload="none">
+<source src="audio/full_ko_female_vc_testko1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_male_testko1'))">Full</br>ko_male</div>
+<audio id="TTS-VC_full_ko_male_testko1" controls preload="none">
+<source src="audio/full_ko_male_vc_testko1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_female_testko1'))">Limited</br>en-US_female</div>
+<audio id="TTS-VC_lim_en-US_female_testko1" controls preload="none">
+<source src="audio/lim_en-US_female_vc_testko1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_male_testko1'))">Limited</br>en-US_male</div>
+<audio id="TTS-VC_lim_en-US_male_testko1" controls preload="none">
+<source src="audio/lim_en-US_male_vc_testko1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_female_testko1'))">Limited</br>ko_female</div>
+<audio id="TTS-VC_lim_ko_female_testko1" controls preload="none">
+<source src="audio/lim_ko_female_vc_testko1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_male_testko1'))">Limited</br>ko_male</div>
+<audio id="TTS-VC_lim_ko_male_testko1" controls preload="none">
+<source src="audio/lim_ko_male_vc_testko1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">화면의 숨겨진 부분을 캡처한 후, 스크린샷에 메모하거나, 스크린샷을 자르거나 공유합니다.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_female_testko3'))">Full</br>en-US_female</div>
+<audio id="TTS_full_en-US_female_testko3" controls preload="none">
+<source src="audio/full_en-US_female_testko3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_male_testko3'))">Full</br>en-US_male</div>
+<audio id="TTS_full_en-US_male_testko3" controls preload="none">
+<source src="audio/full_en-US_male_testko3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_female_testko3'))">Full</br>ko_female</div>
+<audio id="TTS_full_ko_female_testko3" controls preload="none">
+<source src="audio/full_ko_female_testko3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_male_testko3'))">Full</br>ko_male</div>
+<audio id="TTS_full_ko_male_testko3" controls preload="none">
+<source src="audio/full_ko_male_testko3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_female_testko3'))">Limited</br>en-US_female</div>
+<audio id="TTS_lim_en-US_female_testko3" controls preload="none">
+<source src="audio/lim_en-US_female_testko3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_male_testko3'))">Limited</br>en-US_male</div>
+<audio id="TTS_lim_en-US_male_testko3" controls preload="none">
+<source src="audio/lim_en-US_male_testko3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_female_testko3'))">Limited</br>ko_female</div>
+<audio id="TTS_lim_ko_female_testko3" controls preload="none">
+<source src="audio/lim_ko_female_testko3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_male_testko3'))">Limited</br>ko_male</div>
+<audio id="TTS_lim_ko_male_testko3" controls preload="none">
+<source src="audio/lim_ko_male_testko3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS-VC</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_female_testko3'))">Full</br>en-US_female</div>
+<audio id="TTS-VC_full_en-US_female_testko3" controls preload="none">
+<source src="audio/full_en-US_female_vc_testko3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_male_testko3'))">Full</br>en-US_male</div>
+<audio id="TTS-VC_full_en-US_male_testko3" controls preload="none">
+<source src="audio/full_en-US_male_vc_testko3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_female_testko3'))">Full</br>ko_female</div>
+<audio id="TTS-VC_full_ko_female_testko3" controls preload="none">
+<source src="audio/full_ko_female_vc_testko3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_male_testko3'))">Full</br>ko_male</div>
+<audio id="TTS-VC_full_ko_male_testko3" controls preload="none">
+<source src="audio/full_ko_male_vc_testko3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_female_testko3'))">Limited</br>en-US_female</div>
+<audio id="TTS-VC_lim_en-US_female_testko3" controls preload="none">
+<source src="audio/lim_en-US_female_vc_testko3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_male_testko3'))">Limited</br>en-US_male</div>
+<audio id="TTS-VC_lim_en-US_male_testko3" controls preload="none">
+<source src="audio/lim_en-US_male_vc_testko3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_female_testko3'))">Limited</br>ko_female</div>
+<audio id="TTS-VC_lim_ko_female_testko3" controls preload="none">
+<source src="audio/lim_ko_female_vc_testko3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_male_testko3'))">Limited</br>ko_male</div>
+<audio id="TTS-VC_lim_ko_male_testko3" controls preload="none">
+<source src="audio/lim_ko_male_vc_testko3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">활동량과 섭취량을 조절하여 목표 체중을 달성해 보세요.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_female_testko5'))">Full</br>en-US_female</div>
+<audio id="TTS_full_en-US_female_testko5" controls preload="none">
+<source src="audio/full_en-US_female_testko5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_male_testko5'))">Full</br>en-US_male</div>
+<audio id="TTS_full_en-US_male_testko5" controls preload="none">
+<source src="audio/full_en-US_male_testko5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_female_testko5'))">Full</br>ko_female</div>
+<audio id="TTS_full_ko_female_testko5" controls preload="none">
+<source src="audio/full_ko_female_testko5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_male_testko5'))">Full</br>ko_male</div>
+<audio id="TTS_full_ko_male_testko5" controls preload="none">
+<source src="audio/full_ko_male_testko5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_female_testko5'))">Limited</br>en-US_female</div>
+<audio id="TTS_lim_en-US_female_testko5" controls preload="none">
+<source src="audio/lim_en-US_female_testko5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_male_testko5'))">Limited</br>en-US_male</div>
+<audio id="TTS_lim_en-US_male_testko5" controls preload="none">
+<source src="audio/lim_en-US_male_testko5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_female_testko5'))">Limited</br>ko_female</div>
+<audio id="TTS_lim_ko_female_testko5" controls preload="none">
+<source src="audio/lim_ko_female_testko5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_male_testko5'))">Limited</br>ko_male</div>
+<audio id="TTS_lim_ko_male_testko5" controls preload="none">
+<source src="audio/lim_ko_male_testko5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS-VC</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_female_testko5'))">Full</br>en-US_female</div>
+<audio id="TTS-VC_full_en-US_female_testko5" controls preload="none">
+<source src="audio/full_en-US_female_vc_testko5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_male_testko5'))">Full</br>en-US_male</div>
+<audio id="TTS-VC_full_en-US_male_testko5" controls preload="none">
+<source src="audio/full_en-US_male_vc_testko5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_female_testko5'))">Full</br>ko_female</div>
+<audio id="TTS-VC_full_ko_female_testko5" controls preload="none">
+<source src="audio/full_ko_female_vc_testko5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_male_testko5'))">Full</br>ko_male</div>
+<audio id="TTS-VC_full_ko_male_testko5" controls preload="none">
+<source src="audio/full_ko_male_vc_testko5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_female_testko5'))">Limited</br>en-US_female</div>
+<audio id="TTS-VC_lim_en-US_female_testko5" controls preload="none">
+<source src="audio/lim_en-US_female_vc_testko5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_male_testko5'))">Limited</br>en-US_male</div>
+<audio id="TTS-VC_lim_en-US_male_testko5" controls preload="none">
+<source src="audio/lim_en-US_male_vc_testko5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_female_testko5'))">Limited</br>ko_female</div>
+<audio id="TTS-VC_lim_ko_female_testko5" controls preload="none">
+<source src="audio/lim_ko_female_vc_testko5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_male_testko5'))">Limited</br>ko_male</div>
+<audio id="TTS-VC_lim_ko_male_testko5" controls preload="none">
+<source src="audio/lim_ko_male_vc_testko5.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">실시간 인기곡과 뮤직비디오는 물론, 최고의 무료 라디오까지!</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_female_testko6'))">Full</br>en-US_female</div>
+<audio id="TTS_full_en-US_female_testko6" controls preload="none">
+<source src="audio/full_en-US_female_testko6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_male_testko6'))">Full</br>en-US_male</div>
+<audio id="TTS_full_en-US_male_testko6" controls preload="none">
+<source src="audio/full_en-US_male_testko6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_female_testko6'))">Full</br>ko_female</div>
+<audio id="TTS_full_ko_female_testko6" controls preload="none">
+<source src="audio/full_ko_female_testko6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_male_testko6'))">Full</br>ko_male</div>
+<audio id="TTS_full_ko_male_testko6" controls preload="none">
+<source src="audio/full_ko_male_testko6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_female_testko6'))">Limited</br>en-US_female</div>
+<audio id="TTS_lim_en-US_female_testko6" controls preload="none">
+<source src="audio/lim_en-US_female_testko6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_male_testko6'))">Limited</br>en-US_male</div>
+<audio id="TTS_lim_en-US_male_testko6" controls preload="none">
+<source src="audio/lim_en-US_male_testko6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_female_testko6'))">Limited</br>ko_female</div>
+<audio id="TTS_lim_ko_female_testko6" controls preload="none">
+<source src="audio/lim_ko_female_testko6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_male_testko6'))">Limited</br>ko_male</div>
+<audio id="TTS_lim_ko_male_testko6" controls preload="none">
+<source src="audio/lim_ko_male_testko6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS-VC</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_female_testko6'))">Full</br>en-US_female</div>
+<audio id="TTS-VC_full_en-US_female_testko6" controls preload="none">
+<source src="audio/full_en-US_female_vc_testko6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_male_testko6'))">Full</br>en-US_male</div>
+<audio id="TTS-VC_full_en-US_male_testko6" controls preload="none">
+<source src="audio/full_en-US_male_vc_testko6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_female_testko6'))">Full</br>ko_female</div>
+<audio id="TTS-VC_full_ko_female_testko6" controls preload="none">
+<source src="audio/full_ko_female_vc_testko6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_male_testko6'))">Full</br>ko_male</div>
+<audio id="TTS-VC_full_ko_male_testko6" controls preload="none">
+<source src="audio/full_ko_male_vc_testko6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_female_testko6'))">Limited</br>en-US_female</div>
+<audio id="TTS-VC_lim_en-US_female_testko6" controls preload="none">
+<source src="audio/lim_en-US_female_vc_testko6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_male_testko6'))">Limited</br>en-US_male</div>
+<audio id="TTS-VC_lim_en-US_male_testko6" controls preload="none">
+<source src="audio/lim_en-US_male_vc_testko6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_female_testko6'))">Limited</br>ko_female</div>
+<audio id="TTS-VC_lim_ko_female_testko6" controls preload="none">
+<source src="audio/lim_ko_female_vc_testko6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_male_testko6'))">Limited</br>ko_male</div>
+<audio id="TTS-VC_lim_ko_male_testko6" controls preload="none">
+<source src="audio/lim_ko_male_vc_testko6.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<h3>Target language: en-GB</h3><div class="sample">
+<div class="mod-container">
+<div class="sample-audio">
+</div>
+<div class="sample-audio">
+<div class="invisible axis">Ground Truth</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('full_en-US_female_gt'))">Full</br>en-US_female</div>
+<audio id="full_en-US_female_gt" controls preload="none">
+<source src="audio/full_en-US_female_gt_utt1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('full_en-US_male_gt'))">Full</br>en-US_male</div>
+<audio id="full_en-US_male_gt" controls preload="none">
+<source src="audio/full_en-US_male_gt_chatbot_510001.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('full_ko_female_gt'))">Full</br>ko_female</div>
+<audio id="full_ko_female_gt" controls preload="none">
+<source src="audio/full_ko_female_gt_Bigdata_00003.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('full_ko_male_gt'))">Full</br>ko_male</div>
+<audio id="full_ko_male_gt" controls preload="none">
+<source src="audio/full_ko_male_gt_mbwh1_00001.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+</div>
+<div class="sample-audio">
+<div class="invisible axis">Ground Truth</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('lim_en-US_female_gt'))">Limited</br>en-US_female</div>
+<audio id="lim_en-US_female_gt" controls preload="none">
+<source src="audio/lim_en-US_female_gt_lim_en-US_female_6500.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('lim_en-US_male_gt'))">Limited</br>en-US_male</div>
+<audio id="lim_en-US_male_gt" controls preload="none">
+<source src="audio/lim_en-US_male_gt_lim_en-US_male_8006_adj.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('lim_ko_female_gt'))">Limited</br>ko_female</div>
+<audio id="lim_ko_female_gt" controls preload="none">
+<source src="audio/lim_ko_female_gt_lim_ko_female_0003.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('lim_ko_male_gt'))">Limited</br>ko_male</div>
+<audio id="lim_ko_male_gt" controls preload="none">
+<source src="audio/lim_ko_male_gt_lim_ko_male_0002.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">26 contacts came up.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_female_testengb1'))">Full</br>en-US_female</div>
+<audio id="TTS_full_en-US_female_testengb1" controls preload="none">
+<source src="audio/full_en-US_female_testengb1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_male_testengb1'))">Full</br>en-US_male</div>
+<audio id="TTS_full_en-US_male_testengb1" controls preload="none">
+<source src="audio/full_en-US_male_testengb1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_female_testengb1'))">Full</br>ko_female</div>
+<audio id="TTS_full_ko_female_testengb1" controls preload="none">
+<source src="audio/full_ko_female_testengb1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_male_testengb1'))">Full</br>ko_male</div>
+<audio id="TTS_full_ko_male_testengb1" controls preload="none">
+<source src="audio/full_ko_male_testengb1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_female_testengb1'))">Limited</br>en-US_female</div>
+<audio id="TTS_lim_en-US_female_testengb1" controls preload="none">
+<source src="audio/lim_en-US_female_testengb1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_male_testengb1'))">Limited</br>en-US_male</div>
+<audio id="TTS_lim_en-US_male_testengb1" controls preload="none">
+<source src="audio/lim_en-US_male_testengb1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_female_testengb1'))">Limited</br>ko_female</div>
+<audio id="TTS_lim_ko_female_testengb1" controls preload="none">
+<source src="audio/lim_ko_female_testengb1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_male_testengb1'))">Limited</br>ko_male</div>
+<audio id="TTS_lim_ko_male_testengb1" controls preload="none">
+<source src="audio/lim_ko_male_testengb1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS-VC</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_female_testengb1'))">Full</br>en-US_female</div>
+<audio id="TTS-VC_full_en-US_female_testengb1" controls preload="none">
+<source src="audio/full_en-US_female_vc_testengb1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_male_testengb1'))">Full</br>en-US_male</div>
+<audio id="TTS-VC_full_en-US_male_testengb1" controls preload="none">
+<source src="audio/full_en-US_male_vc_testengb1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_female_testengb1'))">Full</br>ko_female</div>
+<audio id="TTS-VC_full_ko_female_testengb1" controls preload="none">
+<source src="audio/full_ko_female_vc_testengb1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_male_testengb1'))">Full</br>ko_male</div>
+<audio id="TTS-VC_full_ko_male_testengb1" controls preload="none">
+<source src="audio/full_ko_male_vc_testengb1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_female_testengb1'))">Limited</br>en-US_female</div>
+<audio id="TTS-VC_lim_en-US_female_testengb1" controls preload="none">
+<source src="audio/lim_en-US_female_vc_testengb1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_male_testengb1'))">Limited</br>en-US_male</div>
+<audio id="TTS-VC_lim_en-US_male_testengb1" controls preload="none">
+<source src="audio/lim_en-US_male_vc_testengb1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_female_testengb1'))">Limited</br>ko_female</div>
+<audio id="TTS-VC_lim_ko_female_testengb1" controls preload="none">
+<source src="audio/lim_ko_female_vc_testengb1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_male_testengb1'))">Limited</br>ko_male</div>
+<audio id="TTS-VC_lim_ko_male_testengb1" controls preload="none">
+<source src="audio/lim_ko_male_vc_testengb1.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">Good morning. Time for another fantastic day.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_female_testengb2'))">Full</br>en-US_female</div>
+<audio id="TTS_full_en-US_female_testengb2" controls preload="none">
+<source src="audio/full_en-US_female_testengb2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_male_testengb2'))">Full</br>en-US_male</div>
+<audio id="TTS_full_en-US_male_testengb2" controls preload="none">
+<source src="audio/full_en-US_male_testengb2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_female_testengb2'))">Full</br>ko_female</div>
+<audio id="TTS_full_ko_female_testengb2" controls preload="none">
+<source src="audio/full_ko_female_testengb2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_male_testengb2'))">Full</br>ko_male</div>
+<audio id="TTS_full_ko_male_testengb2" controls preload="none">
+<source src="audio/full_ko_male_testengb2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_female_testengb2'))">Limited</br>en-US_female</div>
+<audio id="TTS_lim_en-US_female_testengb2" controls preload="none">
+<source src="audio/lim_en-US_female_testengb2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_male_testengb2'))">Limited</br>en-US_male</div>
+<audio id="TTS_lim_en-US_male_testengb2" controls preload="none">
+<source src="audio/lim_en-US_male_testengb2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_female_testengb2'))">Limited</br>ko_female</div>
+<audio id="TTS_lim_ko_female_testengb2" controls preload="none">
+<source src="audio/lim_ko_female_testengb2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_male_testengb2'))">Limited</br>ko_male</div>
+<audio id="TTS_lim_ko_male_testengb2" controls preload="none">
+<source src="audio/lim_ko_male_testengb2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS-VC</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_female_testengb2'))">Full</br>en-US_female</div>
+<audio id="TTS-VC_full_en-US_female_testengb2" controls preload="none">
+<source src="audio/full_en-US_female_vc_testengb2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_male_testengb2'))">Full</br>en-US_male</div>
+<audio id="TTS-VC_full_en-US_male_testengb2" controls preload="none">
+<source src="audio/full_en-US_male_vc_testengb2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_female_testengb2'))">Full</br>ko_female</div>
+<audio id="TTS-VC_full_ko_female_testengb2" controls preload="none">
+<source src="audio/full_ko_female_vc_testengb2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_male_testengb2'))">Full</br>ko_male</div>
+<audio id="TTS-VC_full_ko_male_testengb2" controls preload="none">
+<source src="audio/full_ko_male_vc_testengb2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_female_testengb2'))">Limited</br>en-US_female</div>
+<audio id="TTS-VC_lim_en-US_female_testengb2" controls preload="none">
+<source src="audio/lim_en-US_female_vc_testengb2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_male_testengb2'))">Limited</br>en-US_male</div>
+<audio id="TTS-VC_lim_en-US_male_testengb2" controls preload="none">
+<source src="audio/lim_en-US_male_vc_testengb2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_female_testengb2'))">Limited</br>ko_female</div>
+<audio id="TTS-VC_lim_ko_female_testengb2" controls preload="none">
+<source src="audio/lim_ko_female_vc_testengb2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_male_testengb2'))">Limited</br>ko_male</div>
+<audio id="TTS-VC_lim_ko_male_testengb2" controls preload="none">
+<source src="audio/lim_ko_male_vc_testengb2.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">I support love in general but those terms don't really apply to me.</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_female_testengb3'))">Full</br>en-US_female</div>
+<audio id="TTS_full_en-US_female_testengb3" controls preload="none">
+<source src="audio/full_en-US_female_testengb3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_male_testengb3'))">Full</br>en-US_male</div>
+<audio id="TTS_full_en-US_male_testengb3" controls preload="none">
+<source src="audio/full_en-US_male_testengb3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_female_testengb3'))">Full</br>ko_female</div>
+<audio id="TTS_full_ko_female_testengb3" controls preload="none">
+<source src="audio/full_ko_female_testengb3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_male_testengb3'))">Full</br>ko_male</div>
+<audio id="TTS_full_ko_male_testengb3" controls preload="none">
+<source src="audio/full_ko_male_testengb3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_female_testengb3'))">Limited</br>en-US_female</div>
+<audio id="TTS_lim_en-US_female_testengb3" controls preload="none">
+<source src="audio/lim_en-US_female_testengb3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_male_testengb3'))">Limited</br>en-US_male</div>
+<audio id="TTS_lim_en-US_male_testengb3" controls preload="none">
+<source src="audio/lim_en-US_male_testengb3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_female_testengb3'))">Limited</br>ko_female</div>
+<audio id="TTS_lim_ko_female_testengb3" controls preload="none">
+<source src="audio/lim_ko_female_testengb3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_male_testengb3'))">Limited</br>ko_male</div>
+<audio id="TTS_lim_ko_male_testengb3" controls preload="none">
+<source src="audio/lim_ko_male_testengb3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS-VC</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_female_testengb3'))">Full</br>en-US_female</div>
+<audio id="TTS-VC_full_en-US_female_testengb3" controls preload="none">
+<source src="audio/full_en-US_female_vc_testengb3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_male_testengb3'))">Full</br>en-US_male</div>
+<audio id="TTS-VC_full_en-US_male_testengb3" controls preload="none">
+<source src="audio/full_en-US_male_vc_testengb3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_female_testengb3'))">Full</br>ko_female</div>
+<audio id="TTS-VC_full_ko_female_testengb3" controls preload="none">
+<source src="audio/full_ko_female_vc_testengb3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_male_testengb3'))">Full</br>ko_male</div>
+<audio id="TTS-VC_full_ko_male_testengb3" controls preload="none">
+<source src="audio/full_ko_male_vc_testengb3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_female_testengb3'))">Limited</br>en-US_female</div>
+<audio id="TTS-VC_lim_en-US_female_testengb3" controls preload="none">
+<source src="audio/lim_en-US_female_vc_testengb3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_male_testengb3'))">Limited</br>en-US_male</div>
+<audio id="TTS-VC_lim_en-US_male_testengb3" controls preload="none">
+<source src="audio/lim_en-US_male_vc_testengb3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_female_testengb3'))">Limited</br>ko_female</div>
+<audio id="TTS-VC_lim_ko_female_testengb3" controls preload="none">
+<source src="audio/lim_ko_female_vc_testengb3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_male_testengb3'))">Limited</br>ko_male</div>
+<audio id="TTS-VC_lim_ko_male_testengb3" controls preload="none">
+<source src="audio/lim_ko_male_vc_testengb3.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
+<div class="sample">
+<div class="sample-title">
+<span class="quotation">&ldquo;</span>
+<div class="transcript">Let's just say I could totally see you on a fashion billboard!</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_female_testengb4'))">Full</br>en-US_female</div>
+<audio id="TTS_full_en-US_female_testengb4" controls preload="none">
+<source src="audio/full_en-US_female_testengb4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_en-US_male_testengb4'))">Full</br>en-US_male</div>
+<audio id="TTS_full_en-US_male_testengb4" controls preload="none">
+<source src="audio/full_en-US_male_testengb4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_female_testengb4'))">Full</br>ko_female</div>
+<audio id="TTS_full_ko_female_testengb4" controls preload="none">
+<source src="audio/full_ko_female_testengb4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_full_ko_male_testengb4'))">Full</br>ko_male</div>
+<audio id="TTS_full_ko_male_testengb4" controls preload="none">
+<source src="audio/full_ko_male_testengb4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_female_testengb4'))">Limited</br>en-US_female</div>
+<audio id="TTS_lim_en-US_female_testengb4" controls preload="none">
+<source src="audio/lim_en-US_female_testengb4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_en-US_male_testengb4'))">Limited</br>en-US_male</div>
+<audio id="TTS_lim_en-US_male_testengb4" controls preload="none">
+<source src="audio/lim_en-US_male_testengb4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_female_testengb4'))">Limited</br>ko_female</div>
+<audio id="TTS_lim_ko_female_testengb4" controls preload="none">
+<source src="audio/lim_ko_female_testengb4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS_lim_ko_male_testengb4'))">Limited</br>ko_male</div>
+<audio id="TTS_lim_ko_male_testengb4" controls preload="none">
+<source src="audio/lim_ko_male_testengb4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+<div class="mod-container">
+<div class="sample-audio">
+<div class="invisible axis">TTS-VC</div>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_female_testengb4'))">Full</br>en-US_female</div>
+<audio id="TTS-VC_full_en-US_female_testengb4" controls preload="none">
+<source src="audio/full_en-US_female_vc_testengb4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_en-US_male_testengb4'))">Full</br>en-US_male</div>
+<audio id="TTS-VC_full_en-US_male_testengb4" controls preload="none">
+<source src="audio/full_en-US_male_vc_testengb4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_female_testengb4'))">Full</br>ko_female</div>
+<audio id="TTS-VC_full_ko_female_testengb4" controls preload="none">
+<source src="audio/full_ko_female_vc_testengb4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_full_ko_male_testengb4'))">Full</br>ko_male</div>
+<audio id="TTS-VC_full_ko_male_testengb4" controls preload="none">
+<source src="audio/full_ko_male_vc_testengb4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_female_testengb4'))">Limited</br>en-US_female</div>
+<audio id="TTS-VC_lim_en-US_female_testengb4" controls preload="none">
+<source src="audio/lim_en-US_female_vc_testengb4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_en-US_male_testengb4'))">Limited</br>en-US_male</div>
+<audio id="TTS-VC_lim_en-US_male_testengb4" controls preload="none">
+<source src="audio/lim_en-US_male_vc_testengb4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_female_testengb4'))">Limited</br>ko_female</div>
+<audio id="TTS-VC_lim_ko_female_testengb4" controls preload="none">
+<source src="audio/lim_ko_female_vc_testengb4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+<div class="sample-audio">
+<div class="gt speaker" onclick="togglePlay(document.getElementById('TTS-VC_lim_ko_male_testengb4'))">Limited</br>ko_male</div>
+<audio id="TTS-VC_lim_ko_male_testengb4" controls preload="none">
+<source src="audio/lim_ko_male_vc_testengb4.wav" type="audio/wav">
+Your browser does not support the audio element.
+</audio>
+</div>
+</div>
+</div>
 </body>
 </html>
