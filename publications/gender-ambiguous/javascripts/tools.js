@@ -3,6 +3,7 @@
 //---------------------------------------------------------------------------------------------------
 const product = (param_name1, param_values1, arr) => param_values1.map((v1) => arr.map((obj) => ({ [param_name1]: v1, ...obj }))).flat();
 
+/*
 $(document).on("click", ".audio", (ev) => {
 	let el = $(ev.target);
 	// let src = el.attr('src');
@@ -25,6 +26,26 @@ function params_to_wav(experiment_config, param_values) {
 
 	return mustache.render(template, param_values);
 }
+*/
+
+$(document).on("click", ".audio", (ev) => {
+	let el = $(ev.target);
+
+	// let expid = el.attr("experiment-id");
+	// let experiment_config = experiment_config_all[expid];
+
+	// let param_values = experiment_config.params.reduce((acc, p) => ({ ...acc, [p]: el.attr(`data-param-${p}`) }), {});
+
+	let p = {
+		lang: el.attr("experiment-id"),
+		speaker: el.attr("data-param-speaker"),
+		utterance: el.attr("data-param-utterance"),
+	};
+	let src = `./data/${lang_to_subfolder[p.lang]}/${p.speaker in speaker_to_subfolder ? speaker_to_subfolder[p.speaker] : p.speaker}/${p.utterance}_${
+		p.speaker in speaker_to_subfolder ? speaker_to_subfolder[p.speaker] : p.speaker
+	}.wav`;
+	play_audio(src);
+});
 
 function find_changed_row_params(experiment_config, params1, params2) {
 	let params = experiment_config.params_rows.slice().reverse();

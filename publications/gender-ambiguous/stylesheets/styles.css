@@ -204,12 +204,14 @@ select {
 	background-color: lightgray;
 	padding: 0 0.5em;
 	margin: 0 1px;
+	white-space: nowrap;
 }
 
 table.samples {
 	position: relative;
 	z-index: 1;
 	border-collapse: separate;
+	width: 75%;
 }
 
 .svg-container {

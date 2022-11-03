@@ -1,10 +1,6 @@
 <html>
 
 <head>
-	<!-- <meta http-equiv="Access-Control-Allow-Origin" content="*" /> -->
-
-	<!-- <base href="/pages/listening-tests/"> -->
-
 	<link rel="stylesheet" type="text/css" href="stylesheets/tippy.css">
 
 	<script type="text/javascript" src="javascripts/dependencies/jquery-3.2.1.min.js"></script>
@@ -91,54 +87,66 @@
 			`),
 			}
 
-			const n_utts = lang_to_uttids[Object.keys(lang_to_uttids)[0]].length;
-
-			experiment_config_all = {
-				"en-US": {
-					wav_path_mapper: (p) => `./data/samples_page_us/${p.speaker in speaker_to_subfolder ? speaker_to_subfolder[p.speaker] : p.speaker}/${p.utterance}_${p.speaker in speaker_to_subfolder ? speaker_to_subfolder[p.speaker] : p.speaker}.wav`,
-					params: ["speaker", "utterance"],
-					params_rows: ["utterance"],
-					params_cols: ["speaker"],
-					param_values: {
-						speaker: lang_to_speakers['en-US'],
-						utterance: lang_to_uttids['en-US']
-					}
-				},
-				"ko": {
-					wav_path_mapper: (p) => `./data/samples_page_ko/${p.speaker in speaker_to_subfolder ? speaker_to_subfolder[p.speaker] : p.speaker}/${p.utterance}_${p.speaker in speaker_to_subfolder ? speaker_to_subfolder[p.speaker] : p.speaker}.wav`,
-					params: ["speaker", "utterance"],
-					params_rows: ["utterance"],
-					params_cols: ["speaker"],
-					param_values: {
-						speaker: lang_to_speakers['ko'],
-						utterance: lang_to_uttids['ko']
-					}
-				},
-			}
-
-			Object.keys(experiment_config_all).forEach((lang) => {
-				let experiment_config = experiment_config_all[lang]
-
-				// Sort out which param to use for rows/cols and which will be fixed (i.e. appear in dropboxes)
-				experiment_config.params_fixed = experiment_config.params_fixed || [];
-				experiment_config.params_rows = experiment_config.params_rows || [];
-				experiment_config.params_cols = experiment_config.params_cols || [];
-
-				if (experiment_config.params_cols.length == 0)
-					experiment_config.params_cols = array_diff(array_diff(experiment_config.params, experiment_config.params_fixed), experiment_config.params_rows).slice(-1);
-				if (experiment_config.params_rows.length == 0)
-					experiment_config.params_rows = array_diff(array_diff(experiment_config.params, experiment_config.params_fixed), experiment_config.params_cols).slice(-1);
-				experiment_config.params_fixed = array_diff(array_diff(experiment_config.params, experiment_config.params_rows), experiment_config.params_cols);
-
-				experiment_config_all[lang] = experiment_config
-			})
 
 			$(".samples-container").each((idx, el) => {
 				let $el = $(el);
 				let expid = $el.attr("experiment-id");
-				// console.log(expid);
-				render_page_dropdown_2d(expid, experiment_config_all[expid], $el);
+				// render_page_dropdown_2d(expid, experiment_config_all[expid], $el);
+
+				let lang = expid
+
+				let html = `
+					<div class="section">
+						<div class="dropdown_2d__table container" style="">
+							<table class="samples">
+								<tbody>
+									<tr>
+										<th style="text-align: left; vertical-align: bottom;">
+											<span class="param_name" style="margin-left: 0em;">utterance <span class="arrow">↓</span></span>
+										</th>
+										` + lang_to_speakers[lang].map(spk => `<th class="col-header">${spk}</th>`).join('\n') + `
+										<th style="text-align: left;"><span class="param_name"><span class="arrow">←</span> speaker</span>
+										</th>
+									</tr>
+									` +
+
+					lang_to_uttids[lang].map(utt =>
+						`<tr>
+											<th rowspan="2" class="row-header deepest" data-level="0" style="vertical-align: top; font-weight: bold; text-align: revert;">${utt}</th>
+											<td colspan="${lang_to_speakers[lang].length}" style="text-align:left">${lang_to_corpus[lang][utt]}</td>
+											</tr>
+											<tr>
+											` +
+						lang_to_speakers[lang].map(spk =>
+							`<td>
+													<span 
+														class="audio"
+														data-param-speaker="${spk}"
+														data-param-utterance="${utt}"
+														experiment-id="${lang}"
+														title="<div style='text-align: left'><b>speaker</b>: ${spk}<br><b>utterance</b>: ${utt}</div>"
+													>▶</span>
+												</td>`
+						).join('\n')
+						+ `
+										</tr>`
+					).join('\n')
+
+					+ `
+
+								</tbody>
+							</table>
+						</div>
+					</div>`
+
+
+				// $('#page').append(html)
+				$(el).append(html)
 			});
+
+			tippy("[title]");
+
+
 
 		})
 	</script>
@@ -159,6 +167,7 @@
 					<author>Georgia Maniati<sup>⋆<b title="Equal contribution" style="cursor: hand">1</b></sup></author>
 					,
 					<author>Georgios Vamvoukakis<sup>⋆</sup></author>,
+					<author>Nikolaos Ellinas<sup>⋆</sup></author>,
 					<author>Karolos Nikitaras<sup>⋆</sup></author>,
 					<author>Konstantinos Klapsas<sup>⋆</sup></author>,
 					<author>Georgios Vardaxoglou<sup>⋆</sup></author>,
