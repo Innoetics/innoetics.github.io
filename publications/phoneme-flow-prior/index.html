@@ -4,6 +4,12 @@
 <head>
   <title>Innoetics</title>
   <style>
+
+    table, th, td {
+      /* border:1px solid black; */
+      text-align: center;
+    }
+
     .container {
       padding: 12px 24px;
       overflow: scroll;
@@ -26,12 +32,12 @@
       background-color: rgb(250, 250, 255);
     }
 
+
     .tooltip {
       position: relative;
       display: inline-block;
       cursor: pointer;
     }
-
 
     .tooltip .tooltiptext {
       visibility: hidden;
@@ -70,6 +76,7 @@
       font-size: 22px;
       margin: 8px 0;
       display: inline-flex;
+      margin-top: 20px;
     }
 
     .sample-description {
@@ -112,13 +119,14 @@
     }
 
     .r-number {
-      width: 24px;
+      /* width: 24px; */
       text-align: center;
       margin-right: 8px;
       background-color: rgb(231, 239, 253);
       border-radius: 25px;
       padding: 10px;
       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      margin-top: 10px;
     }
 
     .r-number:hover {
@@ -144,13 +152,15 @@
     }
 
     .gt {
-      width: 109px;
+      min-width: 40px;
       text-align: center;
       margin-right: 0px;
-      background-color: rgb(231, 239, 253);
+      /* background-color: 'C8C8FD'; */
+      background-color: rgb(200, 200, 253);
       border-radius: 25px;
       padding: 10px;
       box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+      /* margin-bottom: 10px; */
     }
 
     .gt:hover {
@@ -223,6 +233,7 @@
 <body class="container">
   <script >
     function togglePlay(el) {
+        console.log(el)
       if (!el.paused) {
         el.pause()
       }
@@ -241,6 +252,7 @@
       target.parentElement.nextElementSibling.style.display =  currentDisplayAttrValue == 'none' ? 'block' : 'none';
     };
   </script>
+  
   <div class="head-container">
     <h1 style="text-align: center;">Predicting phoneme-level prosody latents using AR and flow-based Prior Networks for expressive speech synthesis</h1>
     <p style="text-align: center;font-size: 20px;">
@@ -255,5 +267,657 @@
       </p>
     <p style="text-align: left;font-size: 18px;"><strong>Abstract:</strong>A large part of the expressive speech synthesis literature focuses on learning prosodic representations of the speech signal which are then modeled by a prior distribution during inference. In this paper we compare different prior architectures at the task of predicting phoneme level prosodic representations extracted with an unsupervised FVAE model. We use both subjective and objective metrics to show that a normalizing flow based prior network can result in more expressive speech without a significant compromise in quality. Furthermore, we show that the synthesized speech has higher variability, for a given text, due to the nature of autoregressive flows.</p>
     </div>
+
+
+<a href="#title1" class="custom-a-href"><h2 style="text-align: left; margin-top: 30px" onclick="showSample(event)" id="title1">Model Architecture</h2></a>
+
+<div>
+<img src="full.png" style="width:100%" alt="Italian Trulli">
+
+</div>
+
+<a href="#title2" class="custom-a-href"><h2 style="text-align: left; margin-top: 30px" onclick="showSample(event)" id="title2">Prior Sampling</h2></a>
+<div>
+  
+
+
+  <div class="sample">
+    <div class="sample-title">
+    <span class="quotation">&ldquo;</span>
+    <div class="transcript">And what about the money that firms make by harvesting and selling your personal data?</div>
+    </div>
+    </br>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('dynamic_8__general_0002.wav'))">dvae<audio id="dynamic_8__general_0002.wav" controls preload="none">
+    <source src='audios/diff/sent_4/dynamic_8__general_0002.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('static_8__general_0002.wav'))">fvae<audio id="static_8__general_0002.wav" controls preload="none">
+    <source src='audios/diff/sent_4/static_8__general_0002.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flowprior_8_0.33__general_0002_0.wav'))">flow_std_0.33<audio id="flowprior_8_0.33__general_0002_0.wav" controls preload="none">
+    <source src='audios/diff/sent_4/flowprior_8_0.33__general_0002_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flowprior_8_0.5__general_0002_0.wav'))">flow_std_0.5<audio id="flowprior_8_0.5__general_0002_0.wav" controls preload="none">
+    <source src='audios/diff/sent_4/flowprior_8_0.5__general_0002_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flowprior_8_0.8__general_0002_0.wav'))">flow_std_0.8<audio id="flowprior_8_0.8__general_0002_0.wav" controls preload="none">
+    <source src='audios/diff/sent_4/flowprior_8_0.8__general_0002_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('nat_vits_dur_pred__general_0002_0.wav'))">nat_flow_durPred<audio id="nat_vits_dur_pred__general_0002_0.wav" controls preload="none">
+    <source src='audios/diff/sent_4/nat_vits_dur_pred__general_0002_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('vits__general_0002_0.wav'))">vits<audio id="vits__general_0002_0.wav" controls preload="none">
+    <source src='audios/diff/sent_4/vits__general_0002_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('nat__general_0002.wav'))">nat<audio id="nat__general_0002.wav" controls preload="none">
+    <source src='audios/diff/sent_4/nat__general_0002.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </div>
+    <div class="sample">
+    <div class="sample-title">
+    <span class="quotation">&ldquo;</span>
+    <div class="transcript">But the situation has changed.</div>
+    </div>
+    </br>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('dynamic_8__broadcast_2010_0002.wav'))">dvae<audio id="dynamic_8__broadcast_2010_0002.wav" controls preload="none">
+    <source src='audios/diff/sent_2/dynamic_8__broadcast_2010_0002.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('static_8__broadcast_2010_0002.wav'))">fvae<audio id="static_8__broadcast_2010_0002.wav" controls preload="none">
+    <source src='audios/diff/sent_2/static_8__broadcast_2010_0002.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flowprior_8_0.33__broadcast_2010_0002_0.wav'))">flow_std_0.33<audio id="flowprior_8_0.33__broadcast_2010_0002_0.wav" controls preload="none">
+    <source src='audios/diff/sent_2/flowprior_8_0.33__broadcast_2010_0002_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flowprior_8_0.5__broadcast_2010_0002_0.wav'))">flow_std_0.5<audio id="flowprior_8_0.5__broadcast_2010_0002_0.wav" controls preload="none">
+    <source src='audios/diff/sent_2/flowprior_8_0.5__broadcast_2010_0002_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flowprior_8_0.8__broadcast_2010_0002_0.wav'))">flow_std_0.8<audio id="flowprior_8_0.8__broadcast_2010_0002_0.wav" controls preload="none">
+    <source src='audios/diff/sent_2/flowprior_8_0.8__broadcast_2010_0002_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('nat_vits_dur_pred__broadcast_2010_0002_0.wav'))">nat_flow_durPred<audio id="nat_vits_dur_pred__broadcast_2010_0002_0.wav" controls preload="none">
+    <source src='audios/diff/sent_2/nat_vits_dur_pred__broadcast_2010_0002_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('vits__broadcast_2010_0002_0.wav'))">vits<audio id="vits__broadcast_2010_0002_0.wav" controls preload="none">
+    <source src='audios/diff/sent_2/vits__broadcast_2010_0002_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('nat__broadcast_2010_0002.wav'))">nat<audio id="nat__broadcast_2010_0002.wav" controls preload="none">
+    <source src='audios/diff/sent_2/nat__broadcast_2010_0002.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </div>
+    <div class="sample">
+    <div class="sample-title">
+    <span class="quotation">&ldquo;</span>
+    <div class="transcript">Alright, you'll need to tell me the unit you're converting to.</div>
+    </div>
+    </br>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('dynamic_8__general_0001.wav'))">dvae<audio id="dynamic_8__general_0001.wav" controls preload="none">
+    <source src='audios/diff/sent_3/dynamic_8__general_0001.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('static_8__general_0001.wav'))">fvae<audio id="static_8__general_0001.wav" controls preload="none">
+    <source src='audios/diff/sent_3/static_8__general_0001.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flowprior_8_0.33__general_0001_0.wav'))">flow_std_0.33<audio id="flowprior_8_0.33__general_0001_0.wav" controls preload="none">
+    <source src='audios/diff/sent_3/flowprior_8_0.33__general_0001_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flowprior_8_0.5__general_0001_0.wav'))">flow_std_0.5<audio id="flowprior_8_0.5__general_0001_0.wav" controls preload="none">
+    <source src='audios/diff/sent_3/flowprior_8_0.5__general_0001_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flowprior_8_0.8__general_0001_0.wav'))">flow_std_0.8<audio id="flowprior_8_0.8__general_0001_0.wav" controls preload="none">
+    <source src='audios/diff/sent_3/flowprior_8_0.8__general_0001_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('nat_vits_dur_pred__general_0001_0.wav'))">nat_flow_durPred<audio id="nat_vits_dur_pred__general_0001_0.wav" controls preload="none">
+    <source src='audios/diff/sent_3/nat_vits_dur_pred__general_0001_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('vits__general_0001_0.wav'))">vits<audio id="vits__general_0001_0.wav" controls preload="none">
+    <source src='audios/diff/sent_3/vits__general_0001_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('nat__general_0001.wav'))">nat<audio id="nat__general_0001.wav" controls preload="none">
+    <source src='audios/diff/sent_3/nat__general_0001.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </div>
+    <div class="sample">
+    <div class="sample-title">
+    <span class="quotation">&ldquo;</span>
+    <div class="transcript">He said he had retired from the ministry on account of his health.</div>
+    </div>
+    </br>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('dynamic_8__booksent_2012_0005.wav'))">dvae<audio id="dynamic_8__booksent_2012_0005.wav" controls preload="none">
+    <source src='audios/diff/sent_1/dynamic_8__booksent_2012_0005.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('static_8__booksent_2012_0005.wav'))">fvae<audio id="static_8__booksent_2012_0005.wav" controls preload="none">
+    <source src='audios/diff/sent_1/static_8__booksent_2012_0005.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flowprior_8_0.33__booksent_2012_0005_0.wav'))">flow_std_0.33<audio id="flowprior_8_0.33__booksent_2012_0005_0.wav" controls preload="none">
+    <source src='audios/diff/sent_1/flowprior_8_0.33__booksent_2012_0005_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flowprior_8_0.5__booksent_2012_0005_0.wav'))">flow_std_0.5<audio id="flowprior_8_0.5__booksent_2012_0005_0.wav" controls preload="none">
+    <source src='audios/diff/sent_1/flowprior_8_0.5__booksent_2012_0005_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flowprior_8_0.8__booksent_2012_0005_0.wav'))">flow_std_0.8<audio id="flowprior_8_0.8__booksent_2012_0005_0.wav" controls preload="none">
+    <source src='audios/diff/sent_1/flowprior_8_0.8__booksent_2012_0005_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('nat_vits_dur_pred__booksent_2012_0005_0.wav'))">nat_flow_durPred<audio id="nat_vits_dur_pred__booksent_2012_0005_0.wav" controls preload="none">
+    <source src='audios/diff/sent_1/nat_vits_dur_pred__booksent_2012_0005_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('vits__booksent_2012_0005_0.wav'))">vits<audio id="vits__booksent_2012_0005_0.wav" controls preload="none">
+    <source src='audios/diff/sent_1/vits__booksent_2012_0005_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('nat__booksent_2012_0005.wav'))">nat<audio id="nat__booksent_2012_0005.wav" controls preload="none">
+    <source src='audios/diff/sent_1/nat__booksent_2012_0005.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </div>
+    
+    
+    
+
+</div>    
+
+
+<a href="#title3" class="custom-a-href"><h2 style="text-align: left; margin-top: 30px" onclick="showSample(event)" id="title3">Multiple samples per text</h2></a>
+<div>
+    
+  
+  <div class="sample">
+    <div class="sample-title">
+    <span class="quotation">&ldquo;</span>
+    <div class="transcript">He said he had retired from the ministry on account of his health.</div>
+    </div>
+    </br>
+    <table>
+    <tr>
+    <td>sample #1</td>
+    <td>sample #2</td>
+    <td>sample #3</td>
+    </tr>
+    <tr>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('dvae_booksent_2012_0005_0.wav'))">dvae<audio id="dvae_booksent_2012_0005_0.wav" controls preload="none">
+    <source src='audios/one2many/dvae_8/booksent_2012_0005_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('dvae_booksent_2012_0005_1.wav'))">dvae<audio id="dvae_booksent_2012_0005_1.wav" controls preload="none">
+    <source src='audios/one2many/dvae_8/booksent_2012_0005_1.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('dvae_booksent_2012_0005_2.wav'))">dvae<audio id="dvae_booksent_2012_0005_2.wav" controls preload="none">
+    <source src='audios/one2many/dvae_8/booksent_2012_0005_2.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('fvae_booksent_2012_0005_0.wav'))">fvae<audio id="fvae_booksent_2012_0005_0.wav" controls preload="none">
+    <source src='audios/one2many/fvae_8/booksent_2012_0005_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('fvae_booksent_2012_0005_1.wav'))">fvae<audio id="fvae_booksent_2012_0005_1.wav" controls preload="none">
+    <source src='audios/one2many/fvae_8/booksent_2012_0005_1.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('fvae_booksent_2012_0005_2.wav'))">fvae<audio id="fvae_booksent_2012_0005_2.wav" controls preload="none">
+    <source src='audios/one2many/fvae_8/booksent_2012_0005_2.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.33_booksent_2012_0005_0.wav'))">flow_std_0.33<audio id="flow_std_0.33_booksent_2012_0005_0.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.33/booksent_2012_0005_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.33_booksent_2012_0005_1.wav'))">flow_std_0.33<audio id="flow_std_0.33_booksent_2012_0005_1.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.33/booksent_2012_0005_1.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.33_booksent_2012_0005_2.wav'))">flow_std_0.33<audio id="flow_std_0.33_booksent_2012_0005_2.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.33/booksent_2012_0005_2.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.5_booksent_2012_0005_0.wav'))">flow_std_0.5<audio id="flow_std_0.5_booksent_2012_0005_0.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.5/booksent_2012_0005_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.5_booksent_2012_0005_1.wav'))">flow_std_0.5<audio id="flow_std_0.5_booksent_2012_0005_1.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.5/booksent_2012_0005_1.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.5_booksent_2012_0005_2.wav'))">flow_std_0.5<audio id="flow_std_0.5_booksent_2012_0005_2.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.5/booksent_2012_0005_2.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.8_booksent_2012_0005_0.wav'))">flow_std_0.8<audio id="flow_std_0.8_booksent_2012_0005_0.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.8/booksent_2012_0005_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.8_booksent_2012_0005_1.wav'))">flow_std_0.8<audio id="flow_std_0.8_booksent_2012_0005_1.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.8/booksent_2012_0005_1.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.8_booksent_2012_0005_2.wav'))">flow_std_0.8<audio id="flow_std_0.8_booksent_2012_0005_2.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.8/booksent_2012_0005_2.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('nat_flow_durPred_booksent_2012_0005_0.wav'))">nat_flow_durPred<audio id="nat_flow_durPred_booksent_2012_0005_0.wav" controls preload="none">
+    <source src='audios/one2many/vits_dur/booksent_2012_0005_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('nat_flow_durPred_booksent_2012_0005_1.wav'))">nat_flow_durPred<audio id="nat_flow_durPred_booksent_2012_0005_1.wav" controls preload="none">
+    <source src='audios/one2many/vits_dur/booksent_2012_0005_1.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('nat_flow_durPred_booksent_2012_0005_2.wav'))">nat_flow_durPred<audio id="nat_flow_durPred_booksent_2012_0005_2.wav" controls preload="none">
+    <source src='audios/one2many/vits_dur/booksent_2012_0005_2.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('vits_booksent_2012_0005_0.wav'))">vits<audio id="vits_booksent_2012_0005_0.wav" controls preload="none">
+    <source src='audios/one2many/vits/booksent_2012_0005_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('vits_booksent_2012_0005_1.wav'))">vits<audio id="vits_booksent_2012_0005_1.wav" controls preload="none">
+    <source src='audios/one2many/vits/booksent_2012_0005_1.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('vits_booksent_2012_0005_2.wav'))">vits<audio id="vits_booksent_2012_0005_2.wav" controls preload="none">
+    <source src='audios/one2many/vits/booksent_2012_0005_2.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    </tr>
+    </table>
+    </div>
+    <div class="sample">
+    <div class="sample-title">
+    <span class="quotation">&ldquo;</span>
+    <div class="transcript">And what about the money that firms make by harvesting and selling your personal data?</div>
+    </div>
+    </br>
+    <table>
+    <tr>
+    <td>sample #1</td>
+    <td>sample #2</td>
+    <td>sample #3</td>
+    </tr>
+    <tr>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('dvae_general_0002_0.wav'))">dvae<audio id="dvae_general_0002_0.wav" controls preload="none">
+    <source src='audios/one2many/dvae_8/general_0002_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('dvae_general_0002_1.wav'))">dvae<audio id="dvae_general_0002_1.wav" controls preload="none">
+    <source src='audios/one2many/dvae_8/general_0002_1.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('dvae_general_0002_2.wav'))">dvae<audio id="dvae_general_0002_2.wav" controls preload="none">
+    <source src='audios/one2many/dvae_8/general_0002_2.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('fvae_general_0002_0.wav'))">fvae<audio id="fvae_general_0002_0.wav" controls preload="none">
+    <source src='audios/one2many/fvae_8/general_0002_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('fvae_general_0002_1.wav'))">fvae<audio id="fvae_general_0002_1.wav" controls preload="none">
+    <source src='audios/one2many/fvae_8/general_0002_1.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('fvae_general_0002_2.wav'))">fvae<audio id="fvae_general_0002_2.wav" controls preload="none">
+    <source src='audios/one2many/fvae_8/general_0002_2.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.33_general_0002_0.wav'))">flow_std_0.33<audio id="flow_std_0.33_general_0002_0.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.33/general_0002_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.33_general_0002_1.wav'))">flow_std_0.33<audio id="flow_std_0.33_general_0002_1.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.33/general_0002_1.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.33_general_0002_2.wav'))">flow_std_0.33<audio id="flow_std_0.33_general_0002_2.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.33/general_0002_2.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.5_general_0002_0.wav'))">flow_std_0.5<audio id="flow_std_0.5_general_0002_0.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.5/general_0002_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.5_general_0002_1.wav'))">flow_std_0.5<audio id="flow_std_0.5_general_0002_1.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.5/general_0002_1.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.5_general_0002_2.wav'))">flow_std_0.5<audio id="flow_std_0.5_general_0002_2.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.5/general_0002_2.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.8_general_0002_0.wav'))">flow_std_0.8<audio id="flow_std_0.8_general_0002_0.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.8/general_0002_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.8_general_0002_1.wav'))">flow_std_0.8<audio id="flow_std_0.8_general_0002_1.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.8/general_0002_1.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.8_general_0002_2.wav'))">flow_std_0.8<audio id="flow_std_0.8_general_0002_2.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.8/general_0002_2.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('nat_flow_durPred_general_0002_0.wav'))">nat_flow_durPred<audio id="nat_flow_durPred_general_0002_0.wav" controls preload="none">
+    <source src='audios/one2many/vits_dur/general_0002_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('nat_flow_durPred_general_0002_1.wav'))">nat_flow_durPred<audio id="nat_flow_durPred_general_0002_1.wav" controls preload="none">
+    <source src='audios/one2many/vits_dur/general_0002_1.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('nat_flow_durPred_general_0002_2.wav'))">nat_flow_durPred<audio id="nat_flow_durPred_general_0002_2.wav" controls preload="none">
+    <source src='audios/one2many/vits_dur/general_0002_2.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('vits_general_0002_0.wav'))">vits<audio id="vits_general_0002_0.wav" controls preload="none">
+    <source src='audios/one2many/vits/general_0002_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('vits_general_0002_1.wav'))">vits<audio id="vits_general_0002_1.wav" controls preload="none">
+    <source src='audios/one2many/vits/general_0002_1.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('vits_general_0002_2.wav'))">vits<audio id="vits_general_0002_2.wav" controls preload="none">
+    <source src='audios/one2many/vits/general_0002_2.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    </tr>
+    </table>
+    </div>
+    <div class="sample">
+    <div class="sample-title">
+    <span class="quotation">&ldquo;</span>
+    <div class="transcript">If there are hints of a cooler economy, Wall Street could breathe at least a temporary sigh of relief.</div>
+    </div>
+    </br>
+    <table>
+    <tr>
+    <td>sample #1</td>
+    <td>sample #2</td>
+    <td>sample #3</td>
+    </tr>
+    <tr>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('dvae_news_2007_0001_0.wav'))">dvae<audio id="dvae_news_2007_0001_0.wav" controls preload="none">
+    <source src='audios/one2many/dvae_8/news_2007_0001_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('dvae_news_2007_0001_1.wav'))">dvae<audio id="dvae_news_2007_0001_1.wav" controls preload="none">
+    <source src='audios/one2many/dvae_8/news_2007_0001_1.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('dvae_news_2007_0001_2.wav'))">dvae<audio id="dvae_news_2007_0001_2.wav" controls preload="none">
+    <source src='audios/one2many/dvae_8/news_2007_0001_2.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('fvae_news_2007_0001_0.wav'))">fvae<audio id="fvae_news_2007_0001_0.wav" controls preload="none">
+    <source src='audios/one2many/fvae_8/news_2007_0001_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('fvae_news_2007_0001_1.wav'))">fvae<audio id="fvae_news_2007_0001_1.wav" controls preload="none">
+    <source src='audios/one2many/fvae_8/news_2007_0001_1.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('fvae_news_2007_0001_2.wav'))">fvae<audio id="fvae_news_2007_0001_2.wav" controls preload="none">
+    <source src='audios/one2many/fvae_8/news_2007_0001_2.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.33_news_2007_0001_0.wav'))">flow_std_0.33<audio id="flow_std_0.33_news_2007_0001_0.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.33/news_2007_0001_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.33_news_2007_0001_1.wav'))">flow_std_0.33<audio id="flow_std_0.33_news_2007_0001_1.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.33/news_2007_0001_1.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.33_news_2007_0001_2.wav'))">flow_std_0.33<audio id="flow_std_0.33_news_2007_0001_2.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.33/news_2007_0001_2.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.5_news_2007_0001_0.wav'))">flow_std_0.5<audio id="flow_std_0.5_news_2007_0001_0.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.5/news_2007_0001_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.5_news_2007_0001_1.wav'))">flow_std_0.5<audio id="flow_std_0.5_news_2007_0001_1.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.5/news_2007_0001_1.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.5_news_2007_0001_2.wav'))">flow_std_0.5<audio id="flow_std_0.5_news_2007_0001_2.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.5/news_2007_0001_2.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.8_news_2007_0001_0.wav'))">flow_std_0.8<audio id="flow_std_0.8_news_2007_0001_0.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.8/news_2007_0001_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.8_news_2007_0001_1.wav'))">flow_std_0.8<audio id="flow_std_0.8_news_2007_0001_1.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.8/news_2007_0001_1.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('flow_std_0.8_news_2007_0001_2.wav'))">flow_std_0.8<audio id="flow_std_0.8_news_2007_0001_2.wav" controls preload="none">
+    <source src='audios/one2many/flow_8_0.8/news_2007_0001_2.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('nat_flow_durPred_news_2007_0001_0.wav'))">nat_flow_durPred<audio id="nat_flow_durPred_news_2007_0001_0.wav" controls preload="none">
+    <source src='audios/one2many/vits_dur/news_2007_0001_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('nat_flow_durPred_news_2007_0001_1.wav'))">nat_flow_durPred<audio id="nat_flow_durPred_news_2007_0001_1.wav" controls preload="none">
+    <source src='audios/one2many/vits_dur/news_2007_0001_1.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('nat_flow_durPred_news_2007_0001_2.wav'))">nat_flow_durPred<audio id="nat_flow_durPred_news_2007_0001_2.wav" controls preload="none">
+    <source src='audios/one2many/vits_dur/news_2007_0001_2.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('vits_news_2007_0001_0.wav'))">vits<audio id="vits_news_2007_0001_0.wav" controls preload="none">
+    <source src='audios/one2many/vits/news_2007_0001_0.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('vits_news_2007_0001_1.wav'))">vits<audio id="vits_news_2007_0001_1.wav" controls preload="none">
+    <source src='audios/one2many/vits/news_2007_0001_1.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    <td>
+    <div class="r-number" style="display: inline-block" onclick="togglePlay(document.getElementById('vits_news_2007_0001_2.wav'))">vits<audio id="vits_news_2007_0001_2.wav" controls preload="none">
+    <source src='audios/one2many/vits/news_2007_0001_2.wav' type='audio/wav'>Your browser does not support the audio tag.
+    </audio>
+    </div>
+    </td>
+    </tr>
+    </table>
+    </div>
+    
+    
+    
+
+
+</div>
+        
+
+
 </body>
 </html>
