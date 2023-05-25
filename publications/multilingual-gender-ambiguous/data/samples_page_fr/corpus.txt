@@ -1,0 +1,10 @@
+00002	#	Dans quelle langue veux-tu traduire ?
+00016	#	Je n'ai rien trouvé avec tes critères de recherche pour aujourd'hui.
+00084	#	Personne n'appelle actuellement.
+00104	#	Peut-être que tu devrais en parler à un médecin.
+00132	#	Pour faire ça, tu dois d'abord déverrouiller l'appareil.
+wiki_00107	#	Il est difficile d'observer les pathologies de ces grands animaux.
+wiki_00428	#	Un total de 87 nations ont participé aux championnat du monde de 2011.
+wiki_00537	#	À part le nom, il n'existe aucun lien entre le nouveau et l'ancien journal.
+wiki_00680	#	Leur particularité provient de leur relatif isolement géographique.
+wiki_00681	#	En 1931 elle obtient un doctorat. 
