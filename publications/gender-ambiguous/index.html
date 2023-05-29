@@ -1,6 +1,7 @@
 <html>
 
 <head>
+	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="stylesheets/tippy.css">
 
 	<script type="text/javascript" src="javascripts/dependencies/jquery-3.2.1.min.js"></script>
@@ -12,18 +13,27 @@
 	<script type="text/javascript">
 		let experiment_config_all = {}
 		const lang_to_uttids = {
-			"en-US": ["0042", "0304", "0417", "0425", "0580", "0598", "0617", "0688", "0738", "0773", "0877", "1169", "1173", "1306", "1321", "1336", "1358", "1363", "1366", "1560"],
-			ko: ["0010", "0044", "0049", "0050", "0075", "0076", "0078", "0080", "0083", "0084", "0085", "0087", "0088", "0090", "0091", "0092", "0093", "0094", "0095", "0096"],
+			"en-US": ["0417", "0617", "0738", "0877", "1194", "1366", "1978", "3524", "5492", "9904"],
+			"ko": ["0010", "0049", "0075", "0080", "0083", "top200k_113743", "top200k_114600", "top200k_114407", "top200k_122912", "top200k_122512"],
+			"de": ["00019", "00091", "00173", "00215", "00243", "wiki_07426", "wiki_14066", "wiki_49834", "wiki_49846", "wiki_49901"],
+			"fr": ["00002", "00016", "00084", "00104", "00132", "wiki_00107", "wiki_00428", "wiki_00537", "wiki_00680", "wiki_00681"],
+			"es": ["00006", "00018", "00020", "00058", "00090", "00296", "wiki_07821", "wiki_12414", "wiki_49638", "wiki_49652", "wiki_49715"],
 		};
 
 		const lang_to_subfolder = {
 			"en-US": "samples_page_us",
-			ko: "samples_page_ko",
+			"ko": "samples_page_ko",
+			"de": "samples_page_de",
+			"fr": "samples_page_fr",
+			"es": "samples_page_es",
 		};
 
 		const lang_to_speakers = {
-			"en-US": ["baseline", "emb_2", "emb_7", "emb_8", "emb_11", "emb_16",],
-			"ko": ["baseline", "emb_1", "emb_6", "emb_7", "emb_15",],
+			"en-US": ["baseline", "emb_1", "emb_3", "emb_5", "emb_7", "emb_9", "emb_11", "emb_13", "emb_15", "emb_17", "emb_19",],
+			"ko": ["baseline", "emb_1", "emb_3", "emb_5", "emb_7", "emb_9", "emb_11", "emb_13", "emb_15", "emb_17", "emb_19",],
+			"de": ["baseline", "emb_1", "emb_3", "emb_5", "emb_7", "emb_9", "emb_11", "emb_13", "emb_15", "emb_17", "emb_19",],
+			"fr": ["baseline", "emb_1", "emb_3", "emb_5", "emb_7", "emb_9", "emb_11", "emb_13", "emb_15", "emb_17", "emb_19",],
+			"es": ["baseline", "emb_1", "emb_3", "emb_5", "emb_7", "emb_9", "emb_11", "emb_13", "emb_15", "emb_17", "emb_19",],
 		}
 
 		const speaker_to_subfolder = {
@@ -42,48 +52,73 @@
 
 			const lang_to_corpus = {
 				"en-US": text_2_corpus(`
-				0042	#	I love reading all the food blogs online.
-				0304	#	Elvis Presley died on August 16, 1977.
-				0417	#	Support for your device should be available soon. 
-				0425	#	Unable to connect to mobile. Please check bluetooth status of your mobile.
-				0580	#	We're so good as regular friends, let's not mess with perfection.
-				0598	#	In New York City, New York, U.S.A, it's 4 AM.!
-				0617	#	Today, there is a 0% chance of thunderstorms.
-				0688	#	Thousands of Facebook ads bought by Russians to fool US voters.
+				0417	#	Support for your device should be available soon.
+				0617	#	Today there is a 0% chance of thunderstorms.
 				0738	#	I could never pick a favorite color.
-				0773	#	A solar eclipse occurs when the Moon passes between Earth and the Sun, thereby totally or partly obscuring the image of the Sun for a viewer on Earth.
 				0877	#	The Sun is the star at the center of the Solar System.
-				1169	#	Your safety is my top priority. 
-				1173	#	25 days to go till November 4, 2019.
-				1306	#	Another way to track road traffic would be GPS navigation systems.
-				1321	#	Emergency supplies of bottled water were delivered to hospitals.
-				1336	#	If people are stuck with it then that is not very optimistic.
-				1358	#	She then used this to get the food, we were somewhat surprised.
-				1363	#	The couple met through mutual friends more than a year ago.
+				1194	#	In Denver, Colorado, the rainfall today is 0 inches.
 				1366	#	The legislation would revamp the way health insurance works.
-				1560	#	According to Wikipedia: Google Search, commonly referred to as Google Web Search or simply Google, is a web search engine developed by Google.
+				1978	#	Driving through traffic to San Francisco Internatonal Airport takes 52 minutes.
+				3524	#	He joined caving and diving clubs at university.
+				5492	#	Athletes will be gathered there from all over the planet.
+				9904	#	We are defending the concept of authentic chocolate.
+
 			`),
 				"ko": text_2_corpus(`
 				0010	#	이미 색상조정 기능이 켜져 있어요.
-				0044	#	생애 최초 내 집 장만 나이 평균 43.3세
 				0049	#	윤석열 청문회 열리면 황교안 의혹 쏟아질 것
-				0050	#	한국당은 국회가 뷔페식당이냐 골라 먹게
 				0075	#	2015년 현재 6기의 상업용 원자로가 가동중이다.
-				0076	#	비무장 지대는 전쟁, 분쟁 상태 혹은 정전 상태에 있는 둘 이상의 국가 또는 군사 세력, 동맹 사이에 평화 조약, 휴전 협정 등에 의해서 설치된 군사 활동이 허용되지 않는 지역이다.
-				0078	#	런던 스탠스테드 공항은 영국의 수도인 런던에서 히스로 공항, 개트윅 공항 다음으로 세 번째로 큰 공항이다.
 				0080	#	5세대 이동 통신은 2018년 부터 채용되는 무선 네트워크 기술이다.
 				0083	#	대한민국에서 유일하게 내국인이 출입 가능한 카지노를 운영하고 있다.
-				0084	#	아랍에미리트 연합국은 서남아시아의 아라비아 반도 남동부에 페르시아만을 끼고 있는 나라로, 7개 토후국으로 이루어진 연방 국가이다.
-				0085	#	사우디아라비아, 오만과 국경을 접한다.
-				0087	#	하루는 강에 나갔다가, 어부에게 잡힌 잉어를 봤습니다.
-				0088	#	마음 착한 할머니는 돈을 털어 잉어를 산 뒤 강에 놓아 주었습니다.
-				0090	#	살려주신 은혜로 이 용궁구슬을 드릴께요.
-				0091	#	옛날 어느 산골에 사이좋은 오누이가 어머니와 함께 살고 있었어요.
-				0092	#	하루는 어머니가 고개넘어 부잣집 잔치를 도와주러 가게 되었지요.
-				0093	#	어머니는 오누이에게 몇번씩 당부를 하고 집을 나섰어요.
-				0094	#	일을 마친 엄마는 남은 떡을 들고 집으로 돌아가려 했어요.
-				0095	#	첫째 고개를 막 넘으려고 할 때였어요.
-				0096	#	갑자기 엄마 앞에 사나운 호랑이가 떡 하니 나타난 것이 아니겠어요?
+				top200k_113743	#	페르시아고양이는 고양이의 한 품종이다.
+				top200k_114600	#	욕구불만은 욕망이 어떤 장애에 의해 만족되지 않은 상태이다.
+				top200k_114407	#	일반적으로 책을 판매하는 곳이어서 책방이라고도 불린다.
+				top200k_122912	#	뜻밖의 보물을 찾게 될지도 몰라요.
+				top200k_122512	#	이번 주 인천시 부평구의 강수 확률입니다.
+
+			`),
+
+				"de": text_2_corpus(`
+				00019	#	Scheint ein entspannter Tag zu sein. 
+				00091	#	Das hab ich im Internet gefunden. 
+				00173	#	Merkwürdig, die meisten Menschen denken ständig darüber nach, was andere über sie denken, dabei ist es doch viel wichtiger, an sich selbst zu denken.
+				00215	#	Gerne, dein Radiosender läuft jetzt.
+				00243	#	Wo die Liebe hinfällt, kann niemand wirklich beeinflussen.
+				wiki_07426	#	Das Album und seine Vorgeschichte.
+				wiki_14066	#	Bei der Grand Fleet wurde die "Minotaur" Flaggschiff des 2.
+				wiki_49834	#	Die Auswertende Elektronik muss in der Lage sein, Muster wiederzuerkennen.
+				wiki_49846	#	Hey Jude ist ein Lied der Beatles, das am 26. 
+				wiki_49901	#	Zentral in der Gebirgsgruppe verläuft der fast 58 km lange Batura-Gletscher.
+
+			`),
+
+				"fr": text_2_corpus(`
+				00002	#	Dans quelle langue veux-tu traduire ?
+				00016	#	Je n'ai rien trouvé avec tes critères de recherche pour aujourd'hui.
+				00084	#	Personne n'appelle actuellement.
+				00104	#	Peut-être que tu devrais en parler à un médecin.
+				00132	#	Pour faire ça, tu dois d'abord déverrouiller l'appareil.
+				wiki_00107	#	Il est difficile d'observer les pathologies de ces grands animaux.
+				wiki_00428	#	Un total de 87 nations ont participé aux championnat du monde de 2011.
+				wiki_00537	#	À part le nom, il n'existe aucun lien entre le nouveau et l'ancien journal.
+				wiki_00680	#	Leur particularité provient de leur relatif isolement géographique.
+				wiki_00681	#	En 1931 elle obtient un doctorat. 
+
+			`),
+
+				"es": text_2_corpus(`
+				00006	#	Estaba imaginándome cómo será el futuro. 
+				00018	#	Esto es lo que he encontrado en internet. 
+				00020	#	La vida nos pone retos a veces. 
+				00058	#	Todavía no es compatible esa función. 
+				00090	#	¿Cómo se declara el acusado? 
+				00296	#	No conseguirás ser valiente cuando el miedo haya desaparecido, sino cuando lo hayas conquistado.
+				wiki_07821	#	La estación fue inaugurada el 5 de noviembre de 2009, comenzando a funcionar a las 15:00 horas.
+				wiki_12414	#	Canisteo es un pueblo ubicado en el condado de Steuben en el estado estadounidense de Nueva York.
+				wiki_49638	#	El panteísmo puede mostrar variantes.
+				wiki_49652	#	Los primeros europeos en llegar a las costas de Guinea fueron los portugueses.
+				wiki_49715	#	La pintura muestra diferentes acontecimientos en tres capas.
+
 			`),
 			}
 
@@ -160,7 +195,7 @@
 <body>
 	<div id="page">
 		<div id='page-head'>
-			<div class='title'>GENERATING GENDER-AMBIGUOUS TEXT-TO-SPEECH VOICES</div>
+			<div class='title'>GENERATING MULTILINGUAL GENDER-AMBIGUOUS TEXT-TO-SPEECH VOICES</div>
 			<p style="text-align: center"><i>
 					<author>Konstantinos Markopoulos<sup>⋆<b title="Equal contribution" style="cursor: hand">1</b></sup>
 					</author>,
@@ -168,11 +203,10 @@
 					,
 					<author>Georgios Vamvoukakis<sup>⋆</sup></author>,
 					<author>Nikolaos Ellinas<sup>⋆</sup></author>,
-					<author>Karolos Nikitaras<sup>⋆</sup></author>,
-					<author>Konstantinos Klapsas<sup>⋆</sup></author>,
 					<author>Georgios Vardaxoglou<sup>⋆</sup></author>,
 					<author>Panos Kakoulidis<sup>⋆</sup></author>,
-					<author>June Sig Sung<sup>†</sup></author>,
+					<author>Junkwang Oh<sup>†</sup></author>,
+					<author>Gunu Jho<sup>†</sup></author>,
 					<author>Inchul Hwang<sup>†</sup></author>,
 					<author>Aimilios Chalamandaris<sup>⋆</sup></author>,
 					<author>Pirros Tsiakoulis<sup>⋆</sup></author>,
@@ -186,39 +220,88 @@
 
 		<div class='paragraph'>
 			<div class="paragraph-title">ABSTRACT</div>
-			<p>The gender of a voice assistant or any voice user interface is a central element of its
-				perceived identity. While a female voice is a common choice, there is an increasing interest in
-				alternative approaches where the gender is ambiguous rather than clearly identifying as female or male.
-				This work
-				addresses the task of generating gender-ambiguous text-to-speech (TTS) voices that do not correspond to
-				any
-				existing person. This is accomplished by sampling from a latent speaker embeddings’ space that was
-				formed
-				while training a multilingual, multispeaker TTS system on data from multiple male and female speakers.
-				Various options are investigated regarding the sampling process.
-				<br>In our experiments, the effects of different sampling choices on the gender ambiguity and the
-				naturalness of the resulting voices are evaluated. The proposed method is shown able to efficiently
-				generate
-				novel speakers that are superior to a baseline averaged speaker embedding. To our knowledge, this is the
-				first systematic approach that can reliably generate a range of gender-ambiguous voices to meet diverse
-				user
-				requirements.
+			<p>The gender of any voice user interface is a key element of its perceived identity. Recently, there has
+				been increasing interest in interfaces where the gender is ambiguous rather than clearly identifying as
+				female or male. This work addresses the task of generating novel gender-ambiguous TTS voices in a
+				multi-speaker, multilingual setting. This is accomplished by efficiently sampling from a latent speaker
+				embedding space using a proposed gender-aware method. Extensive objective and subjective evaluations
+				clearly indicate that this method is able to efficiently generate a range of novel, diverse voices that
+				are consistent and perceived as more gender-ambiguous than a baseline voice across all the languages
+				examined. Interestingly, the gender perception is found to be robust across two demographic factors of
+				the listeners: native language and gender. To our knowledge, this is the first systematic and validated
+				approach that can reliably generate a variety of gender-ambiguous voices.
 			</p>
 		</div>
 
 		<div class="paragraph">
+			<div class="paragraph-title">Model</div>
+			<img class="resizeable-image" src="images/model.png" style="width: 50%" />
+		</div>
+
+		<div class="paragraph">
 			<div class="paragraph-title">Sampling</div>
-			<img class="resizeable-image" src="images/fig1.png" style="width: 20%" />
+			<img class="resizeable-image" src="images/pca.png" style="width: 20%" />
 		</div>
 
 		<div class="paragraph">
 			<div class="paragraph-title">Audio Samples</div>
+
 			<div class="paragraph-title-2">English</div>
-			<img src="images/table1.png" style="width: 30em; vertical-align: top;" />
+			<!--<img src="images/table1.png" style="width: 30em; vertical-align: top;" /> -->
 			<div class="samples-container" experiment-id="en-US" style="display: inline-block;"></div>
 			<div class="paragraph-title-2">Korean</div>
-			<img src="images/table2.png" style="width: 30em; vertical-align: top;" />
+			<!--<img src="images/table2.png" style="width: 30em; vertical-align: top;" /> -->
 			<div class="samples-container" experiment-id="ko" style="display: inline-block;"></div>
+			<div class="paragraph-title-2">German</div>
+			<!--<img src="images/table2.png" style="width: 30em; vertical-align: top;" /> -->
+			<div class="samples-container" experiment-id="de" style="display: inline-block;"></div>
+			<div class="paragraph-title-2">French</div>
+			<!--<img src="images/table2.png" style="width: 30em; vertical-align: top;" /> -->
+			<div class="samples-container" experiment-id="fr" style="display: inline-block;"></div>
+			<div class="paragraph-title-2">Spanish</div>
+			<!--<img src="images/table2.png" style="width: 30em; vertical-align: top;" /> -->
+			<div class="samples-container" experiment-id="es" style="display: inline-block;"></div>
+		</div>
+
+		<div class="paragraph">
+			<div class="paragraph-title">Results</div>
+
+			<div class="paragraph-title-2">Objective Evaluation</div>
+
+			<p>
+				Our experiments with d-vectors demonstrate that the generated voices diplay gender ambiguity, diversity,
+				as well as consistency for each embedding across samples and languages.
+			</p>
+
+			<img class="resizeable-image" src="images/consistency.png" style="width: 30%" />
+			<p style=”clear:left;”><img class="resizeable-image" src="images/utt-dists.png" style="width: 10%" />
+
+			<div class="paragraph-title-2">Subjective Evaluation</div>
+			<p>
+				Our subjective evaluation of gender perception showed that 5 generated voices are rated as more
+				gender-ambiguous (embeddings 13, 17, 5, 15, 3) than our baseline (emb_0), which is a simple averaging of
+				the embeddings of all ground truth speakers. Below we show a box plot of cross-lingual MOS results of
+				gender perception with 95% confidence intervals. Systems closer to the horizontal black line are
+				perceived as more gender ambiguous.
+			</p>
+			<img class="resizeable-image" src="images/gender-all.png" style="width: 65%" />
+			<p>
+				The complete cross-lingual results with listener demographics are reported in the table. Systems rated
+				closer to 3 are perceived as more gender ambiguous. The male speakers samples have been rated as 1,
+				while the female samples as 5.
+			</p>
+			<p style="clear:left;"><img src="images/gender-mos.PNG" style="width: 65em; vertical-align: top;" />
+			<p>
+				The relative ordering of generated voices from male to female is consistent across languages and
+				listeners' gender, with few differences that are not statistically significant:
+			</p>
+			<img src="images/order.png" style="width: 20em; vertical-align: top;" />
+
+			<p>
+				The most ambiguous voices display similar or better naturalness compared to the baseline. Below are
+				reported the naturalness MOS evaluation results with 95% confidece intervals:
+			</p>
+			<p style="clear:left;"><img src="images/naturalness-mos.PNG" style="width: 70em; vertical-align: top;" />
 		</div>
 
 	</div>

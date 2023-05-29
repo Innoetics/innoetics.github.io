@@ -1,0 +1,229 @@
+<html>
+
+<head>
+	<link rel="stylesheet" type="text/css" href="stylesheets/tippy.css">
+
+	<script type="text/javascript" src="javascripts/dependencies/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="javascripts/dependencies/json5.js"></script>
+	<script type="text/javascript" src="javascripts/dependencies/mustache.js"></script>
+
+	<script type="text/javascript" src="javascripts/dependencies/tippy.min.js"></script>
+
+	<script type="text/javascript">
+		let experiment_config_all = {}
+		const lang_to_uttids = {
+			"en-US": ["0042", "0304", "0417", "0425", "0580", "0598", "0617", "0688", "0738", "0773", "0877", "1169", "1173", "1306", "1321", "1336", "1358", "1363", "1366", "1560"],
+			ko: ["0010", "0044", "0049", "0050", "0075", "0076", "0078", "0080", "0083", "0084", "0085", "0087", "0088", "0090", "0091", "0092", "0093", "0094", "0095", "0096"],
+		};
+
+		const lang_to_subfolder = {
+			"en-US": "samples_page_us",
+			ko: "samples_page_ko",
+		};
+
+		const lang_to_speakers = {
+			"en-US": ["baseline", "emb_2", "emb_7", "emb_8", "emb_11", "emb_16",],
+			"ko": ["baseline", "emb_1", "emb_6", "emb_7", "emb_15",],
+		}
+
+		const speaker_to_subfolder = {
+			"baseline": "emb_0"
+		}
+
+		// const wav_path_mapper_all = (lang) => { return (p) => `data/${lang_to_subfolder[lang]}/${p.speaker}/${p.utterance}.wav` }
+
+		$(document).ready(() => {
+
+			const text_2_corpus = (txt) => txt.split("\n").map(line => line.trim()).filter((line) => line.length > 0).reduce((acc, cur) => {
+				acc[cur.split('#')[0].trim()] = cur.split('#').slice(-1)[0].trim()
+				return acc
+			}, {})
+			const array_diff = (a, b) => a.filter((v) => !b.includes(v));
+
+			const lang_to_corpus = {
+				"en-US": text_2_corpus(`
+				0042	#	I love reading all the food blogs online.
+				0304	#	Elvis Presley died on August 16, 1977.
+				0417	#	Support for your device should be available soon. 
+				0425	#	Unable to connect to mobile. Please check bluetooth status of your mobile.
+				0580	#	We're so good as regular friends, let's not mess with perfection.
+				0598	#	In New York City, New York, U.S.A, it's 4 AM.!
+				0617	#	Today, there is a 0% chance of thunderstorms.
+				0688	#	Thousands of Facebook ads bought by Russians to fool US voters.
+				0738	#	I could never pick a favorite color.
+				0773	#	A solar eclipse occurs when the Moon passes between Earth and the Sun, thereby totally or partly obscuring the image of the Sun for a viewer on Earth.
+				0877	#	The Sun is the star at the center of the Solar System.
+				1169	#	Your safety is my top priority. 
+				1173	#	25 days to go till November 4, 2019.
+				1306	#	Another way to track road traffic would be GPS navigation systems.
+				1321	#	Emergency supplies of bottled water were delivered to hospitals.
+				1336	#	If people are stuck with it then that is not very optimistic.
+				1358	#	She then used this to get the food, we were somewhat surprised.
+				1363	#	The couple met through mutual friends more than a year ago.
+				1366	#	The legislation would revamp the way health insurance works.
+				1560	#	According to Wikipedia: Google Search, commonly referred to as Google Web Search or simply Google, is a web search engine developed by Google.
+			`),
+				"ko": text_2_corpus(`
+				0010	#	이미 색상조정 기능이 켜져 있어요.
+				0044	#	생애 최초 내 집 장만 나이 평균 43.3세
+				0049	#	윤석열 청문회 열리면 황교안 의혹 쏟아질 것
+				0050	#	한국당은 국회가 뷔페식당이냐 골라 먹게
+				0075	#	2015년 현재 6기의 상업용 원자로가 가동중이다.
+				0076	#	비무장 지대는 전쟁, 분쟁 상태 혹은 정전 상태에 있는 둘 이상의 국가 또는 군사 세력, 동맹 사이에 평화 조약, 휴전 협정 등에 의해서 설치된 군사 활동이 허용되지 않는 지역이다.
+				0078	#	런던 스탠스테드 공항은 영국의 수도인 런던에서 히스로 공항, 개트윅 공항 다음으로 세 번째로 큰 공항이다.
+				0080	#	5세대 이동 통신은 2018년 부터 채용되는 무선 네트워크 기술이다.
+				0083	#	대한민국에서 유일하게 내국인이 출입 가능한 카지노를 운영하고 있다.
+				0084	#	아랍에미리트 연합국은 서남아시아의 아라비아 반도 남동부에 페르시아만을 끼고 있는 나라로, 7개 토후국으로 이루어진 연방 국가이다.
+				0085	#	사우디아라비아, 오만과 국경을 접한다.
+				0087	#	하루는 강에 나갔다가, 어부에게 잡힌 잉어를 봤습니다.
+				0088	#	마음 착한 할머니는 돈을 털어 잉어를 산 뒤 강에 놓아 주었습니다.
+				0090	#	살려주신 은혜로 이 용궁구슬을 드릴께요.
+				0091	#	옛날 어느 산골에 사이좋은 오누이가 어머니와 함께 살고 있었어요.
+				0092	#	하루는 어머니가 고개넘어 부잣집 잔치를 도와주러 가게 되었지요.
+				0093	#	어머니는 오누이에게 몇번씩 당부를 하고 집을 나섰어요.
+				0094	#	일을 마친 엄마는 남은 떡을 들고 집으로 돌아가려 했어요.
+				0095	#	첫째 고개를 막 넘으려고 할 때였어요.
+				0096	#	갑자기 엄마 앞에 사나운 호랑이가 떡 하니 나타난 것이 아니겠어요?
+			`),
+			}
+
+
+			$(".samples-container").each((idx, el) => {
+				let $el = $(el);
+				let expid = $el.attr("experiment-id");
+				// render_page_dropdown_2d(expid, experiment_config_all[expid], $el);
+
+				let lang = expid
+
+				let html = `
+					<div class="section">
+						<div class="dropdown_2d__table container" style="">
+							<table class="samples">
+								<tbody>
+									<tr>
+										<th style="text-align: left; vertical-align: bottom;">
+											<span class="param_name" style="margin-left: 0em;">utterance <span class="arrow">↓</span></span>
+										</th>
+										` + lang_to_speakers[lang].map(spk => `<th class="col-header">${spk}</th>`).join('\n') + `
+										<th style="text-align: left;"><span class="param_name"><span class="arrow">←</span> speaker</span>
+										</th>
+									</tr>
+									` +
+
+					lang_to_uttids[lang].map(utt =>
+						`<tr>
+											<th rowspan="2" class="row-header deepest" data-level="0" style="vertical-align: top; font-weight: bold; text-align: revert;">${utt}</th>
+											<td colspan="${lang_to_speakers[lang].length}" style="text-align:left">${lang_to_corpus[lang][utt]}</td>
+											</tr>
+											<tr>
+											` +
+						lang_to_speakers[lang].map(spk =>
+							`<td>
+													<span 
+														class="audio"
+														data-param-speaker="${spk}"
+														data-param-utterance="${utt}"
+														experiment-id="${lang}"
+														title="<div style='text-align: left'><b>speaker</b>: ${spk}<br><b>utterance</b>: ${utt}</div>"
+													>▶</span>
+												</td>`
+						).join('\n')
+						+ `
+										</tr>`
+					).join('\n')
+
+					+ `
+
+								</tbody>
+							</table>
+						</div>
+					</div>`
+
+
+				// $('#page').append(html)
+				$(el).append(html)
+			});
+
+			tippy("[title]");
+
+
+
+		})
+	</script>
+
+	<script type="text/javascript" src="javascripts/utils.js"></script>
+	<script type="text/javascript" src="javascripts/tools.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+</head>
+
+<body>
+	<div id="page">
+		<div id='page-head'>
+			<div class='title'>GENERATING GENDER-AMBIGUOUS TEXT-TO-SPEECH VOICES</div>
+			<p style="text-align: center"><i>
+					<author>Konstantinos Markopoulos<sup>⋆<b title="Equal contribution" style="cursor: hand">1</b></sup>
+					</author>,
+					<author>Georgia Maniati<sup>⋆<b title="Equal contribution" style="cursor: hand">1</b></sup></author>
+					,
+					<author>Georgios Vamvoukakis<sup>⋆</sup></author>,
+					<author>Nikolaos Ellinas<sup>⋆</sup></author>,
+					<author>Karolos Nikitaras<sup>⋆</sup></author>,
+					<author>Konstantinos Klapsas<sup>⋆</sup></author>,
+					<author>Georgios Vardaxoglou<sup>⋆</sup></author>,
+					<author>Panos Kakoulidis<sup>⋆</sup></author>,
+					<author>June Sig Sung<sup>†</sup></author>,
+					<author>Inchul Hwang<sup>†</sup></author>,
+					<author>Aimilios Chalamandaris<sup>⋆</sup></author>,
+					<author>Pirros Tsiakoulis<sup>⋆</sup></author>,
+					<author>Spyros Raptis<sup>⋆</sup></author>
+				</i>
+				<br>
+				<br><sup>⋆</sup> Innoetics, Samsung Electronics, Greece
+				<br><sup>†</sup> Mobile eXperience Business, Samsung Electronics, Republic of Korea
+			</p>
+		</div>
+
+		<div class='paragraph'>
+			<div class="paragraph-title">ABSTRACT</div>
+			<p>The gender of a voice assistant or any voice user interface is a central element of its
+				perceived identity. While a female voice is a common choice, there is an increasing interest in
+				alternative approaches where the gender is ambiguous rather than clearly identifying as female or male.
+				This work
+				addresses the task of generating gender-ambiguous text-to-speech (TTS) voices that do not correspond to
+				any
+				existing person. This is accomplished by sampling from a latent speaker embeddings’ space that was
+				formed
+				while training a multilingual, multispeaker TTS system on data from multiple male and female speakers.
+				Various options are investigated regarding the sampling process.
+				<br>In our experiments, the effects of different sampling choices on the gender ambiguity and the
+				naturalness of the resulting voices are evaluated. The proposed method is shown able to efficiently
+				generate
+				novel speakers that are superior to a baseline averaged speaker embedding. To our knowledge, this is the
+				first systematic approach that can reliably generate a range of gender-ambiguous voices to meet diverse
+				user
+				requirements.
+			</p>
+		</div>
+
+		<div class="paragraph">
+			<div class="paragraph-title">Sampling</div>
+			<img class="resizeable-image" src="images/fig1.png" style="width: 20%" />
+		</div>
+
+		<div class="paragraph">
+			<div class="paragraph-title">Audio Samples</div>
+			<div class="paragraph-title-2">English</div>
+			<img src="images/table1.png" style="width: 30em; vertical-align: top;" />
+			<div class="samples-container" experiment-id="en-US" style="display: inline-block;"></div>
+			<div class="paragraph-title-2">Korean</div>
+			<img src="images/table2.png" style="width: 30em; vertical-align: top;" />
+			<div class="samples-container" experiment-id="ko" style="display: inline-block;"></div>
+		</div>
+
+	</div>
+
+
+</body>
+
+</html>
