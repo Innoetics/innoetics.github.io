@@ -1,0 +1,558 @@
+<!doctype html>
+
+<html>
+
+
+
+<head>
+
+  <title>Innoetics</title>
+
+  <style>
+
+    .container {
+
+      padding: 12px 24px;
+
+      overflow: scroll;
+
+    }
+
+
+
+    .head-container {
+
+      /* border: 5px solid gray; */
+
+      border-radius: 25px;
+
+      /* border: 1px solid; */
+
+      border-color: rgba(0,0,0,0.2);
+
+      text-align: center;
+
+      padding: 16px;
+
+      margin: 0px 200px;
+
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+      transition: 0.3s;
+
+    }
+
+
+
+    .head-container:hover {
+
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+      background-color: rgb(250, 250, 255);
+
+    }
+
+
+
+    .tooltip {
+
+      position: relative;
+
+      display: inline-block;
+
+      cursor: pointer;
+
+    }
+
+
+
+
+
+    .tooltip .tooltiptext {
+
+      visibility: hidden;
+
+      width: 120px;
+
+      background-color: black;
+
+      color: #fff;
+
+      text-align: center;
+
+      padding: 5px 0;
+
+      border-radius: 6px;
+
+      position: absolute;
+
+      z-index: 1;
+
+      cursor: pointer;
+
+    }
+
+
+
+    .tooltip:hover .tooltiptext {
+
+      visibility: visible;
+
+      cursor: pointer;
+
+    }
+
+
+
+    .sample-container {
+
+      margin: 18px 0;
+
+    }
+
+
+
+    .sample {
+
+      /* border: 1px solid gray;
+
+      border-radius: 10px; */
+
+      padding: 10px;
+
+      margin: 10px;
+
+      width: 80%;
+
+      position: relative;
+
+      display: block;
+
+      text-align: left;
+
+    }
+
+
+
+    .sample-title {
+
+      font-size: 22px;
+
+      margin: 8px 0;
+
+      display: inline-flex;
+
+    }
+
+
+
+    .sample-description {
+
+      font-size: 16px;
+
+      margin: 8px 0;
+
+      color: #868686e6;
+
+    }
+
+
+
+    .mod-container {
+
+      display: flex;
+
+    }
+
+
+
+    .sample-audio {
+
+      margin: 10px 0;
+
+      display: inline-block;
+
+      align-items: center;
+
+      justify-content: left;
+
+      padding-left: 25px;
+
+    }
+
+
+
+    .quotation {
+
+      font-size: xxx-large;
+
+      color: rgb(152, 189, 253);
+
+      margin-top: -12px;
+
+    }
+
+
+
+    .transcript {
+
+      display: inline;
+
+      font-style: italic;
+
+      background-color: rgb(231, 239, 253);
+
+      padding: 15px 15px;
+
+      border-radius: 25px;
+
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+      transition: 0.1s;
+
+    }
+
+
+
+    audio {
+
+      height: 35px;
+
+      display: none;
+
+    }
+
+
+
+    .r-number {
+
+      width: 24px;
+
+      min-width: max-content;
+
+      text-align: center;
+
+      margin-right: 8px;
+
+      background-color: rgb(231, 239, 253);
+
+      border-radius: 25px;
+
+      padding: 10px;
+
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+    }
+
+
+
+    .r-number:hover {
+
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+      background-color: rgb(222, 230, 253);
+
+      cursor: pointer;
+
+    }
+
+
+
+    .r-number-aug {
+
+      width: 48px;
+
+      text-align: center;
+
+      margin-right: 8px;
+
+      background-color: rgb(231, 239, 253);
+
+      border-radius: 25px;
+
+      padding: 10px;
+
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+    }
+
+
+
+    .r-number-aug:hover {
+
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+      background-color: rgb(222, 230, 253);
+
+      cursor: pointer;
+
+    }
+
+
+
+    .gt {
+
+      width: 109px;
+
+      text-align: center;
+
+      margin-right: 0px;
+
+      background-color: rgb(231, 239, 253);
+
+      border-radius: 25px;
+
+      padding: 10px;
+
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+    }
+
+
+
+    .gt:hover {
+
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+      background-color: rgb(222, 230, 253);
+
+      cursor: pointer;
+
+    }
+
+
+
+    .note {
+
+      text-align: center;
+
+      background-color: rgb(231, 239, 253);
+
+      padding: 10px;
+
+      border-radius: 25px;
+
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+      transition: 0.1s;
+
+    }
+
+
+
+    .note:hover {
+
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+      background-color: rgb(222, 230, 253);
+
+      cursor: pointer;
+
+    }
+
+
+
+    .invisible {
+
+      width: 48px;
+
+      text-align: center;
+
+      margin-right: 8px;
+
+      border-radius: 25px;
+
+      padding: 10px;
+
+    }
+
+
+
+    .invisible.axis {
+
+      min-width: max-content;
+
+      width: 48px;
+
+      text-align: center;
+
+      margin-right: 8px;
+
+      background-color: rgb(200, 200, 253);
+
+      border-radius: 25px;
+
+      padding: 10px;
+
+      box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+
+    }
+
+
+
+    h2:hover {
+
+      cursor: pointer;
+
+      background: silver;
+
+    }
+
+
+
+    h2 {
+
+      border: azure;
+
+      background: bisque;
+
+      border-radius: 10px;
+
+      padding: 10px;
+
+    }
+
+
+
+    a.custom-a-href {
+
+      color: black;
+
+      text-decoration: none;
+
+    }
+
+
+
+    html {
+
+      scroll-behavior: smooth;
+
+    }
+
+
+
+  </style>
+
+</head>
+
+
+
+<body class="container">
+
+  <script >
+
+    function togglePlay(el) {
+
+      if (!el.paused) {
+
+        el.pause()
+
+      }
+
+      else {
+
+        var allAudioEls = document.getElementsByTagName("audio");
+
+        for (let item of allAudioEls) {
+
+            item.pause()
+
+        }
+
+        el.currentTime = 0;
+
+        el.play();
+
+      }
+
+    };
+
+
+  </script>
+
+  <div class="head-container">
+
+  <h1 style="text-align: center;">Low-resource cross-domain singing voice synthesis via reduced self-supervised speech representations</h1>
+
+  <p style="text-align: center;font-size: 20px;">Panos Kakoulidis, Nikolaos Ellinas, Georgios Vamvoukakis, Myrsini Christidou, Alexandra Vioni, <br/>
+   Georgia Maniati, Junkwang Oh, Gunu Jho, Inchul Hwang, Pirros Tsiakoulis, Aimilios Chalamandaris</p>
+
+  <p style="text-align: left;font-size: 18px;"><strong>Abstract:</strong> In this paper, we propose a singing voice synthesis model, Karaoker-SSL, 
+that is trained only on text and speech data as a typical multi-speaker acoustic model. 
+It is a low-resource pipeline that does not utilize any singing data end-to-end, 
+since its vocoder is also trained on speech data. Karaoker-SSL is conditioned by 
+self-supervised speech representations in an unsupervised manner. We preprocess
+these representations by selecting only a subset of their task-correlated dimensions. 
+The conditioning module is indirectly guided to capture style information during 
+training by multi-tasking. This is achieved with a Conformer-based module, which 
+predicts the pitch from the acoustic model's output. Thus, Karaoker-SSL allows 
+singing voice synthesis without reliance on hand-crafted and domain-specific 
+features. There are also no requirements for text alignments or lyrics timestamps. 
+To refine the voice quality, we employ a U-Net discriminator that is conditioned 
+on the target speaker and follows a Diffusion GAN training scheme.
+</p>
+
+  </div>
+
+<h2 style="text-align: left;" id="title0">Singing Voice Synthesis</h2>
+<div class ="sample-container">
+<div class ="sample">
+<div class="sample-title"><span class="quotation">“</span><div class="transcript"> Oh, Jingle bells, jingle bells, Jingle all the way. Oh what fun it is to ride, in a one-horse open sleigh, hey! Jingle bells, jingle bells, Jingle all the way. Oh what fun it is to ride, in a one-horse open sleigh.</div></div>
+<div class="mod-container"><div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('a851eb46-fe0d-4014-a176-3e7833946b84'))">Reference</div><audio id="a851eb46-fe0d-4014-a176-3e7833946b84" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_1_s5_karaokerssl_03-ZHIY-sing-600/row_1/ref_03-ZHIY-sing.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+<div class="mod-container"><div class="sample-audio"><div class="r-number" onclick="togglePlay(document.getElementById('84c4618b-0618-43d0-98c1-b886348f46f9'))">vctks5</div><audio id="84c4618b-0618-43d0-98c1-b886348f46f9" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_1_s5_karaokerssl_03-ZHIY-sing-600/row_2/vctks5.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div>
+<div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('8ccc62e9-12db-4883-8fdd-c92389b107e3'))">Ground Truth</div><audio id="8ccc62e9-12db-4883-8fdd-c92389b107e3" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_1_s5_karaokerssl_03-ZHIY-sing-600/row_2/gt_s5_236.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+<div class="mod-container"><div class="sample-audio"><div class="r-number" onclick="togglePlay(document.getElementById('19a0dbbd-1cb3-4cdf-9884-2c34c51dbeae'))">vctkp234</div><audio id="19a0dbbd-1cb3-4cdf-9884-2c34c51dbeae" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_1_s5_karaokerssl_03-ZHIY-sing-600/row_3/vctkp234.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div>
+<div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('da46d5c2-dc0b-4f71-a5d2-636a8364a2b2'))">Ground Truth</div><audio id="da46d5c2-dc0b-4f71-a5d2-636a8364a2b2" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_1_s5_karaokerssl_03-ZHIY-sing-600/row_3/gt_p234_044.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+<div class="mod-container"><div class="sample-audio"><div class="r-number" onclick="togglePlay(document.getElementById('3d48dce7-28bc-4420-b146-fb4b93143881'))">vctkp265</div><audio id="3d48dce7-28bc-4420-b146-fb4b93143881" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_1_s5_karaokerssl_03-ZHIY-sing-600/row_4/vctkp265.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div>
+<div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('7946003a-925f-4f75-9d77-aaa6d152fa44'))">Ground Truth</div><audio id="7946003a-925f-4f75-9d77-aaa6d152fa44" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_1_s5_karaokerssl_03-ZHIY-sing-600/row_4/gt_p265_281.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+<div class="mod-container"><div class="sample-audio"><div class="r-number" onclick="togglePlay(document.getElementById('707af65b-e946-47c4-8973-a18a99e9ced8'))">vctkp276</div><audio id="707af65b-e946-47c4-8973-a18a99e9ced8" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_1_s5_karaokerssl_03-ZHIY-sing-600/row_5/vctkp276.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div>
+<div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('4942d59b-0081-4f1e-9c67-071451cadaff'))">Ground Truth</div><audio id="4942d59b-0081-4f1e-9c67-071451cadaff" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_1_s5_karaokerssl_03-ZHIY-sing-600/row_5/gt_p276_015.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+<div class="mod-container"><div class="sample-audio"><div class="r-number" onclick="togglePlay(document.getElementById('e97e21e0-d644-4c5c-9723-d3843a6d2f9f'))">vctkp362</div><audio id="e97e21e0-d644-4c5c-9723-d3843a6d2f9f" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_1_s5_karaokerssl_03-ZHIY-sing-600/row_6/vctkp362.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div>
+<div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('66f3f086-6a71-4ce6-852e-da5e83943cf7'))">Ground Truth</div><audio id="66f3f086-6a71-4ce6-852e-da5e83943cf7" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_1_s5_karaokerssl_03-ZHIY-sing-600/row_6/gt_p362_003.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+</div>
+<div class ="sample">
+<div class="sample-title"><span class="quotation">“</span><div class="transcript"> Twinkle, twinkle, little star. How I wonder what you are! Up above the world so high. Like a diamond in the sky. Twinkle, twinkle, little star. How I wonder what you are!</div></div>
+<div class="mod-container"><div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('271c842f-3bb1-4906-afb2-2f3f5452b76a'))">Reference</div><audio id="271c842f-3bb1-4906-afb2-2f3f5452b76a" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_2_s5_karaokerssl_10-MCUR-sing-600/row_1/ref_10-MCUR-sing.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+<div class="mod-container"><div class="sample-audio"><div class="r-number" onclick="togglePlay(document.getElementById('1ec76717-e9a8-4ebe-8938-a57e852e2d06'))">vctks5</div><audio id="1ec76717-e9a8-4ebe-8938-a57e852e2d06" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_2_s5_karaokerssl_10-MCUR-sing-600/row_2/vctks5.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div>
+<div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('bfbea6f1-85bb-46da-882d-5266809f2ce2'))">Ground Truth</div><audio id="bfbea6f1-85bb-46da-882d-5266809f2ce2" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_2_s5_karaokerssl_10-MCUR-sing-600/row_2/gt_s5_236.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+<div class="mod-container"><div class="sample-audio"><div class="r-number" onclick="togglePlay(document.getElementById('9d33db13-f95a-4b3b-b205-1e5168b486af'))">vctkp234</div><audio id="9d33db13-f95a-4b3b-b205-1e5168b486af" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_2_s5_karaokerssl_10-MCUR-sing-600/row_3/vctkp234.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div>
+<div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('866085a8-cdd4-4dfc-8dee-a395528b6e18'))">Ground Truth</div><audio id="866085a8-cdd4-4dfc-8dee-a395528b6e18" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_2_s5_karaokerssl_10-MCUR-sing-600/row_3/gt_p234_044.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+<div class="mod-container"><div class="sample-audio"><div class="r-number" onclick="togglePlay(document.getElementById('ec7d4601-9ea3-4789-bc51-d65314d96142'))">vctkp265</div><audio id="ec7d4601-9ea3-4789-bc51-d65314d96142" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_2_s5_karaokerssl_10-MCUR-sing-600/row_4/vctkp265.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div>
+<div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('1b2abdc1-b38f-4a67-824f-e341b841878f'))">Ground Truth</div><audio id="1b2abdc1-b38f-4a67-824f-e341b841878f" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_2_s5_karaokerssl_10-MCUR-sing-600/row_4/gt_p265_281.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+<div class="mod-container"><div class="sample-audio"><div class="r-number" onclick="togglePlay(document.getElementById('6281b321-2312-464b-8d18-a8750731b128'))">vctkp276</div><audio id="6281b321-2312-464b-8d18-a8750731b128" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_2_s5_karaokerssl_10-MCUR-sing-600/row_5/vctkp276.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div>
+<div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('02c7f114-5e56-4460-81ca-80a12eb6c477'))">Ground Truth</div><audio id="02c7f114-5e56-4460-81ca-80a12eb6c477" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_2_s5_karaokerssl_10-MCUR-sing-600/row_5/gt_p276_015.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+<div class="mod-container"><div class="sample-audio"><div class="r-number" onclick="togglePlay(document.getElementById('d57802f3-4c68-4a88-a637-8a6121472edd'))">vctkp362</div><audio id="d57802f3-4c68-4a88-a637-8a6121472edd" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_2_s5_karaokerssl_10-MCUR-sing-600/row_6/vctkp362.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div>
+<div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('0692c239-94c0-4126-a2bf-b68603096452'))">Ground Truth</div><audio id="0692c239-94c0-4126-a2bf-b68603096452" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_2_s5_karaokerssl_10-MCUR-sing-600/row_6/gt_p362_003.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+</div>
+<div class ="sample">
+<div class="sample-title"><span class="quotation">“</span><div class="transcript"> You are my sunshine, my only sunshine. You make me happy when skies are grey. You never know, dear, how much I love you. Please don't take my sunshine away.</div></div>
+<div class="mod-container"><div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('2daac2b5-e169-484a-9773-9f1db8b1bf7f'))">Reference</div><audio id="2daac2b5-e169-484a-9773-9f1db8b1bf7f" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_3_s5_karaokerssl_11-PMAR-sing-600/row_1/ref_11-PMAR-sing.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+<div class="mod-container"><div class="sample-audio"><div class="r-number" onclick="togglePlay(document.getElementById('3dd90c3e-0a38-49fb-81c6-584583204b95'))">vctks5</div><audio id="3dd90c3e-0a38-49fb-81c6-584583204b95" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_3_s5_karaokerssl_11-PMAR-sing-600/row_2/vctks5.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div>
+<div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('cfdfe8e3-61e2-4e39-b11f-c7510e94fdd7'))">Ground Truth</div><audio id="cfdfe8e3-61e2-4e39-b11f-c7510e94fdd7" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_3_s5_karaokerssl_11-PMAR-sing-600/row_2/gt_s5_236.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+<div class="mod-container"><div class="sample-audio"><div class="r-number" onclick="togglePlay(document.getElementById('885e28c1-c11c-4b6a-b652-32918bfcea5d'))">vctkp234</div><audio id="885e28c1-c11c-4b6a-b652-32918bfcea5d" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_3_s5_karaokerssl_11-PMAR-sing-600/row_3/vctkp234.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div>
+<div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('9be5d768-3039-4172-9aea-c7f96e1ed6c3'))">Ground Truth</div><audio id="9be5d768-3039-4172-9aea-c7f96e1ed6c3" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_3_s5_karaokerssl_11-PMAR-sing-600/row_3/gt_p234_044.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+<div class="mod-container"><div class="sample-audio"><div class="r-number" onclick="togglePlay(document.getElementById('6531a185-43a2-4ce7-84cb-f71fec57d3d8'))">vctkp265</div><audio id="6531a185-43a2-4ce7-84cb-f71fec57d3d8" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_3_s5_karaokerssl_11-PMAR-sing-600/row_4/vctkp265.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div>
+<div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('0494e459-a6f8-465a-8b14-9553f2071c49'))">Ground Truth</div><audio id="0494e459-a6f8-465a-8b14-9553f2071c49" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_3_s5_karaokerssl_11-PMAR-sing-600/row_4/gt_p265_281.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+<div class="mod-container"><div class="sample-audio"><div class="r-number" onclick="togglePlay(document.getElementById('f04f3c1c-90dd-426c-a469-83514a8c0944'))">vctkp276</div><audio id="f04f3c1c-90dd-426c-a469-83514a8c0944" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_3_s5_karaokerssl_11-PMAR-sing-600/row_5/vctkp276.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div>
+<div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('c14c87f1-5f20-4fb9-9a34-bc456f2e903e'))">Ground Truth</div><audio id="c14c87f1-5f20-4fb9-9a34-bc456f2e903e" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_3_s5_karaokerssl_11-PMAR-sing-600/row_5/gt_p276_015.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+<div class="mod-container"><div class="sample-audio"><div class="r-number" onclick="togglePlay(document.getElementById('dd1a1ab0-cbe6-4a56-8a92-ae15938949fa'))">vctkp362</div><audio id="dd1a1ab0-cbe6-4a56-8a92-ae15938949fa" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_3_s5_karaokerssl_11-PMAR-sing-600/row_6/vctkp362.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div>
+<div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('06b9f504-e9d6-4169-b6cd-d93e719f276e'))">Ground Truth</div><audio id="06b9f504-e9d6-4169-b6cd-d93e719f276e" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_3_s5_karaokerssl_11-PMAR-sing-600/row_6/gt_p362_003.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+</div>
+<div class ="sample">
+<div class="sample-title"><span class="quotation">“</span><div class="transcript"> As I walk through the valley of the shadow of death. I take a look at my life, and realize there's nothin' left. 'Cause I've been blastin' and laughin' so long. That even my momma thinks that my mind is gone. But I ain't never crossed a man that didn't deserve it. Me be treated like a punk, you know that's unheard of. You better watch how you talkin' and where you walkin'. Or you and your homies might be lined in chalk.</div></div>
+<div class="mod-container"><div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('aefab2df-d057-4760-947b-12122c177e9d'))">Reference</div><audio id="aefab2df-d057-4760-947b-12122c177e9d" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_4_s5_karaokerssl_rap_001-600/row_1/ref_rap_001.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+<div class="mod-container"><div class="sample-audio"><div class="r-number" onclick="togglePlay(document.getElementById('972a829c-3cc1-4ee5-9473-ee3b48cc2046'))">vctks5</div><audio id="972a829c-3cc1-4ee5-9473-ee3b48cc2046" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_4_s5_karaokerssl_rap_001-600/row_2/vctks5.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div>
+<div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('bb641f94-e7e9-4776-bae4-fe5063a30bb3'))">Ground Truth</div><audio id="bb641f94-e7e9-4776-bae4-fe5063a30bb3" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_4_s5_karaokerssl_rap_001-600/row_2/gt_s5_236.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+<div class="mod-container"><div class="sample-audio"><div class="r-number" onclick="togglePlay(document.getElementById('c0259713-cea8-44dc-90f4-017a98c0e2a0'))">vctkp234</div><audio id="c0259713-cea8-44dc-90f4-017a98c0e2a0" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_4_s5_karaokerssl_rap_001-600/row_3/vctkp234.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div>
+<div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('11429301-fb15-4028-932f-4153804c965a'))">Ground Truth</div><audio id="11429301-fb15-4028-932f-4153804c965a" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_4_s5_karaokerssl_rap_001-600/row_3/gt_p234_044.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+<div class="mod-container"><div class="sample-audio"><div class="r-number" onclick="togglePlay(document.getElementById('c325d13c-229a-44a4-ad4d-914734409a62'))">vctkp265</div><audio id="c325d13c-229a-44a4-ad4d-914734409a62" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_4_s5_karaokerssl_rap_001-600/row_4/vctkp265.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div>
+<div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('f6826ed8-f40d-4529-b990-df922d98c8a1'))">Ground Truth</div><audio id="f6826ed8-f40d-4529-b990-df922d98c8a1" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_4_s5_karaokerssl_rap_001-600/row_4/gt_p265_281.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+<div class="mod-container"><div class="sample-audio"><div class="r-number" onclick="togglePlay(document.getElementById('c71a0766-4069-410b-8a50-585b8ff07da2'))">vctkp276</div><audio id="c71a0766-4069-410b-8a50-585b8ff07da2" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_4_s5_karaokerssl_rap_001-600/row_5/vctkp276.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div>
+<div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('9f191a53-5bc2-4c0d-8c5c-1bf263b45bd1'))">Ground Truth</div><audio id="9f191a53-5bc2-4c0d-8c5c-1bf263b45bd1" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_4_s5_karaokerssl_rap_001-600/row_5/gt_p276_015.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+<div class="mod-container"><div class="sample-audio"><div class="r-number" onclick="togglePlay(document.getElementById('af4ebc11-dc99-45e6-8be3-06ba378c0ff7'))">vctkp362</div><audio id="af4ebc11-dc99-45e6-8be3-06ba378c0ff7" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_4_s5_karaokerssl_rap_001-600/row_6/vctkp362.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div>
+<div class="sample-audio"><div class="gt" onclick="togglePlay(document.getElementById('7cb0faf6-4798-4d93-b352-3239341334f5'))">Ground Truth</div><audio id="7cb0faf6-4798-4d93-b352-3239341334f5" controls="" preload="none"><source src="top/Singing Voice Synthesis/sample_4_s5_karaokerssl_rap_001-600/row_6/gt_p362_003.wav" type="audio/wav"> Your browser does not support the audio element.</audio></div></div>
+</div>
+</div>
+
+ </body>
