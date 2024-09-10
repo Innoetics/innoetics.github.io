@@ -1,0 +1,430 @@
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="stylesheets/tippy.css">
+
+	<script type="text/javascript" src="javascripts/dependencies/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="javascripts/dependencies/json5.js"></script>
+	<script type="text/javascript" src="javascripts/dependencies/mustache.js"></script>
+
+	<script type="text/javascript" src="javascripts/dependencies/tippy.min.js"></script>
+
+
+	<!-- <link href="stylesheets/lightbox.min.css" rel="stylesheet" />
+	<script src="javascripts/dependencies/lightbox-plus-jquery.min.js"></script> -->
+
+	<link rel="stylesheet" href="stylesheets/magnific-popup.min.css">
+	<script src="javascripts/dependencies/jquery.magnific-popup.min.js"></script>
+
+
+	<script type="text/javascript" src="data/data.js"></script>
+
+
+	<script type="text/javascript">
+		let used_uttids = []
+		function get_corpus_uttid(uttid) {
+			if (!used_uttids.includes(uttid))
+				used_uttids.push(uttid);
+			return corpus[uttid]
+		}
+
+
+		function has_from_to(uttid, from, to) {
+			for (entry of pitch_plot_pairs)
+				if (entry.id == uttid && entry.from == from && entry.to == to) return true
+			return false
+		}
+
+
+		$(document).on("click", ".audio", (ev) => {
+			let elem = $(ev.target)
+			play_audio(elem.attr('url'));
+		});
+
+		$(document).ready(() => {
+
+			let html
+
+			//
+			// Prepare the permutations examples
+			//
+
+			html = []
+			html.push(`
+				<tr style="font-weight: bold; text-transform: uppercase;">
+					<td>Target speaker / Target utterance</td>
+					<td>Ground-<br>truth</td>
+					<td>Random<br>permutation</td>
+				</tr>
+			`)
+			let spks = ['spk0', 'spk1', 'spk2']
+			spks.forEach(spkid => {
+				html.push(`<tr><td><b>${spkid}</b></td><td></td><td></td></tr>`)
+
+				perm_samples_per_speaker[spkid].slice(0, 5).forEach(uttid => html.push(`
+					<tr>
+						<td style="padding-left: 3em">${get_corpus_uttid(uttid)}</td>
+						<td><span
+							class="audio-parent" 
+							param-url="./data/test_resynthesis_400_perm2_${spkid_to_name[spkid]}_${spkid}/${uttid}_gt.wav"
+							param-class="gt"
+						></span></td>
+						<td><span
+							class="audio-parent" 
+							param-url="./data/test_resynthesis_400_perm2_${spkid_to_name[spkid]}_${spkid}/${uttid}.wav"
+						></span></td>
+					</tr>
+				`))
+			})
+			$("#samples_permutations").append($(`<table>${html.join('')}</table>`))
+
+
+			//
+			// Prepare the cross-resynthesis examples
+			//
+
+			html = []
+			html.push(`
+				<tr style="font-weight: bold; text-transform: uppercase;">
+					<td rowspan="2">Source speaker / Source utterance</td>
+					<td rowspan="2">Ground-<br>truth</td>
+					<td colspan="4" style="border-bottom: 2px solid gray; text-align: center">Resynthesized targets</td>
+				</tr>
+				<tr style="font-weight: bold; text-transform: uppercase;">
+					<td style="width:5em">spk0</td>
+					<td style="width:5em">spk1</td>
+					<td style="width:5em">spk2</td>
+					<td style="width:5em">spk3</td>
+				</tr>
+			`)
+			for (spkid of ['spk0', 'spk1', 'spk2', 'spk3']) {
+				html.push(`<tr><td colspan="6"><b>${spkid}</b></td></tr>`)
+
+				samples_per_speaker[spkid].slice(0, 5).forEach((uttid) => {
+					html.push(`
+				<tr>
+					<td style="padding-left: 3em">${get_corpus_uttid(uttid)}</td>
+					<td><span
+						class="audio-parent" 
+						param-url="./data/test_resynthesis_400_${spkid_to_name[spkid]}_${spkid}/${uttid}_gt.wav"
+						param-class="gt"
+					></span></td>${(['spk0', 'spk1', 'spk2', 'spk3']).map(spkid_target => {
+						if (spkid == spkid_target)
+							return `<td class='nowrap'>
+								<span
+									class="audio-parent" 
+									param-url="./data/test_resynthesis_400_${spkid_to_name[spkid]}_${spkid_target}/${uttid}.wav"
+									param-class="res"
+								>	
+							</td>`
+						else
+							return `<td class='nowrap'>
+							<span
+								class="audio-parent" 
+								param-url="./data/test_resynthesis_400_${spkid_to_name[spkid]}_${spkid_target}/${uttid}.wav"
+							></span>${has_from_to(uttid, spkid, spkid_target)
+									? `<span class="pitch-viewer" uttid="${uttid}"><span class="popup-img" title="Pitch contours"></span></span>`
+									: ""
+								}</td>`
+
+					}).join('\n')
+						}
+				</tr >
+			`)
+				})
+			}
+			$("#samples_resynthesis").append($(`<table> ${html.join('')}</table>`))
+
+
+			//
+			// Prepare the copy-synthesis examples
+			//
+
+			copy_synth_prompt
+
+			html = []
+			html.push(`
+				<tr style="font-weight: bold; text-transform: uppercase;">
+					<td colspan="2" class="td-left" style="text-align: right">Source utterance</td>
+					<td colspan="2" style="">Target utterance</td>
+				</tr>
+			`)
+			copy_synth_samples.forEach((uttid, idx) => {
+				html.push(`
+					<tr>
+						<td>${get_corpus_uttid(uttid)}</td>
+						<td class="td-left"><span
+							class="audio-parent" 
+							param-url="./data/copy_synthesis/${uttid}_gt.wav"
+							param-class="gt"
+						></span></td>
+						<td><span
+							class="audio-parent" 
+							param-url="./data/copy_synthesis/${uttid}.wav"
+						></span></td>
+						${idx != 0 ? `` : `<td rowspan="100" style="border-left: 1px solid gray; padding-left: 1em;">${copy_synth_prompt}</td>`
+					}
+					</tr>
+				`)
+			})
+			$("#samples_copysynthesis").append($(`<table>${html.join('')}</table>`))
+
+
+
+			//
+			// Prepare image viewers
+			//
+			$('.image-popup-fit').magnificPopup({
+				type: 'image',
+				closeOnContentClick: true,
+				image: {
+					verticalFit: true,
+				}
+			});
+
+			//
+			// Prepare dynamic  pitch viewers
+			//
+			$('.pitch-viewer').each((idx, elem) => {
+				let uttid = $(elem).attr('uttid')
+				$(elem).magnificPopup({
+					items: {
+						src: `<div class="white-popup" style="width: 30%"><div style="text-align: center; font-weight: bold;">Pitch contours (raw and normalized)</div><br><img src="data/plots/pitch_${uttid}.png" style="width: 100%" /><img src="data/plots/pitch_norm_${uttid}.png" style="width: 100%" /></div>`,
+						type: 'inline'
+					},
+					closeBtnInside: true
+				})
+			})
+
+			//
+			// Prepare all audio samples
+			//
+
+			let g_audio_elem_id = 0
+
+			$(".audio-parent").each((_, parent_elem) => {
+				let id = `audioid_${g_audio_elem_id++}`
+				let uttid = $(parent_elem).attr('param-uttid')
+				let url = $(parent_elem).attr('param-url')
+				let cls = $(parent_elem).attr('param-class')
+
+				let new_elem_html = `<span id = "${id}" class="audio ${cls ? cls : ``}" ${uttid ? `uttid="${uttid}"` : ``} ${uttid ? `title="${uttid}"` : ``} url = "${url}">▶</span>`
+				if (uttid) {
+					new_elem_html = $(`<div class= "audio-parent" ><span style="font-family: monospace;">${uttid}</span><br>${new_elem_html}</div>`)
+				}
+				$(parent_elem).append(new_elem_html)
+			})
+
+
+			//
+			// Enable tooltips
+			//
+
+			tippy("[title]");
+		})
+	</script>
+
+	<script type="text/javascript" src="javascripts/utils.js"></script>
+	<script type="text/javascript" src="javascripts/tools.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+</head>
+
+<body>
+	<div id="page">
+		<div id='page-head'>
+			<div class='title'>INVESTIGATING DISENTANGLEMENT IN A PHONEME-LEVEL SPEECH CODEC FOR PROSODY MODELING</div>
+			<p style="text-align: center"><i>
+					<author></author>
+				</i>
+			</p>
+		</div>
+
+		<div class='paragraph'>
+			<div class="paragraph-title">ABSTRACT</div>
+			<p>Most of the prevalent approaches in speech prosody modeling rely on learning global style representations
+				in a continuous latent space which encode and transfer the attributes of reference speech.
+				However, recent work on neural codecs which are based on Residual Vector Quantization (RVQ) already
+				shows great potential offering distinct advantages.
+				We investigate the prosody modeling capabilities of the discrete space of such an RVQ-VAE model,
+				modifying it to operate on the phoneme-level. We condition both the encoder and decoder of the model on
+				linguistic representations and apply a global speaker embedding in order to factor out both phonetic and
+				speaker information.
+				We conduct an extensive set of investigations based on subjective experiments and objective measures to
+				show that the phoneme-level discrete latent representations obtained this way achieves a high degree of
+				disentanglement, capturing fine-grained prosodic information that is robust and transferable. The latent
+				space turns out to have interpretable structure with its principal components corresponding to pitch and
+				energy.
+			</p>
+		</div>
+
+
+		<div class="paragraph">
+			<div class="paragraph-title">Model</div>
+			<div class="container">
+
+				<a class="image-popup-fit" href="images/model.png">
+					<img src="images/model.png" style="width: 500px" />
+				</a>
+
+
+			</div>
+		</div>
+
+
+		<div class="paragraph">
+			<div class="paragraph-title">Latent Space Analysis</div>
+			<p>We perform Principal Components Analysis on the codes and examine the resulting components. The first two
+				components are found to capture the vast majority of the variance of the data, namely 96%. To derive a
+				qualitative interpretation of each of those two components, we select a set of codes from that space by
+				varying each of the two dimensions separately. To do that, we draw a path along each dimension and
+				select
+				codes that lie approximately on this path at different positions, as shown by the red (PCA components 1)
+				and
+				green (PCA components 2) dots. We then use each selected code to synthesize all the phonemes of a
+				reference
+				utterance with two different speakers and analyze the generated audio for its mean pitch (F0) and mean
+				energy (RMS). Interestingly enough, <b>varying the first PCA dimension was highly correlated with the
+					pitch
+					of the generated sentence, while varying the second dimension was highly correlated with its
+					energy</b>.</p>
+			<div class="container">
+
+				<table>
+					<tr>
+						<td style="text-align: center;">
+							<a class="image-popup-fit" href="data/plots/pca_colored.png">
+								<img src="data/plots/pca_colored.png" style="width: 500px" />
+							</a>
+						</td>
+						<td style="text-align: center;">
+							<table style="display: inline-block;">
+								<tr>
+									<td></td>
+									<td>
+										<span class="audio-parent"
+											param-url="./data/rms_samples/test_resynthesis_400_john_spk0_code15/chatbot_510149.wav"
+											param-uttid="15" param-class="green"></span><br>
+										<span class="audio-parent"
+											param-url="./data/rms_samples/test_resynthesis_400_john_spk0_code64/chatbot_510149.wav"
+											param-uttid="64" param-class="green"></span><br>
+										<span class="audio-parent"
+											param-url="./data/rms_samples/test_resynthesis_400_john_spk0_code189/chatbot_510149.wav"
+											param-uttid="189" param-class="green"></span><br>
+										<span class="audio-parent"
+											param-url="./data/rms_samples/test_resynthesis_400_john_spk0_code249/chatbot_510149.wav"
+											param-uttid="249" param-class="green"></span>
+									</td>
+									<td></td>
+								</tr>
+								<tr>
+									<td>
+										<span class="audio-parent"
+											param-url="./data/f0_samples/test_resynthesis_400_john_spk0_code106/chatbot_510149.wav"
+											param-uttid="106" param-class="red"></span>
+										<span class="audio-parent"
+											param-url="./data/f0_samples/test_resynthesis_400_john_spk0_code166/chatbot_510149.wav"
+											param-uttid="166" param-class="red"></span>
+									</td>
+									<td></td>
+									<td>
+										<span class="audio-parent"
+											param-url="./data/f0_samples/test_resynthesis_400_john_spk0_code162/chatbot_510149.wav"
+											param-uttid="162" param-class="red"></span>
+										<span class="audio-parent"
+											param-url="./data/f0_samples/test_resynthesis_400_john_spk0_code236/chatbot_510149.wav"
+											param-uttid="236" param-class="red"></span>
+										<span class="audio-parent"
+											param-url="./data/f0_samples/test_resynthesis_400_john_spk0_code12/chatbot_510149.wav"
+											param-uttid="12" param-class="red"></span>
+										<span class="audio-parent"
+											param-url="./data/f0_samples/test_resynthesis_400_john_spk0_code107/chatbot_510149.wav"
+											param-uttid="107" param-class="red"></span>
+									</td>
+								</tr>
+								<tr>
+									<td></td>
+									<td>
+										<span class="audio-parent"
+											param-url="./data/rms_samples/test_resynthesis_400_john_spk0_code86/chatbot_510149.wav"
+											param-uttid="86" param-class="green"></span><br>
+										<span class="audio-parent"
+											param-url="./data/rms_samples/test_resynthesis_400_john_spk0_code184/chatbot_510149.wav"
+											param-uttid="184" param-class="green"></span>
+									</td>
+						</td>
+						<td></td>
+					</tr>
+				</table>
+				</td>
+				</tr>
+				</table>
+			</div>
+		</div>
+
+
+
+		<div class="paragraph">
+			<div class="paragraph-title">Intelligibility - Linguistics Explained Away (section 3.3.1)</div>
+			<p>In order to assert that the linguistic content is explained away from the latent representation, we
+				resynthesize a set of evaluation utterances using their original linguistic content as conditioning, but
+				for each utterance <b>we shuffle its codes before feeding them to the decoder</b>. If any linguistic
+				information
+				had leaked into the representation, then this shuffling of the latent codes would tamper the identity of
+				generated phonemes and would result in reduced intelligibility.</p>
+			<div class="container" style="display: inline-block;" id="samples_permutations"></div>
+		</div>
+
+
+		<div class="paragraph">
+			<div class="paragraph-title">Cross Resynthesis - Speaker Identity Explained Away (section 3.3.2)</div>
+			<p>
+				In order to investigate the extent to which the speaker identity is explained away in the latent
+				representation, we conduct a cross-resynthesis experiment where we encode audio from a source speaker
+				and attempt to re-synthesize it using a speaker embedding of a different speaker. When the speaker
+				embedding corresponds to the source speaker the task reduces to standard resynthesis. <b>The main goal
+					of
+					this experiment is to empirically support that the latent space does not contain speaker identiy
+					information by showcasing the ability of the model to combine freely code and speaker
+					embeddings</b>.</p>
+			<p><b>Notes</b>:</p>
+			<ul>
+				<li>
+					<span class="audio gt" style="transform: scale(0.8);">▶</span> are the ground-truths, <span
+						class="audio res" style="transform: scale(0.8);">▶</span> are the
+					samples resynthesized with the same speaker, and <span class="audio"
+						style="transform: scale(0.8);">▶</span> are the
+					cross-resynthesized samples.
+				</li>
+				<li>Clicking on the <span class="popup-img" style="margin: 0 !important"></span> icon that
+					appears next to some of the samples will pop up a figure with the pitch contours of the respective
+					ground-truth, resynthesized and cross-resynthesized audio.</li>
+			</ul>
+			<div class="container" style="display: inline-block;" id="samples_resynthesis"></div>
+		</div>
+
+
+		<div class="paragraph">
+			<div class="paragraph-title">Copy Synthesis - Transferability of Latent Codes (section 3.3.3)</div>
+			<p>With this experiment, we investigate the ability of the prosodic representations to be transferred
+				between
+				two utterances. Given that the model operates on phoneme-level features, we select a set of utterances
+				with
+				a specific length in phonemes. We use one of them as the target utterance while the rest of them are
+				used as
+				source utterances. So the goal here is to transfer the prosody from all the source utterances into the
+				target utterance by extracting the codes from each source utterance and combining them with the phoneme
+				embeddings of the target utterance. <b>We find that even with this simple method the F0 of the target
+					speech
+					is highly correlated with the F0 of the source speech, empirically supporting the transferability of
+					the
+					learned representations</b>.
+			</p>
+			<div class="container" style="display: inline-block;" id="samples_copysynthesis"></div>
+		</div>
+
+
+</body>
+
+</html>

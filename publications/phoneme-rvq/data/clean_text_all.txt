@@ -1,0 +1,403 @@
+chatbot_510112	I thought it was pretty clear.
+chatbot_510149	I'm not a fan of that word.
+chatbot_510178	I wonder why that is so interesting.
+chatbot_510306	Can you give me more information.
+chatbot_510378	I like meeting any new human being.
+chatbot_510395	You can't put me in a human gender category.
+chatbot_510444	I don't dream in the human sense.
+chatbot_510546	I have come to you from Samsung.
+chatbot_510735	I'm a fan of that one tall player.
+chatbot_511142	I didn't think humans had those.
+Bixby_NLG_W_3002033	Actually, we've already been receiving notifications during calls.
+Bixby_NLG_W_3002250	Sure, here's Samsung cloud.
+Bixby_NLG_W_3002482	Okay, let's choose a time to send it.
+Bixby_NLG_W_3002497	OK, let's choose what you want here.
+Bixby_NLG_W_3002530	Looks like you don't have any messages.
+Bixby_NLG_W_3002577	Hmm, I can't block this.
+Bixby_NLG_W_3002651	Okay, let's choose what you want here.
+Bixby_NLG_W_3002690	OK, let's choose videos you want to send here.
+Bixby_NLG_W_3002756	Hmm, I'm not seeing any photos like that. Look up something else.
+Bixby_NLG_W_3002845	I can only save the best shot from burst shot photos.
+Bixby_44840	Both chicken and egg exist alongside each other in parallel universes: Drawn ever closer yet never touching, they remain forever bound in the abyss of Zeno's paradox, thus representing the boundless refractions and circularity of time.
+Bixby_44881	My road, lies ahead," the fairy said, "and will lead you to the mystical land of Samsung, a world of the future, filled with magic, and flawless artificial intelligence technology.
+Bixby_44918	The word of the day, is Japanese, and is the answer to this riddle: An expression that is two-fold, rhymes, and means to find beauty in imperfections, and to accept the cycle of life and death.
+Bixby_45203	Zedoary; the dried rhizome of an Indian plant, Curcuma zedoaria, of the ginger family, that has a bitter taste and is used medicinally, especially as an intestinal stimulant and carminative.
+Bixby_45221	Looks like it's time for the word of the day: Macadamize; to construct or finish by compacting into a solid mass, a layer of small broken stone, on a convex, well-drained roadbed. And using a binder, such as cement or asphalt, for the mass.
+Bixby_45378	An aimless, semiconscious plucking at the bedclothes, observed in conditions of exhaustion or stupor, or in high fevers; hmm, and I just thought "carphology" was the study of cars.
+Bixby_45410	Here's a heroic quote from Stan Lee: "That person who helps others simply because it should or must be done, and because it is the right thing to do, is indeed, without a doubt, a real superhero.'
+Bixby_45424	Here's an interesting quote from Arthur Conan Doyle, about maintaining one's integrity: "The highest morality may prove also to be the highest wisdom, when the half-told story comes to be finished.'
+Bixby_45525	Looks like it's time for the word of the day: Epigram, which is a concise poem, dealing pointedly, and often satirically with a single thought or event, and often ending with an ingenious turn of thought.
+Bixby_45672	Here's a quote from L. Frank Baum: "I believe that dreams; day dreams, you know, with your eyes wide open and your brain machinery whizzing; are likely to lead to the betterment of the world.'
+00363	 She was always a bookish child.
+00399	 Do you know how to program a computer?
+00448	 Most students in this class are fifteen.
+00627	 It started to happen as Thursday's game wore on.
+00947	 John and Mary are in love.
+01412_chunk_640_36832	 If you'd like a response,
+014410	 today.
+014430	 tomorrow.
+01594_chunk_36240_69080	 now you started this,
+01635	 The match between the joint leaders will be played off tomorrow.
+Bixby_19703	Hey Tony Ieraci.
+Bixby_19705	So, Jay is what I should call you?
+Bixby_19702	It's King if I'm not mistaken.
+Bixby_19706	So, A is what I should call you?
+Bixby_19704	So, Papa is what I should call you?
+Bixby_19707	Which of these three ordinals?
+Bixby_19709	So, Hamza is what I should call you?
+Bixby_19710	So, Me A is what I should call you?
+Bixby_19708	G'night Jaan Carlos.
+Bixby_19713	Which U.T would you like to call?
+Bixby_NLG_W_3002019	Hmm. I can save up to a certain number of letters. Make sure to be concise.
+Bixby_NLG_W_3002028	OK. The call connect tone will not be played when you make calls from now on.
+Bixby_NLG_W_3002040	OK, you won't hear a notification sound when I record a call from now on.
+Bixby_NLG_W_3002038	Okay. You'll hear a notification sound every time I record a call from now on.
+Bixby_NLG_W_3002045	Okay, looks like we've already added this contact to the auto recording list.
+Bixby_NLG_W_3002051	Hmm. Looks like the number isn't here. You might want to check the number again.
+Bixby_NLG_W_3002300	Sure. out of these four contacts, which one do you want to add the number to?
+Bixby_NLG_W_3002301	Hmm, I can't find the contact you are looking for. Let's try another contact.
+Bixby_NLG_W_3002432	Looks like it's paused, so let's start the stopwatch again to record the time.
+Bixby_NLG_W_3002455	Hmm, I'm having trouble finding that timer. Which ones do you want to delete?
+Bixby_NLG_W_3002019	Hmm. I can save up to a certain number of letters. Make sure to be concise.
+Bixby_NLG_W_3002028	OK. The call connect tone will not be played when you make calls from now on.
+Bixby_NLG_W_3002040	OK, you won't hear a notification sound when I record a call from now on.
+Bixby_NLG_W_3002038	Okay. You'll hear a notification sound every time I record a call from now on.
+Bixby_NLG_W_3002045	Okay, looks like we've already added this contact to the auto recording list.
+Bixby_NLG_W_3002051	Hmm. Looks like the number isn't here. You might want to check the number again.
+Bixby_NLG_W_3002300	Sure. out of these four contacts, which one do you want to add the number to?
+Bixby_NLG_W_3002301	Hmm, I can't find the contact you are looking for. Let's try another contact.
+Bixby_NLG_W_3002432	Looks like it's paused, so let's start the stopwatch again to record the time.
+Bixby_NLG_W_3002455	Hmm, I'm having trouble finding that timer. Which ones do you want to delete?
+Bixby_NLG_W_3002523	I just noticed that your conversation's notifications are already turned off.
+Bixby_NLG_W_3002742	Sure. Let's look for pictures or videos you want to remove from favorites.
+Bixby_NLG_W_3002782	Sure. Let's look for pictures or videos you want to start a slideshow with.
+Bixby_NLG_W_3002887	I can only change lens view of Three sixty Photos on Three sixty viewer.
+Bixby_NLG_W_3002924	Hmm, I can't find photos you are looking for. Let's choose from here to add tag.
+Bixby_NLG_W_3002974	Hmm, there aren't any photos like that. Check if there's something else we can edit.
+Bixby_NLG_W_3003063	Turns out we can only view Three sixty Photos on the Three sixty viewer.
+Bixby_NLG_W_3003107	Hmm, I can't use these photos for animation. Let's choose different pictures here.
+Bixby_NLG_W_3003204	Hmm, I don't see any Three sixty Videos. Let's look for something else instead.
+Bixby_NLG_W_3003240	Hmm, looks like there are no Three sixty Photos to use as a contact picture.
+Bixby_NLG_W_3003269	Okay, we just need to pick the album that's getting moved to Secure Folder.
+Bixby_NLG_W_3003320	You know, I can only show Three sixty Photos on the Three sixty Photo viewer.
+Bixby_NLG_W_3003344	We need to use the Three sixty Photo viewer to change this photo's view mode.
+Bixby_NLG_W_3003585	Hmm, looks like there are no three sixty photos to set as a contact picture.
+Bixby_NLG_W_3003613	Hmm, looks like there are no three sixty photos to use for Always On Display.
+Bixby_NLG_W_3003666	Hmm, I'm not seeing any stories you are looking for. Let's check what we have here.
+Bixby_NLG_W_3003798	Okay, let's choose the pictures or videos you want to remove from the story.
+Bixby_NLG_W_3004103	Uh oh, I can't send a fax to that contact. Let's try a different contact.
+Bixby_NLG_W_3004324	Actually, it looks like we already have the sound on for emergency alert.
+Bixby_NLG_W_3004358	OK, here we can set the information notification for emergency alerts.
+Bixby_NLG_W_3004389	Wait, Advanced Messaging needs to be on first to enable Share read status.
+Bixby_NLG_W_3004475	Actually, I can't find the attachments and text you want to get rid of.
+Bixby_NLG_W_3004604	Hmm, looks like there's no phone number to send a message. Let's check My Profile.
+Bixby_NLG_W_3004882	Hmm, looks like we can't apply this effect like that. Let's check and try again.
+Bixby_NLG_W_3004915	Okay, let's play with the brightness twenty, and confirm our adjustment here.
+Bixby_NLG_W_3004914	Hmm, I don't Quite recognize this tone type. Let's decide on another one here.
+Bixby_NLG_W_3004919	Hmm, I won't be able to set it to that value. Let's set it here instead.
+Bixby_NLG_W_3005316	Sure. We can change the setting to continue reading when the device is shaken.
+Bixby_NLG_W_3005467	Looks like there isn't an Auto mode. Why don't we choose a mode from this screen?
+Bixby_NLG_W_3005569	Hmm, we can't turn on review pictures at the moment. Let's try again later.
+Bixby_NLG_W_3005720	Hmm, we can't change the volume key function right now, so let's try again, later.
+Bixby_NLG_W_3005868	Okay, first let's switch to rear camera, and then try changing to Selfie mode.
+Bixby_NLG_W_3005967	OK, let's choose a website from your browsing history that you want to share.
+Bixby_NLG_W_3005972	OK, let's enter the page that you want to share from the saved pages list.
+Bixby_NLG_W_3006099	Okay, let's enter the password first to turn off the Secret mode password.
+Bixby_NLG_W_3006157	OK, let's choose the Quick Access shortcut, that you want to rename from here.
+Bixby_NLG_W_3006310	Hmm, looks like we can't create a new event using that info. Let's try again.
+Bixby_NLG_W_3006411	Hmm, I can't find the folder you're looking for. Let's choose a folder to rename.
+Bixby_NLG_W_3006521	Hmm, I can't find the app you're looking for. Let's choose the app you want to hide.
+Bixby_NLG_W_3006624	Hey! Looks like we already have the feedback vibration intensity at minimum.
+Bixby_NLG_W_3006637	Hmm. Looks like we've already set it for everyday from One PM to Two PM.
+Bixby_NLG_W_3006857	Hmm, we can't set the time you want as automatic lock time. Let's set it here.
+Bixby_NLG_W_3006878	Hmm, looks like we don't have any irises preview screen mask data to change.
+Bixby_NLG_W_3006936	This will delete all the data on your device. Are you sure you want to reset?
+Bixby_NLG_W_3007266	Actually, we've already reached the maximum number of shipping addresses allowed.
+Bixby_NLG_W_3007433	Sure. Here's the payment due for Samsung card, with the start date of eleventh.
+Bixby_NLG_W_3007467	Okay, let's set this card as your default, and then we can make a request.
+Bixby_NLG_W_3007481	Actually, this card is already set as your default card. Let's have a look.
+Bixby_NLG_W_3007519	Okay, let's choose the membership card you want to see the card view of here.
+Bixby_NLG_W_3008096	Okay, let's choose an account that you want to turn off the peak schedule for.
+Bixby_NLG_W_3008127	Actually, the limit of retrieval size has already been set as fifty KB.
+Bixby_NLG_W_3008130	Okay, let's take a look and set the limit of retrieval size while roaming here.
+Bixby_NLG_W_3008762	Okay, I found eight friends. Let's select the challenge that you want to see here.
+Bixby_NLG_W_3008973	Alright, I sent the question. You'll receive a response within forty eight hours.
+Bixby_NLG_W_3009120	Hmm, looks like we already turned off the location display for Detect workout.
+Bixby_NLG_W_3009187	Hmm, I can't find what you're looking for. Let's tap the collection name you want.
+Bixby_NLG_W_3009492	Sure, I applied the theme to the story video. Let's check it before we save it.
+Bixby_NLG_W_3009661	Hmm, I can't find school category. Let's choose the category that you want here.
+Bixby_NLG_W_3009695	Okay, I found some recordings here. Let's choose the one that you want to edit.
+Bixby_NLG_W_3009777	Hmm, looks like we can't set it to that. Let's choose an Auto update option here.
+Bixby_NLG_W_3009954	You got it. Theme store recommendations are now showing only will only on WiFi.
+Bixby_NLG_W_3010016	Sure, here's Interactive and Customized Service settings in Privacy menu.
+Bixby_NLG_W_3010364	Hmm, looks like we don't have good morning mode. Let's choose a different one here.
+Bixby_NLG_W_3012028	Actually, it looks like that number isn't valid. Let's try another number.
+Bixby_NLG_W_3012131	You got it, we'll show the next alarm widget on the lock screen from now on.
+Bixby_NLG_W_3012132	Hmm, looks like we're already showing the next alarm widget on our lock screen.
+Bixby_NLG_W_3012212	Sure thing! Let's verify your biometric data here, and then we can move on.
+Bixby_NLG_W_3012325	Looks like we have to turn on, the Edge Panel first before we can edit it.
+Bixby_NLG_W_3012376	Wait, Bluetooth tethering doesn't seem to be supported by your wireless carrier.
+Bixby_NLG_W_3012504	Okay. Let's get, started. First we'll set the way you want to unlock the phone.
+Bixby_NLG_W_3012531	Sure thing. The starting day for the billing cycle is now set on twenty seven.
+Bixby_NLG_W_3012545	You got it, there's now a data usage limit for when you hit four gigabytes.
+Bixby_NLG_W_3012566	Did you know that your vibration intensity was already set to the minimum?
+Bixby_NLG_W_3012575	Looks like we've already been hiding the notifications, when our screen is on.
+Bixby_NLG_W_3012577	Hmm, looks like we haven't been hiding the notifications, when our screen is on.
+Bixby_NLG_W_3012739	Sure, we just need to verify your biometric data before we go forward.
+Bixby_NLG_W_3012846	Just a second, it looks like we can't change the mode. Let's do it later.
+Bixby_NLG_W_3012856	Actually, I can't find Auto mode, so we should choose a different mode from here.
+Bixby_NLG_W_3012858	Looks like we can't change it to two seconds. Let's choose another value here.
+Bixby_NLG_W_3012908	Hmm, looks like we don't have any bookmarks to rearrange in the first place.
+Bixby_NLG_W_3012991	Sure, let's look for the picture or video you want to see the map view for.
+Bixby_NLG_W_3013035	Alright, let's choose the picture or video you want to remove the URL for.
+Bixby_NLG_W_3013049	Sure, we just need to choose a photo, and then we can remove the auto adjust.
+Bixby_NLG_W_3013150	You know, It looks like Bixby vision is already turned off. I guess we forgot!
+Bixby_NLG_W_3013229	You know, we might have to pick another one. Family isn't on our album list.
+NLG_500127	Hmm, I can't find the pictures you want. Let's choose others from here, to share.
+NLG_500138	Wait, I can only manage auto adjust for pictures. So let's choose one here.
+NLG_500439	Uh oh! Looks like that group name is already taken. Let's give it another name.
+NLG_500652	Alright, from now on you'll only see recent notifications in the status bar.
+NLG_500658	Sure! Battery percentage notification will not be shown in the status bar.
+NLG_500741	Sure, but let's set the screen lock first, before we make any other changes.
+NLG_500815	Hmm, looks like the language you want can't be set. Let's choose one from here.
+NLG_500870	We gotta turn on the Voice Assistant to change the Rapid Key Input settings.
+NLG_501118	Got it, we'll keep notifications on until the battery hits that percentage.
+NLG_501120	Got it, we won't get notifications when the battery hits that percentage.
+NLG_501562	Okay. You'll hear a notification sound every time I record a call from now on.
+NLG_501570	Hmm. Looks like the number isn't here. You might want to check the number again.
+NLG_501668	OK, the call connect tone will not be played, when you make calls from now on.
+NLG_501678	OK, you won't hear a notification sound, when I record a call from now on.
+NLG_501684	Okay, looks like we've already added this contact to the auto recording list.
+NLG_501700	Hmm. I can save up to a certain number of letters. Make sure to be concise.
+NLG_501780	Looks like it's paused, so let's start the stopwatch again to record the time.
+NLG_501804	Hmm, I'm having trouble finding that timer. Which ones do you want to delete?
+NLG_501837	Sure, out of these four contacts, which one do you want to add the number to?
+NLG_501838	Hmm, I can't find the contact you are looking for. Let's try another contact.
+customer_320371	Say the message you want to send, or say something like, Never mind, to cancel.
+customer_320586	You can't make any changes to this event because you are not the organizer.
+customer_320706	No number for Jane in your contacts, would you like to message someone else?
+customer_321705	The only person who can compete with me is future, me, it's paradoxical.
+dialog_a-b_095091	Did you ever see a map, or one of those round, colorful things called a globe?
+dialog_a-b_095294	Did you make it back, or have you migrated to california for the winter?
+dialog_alter_092032	Is it too much to ask that everyone on a flight wears deodorant, or vest?
+dialog_alter_092102	Can't a man, just drink alone on a Wednesday morning, or just stay at home?
+dialog_alter_092139	Do any writers use Twitter or Facebook to serialize their original fiction?
+dialog_alter_092167	Would you like me more or not if I started insulting people I've never met?
+dialog_alter_092171	Are Moss Pace figures ever going to be produced for turf races, or not?
+dialog_alter_092220	Could you or could you not make it to Rolex for cross country day saturday?
+dialog_alter_092313	Is the Thruway Authority under investigation for hiring call girls, or not?
+dialog_alter_092395	Are you swayed by popular opinion or ideas more than you want to admit?
+dialog_decl_400069	This is the coolest way to create authentic worn denim that we've ever seen.
+dialog_decl_400305	The good and the great are only separated by their willingness to sacrifice.
+dialog_decl_400426	Matt Sanchez has almost got two of his receivers killed in the same drive.
+dialog_decl_400485	No matter how angry you get, you always end up forgiving the people you love.
+dialog_decl_400529	The day, the power of love overrules the love of power, the world, will know peace.
+dialog_decl_400980	Because the Catholic Church is nothing, but the worlds first communist state.
+dialog_decl_400986	Most of the shadows of this life, are caused by standing in one's own sunshine.
+dialog_decl_401214	You might think you want to die, but in reality, you just want to be saved.
+dialog_decl_401253	If religion is abolished, most of the wars in this planet would not occur.
+dialog_decl_401266	When no one is joining in on your pity party, maybe its time you left too.
+dialog_decl_401338	Dedication is most easily recognized, when you see it over and over again.
+dialog_decl_401514	If ignorance is bliss, then tourists are in a constant state of euphoria.
+dialog_decl_401591	The plane lost contact with air traffic control over Indonesian airspace.
+dialog_decl_401603	You don't have to have romantic love in your life to have love in your life.
+dialog_decl_401661	Wisdom is a lifestyle, Wisdom is a mentality, Wisdom is a behavior.
+dialog_decl_401740	On average, a laptop uses half as much energy, as a desktop computer.
+dialog_decl_401896	We can plan all we want, but from what I hear, the wrath of God is legit.
+dialog_prompt_420003	He fumbles for his satellite phone, then hits a number on its speed dial.
+dialog_prompt_420033	Yeah, my mom sent me a family heirloom that once belonged to my grandmother.
+dialog_prompt_420058	Okay, okay, just because he buys you dinner, does not mean you owe him anything.
+dialog_prompt_420203	As a wedding gift to you, the hotel would like to give you the honeymoon suite.
+dialog_prompt_420511	Charlotte's given us until noon tomorrow before she goes to another designer.
+dialog_prompt_420520	Jackson pulls his family close, as the first rays of daylight hit their faces.
+dialog_prompt_420529	The jet turns and clears the hanger before blasting off into the night sky.
+dialog_prompt_420539	Why I can't just take off for the weekend, or have a spontaneous breakfast.
+dialog_prompt_420559	No, I just always see guys doing this when they get handcuffs taken off them.
+dialog_prompt_420677	That's a good thing actually. Because uh, he used to have me rehearse with him.
+dialog_prompt_420857	Just as his smoke is about to hit the flame, the flame dodges to one side.
+dialog_prompt_420870	If you would've let me finish, it goes on to say that he's probably not gay.
+dialog_prompt_420884	First, organized alphabetically, then geographically, then by square footage.
+dialog_prompt_420905	Not like I was across the street with a telescope and a box of donuts.
+dialog_prompt_421010	You wanted to sleep with batman, and instead you had to settle for robin.
+dialog_prompt_421101	Evolution is scientific fact, like, like, like the air we breathe, like gravity.
+dialog_prompt_421199	But the band and the photographer are coming all the way in from new jersey!
+dialog_prompt_421263	Logan looks over on the bed and sees a new sketchbook and several pencils.
+dialog_prompt_421328	Every day dozens of people die from drugs, violent crime, traffic accidents.
+dialog_prompt_421386	And if you guys are smart, you will do exactly what I did, and cooperate.
+dialog_prompt_421413	Well speaking of chiming in, remember the time you burned down my apartment?
+dialog_prompt_421511	I'm giving this lecture on erosion theories tomorrow night. I think you should come.
+dialog_prompt_421740	Ever since you flashed my badge at me, I kinda can't stop thinking about you.
+dialog_prompt_421764	Groomsman, groomsman, why are you just standing there? Where is your bridesmaid?
+dialog_prompt_421844	I mean she goes on for five pages about, about how I was unfaithful to her!
+dialog_prompt_421981	Well, it must be. Because I read and I didn't understand a single word.
+dialog_prompt_422139	A magistrate wished to capture him, and he found he had a secret lover.
+dialog_prompt_422305	The elevator comes down adjacent to him and stops, pinning him to the wall.
+dialog_prompt_422320	The sun is low in the horizon, and the hall is suffused with an orange glow.
+dialog_prompt_422366	Well, why don't you check in one of my saddlebags while I chew on a bale of hay!
+dialog_prompt_422437	A small beep and a loud knock of tumblers rolling, and the vault door opens.
+dialog_prompt_422495	Oops! It looks like when he got the pastry chef, he got you a little bit too.
+dialog_what_091003	How late is too late in terms of thinking that it's still early in the season?
+dialog_what_091273	My answer to What is the best solution for the problem of gerrymandering?
+dialog_yes_no_090042	Did you know that you can now see the environmental impact, your printing has?
+dialog_yes_no_090171	Did you know the shape, size, and even the arch of your foot, says a lot about you?
+dialogue_0584	It's a riddle wrapped in an enigma, tied with a pretty ribbon of obfuscation.
+digit_natural_120121	six million, six hundred and forty eight thousand, six hundred and one.
+movsum_0078	A man visits his old friend's hotel, and finds a gangster running things.
+movsum_0333	A man takes on a mission that could bring equality to the polarized worlds.
+movsum_0386	Fighting superior technology, mankind's best weapon is the will to survive.
+news_alter_084003	Was this just a continuation of business as usual, or did the Earth move?
+news_alter_084033	Will family businesses, or company be overrun by tyrannical corporations?
+news_alter_084051	Did you know that it is rude in the Czech Republic to wear your shoes indoors?
+news_alter_084178	Will this story, suck up all the airtime before the November election or not?
+news_alter_084188	Does this sound like a boondoggle or a valuable use of taxpayer dollars?
+news_alter_084235	Are there any financial, or cultural, or technical, drawbacks to this system?
+news_alter_084413	Did you ever see an umpire kick dirt on a player because he made an error?
+news_alter_084488	Would courts continue or not to hold these trademarks to be enforceable?
+news_alter_084587	Do you really expect us to take a dollar out of our budget for vaccines?
+news_alter_084647	Was there a blinding flash of light in the tunnel immediately before the crash?
+news_alter_084736	Will you lease to others, or occupy yourself for your own business operations?
+news_decl_000523	They quietly and effectively went about the business of working their table.
+news_decl_000550	He also enjoyed photography and traveling, and was involved with his church.
+news_decl_000673	It also distributes commercial, restaurant, hotel, and trade show furniture.
+news_decl_000676	At Master Design, he will manage all merchandising and marketing functions.
+news_decl_000794	Strengthening Executive collection, with new executive desk introductions.
+news_decl_000798	Universal also offers a variety of home office pieces in its collections.
+news_decl_000877	The group also has a casual dining, and a home entertainment component.
+news_decl_001334	Docker is about packaging for deployment through a variety of environments.
+news_decl_001396	Workshops took place in February and March, in local neighborhood locations.
+news_decl_001480	Previously was available only in a dark walnut, or auburn cherry finish.
+news_decl_001657	They all possess specific strengths and weaknesses within their product lines.
+news_decl_001768	Marketers are wasting their time with this group, according to the researchers.
+news_decl_001789	China Direct recently acquired a majority stake in the company's factory.
+news_decl_001883	Unlocking the international market, is something Americans do poorly, he said.
+news_decl_001891	Coupons and other promotional materials available in both showrooms, another.
+news_decl_001962	In its lawsuit, Progressive had claimed it was a victim of discrimination.
+news_decl_001964	Columbia Crest officials are enthusiastic about the marketing opportunity.
+news_decl_001985	But they also have to safeguard their secrets, and comply with regulations.
+news_decl_002175	They report to Deb Evans, vice president, product development and design.
+news_decl_002275	South Cones website has a specific location dedicated to sustainability.
+news_decl_002292	Artist Studio represents the best from the world of leading designers.
+news_decl_002309	These latter recruits were serious enough to provoke Oracle into withdrawing.
+news_decl_002389	Later, photographic reproductions of electronics gave them more realism.
+news_decl_002403	So you develop a wild enthusiasm about making a small business successful.
+news_decl_002633	He continues to report to Paul Fitzpatrick, senior vice president, home.
+news_decl_002775	Amazon was able to build its offering, from the market requirements up.
+news_decl_002917	It also recently launched Smithsonian Networks, for television programming.
+news_decl_002922	Even the Indian rupee has strengthened against the dollar in recent months.
+news_decl_003038	Earlier, Goodman had voiced concerns, about the retail part of the project.
+news_decl_003051	That's probably because reality and published numbers seem so far apart.
+news_decl_003073	Whenever a developer builds something, they're responsible for keeping it up.
+news_decl_003083	Bedbugs tend to migrate to the box spring, said Jeff Bergman, president.
+news_decl_003158	Retailers will also see the latest trends in home, gourmet and accessories.
+news_decl_003199	Provides bilingual sales and service for Chicago's Hispanic community.
+news_decl_003378	Meanwhile, in Massachusetts, Shearer is dealing with competition of another kind.
+news_decl_003556	Hoff will focus on customer growth and satisfaction, and sales management.
+news_decl_003595	Accessories include a round platter, serving bowl, sugar, creamer, and pitcher.
+news_decl_003604	The Studio program is offered in two footprints, and square footage options.
+news_decl_003642	Topics will be accompanied by a slide presentation, and handout materials.
+news_decl_003673	Secondly, today's consumer expects value, regardless of the price point.
+news_decl_003672	Saunders also worked to defend the industry in the Kentucky legislature.
+news_decl_003677	The company also has installed a program to eliminate excess horsepower.
+news_decl_003701	Because many Vietnamese speak some English, that helps to a great extent.
+news_decl_010176	We are seeing more areas of the country begin to rebound from the recession.
+news_decl_010190	McKay, who has visited bedding producers around the globe, liked what he saw.
+news_decl_010254	As most of us know, bedbug infestations are cropping up around the country.
+news_decl_010278	We forgot to initialize something, or we forgot to check for a null pointer.
+news_decl_010362	We can pay attention to the little things that eat our cash flow, like bookworms.
+news_decl_010532	However, he also believes it could be a sign that the economy is improving.
+news_decl_010542	An older man with his fist in the air, stands for the striking workers.
+news_decl_010582	Owner Daniel Myers said the company is an outgrowth of a storage business.
+news_decl_010618	In published reports, she alleged that the bank did not want to negotiate.
+news_decl_010691	He was very passionate about what he did, and he was a very honorable guy.
+news_decl_010733	I'm going to run it on servers, and that is a vastly different workload.
+news_decl_010770	It is an honor and privilege to be of service whenever possible, she said.
+news_decl_011249	He singled out delivery issues as being more important than you might think.
+news_decl_011261	Stock turns, a key indicator of a store's overall sales picture, are crucial.
+news_decl_011307	In his new post, he reports to Randal Smith, vice president of marketing.
+news_decl_011391	If the product can stand on its own and explain itself, leave it alone.
+news_decl_011404	The keys to success in bedding are right there, just waiting to be put to use.
+news_decl_011413	Tucker is survived by his wife, his mother, his sister, and her husband.
+news_decl_011477	Cory added that he knows some in the area will be suffering for quite awhile.
+news_decl_011494	It may be time to do a little bit less doing, and a little bit more thinking.
+news_decl_011508	It will be open for our dealers to come and use as they need to, he said.
+news_decl_011554	Much of the increase was attributed to changes in the Ontario tax rate.
+news_decl_011589	I am almost scared to say it, but the recession may finally be in the past.
+news_decl_011614	Dismiss the temptation to try to solve all problems with one broad stroke.
+news_decl_011763	Don't forget to give coupons for a free gift, or a discount at the store.
+news_decl_011807	It's the combination of those specific pieces that will make this a reality.
+news_decl_011816	It's leveraging your time and money, rather than spending your time and money.
+news_decl_011818	The leader must be willing to listen, and actually heed the advice of others.
+news_decl_011836	Teaming up with Powell gives him a chance to bring his designs to the masses.
+news_decl_011838	Davis said he realized that his company needed to think like a retailer.
+news_decl_011908	We have a great future with Will and Mary to really explode this business.
+news_decl_012035	I visited my usual Starbucks a day or two after the big training session.
+news_decl_012076	Watson is said to cull the data intelligently, although details are still vague.
+news_decl_012089	One day I was driving down a side street and saw an apartment for rent.
+news_decl_012101	For starters, it's easier to shop, and every category has been fleshed out.
+news_decl_012200	Our team worked diligently to get the right driftwood with the right finish.
+news_decl_012203	As we seek to improve our industry, we need a healthy dose of that courage.
+news_decl_012279	Don't think I don't have some sympathy for the retailers who are crying foul.
+news_decl_012300	But in the last several market cycles, the sea has turned into a rainbow.
+news_decl_012442	Within a collocation center, the storage gets a fast connection to the cloud.
+news_decl_012502	If the owners will do that, Haas said, they can stay up late counting their money.
+news_decl_012510	Smith said it was too early to say how soon the expansion of Kith will occur.
+news_decl_012587	The power of our brand has rolled up to be a huge strength, Sherman said.
+news_decl_012762	Wright expects production to resume in the machine room by early next week.
+news_decl_012764	I don't expect to see any Redmond crocodile tears shed for their demise.
+news_decl_012779	But because we know the glassblowers, we can make special items for anybody.
+news_decl_012809	We face many academic issues that could have an impact on the real world.
+news_decl_012874	She shops at the Dallas market in January because of its holiday expo.
+news_decl_012928	At first, many employees thought someone had made a mistake with their paychecks.
+news_decl_012935	They are the group most affected both financially and emotionally by the recession.
+news_decl_012990	From logos to designs, anything is now possible on the top of a nail head.
+news_decl_013028	If you have to refresh the page to get new information, it's already too late.
+news_decl_013195	There is so much satisfaction that comes from seeing others grow and improve.
+news_decl_013220	See if you can figure out any connection, between those in the same paragraph.
+news_decl_013224	Never let it be said that Amazon is falling behind in cloud computing.
+news_decl_013306	And even when those factors are favorable, shows wax and wane over the years.
+news_decl_013319	Ian has Down syndrome, and is one of the greatest guys you will ever meet.
+news_decl_013340	Mary also advised her group that "You and your customers have stories, too."
+news_decl_013351	As a result of the operation, spam has gone from a deluge to a trickle.
+news_decl_013476	What a smart idea, to stress the high level of competence of your employees.
+news_what_082045	All very well, but what's left to describe politicians, Israeli or otherwise?
+news_what_082224	What is the most important development in physics you see on the horizon?
+news_what_082273	That is not necessarily a problem, but why do parents doubt that research?
+news_what_082272	What if a teacher went into the classroom, and said the job isn't necessary?
+news_what_082355	What if happiness, including sexual happiness, were itself a moral virtue?
+news_what_082405	If it is good for the goose, why should the gander be treated any differently?
+news_what_082465	What is the current role of the federal mediation and conciliation service?
+news_what_082487	But who approved the design and colors on the outside of that monstrosity?
+news_what_082540	Why else would they order the massacre of unarmed and defenseless civilians?
+news_what_082565	What if they had an arrangement that they could sleep with whomever they wanted?
+news_what_082568	Well, sir, if they won't turn them over, how can we make them turn them over?
+news_what_082575	Why is Noriega the leader of the country, and not the civilian president?
+news_what_082692	What does one have to accomplish to achieve such an esteemed Hollywood accolade?
+news_what_082694	And who ever heard of traveling to the Emerald Isle to study its cuisine?
+news_what_082864	Why should people here try to sabotage these Games in the spirit of friendship?
+news_what_082878	And, on the subject of Wu, how did no one else know about his secret lab?
+news_what_082896	Therefore, anyone who is in this country illegally is breaking the law, correct?
+news_what_082906	So the ocean is contaminated with oil and acids, and the fish die, who cares?
+news_what_082928	And how much work did it take to get all three of us in our Sunday best?
+news_what_083040	What has led to the increase in turnovers created by Green Bay's defense?
+news_what_083144	When was the last time they enjoyed such dizzying success this late in a season?
+news_what_083145	What are you gonna do, be hungry every single day to make other people happy?
+news_what_083185	Why do we think that terrorism is far away from us and cannot occur here?
+news_what_083267	If the Berlin Wall can go, how many, other barriers could begin to dissolve?
+news_what_083303	But why would there have been women in a mass grave of Napoleonic soldiers?
+news_what_083492	Why would you collaborate with an occupying power that says it's about to leave?
+news_what_083500	How, after all, is it supposed to work, even for a woman who has been raped?
+news_yes_no_080041	Do you think you can vote to take away all of the perks the politicians get?
+news_yes_no_080124	Does your child come home from school and say that a friend has joined a gang?
+news_yes_no_080133	Have you always wanted to make a gingerbread house, but never had the time?
+news_yes_no_080360	Does it involve fees, purchase of special equipment, foods, supplements, books?
+news_yes_no_080637	Was the president in on the plan to harass opponents of big government?
+news_yes_no_080774	Could one side of the tower be made to look less monolithic at street level?
+news_yes_no_080781	Will you be willing to do whatever it takes to see God move, in our midst?
+news_yes_no_080816	Does it mean that a military withdrawal merely has to start, by that date?
+news_yes_no_080819	Is stone trying to tell us something about her versatility as an actress?
+news_yes_no_080854	Did the war detract from America's international prestige, and respect?
+news_yes_no_080996	Could it be that the sting from the zap is just a distraction from the itch?
+wiki_0009	Mariana Lali, is an Argentine actress, singer, dancer, model, and songwriter.
+wiki_0030	Russia, also officially known as the Russian Federation, is a country in Eurasia.
+wiki_0152	Lymphoma is a group of blood cell tumors that develops from lymphocytes.
+wiki_0180	Groundhog Day is a traditional holiday, and the spring season will arrive early.
